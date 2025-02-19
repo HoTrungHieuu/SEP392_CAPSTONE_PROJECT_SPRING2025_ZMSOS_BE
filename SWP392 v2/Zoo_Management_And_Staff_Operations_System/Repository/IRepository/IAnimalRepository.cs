@@ -1,0 +1,22 @@
+﻿using BO.Models;
+using DAO.AddModel;
+using DAO.UpdateModel;
+using DAO.ViewModel;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Repository.IRepository
+{
+    public interface IAnimalRepository : IGenericRepository<Animal>
+    {
+        public Task<List<Animal>?> GetListAnimal();
+        public Task<List<Animal>?> GetListAnimalByAnimalTypeId(int animalTypeId);
+        public Task<Animal> AddAnimal(AnimalAdd key);
+        public Task<Animal?> UpdateAnimal(AnimalUpdate key);
+        public List<AnimalView> ConvertListAnimalIntoListAnimalView(List<Animal> animals, List<AnimalTypeView> animalTypes);
+        public AnimalView ConvertAnimalIntoAnimalView(Animal animal, AnimalTypeView animalType);
+    }
+}

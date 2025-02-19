@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Zoo_Management_And_Staff_Operations_System.props" />
+</Project>

@@ -1,0 +1,21 @@
+﻿using BO.Models;
+using DAO.AddModel;
+using DAO.ViewModel;
+using Repository.IRepository;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Repository.IRepositoyr
+{
+    public interface IReportRepository : IGenericRepository<Report>
+    {
+        public Task<List<Report>?> GetListReportByRecieverId(int accountId);
+        public Task<List<Report>?> GetListReportBySenderId(int accountId);
+        public Task<Report> AddReport(ReportAdd key);
+        public List<ReportView> ConvertListReportIntoListReportView(List<Report> reports, List<UserView> senders, List<UserView> recievers, List<List<string>> urlFiles);
+        public ReportView ConvertReportIntoReportView(Report report, UserView sender, UserView reciever, List<string> urlFile);
+    }
+}

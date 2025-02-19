@@ -1,0 +1,146 @@
+﻿{
+   "CodeGenerationMode": 4,
+   "ContextClassName": "Zoo_Management_And_Staff_Operations_SystemContext",
+   "ContextNamespace": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "Models",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "BO",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 2,
+   "SelectedToBeGenerated": 0,
+   "T4TemplatePath": null,
+   "Tables": [
+      {
+         "Name": "[dbo].[AbsentTime]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Account]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Animal]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AnimalCage]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AnimalIncidentHistory]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AnimalType]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[AnimalUpdateHistory]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Application]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ApplicationType]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Cage]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CageUpdateHistory]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Evaluation]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[LeaderAssign]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MemberAssign]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[News]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Notification]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Report]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ReportAttachment]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Role]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Schedule]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Task]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TaskEstimate]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TaskType]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Team]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[User]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ZooArea]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": null,
+   "UncountableWords": null,
+   "UseAsyncStoredProcedureCalls": true,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDateOnlyTimeOnly": true,
+   "UseDbContextSplitting": false,
+   "UseDecimalDataAnnotationForSprocResult": true,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": true,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UsePrefixNavigationNaming": false,
+   "UseSchemaFolders": false,
+   "UseSchemaNamespaces": false,
+   "UseSpatial": false,
+   "UseT4": false
+}

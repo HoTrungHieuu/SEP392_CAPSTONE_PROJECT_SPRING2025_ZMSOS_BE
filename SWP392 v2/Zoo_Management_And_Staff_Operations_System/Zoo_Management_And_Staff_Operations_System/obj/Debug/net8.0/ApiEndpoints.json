@@ -1,0 +1,1114 @@
+[
+  {
+    "ContainingType": "AccountManagement.Controllers.AccountController",
+    "Method": "CreateAccount",
+    "RelativePath": "api/Account/account/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.AddModel.AccountCreate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.AccountController",
+    "Method": "Login",
+    "RelativePath": "api/Account/account/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "accountName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "password",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.AnimalController",
+    "Method": "AddAnimal",
+    "RelativePath": "api/Animal/animal",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.AddModel.AnimalAdd",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.AnimalController",
+    "Method": "UpdateAnimal",
+    "RelativePath": "api/Animal/animal",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.UpdateModel.AnimalUpdate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.AnimalController",
+    "Method": "RemoveAnimalCage",
+    "RelativePath": "api/Animal/animal/cage/animalId\u0026\u0026cageId",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "animalId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "cageId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.AnimalController",
+    "Method": "ReplaceAnimalCage",
+    "RelativePath": "api/Animal/animal/cage/animalId\u0026\u0026cageId/replace",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "animalId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "cageId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.AnimalController",
+    "Method": "AddAnimalCage",
+    "RelativePath": "api/Animal/animal/cage/animalIds\u0026\u0026cageId",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "animalIds",
+        "Type": "System.Collections.Generic.List\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      },
+      {
+        "Name": "cageId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.AnimalController",
+    "Method": "GetAnimalById",
+    "RelativePath": "api/Animal/animal/id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.AnimalController",
+    "Method": "GetListAnimal",
+    "RelativePath": "api/Animal/animals",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.AnimalController",
+    "Method": "GetListAnimalByAnimalTypeId",
+    "RelativePath": "api/Animal/animals/animalTypeId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "animalTypeId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.AnimalController",
+    "Method": "GetListAnimalByCageId",
+    "RelativePath": "api/Animal/animals/cageId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cageId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.AnimalTypeController",
+    "Method": "AddAnimalType",
+    "RelativePath": "api/AnimalType/animalType",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.AddModel.AnimalTypeAdd",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.AnimalTypeController",
+    "Method": "UpdateAnimalType",
+    "RelativePath": "api/AnimalType/animalType",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.UpdateModel.AnimalTypeUpdate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.AnimalTypeController",
+    "Method": "GetAnimalTypeById",
+    "RelativePath": "api/AnimalType/animalType/id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.AnimalTypeController",
+    "Method": "GetListAnimalType",
+    "RelativePath": "api/AnimalType/animalTypes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.ApplicationController",
+    "Method": "AddApplication",
+    "RelativePath": "api/Application/application",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.AddModel.ApplicationAdd",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.ApplicationController",
+    "Method": "GetApplicationById",
+    "RelativePath": "api/Application/application/id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.ApplicationController",
+    "Method": "GetListApplicationByRecieverId",
+    "RelativePath": "api/Application/applications/recieverId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "recieverId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.ApplicationController",
+    "Method": "GetListApplicationBySenderId",
+    "RelativePath": "api/Application/applications/senderId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "senderId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.ApplicationTypeController",
+    "Method": "GetApplicationTypeoById",
+    "RelativePath": "api/ApplicationType/applicationType",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.ApplicationTypeController",
+    "Method": "AddApplicationTypeo",
+    "RelativePath": "api/ApplicationType/applicationType",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.AddModel.ApplicationTypeAdd",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.ApplicationTypeController",
+    "Method": "GetListApplicationType",
+    "RelativePath": "api/ApplicationType/applicationTypes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.CageController",
+    "Method": "AddCage",
+    "RelativePath": "api/Cage/cage",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.AddModel.CageAdd",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.CageController",
+    "Method": "UpdateCage",
+    "RelativePath": "api/Cage/cage",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.UpdateModel.CageUpdate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.CageController",
+    "Method": "GetCageById",
+    "RelativePath": "api/Cage/cage/id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.CageController",
+    "Method": "GetListCage",
+    "RelativePath": "api/Cage/cages",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.CageController",
+    "Method": "GetListCageByZooAreaId",
+    "RelativePath": "api/Cage/cages/zooAreaId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "zooAreaId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.NewsController",
+    "Method": "AddNews",
+    "RelativePath": "api/News/news",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.AddModel.NewsAdd",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.NewsController",
+    "Method": "UpdateNews",
+    "RelativePath": "api/News/news",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.UpdateModel.NewsUpdate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.NewsController",
+    "Method": "GetNewsById",
+    "RelativePath": "api/News/news/id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.NewsController",
+    "Method": "GetListNews",
+    "RelativePath": "api/News/newss",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.NotificationController",
+    "Method": "AddNotification",
+    "RelativePath": "api/Notification/notification(onlyDev)",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "System.Collections.Generic.List\u00601[[DAO.AddModel.NotificationAdd, DAO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.NotificationController",
+    "Method": "GetListNotificationByAccountId",
+    "RelativePath": "api/Notification/notifications/accountId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "accountId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.ReportController",
+    "Method": "AddReport",
+    "RelativePath": "api/Report/report",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.AddModel.ReportAdd",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.ReportController",
+    "Method": "GetReportById",
+    "RelativePath": "api/Report/report/id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.ReportController",
+    "Method": "GetListReportByRecieverId",
+    "RelativePath": "api/Report/reports/recieverId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "recieverId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.ReportController",
+    "Method": "GetListReportBySenderId",
+    "RelativePath": "api/Report/reports/senderId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "senderId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.ScheduleController",
+    "Method": "AddSchedule",
+    "RelativePath": "api/Schedule/schedule",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.AddModel.ScheduleAdd",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.ScheduleController",
+    "Method": "UpdateSchedule",
+    "RelativePath": "api/Schedule/schedule",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.UpdateModel.ScheduleUpdate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.ScheduleController",
+    "Method": "GetScheduleById",
+    "RelativePath": "api/Schedule/schedule/id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.ScheduleController",
+    "Method": "GetListScheduleByAccountId",
+    "RelativePath": "api/Schedule/schedules/accountId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "accountId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.TaskController",
+    "Method": "AddTask",
+    "RelativePath": "api/Task/task",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.AddModel.TaskAdd",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.TaskController",
+    "Method": "UpdateTask",
+    "RelativePath": "api/Task/task",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.UpdateModel.TaskUpdate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.TaskController",
+    "Method": "GetTaskById",
+    "RelativePath": "api/Task/task/id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.TaskController",
+    "Method": "GetListTaskByScheduleId",
+    "RelativePath": "api/Task/tasks/scheduleId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "scheduleId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.TaskEstimateController",
+    "Method": "AddTaskEstimate",
+    "RelativePath": "api/TaskEstimate/taskEstimate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.AddModel.TaskEstimateAdd",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.TaskEstimateController",
+    "Method": "UpdateTaskEstimate",
+    "RelativePath": "api/TaskEstimate/taskEstimate",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.UpdateModel.TaskEstimateUpdate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.TaskEstimateController",
+    "Method": "GetTaskEstimateById",
+    "RelativePath": "api/TaskEstimate/taskEstimate/id",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.TaskEstimateController",
+    "Method": "GetListTaskEstimate",
+    "RelativePath": "api/TaskEstimate/taskEstimates",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.TaskEstimateController",
+    "Method": "GetListTaskEstimateByAnimalTypeId",
+    "RelativePath": "api/TaskEstimate/taskEstimates/animalTypeId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "animalTypeId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.TaskEstimateController",
+    "Method": "GetListTaskEstimateByTaskTypeId",
+    "RelativePath": "api/TaskEstimate/taskEstimates/taskTypeId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "taskTypeId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.TaskTypeController",
+    "Method": "AddTaskType",
+    "RelativePath": "api/TaskType/taskType",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.AddModel.TaskTypeAdd",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.TaskTypeController",
+    "Method": "UpdateTask",
+    "RelativePath": "api/TaskType/taskType",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.UpdateModel.TaskTypeUpdate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.TaskTypeController",
+    "Method": "GetTaskTypeById",
+    "RelativePath": "api/TaskType/taskType/id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.TaskTypeController",
+    "Method": "GetListTaskType",
+    "RelativePath": "api/TaskType/taskTypes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeamManagement.Controllers.TeamController",
+    "Method": "AddTeam",
+    "RelativePath": "api/Team/team",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.AddModel.TeamAdd",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeamManagement.Controllers.TeamController",
+    "Method": "UpdateTeam",
+    "RelativePath": "api/Team/team",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.UpdateModel.TeamUpdate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeamManagement.Controllers.TeamController",
+    "Method": "GetTeamById",
+    "RelativePath": "api/Team/team/id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeamManagement.Controllers.TeamController",
+    "Method": "AddLeader",
+    "RelativePath": "api/Team/team/leader",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.AddModel.LeaderAssignAdd",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeamManagement.Controllers.TeamController",
+    "Method": "RemoveLeader",
+    "RelativePath": "api/Team/team/leader",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "accountId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "teamId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeamManagement.Controllers.TeamController",
+    "Method": "GetLeaderByTeamId",
+    "RelativePath": "api/Team/team/leader/teamId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "teamId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeamManagement.Controllers.TeamController",
+    "Method": "AddMember",
+    "RelativePath": "api/Team/team/member",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.AddModel.MemberAssignAdd",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeamManagement.Controllers.TeamController",
+    "Method": "RemoveMember",
+    "RelativePath": "api/Team/team/member",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "accountId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "teamId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeamManagement.Controllers.TeamController",
+    "Method": "GetListMemberByTeamId",
+    "RelativePath": "api/Team/team/members/teamId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "teamId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeamManagement.Controllers.TeamController",
+    "Method": "GetListTeam",
+    "RelativePath": "api/Team/teams",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.UserController",
+    "Method": "GetUserByAccountId",
+    "RelativePath": "api/User/user/accountId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "accountId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.UserController",
+    "Method": "UpdateUser",
+    "RelativePath": "api/User/user/accountId",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.UpdateModel.UserUpdate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.ZooAreaController",
+    "Method": "AddZooArea",
+    "RelativePath": "api/ZooArea/zooArea",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.AddModel.ZooAreaAdd",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.ZooAreaController",
+    "Method": "UpdateZooArea",
+    "RelativePath": "api/ZooArea/zooArea",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.UpdateModel.ZooAreaUpdate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.ZooAreaController",
+    "Method": "GetZooAreaById",
+    "RelativePath": "api/ZooArea/zooArea/id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.ZooAreaController",
+    "Method": "GetListZooArea",
+    "RelativePath": "api/ZooArea/zooAreas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]
