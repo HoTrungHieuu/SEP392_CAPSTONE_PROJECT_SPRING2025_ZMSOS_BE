@@ -44,22 +44,6 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public List<ApplicationTypeView> ConvertListApplicationTypeIntoListApplicationTypeView(List<ApplicationType> applicationTypes)
-        {
-            try
-            {
-                List<ApplicationTypeView> result = new();
-                foreach (var applicationType in applicationTypes)
-                {
-                    result.Add(ConvertApplicationTypeIntoApplicationTypeView(applicationType));
-                }
-                return result;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
         public ApplicationTypeView ConvertApplicationTypeIntoApplicationTypeView(ApplicationType applicationType)
         {
             try

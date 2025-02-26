@@ -1,4 +1,5 @@
-﻿using DAO.AddModel;
+﻿using BO.Models;
+using DAO.AddModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
 using Repository.IRepository;
@@ -14,9 +15,11 @@ namespace Service.Service
     public class ZooAreaService : IZooAreaService
     {
         public IZooAreaRepository repo;
-        public ZooAreaService(IZooAreaRepository repo)
+        public IObjectViewService objectViewService;
+        public ZooAreaService(IZooAreaRepository repo, IObjectViewService objectViewService)
         {
             this.repo = repo;
+            this.objectViewService = objectViewService;
         }
         public async Task<ServiceResult> GetListZooArea()
         {
@@ -32,7 +35,7 @@ namespace Service.Service
                     };
                 }
 
-                var result = repo.ConvertListZooAreaIntoListZooAreaView(zooAreas);
+                var result = await objectViewService.GetListZooAreaView(zooAreas);
                 return new ServiceResult
                 {
                     Status = 200,
@@ -63,7 +66,7 @@ namespace Service.Service
                     };
                 }
 
-                var result = repo.ConvertZooAreaIntoZooAreaView(zooArea);
+                var result = await objectViewService.GetZooAreaView(zooArea);
                 return new ServiceResult
                 {
                     Status = 200,

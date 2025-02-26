@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Service.Service
 {
@@ -16,11 +17,13 @@ namespace Service.Service
         public IApplicationRepository repo;
         public IApplicationTypeRepository applicationTypeRepo;
         public IUserRepository userRepo;
-        public ApplicationService(IApplicationRepository repo, IApplicationTypeRepository applicationTypeRepo, IUserRepository userRepo)
+        public IObjectViewService objectViewService;
+        public ApplicationService(IApplicationRepository repo, IApplicationTypeRepository applicationTypeRepo, IUserRepository userRepo, IObjectViewService objectViewService)
         {
             this.repo = repo;
             this.applicationTypeRepo = applicationTypeRepo;
             this.userRepo = userRepo;
+            this.objectViewService = objectViewService;
         }
         public async Task<ServiceResult> GetListApplicationBySenderId(int senderId)
         {
@@ -36,23 +39,7 @@ namespace Service.Service
                     };
                 }
 
-                List<UserView> senders = new List<UserView>();
-                List<UserView> recievers = new List<UserView>();
-                List<ApplicationTypeView> applicationTypes = new();
-                for (int i = 0; i < applications.Count; i++)
-                {
-                    UserView sender = new();
-                    sender.ConvertUserIntoUserView(await userRepo.GetUserByAccountId((int)applications[i].SenderId));
-                    senders.Add(sender);
-                    UserView reciever = new();
-                    reciever.ConvertUserIntoUserView(await userRepo.GetUserByAccountId((int)applications[i].RecieverId));
-                    recievers.Add(reciever);
-                    var applicationType = applicationTypeRepo.GetById(applications[i].Id);
-                    ApplicationTypeView applicationTypeView = applicationTypeRepo.ConvertApplicationTypeIntoApplicationTypeView(applicationType);
-                    applicationTypes.Add(applicationTypeView);
-                }
-
-                var result = repo.ConvertListApplicationIntoListApplicationView(applications, senders, recievers, applicationTypes);
+                var result = await objectViewService.GetListApplicationView(applications);
                 return new ServiceResult
                 {
                     Status = 200,
@@ -83,23 +70,7 @@ namespace Service.Service
                     };
                 }
 
-                List<UserView> senders = new List<UserView>();
-                List<UserView> recievers = new List<UserView>();
-                List<ApplicationTypeView> applicationTypes = new();
-                for (int i = 0; i < applications.Count; i++)
-                {
-                    UserView sender = new();
-                    sender.ConvertUserIntoUserView(await userRepo.GetUserByAccountId((int)applications[i].SenderId));
-                    senders.Add(sender);
-                    UserView reciever = new();
-                    reciever.ConvertUserIntoUserView(await userRepo.GetUserByAccountId((int)applications[i].RecieverId));
-                    recievers.Add(reciever);
-                    var applicationType = applicationTypeRepo.GetById(applications[i].Id);
-                    ApplicationTypeView applicationTypeView = applicationTypeRepo.ConvertApplicationTypeIntoApplicationTypeView(applicationType);
-                    applicationTypes.Add(applicationTypeView);
-                }
-
-                var result = repo.ConvertListApplicationIntoListApplicationView(applications, senders, recievers, applicationTypes);
+                var result = await objectViewService.GetListApplicationView(applications);
                 return new ServiceResult
                 {
                     Status = 200,
@@ -130,17 +101,7 @@ namespace Service.Service
                     };
                 }
 
-                UserView sender = new();
-                sender.ConvertUserIntoUserView(await userRepo.GetUserByAccountId((int)application.SenderId));
-                UserView reciever = new();
-                reciever.ConvertUserIntoUserView(await userRepo.GetUserByAccountId((int)application.RecieverId));
-                var applicationType = applicationTypeRepo.GetById(application.Id);
-                ApplicationTypeView applicationTypeView = applicationTypeRepo.ConvertApplicationTypeIntoApplicationTypeView(applicationType);
-
-
-
-
-                var result = repo.ConvertApplicationIntoApplicationView(application, sender, reciever, applicationTypeView);
+                var result = await objectViewService.GetApplicationView(application);
                 return new ServiceResult
                 {
                     Status = 200,

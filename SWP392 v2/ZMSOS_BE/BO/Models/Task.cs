@@ -27,6 +27,8 @@ public partial class Task
 
     public string Status { get; set; }
 
+    public virtual ICollection<AnimalAssign> AnimalAssigns { get; set; } = new List<AnimalAssign>();
+
     public virtual Schedule Schedule { get; set; }
 
     public virtual TaskType TaskType { get; set; }

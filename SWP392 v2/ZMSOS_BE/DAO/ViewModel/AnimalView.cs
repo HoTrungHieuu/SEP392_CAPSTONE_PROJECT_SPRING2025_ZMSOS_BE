@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+
 
 namespace DAO.ViewModel
 {
@@ -12,27 +14,23 @@ namespace DAO.ViewModel
     {
         public int Id {  get; set; }
         public AnimalTypeView? AnimalType { get; set; }
-        public string Name {  get; set; }
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public IndividualView? Individual { get; set; }
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public FlockView Flock { get; set; }
         public string Description { get; set; }
-        public string Age {  get; set; }
-        public string Gender {  get; set; }
-        public string Weight { get; set; }
-        public DateOnly? ArrivalDate {  get; set; }
-        public string Notes {  get; set; }
+        public string Classify {  get; set; }
         public string Status {  get; set; }
         public string UrlImage {  get; set; }
-        public void ConvertAnimalIntoAnimalView(Animal key,AnimalTypeView animalType)
+        public void ConvertAnimalIntoAnimalView(Animal key,AnimalTypeView animalType,FlockView flock, IndividualView individual)
         {
             Id = key.Id;
-            Name = key.Name;
             Description = key.Description;
-            Age = key.Age;
-            Gender = key.Gender;
-            Weight = key.Weight;
-            ArrivalDate = key.ArrivalDate;
-            Notes = key.Notes;
+            Classify = key.Classify;
             Status = key.Status;
             AnimalType = animalType;
+            Individual = individual;
+            Flock = flock;
             UrlImage = key.UrlImage;
         }
     }

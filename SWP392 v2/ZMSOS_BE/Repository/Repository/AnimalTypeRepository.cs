@@ -81,22 +81,6 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public List<AnimalTypeView> ConvertListAnimalTypeIntoListAnimalTypeView(List<AnimalType> animalTypes)
-        {
-            try
-            {
-                List<AnimalTypeView> result = new();
-                for (int i = 0; i < animalTypes.Count; i++)
-                {
-                    result.Add(ConvertAnimalTypeIntoAnimalTypeView(animalTypes[i]));
-                }
-                return result;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
         public AnimalTypeView ConvertAnimalTypeIntoAnimalTypeView(AnimalType animalType)
         {
             try

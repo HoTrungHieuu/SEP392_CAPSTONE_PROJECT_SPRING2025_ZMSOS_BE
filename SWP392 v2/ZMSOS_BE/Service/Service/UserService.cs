@@ -14,9 +14,11 @@ namespace Service.Service
     public class UserService:IUserService
     {
         public IUserRepository repo;
-        public UserService(IUserRepository repo)
+        public IObjectViewService objectViewService;
+        public UserService(IUserRepository repo, IObjectViewService objectViewService)
         {
             this.repo = repo;
+            this.objectViewService = objectViewService;
         }
         public async Task<ServiceResult> GetUserByAccountId(int accountId)
         {
@@ -31,13 +33,13 @@ namespace Service.Service
                         Message = "Not Found!",
                     };
                 }
-                UserView userView = new UserView();
-                userView.ConvertUserIntoUserView(user);
+                UserView result = new UserView();
+                result = await objectViewService.GetUserView(user);
                 return new ServiceResult
                 {
                     Status = 200,
                     Message = "User",
-                    Data = userView
+                    Data = result
                 };
             }
             catch (Exception ex)

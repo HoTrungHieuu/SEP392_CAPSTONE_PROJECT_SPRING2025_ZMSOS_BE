@@ -27,6 +27,10 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[AnimalAssign]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[AnimalCage]",
          "ObjectType": 0
       },
@@ -60,6 +64,14 @@
       },
       {
          "Name": "[dbo].[Evaluation]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Flock]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Individual]",
          "ObjectType": 0
       },
       {

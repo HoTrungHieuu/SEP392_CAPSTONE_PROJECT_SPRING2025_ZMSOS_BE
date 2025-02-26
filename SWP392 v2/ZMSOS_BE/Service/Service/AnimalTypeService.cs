@@ -14,9 +14,11 @@ namespace Service.Service
     public class AnimalTypeService : IAnimalTypeService
     {
         public IAnimalTypeRepository repo;
-        public AnimalTypeService(IAnimalTypeRepository repo)
+        public IObjectViewService objectViewService;
+        public AnimalTypeService(IAnimalTypeRepository repo, IObjectViewService objectViewService)
         {
             this.repo = repo;
+            this.objectViewService = objectViewService;
         }
         public async Task<ServiceResult> GetListAnimalType()
         {
@@ -31,7 +33,7 @@ namespace Service.Service
                         Message = "Not Found!",
                     };
                 }
-                var result = repo.ConvertListAnimalTypeIntoListAnimalTypeView(animalTypes);
+                var result = await objectViewService.GetListAnimalTypeView(animalTypes);
                 return new ServiceResult
                 {
                     Status = 200,
@@ -61,7 +63,7 @@ namespace Service.Service
                         Message = "Not Found!",
                     };
                 }
-                var result = repo.ConvertAnimalTypeIntoAnimalTypeView(animalType);
+                var result = await objectViewService.GetAnimalTypeView(animalType);
                 return new ServiceResult
                 {
                     Status = 200,

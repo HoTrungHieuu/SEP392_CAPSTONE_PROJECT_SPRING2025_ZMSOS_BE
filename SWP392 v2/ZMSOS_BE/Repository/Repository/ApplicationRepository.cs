@@ -79,22 +79,6 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public List<ApplicationView> ConvertListApplicationIntoListApplicationView(List<Application> applications, List<UserView> senders, List<UserView> recievers, List<ApplicationTypeView> applicationTypes)
-        {
-            try
-            {
-                List<ApplicationView> result = new();
-                for (int i = 0; i < applications.Count; i++)
-                {
-                    result.Add(ConvertApplicationIntoApplicationView(applications[i], senders[i], recievers[i], applicationTypes[i]));
-                }
-                return result;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
         public ApplicationView ConvertApplicationIntoApplicationView(Application application, UserView sender, UserView reciever, ApplicationTypeView applicationType)
         {
             try

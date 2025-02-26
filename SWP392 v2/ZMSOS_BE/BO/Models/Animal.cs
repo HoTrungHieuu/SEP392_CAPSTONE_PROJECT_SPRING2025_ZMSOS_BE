@@ -11,21 +11,9 @@ public partial class Animal
 
     public int? AnimalTypeId { get; set; }
 
-    public string Name { get; set; }
-
     public string Description { get; set; }
 
-    public string Age { get; set; }
-
-    public string Gender { get; set; }
-
-    public string Weight { get; set; }
-
-    public int? Quantity { get; set; }
-
-    public DateOnly? ArrivalDate { get; set; }
-
-    public string Notes { get; set; }
+    public string Classify { get; set; }
 
     public string Status { get; set; }
 
@@ -38,4 +26,8 @@ public partial class Animal
     public virtual AnimalType AnimalType { get; set; }
 
     public virtual ICollection<AnimalUpdateHistory> AnimalUpdateHistories { get; set; } = new List<AnimalUpdateHistory>();
+
+    public virtual ICollection<Flock> Flocks { get; set; } = new List<Flock>();
+
+    public virtual ICollection<Individual> Individuals { get; set; } = new List<Individual>();
 }

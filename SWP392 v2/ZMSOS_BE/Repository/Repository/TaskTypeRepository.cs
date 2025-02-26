@@ -66,22 +66,6 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public List<TaskTypeView> ConvertListTaskTypeIntoListTaskTypeView(List<TaskType> taskTypes)
-        {
-            try
-            {
-                List<TaskTypeView> result = new();
-                foreach (var taskType in taskTypes)
-                {
-                    result.Add(ConvertTaskTypeIntoTaskTypeView(taskType));
-                }
-                return result;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
         public TaskTypeView ConvertTaskTypeIntoTaskTypeView(TaskType taskType)
         {
             try

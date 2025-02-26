@@ -21,5 +21,7 @@ public partial class AnimalCage
 
     public virtual Animal Animal { get; set; }
 
+    public virtual ICollection<AnimalAssign> AnimalAssigns { get; set; } = new List<AnimalAssign>();
+
     public virtual Cage Cage { get; set; }
 }

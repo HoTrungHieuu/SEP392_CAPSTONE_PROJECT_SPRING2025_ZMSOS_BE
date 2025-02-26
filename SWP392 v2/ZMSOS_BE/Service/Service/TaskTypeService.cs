@@ -15,9 +15,11 @@ namespace Service.Service
     public class TaskTypeService : ITaskTypeService
     {
         public ITaskTypeRepository repo;
-        public TaskTypeService(ITaskTypeRepository repo)
+        public IObjectViewService objectViewService;
+        public TaskTypeService(ITaskTypeRepository repo, IObjectViewService objectViewService)
         {
             this.repo = repo;
+            this.objectViewService = objectViewService;
         }
         public async Task<ServiceResult> GetListTaskType()
         {
@@ -33,7 +35,7 @@ namespace Service.Service
                     };
                 }
 
-                var result = repo.ConvertListTaskTypeIntoListTaskTypeView(taskTypes);
+                var result = await objectViewService.GetListTaskTypeView(taskTypes);
                 return new ServiceResult
                 {
                     Status = 200,
@@ -63,7 +65,7 @@ namespace Service.Service
                         Message = "Not Found!",
                     };
                 }
-                var result = repo.ConvertTaskTypeIntoTaskTypeView(taskType);
+                var result = await objectViewService.GetTaskTypeView(taskType);
                 return new ServiceResult
                 {
                     Status = 200,

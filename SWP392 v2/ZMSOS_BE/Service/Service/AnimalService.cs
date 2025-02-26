@@ -17,13 +17,19 @@ namespace Service.Service
         public IAnimalRepository repo;
         public IAnimalTypeRepository typeRepo;
         public ICageRepository cageRepo;
-        public IAnimalCageRepository animalCageRepo;  
-        public AnimalService(IAnimalRepository repo, IAnimalTypeRepository typeRepo, IAnimalCageRepository animalCageRepo, ICageRepository cageRepo)
+        public IAnimalCageRepository animalCageRepo;
+        public IFlockRepository flockRepo;
+        public IIndividualRepository individualRepo;
+        public IObjectViewService objectViewService;
+        public AnimalService(IAnimalRepository repo, IAnimalTypeRepository typeRepo, IAnimalCageRepository animalCageRepo, ICageRepository cageRepo, IObjectViewService objectViewService, IFlockRepository flockRepo, IIndividualRepository individualRepo)
         {
             this.repo = repo;
             this.typeRepo = typeRepo;
             this.animalCageRepo = animalCageRepo;
             this.cageRepo = cageRepo;
+            this.flockRepo = flockRepo;
+            this.individualRepo = individualRepo;
+            this.objectViewService = objectViewService;
         }
         public async Task<ServiceResult> GetListAnimal()
         {
@@ -38,16 +44,7 @@ namespace Service.Service
                         Message = "Not Found!",
                     };
                 }
-
-                List<AnimalTypeView> animalTypes = new();
-                for (int i = 0; i < animals.Count; i++)
-                {
-                    AnimalTypeView animalType = new();
-                    animalType.ConvertAnimalTypeIntoAnimalTypeView(typeRepo.GetById((int)animals[i].AnimalTypeId));
-                    animalTypes.Add(animalType);
-                }
-
-                var result = repo.ConvertListAnimalIntoListAnimalView(animals, animalTypes);
+                var result = await objectViewService.GetListAnimalView(animals);
                 return new ServiceResult
                 {
                     Status = 200,
@@ -86,16 +83,7 @@ namespace Service.Service
                         Message = "Not Found!",
                     };
                 }
-
-                List<AnimalTypeView> animalTypes = new();
-                for (int i = 0; i < animals.Count; i++)
-                {
-                    AnimalTypeView animalType = new();
-                    animalType.ConvertAnimalTypeIntoAnimalTypeView(typeRepo.GetById((int)animals[i].AnimalTypeId));
-                    animalTypes.Add(animalType);
-                }
-
-                var result = repo.ConvertListAnimalIntoListAnimalView(animals, animalTypes);
+                var result = await objectViewService.GetListAnimalView(animals);
                 return new ServiceResult
                 {
                     Status = 200,
@@ -117,6 +105,14 @@ namespace Service.Service
             try
             {
                 var animalCages = await animalCageRepo.GetListAnimalCageByCageId(cageId);
+                if(animalCages == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Not Found!",
+                    };
+                }
                 List<Animal> animals = new List<Animal>();
                 foreach(var animalCage in animalCages)
                 {
@@ -131,15 +127,7 @@ namespace Service.Service
                     };
                 }
 
-                List<AnimalTypeView> animalTypes = new();
-                for (int i = 0; i < animals.Count; i++)
-                {
-                    AnimalTypeView animalType = new();
-                    animalType.ConvertAnimalTypeIntoAnimalTypeView(typeRepo.GetById((int)animals[i].AnimalTypeId));
-                    animalTypes.Add(animalType);
-                }
-
-                var result = repo.ConvertListAnimalIntoListAnimalView(animals, animalTypes);
+                var result = await objectViewService.GetListAnimalView(animals);
                 return new ServiceResult
                 {
                     Status = 200,
@@ -170,10 +158,7 @@ namespace Service.Service
                     };
                 }
 
-                AnimalTypeView animalType = new();
-                animalType = typeRepo.ConvertAnimalTypeIntoAnimalTypeView(typeRepo.GetById((int)animal.AnimalTypeId));
-
-                var result = repo.ConvertAnimalIntoAnimalView(animal, animalType);
+                var result = await objectViewService.GetAnimalView(animal);
                 return new ServiceResult
                 {
                     Status = 200,
@@ -195,6 +180,14 @@ namespace Service.Service
             try
             {
                 var animal = await repo.AddAnimal(key);
+                if(animal.Classify == "Flock")
+                {
+                    await flockRepo.AddFlock(animal.Id ,key.Flock);
+                }
+                else if(animal.Classify == "Individual")
+                {
+                    await individualRepo.AddIndividual(animal.Id, key.Individual);
+                }
                 return new ServiceResult
                 {
                     Status = 200,
@@ -222,6 +215,14 @@ namespace Service.Service
                         Status = 404,
                         Message = "Not Found"
                     };
+                }
+                if (animal.Classify == "Flock")
+                {
+                    await flockRepo.UpdateFlock(animal.Id, key.Flock);
+                }
+                else if (animal.Classify == "Individual")
+                {
+                    await individualRepo.UpdateIndividual(animal.Id, key.Individual);
                 }
                 return new ServiceResult
                 {

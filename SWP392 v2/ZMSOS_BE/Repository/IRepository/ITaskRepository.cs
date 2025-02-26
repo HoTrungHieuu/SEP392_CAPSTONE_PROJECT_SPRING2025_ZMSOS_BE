@@ -1,5 +1,6 @@
 ﻿using BO.Models;
 using DAO.AddModel;
+using DAO.OtherModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
 using Repository.IRepository;
@@ -16,7 +17,6 @@ namespace Repository.IRepositoyr
         public Task<List<BO.Models.Task>?> GetListTaskByScheduleId(int scheduleId);
         public Task<BO.Models.Task> AddTask(TaskAdd key);
         public Task<BO.Models.Task?> UpdateTask(TaskUpdate key);
-        public List<TaskView> ConvertListTaskIntoListTaskView(List<BO.Models.Task> tasks);
-        public TaskView ConvertTaskIntoTaskView(BO.Models.Task task);
+        public TaskView ConvertTaskIntoTaskView(BO.Models.Task task, List<AnimalCageTask> animalCageTasks, TaskTypeView taskType);
     }
 }

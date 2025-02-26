@@ -12,9 +12,11 @@ namespace Service.Service
     public class ApplicationTypeService : IApplicationTypeService
     {
         public IApplicationTypeRepository repo;
-        public ApplicationTypeService(IApplicationTypeRepository repo)
+        public IObjectViewService objectViewService;
+        public ApplicationTypeService(IApplicationTypeRepository repo, IObjectViewService objectViewService)
         {
             this.repo = repo;
+            this.objectViewService = objectViewService;
         }
         public async Task<ServiceResult> GetListApplicationType()
         {
@@ -29,7 +31,7 @@ namespace Service.Service
                         Message = "Not Found!",
                     };
                 }
-                var result = repo.ConvertListApplicationTypeIntoListApplicationTypeView(applicationTypes);
+                var result = await objectViewService.GetListApplicationTypeView(applicationTypes);
                 return new ServiceResult
                 {
                     Status = 200,
@@ -59,7 +61,7 @@ namespace Service.Service
                         Message = "Not Found!",
                     };
                 }
-                var result = repo.ConvertApplicationTypeIntoApplicationTypeView(applicationType);
+                var result = await objectViewService.GetApplicationTypeView(applicationType);
                 return new ServiceResult
                 {
                     Status = 200,

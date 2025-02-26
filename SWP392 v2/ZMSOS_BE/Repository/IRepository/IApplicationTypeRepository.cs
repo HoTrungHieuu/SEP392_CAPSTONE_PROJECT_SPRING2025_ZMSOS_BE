@@ -14,7 +14,6 @@ namespace Repository.IRepositoyr
     {
         public Task<List<ApplicationType>?> GetListApplcationType();
         public Task<ApplicationType> AddApplicationType(ApplicationTypeAdd key);
-        public List<ApplicationTypeView> ConvertListApplicationTypeIntoListApplicationTypeView(List<ApplicationType> applicationTypes);
         public ApplicationTypeView ConvertApplicationTypeIntoApplicationTypeView(ApplicationType applicationType);
     }
 }

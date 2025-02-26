@@ -60,22 +60,6 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public List<ReportView> ConvertListReportIntoListReportView(List<Report> reports, List<UserView> senders, List<UserView> recievers, List<List<string>> urlFiles)
-        {
-            try
-            {
-                List<ReportView> result = new();
-                for(int i = 0; i < reports.Count; i++)
-                {
-                    result.Add(ConvertReportIntoReportView(reports[i], senders[i], recievers[i], urlFiles[i]));
-                }
-                return result;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
         public ReportView ConvertReportIntoReportView(Report report, UserView sender,UserView reciever, List<string> urlFile)
         {
             try

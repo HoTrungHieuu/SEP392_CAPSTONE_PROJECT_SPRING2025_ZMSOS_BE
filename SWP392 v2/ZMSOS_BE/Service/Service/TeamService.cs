@@ -19,13 +19,13 @@ namespace Service.Service
         public ITeamRepository repo;
         public ILeaderAssignRepository leaderRepo;
         public IMemberAssignRepository memberRepo;
-        public IUserRepository userRepo;
-        public TeamService(ITeamRepository repo, ILeaderAssignRepository leaderRepo, IMemberAssignRepository memberRepo, IUserRepository userRepo)
+        public IObjectViewService objectViewService;
+        public TeamService(ITeamRepository repo, ILeaderAssignRepository leaderRepo, IMemberAssignRepository memberRepo, IObjectViewService objectViewService)
         {
             this.repo = repo;
             this.leaderRepo = leaderRepo;
             this.memberRepo = memberRepo;
-            this.userRepo = userRepo;
+            this.objectViewService = objectViewService;
         }
         public async Task<ServiceResult> GetListTeam()
         {
@@ -41,7 +41,7 @@ namespace Service.Service
                     };
                 }
 
-                var result = repo.ConvertListTeamIntoListTeamView(teams);
+                var result = await objectViewService.GetListTeamView(teams);
                 return new ServiceResult
                 {
                     Status = 200,
@@ -72,7 +72,7 @@ namespace Service.Service
                     };
                 }
 
-                var result = repo.ConvertTeamIntoTeamView(team);
+                var result = await objectViewService.GetTeamView(team);
                 return new ServiceResult
                 {
                     Status = 200,
@@ -152,12 +152,8 @@ namespace Service.Service
                         Message = "Not Found!",
                     };
                 }
-                TeamView team = new();
-                team = repo.ConvertTeamIntoTeamView(repo.GetById((int)leader.TeamId));
-                UserView user = new();
-                user = userRepo.ConvertUserIntoUserView(userRepo.GetById((int)leader.LeaderId));
 
-                var result = leaderRepo.ConvertLeaderAssignIntoLeaderAssignView(leader,team,user);
+                var result = await objectViewService.GetLeaderAssignView(leader);
                 return new ServiceResult
                 {
                     Status = 200,
@@ -262,19 +258,8 @@ namespace Service.Service
                         Message = "Not Found!",
                     };
                 }
-                List<TeamView> teams = new();
-                List<UserView> users = new();
-                for (int i = 0; i < members.Count; i++)
-                {
-                    TeamView team = new();
-                    team = repo.ConvertTeamIntoTeamView(repo.GetById((int)members[i].TeamId));
-                    teams.Add(team);
-                    UserView user = new();
-                    user = userRepo.ConvertUserIntoUserView(userRepo.GetById((int)members[i].MemberId));
-                    users.Add(user);
-                }
 
-                var result = memberRepo.ConvertListMemberAssignIntoListMemberAssignView(members, teams,users);
+                var result = await objectViewService.GetListMemberAssignView(members);
                 return new ServiceResult
                 {
                     Status = 200,

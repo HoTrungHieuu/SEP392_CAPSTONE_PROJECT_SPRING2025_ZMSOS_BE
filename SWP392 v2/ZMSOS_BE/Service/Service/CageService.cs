@@ -15,10 +15,12 @@ namespace Service.Service
     {
         public ICageRepository repo;
         public IZooAreaRepository areaRepo;
-        public CageService(ICageRepository repo, IZooAreaRepository areaRepo)
+        public IObjectViewService objectViewService;
+        public CageService(ICageRepository repo, IZooAreaRepository areaRepo, IObjectViewService objectViewService)
         {
             this.repo = repo;
             this.areaRepo = areaRepo;
+            this.objectViewService = objectViewService;
         }
         public async Task<ServiceResult> GetListCage()
         {
@@ -42,7 +44,7 @@ namespace Service.Service
                     zooAreas.Add(zooArea);
                 }
 
-                var result = repo.ConvertListCageIntoListCageView(cages, zooAreas);
+                var result = await objectViewService.GetListCageView(cages);
                 return new ServiceResult
                 {
                     Status = 200,
@@ -81,7 +83,7 @@ namespace Service.Service
                     zooAreas.Add(zooArea);
                 }
 
-                var result = repo.ConvertListCageIntoListCageView(cages, zooAreas);
+                var result = await objectViewService.GetListCageView(cages);
                 return new ServiceResult
                 {
                     Status = 200,
@@ -115,7 +117,7 @@ namespace Service.Service
                 ZooAreaView zooArea = new();
                 zooArea = areaRepo.ConvertZooAreaIntoZooAreaView(areaRepo.GetById((int)cage.ZooAreaId));
 
-                var result = repo.ConvertCageIntoCageView(cage, zooArea);
+                var result = await objectViewService.GetCageView(cage);
                 return new ServiceResult
                 {
                     Status = 200,

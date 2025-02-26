@@ -43,6 +43,8 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
     public virtual DbSet<Animal> Animals { get; set; }
 
+    public virtual DbSet<AnimalAssign> AnimalAssigns { get; set; }
+
     public virtual DbSet<AnimalCage> AnimalCages { get; set; }
 
     public virtual DbSet<AnimalIncidentHistory> AnimalIncidentHistories { get; set; }
@@ -60,6 +62,10 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
     public virtual DbSet<CageUpdateHistory> CageUpdateHistories { get; set; }
 
     public virtual DbSet<Evaluation> Evaluations { get; set; }
+
+    public virtual DbSet<Flock> Flocks { get; set; }
+
+    public virtual DbSet<Individual> Individuals { get; set; }
 
     public virtual DbSet<LeaderAssign> LeaderAssigns { get; set; }
 
@@ -93,7 +99,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
     {
         modelBuilder.Entity<AbsentTime>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__AbsentTi__3213E83F416504A0");
+            entity.HasKey(e => e.Id).HasName("PK__AbsentTi__3213E83F42D25BBA");
 
             entity.ToTable("AbsentTime");
 
@@ -108,12 +114,12 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
             entity.HasOne(d => d.Account).WithMany(p => p.AbsentTimes)
                 .HasForeignKey(d => d.AccountId)
-                .HasConstraintName("FK__AbsentTim__accou__797309D9");
+                .HasConstraintName("FK__AbsentTim__accou__7F2BE32F");
         });
 
         modelBuilder.Entity<Account>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Account__3213E83F79DA38B0");
+            entity.HasKey(e => e.Id).HasName("PK__Account__3213E83F845348D7");
 
             entity.ToTable("Account");
 
@@ -134,50 +140,58 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
             entity.HasOne(d => d.Role).WithMany(p => p.Accounts)
                 .HasForeignKey(d => d.RoleId)
-                .HasConstraintName("FK__Account__role_id__7A672E12");
+                .HasConstraintName("FK__Account__role_id__00200768");
         });
 
         modelBuilder.Entity<Animal>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Animal__3213E83F4A883522");
+            entity.HasKey(e => e.Id).HasName("PK__Animal__3213E83FF4CB762F");
 
             entity.ToTable("Animal");
 
             entity.Property(e => e.Id).HasColumnName("id");
-            entity.Property(e => e.Age)
-                .HasMaxLength(500)
-                .HasColumnName("age");
             entity.Property(e => e.AnimalTypeId).HasColumnName("animal_type_id");
-            entity.Property(e => e.ArrivalDate).HasColumnName("arrival_date");
+            entity.Property(e => e.Classify)
+                .HasMaxLength(500)
+                .HasColumnName("classify");
             entity.Property(e => e.Description)
                 .HasMaxLength(500)
                 .HasColumnName("description");
-            entity.Property(e => e.Gender)
-                .HasMaxLength(500)
-                .HasColumnName("gender");
-            entity.Property(e => e.Name)
-                .HasMaxLength(500)
-                .HasColumnName("name");
-            entity.Property(e => e.Notes)
-                .HasMaxLength(500)
-                .HasColumnName("notes");
-            entity.Property(e => e.Quantity).HasColumnName("quantity");
             entity.Property(e => e.Status)
                 .HasMaxLength(20)
                 .HasColumnName("status");
             entity.Property(e => e.UrlImage).HasColumnName("url_image");
-            entity.Property(e => e.Weight)
-                .HasMaxLength(500)
-                .HasColumnName("weight");
 
             entity.HasOne(d => d.AnimalType).WithMany(p => p.Animals)
                 .HasForeignKey(d => d.AnimalTypeId)
-                .HasConstraintName("FK__Animal__animal_t__7B5B524B");
+                .HasConstraintName("FK__Animal__animal_t__01142BA1");
+        });
+
+        modelBuilder.Entity<AnimalAssign>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__AnimalAs__3213E83F5E9680C9");
+
+            entity.ToTable("AnimalAssign");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.AnimalCageId).HasColumnName("animal_cage_id");
+            entity.Property(e => e.Status)
+                .HasMaxLength(20)
+                .HasColumnName("status");
+            entity.Property(e => e.TaskId).HasColumnName("task_id");
+
+            entity.HasOne(d => d.AnimalCage).WithMany(p => p.AnimalAssigns)
+                .HasForeignKey(d => d.AnimalCageId)
+                .HasConstraintName("FK__AnimalAss__anima__1EA48E88");
+
+            entity.HasOne(d => d.Task).WithMany(p => p.AnimalAssigns)
+                .HasForeignKey(d => d.TaskId)
+                .HasConstraintName("FK__AnimalAss__task___1DB06A4F");
         });
 
         modelBuilder.Entity<AnimalCage>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__AnimalCa__3213E83F77F3CD4B");
+            entity.HasKey(e => e.Id).HasName("PK__AnimalCa__3213E83FE0556435");
 
             entity.ToTable("AnimalCage");
 
@@ -192,16 +206,16 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
             entity.HasOne(d => d.Animal).WithMany(p => p.AnimalCages)
                 .HasForeignKey(d => d.AnimalId)
-                .HasConstraintName("FK__AnimalCag__anima__7C4F7684");
+                .HasConstraintName("FK__AnimalCag__anima__03F0984C");
 
             entity.HasOne(d => d.Cage).WithMany(p => p.AnimalCages)
                 .HasForeignKey(d => d.CageId)
-                .HasConstraintName("FK__AnimalCag__cage___7D439ABD");
+                .HasConstraintName("FK__AnimalCag__cage___04E4BC85");
         });
 
         modelBuilder.Entity<AnimalIncidentHistory>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__AnimalIn__3213E83FCAD79F13");
+            entity.HasKey(e => e.Id).HasName("PK__AnimalIn__3213E83FB88233CD");
 
             entity.ToTable("AnimalIncidentHistory");
 
@@ -218,12 +232,12 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
             entity.HasOne(d => d.Animal).WithMany(p => p.AnimalIncidentHistories)
                 .HasForeignKey(d => d.AnimalId)
-                .HasConstraintName("FK__AnimalInc__anima__7E37BEF6");
+                .HasConstraintName("FK__AnimalInc__anima__05D8E0BE");
         });
 
         modelBuilder.Entity<AnimalType>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__AnimalTy__3213E83F8203831D");
+            entity.HasKey(e => e.Id).HasName("PK__AnimalTy__3213E83FFA79ECE2");
 
             entity.ToTable("AnimalType");
 
@@ -269,7 +283,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<AnimalUpdateHistory>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__AnimalUp__3213E83F47BA375B");
+            entity.HasKey(e => e.Id).HasName("PK__AnimalUp__3213E83FB205EFA7");
 
             entity.ToTable("AnimalUpdateHistory");
 
@@ -286,16 +300,16 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
             entity.HasOne(d => d.Account).WithMany(p => p.AnimalUpdateHistories)
                 .HasForeignKey(d => d.AccountId)
-                .HasConstraintName("FK__AnimalUpd__accou__7F2BE32F");
+                .HasConstraintName("FK__AnimalUpd__accou__06CD04F7");
 
             entity.HasOne(d => d.Animal).WithMany(p => p.AnimalUpdateHistories)
                 .HasForeignKey(d => d.AnimalId)
-                .HasConstraintName("FK__AnimalUpd__anima__00200768");
+                .HasConstraintName("FK__AnimalUpd__anima__07C12930");
         });
 
         modelBuilder.Entity<Application>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Applicat__3213E83F49E0A388");
+            entity.HasKey(e => e.Id).HasName("PK__Applicat__3213E83F5E457C52");
 
             entity.ToTable("Application");
 
@@ -319,20 +333,20 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
             entity.HasOne(d => d.ApplicationType).WithMany(p => p.Applications)
                 .HasForeignKey(d => d.ApplicationTypeId)
-                .HasConstraintName("FK__Applicati__appli__01142BA1");
+                .HasConstraintName("FK__Applicati__appli__08B54D69");
 
             entity.HasOne(d => d.Reciever).WithMany(p => p.ApplicationRecievers)
                 .HasForeignKey(d => d.RecieverId)
-                .HasConstraintName("FK__Applicati__recie__02084FDA");
+                .HasConstraintName("FK__Applicati__recie__09A971A2");
 
             entity.HasOne(d => d.Sender).WithMany(p => p.ApplicationSenders)
                 .HasForeignKey(d => d.SenderId)
-                .HasConstraintName("FK__Applicati__sende__02FC7413");
+                .HasConstraintName("FK__Applicati__sende__0A9D95DB");
         });
 
         modelBuilder.Entity<ApplicationType>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Applicat__3213E83F985BA9AB");
+            entity.HasKey(e => e.Id).HasName("PK__Applicat__3213E83F6BE3EF27");
 
             entity.ToTable("ApplicationType");
 
@@ -347,7 +361,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<Cage>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Cage__3213E83FE98D16FA");
+            entity.HasKey(e => e.Id).HasName("PK__Cage__3213E83F553E6D96");
 
             entity.ToTable("Cage");
 
@@ -365,12 +379,12 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
             entity.HasOne(d => d.ZooArea).WithMany(p => p.Cages)
                 .HasForeignKey(d => d.ZooAreaId)
-                .HasConstraintName("FK__Cage__zoo_area_i__03F0984C");
+                .HasConstraintName("FK__Cage__zoo_area_i__0B91BA14");
         });
 
         modelBuilder.Entity<CageUpdateHistory>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__CageUpda__3213E83F64CBE416");
+            entity.HasKey(e => e.Id).HasName("PK__CageUpda__3213E83F620B9F40");
 
             entity.ToTable("CageUpdateHistory");
 
@@ -387,16 +401,16 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
             entity.HasOne(d => d.Account).WithMany(p => p.CageUpdateHistories)
                 .HasForeignKey(d => d.AccountId)
-                .HasConstraintName("FK__CageUpdat__accou__04E4BC85");
+                .HasConstraintName("FK__CageUpdat__accou__0C85DE4D");
 
             entity.HasOne(d => d.Cage).WithMany(p => p.CageUpdateHistories)
                 .HasForeignKey(d => d.CageId)
-                .HasConstraintName("FK__CageUpdat__cage___05D8E0BE");
+                .HasConstraintName("FK__CageUpdat__cage___0D7A0286");
         });
 
         modelBuilder.Entity<Evaluation>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Evaluati__3213E83F87A9BD92");
+            entity.HasKey(e => e.Id).HasName("PK__Evaluati__3213E83F36DDDEE3");
 
             entity.ToTable("Evaluation");
 
@@ -418,16 +432,74 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
             entity.HasOne(d => d.Leader).WithMany(p => p.Evaluations)
                 .HasForeignKey(d => d.LeaderId)
-                .HasConstraintName("FK__Evaluatio__leade__06CD04F7");
+                .HasConstraintName("FK__Evaluatio__leade__0E6E26BF");
 
             entity.HasOne(d => d.Member).WithMany(p => p.Evaluations)
                 .HasForeignKey(d => d.MemberId)
-                .HasConstraintName("FK__Evaluatio__membe__07C12930");
+                .HasConstraintName("FK__Evaluatio__membe__0F624AF8");
+        });
+
+        modelBuilder.Entity<Flock>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Flock__3213E83F3AD8CE96");
+
+            entity.ToTable("Flock");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.AnimalId).HasColumnName("animal_id");
+            entity.Property(e => e.Notes)
+                .HasMaxLength(500)
+                .HasColumnName("notes");
+            entity.Property(e => e.Quantity).HasColumnName("quantity");
+            entity.Property(e => e.Status)
+                .HasMaxLength(20)
+                .HasColumnName("status");
+
+            entity.HasOne(d => d.Animal).WithMany(p => p.Flocks)
+                .HasForeignKey(d => d.AnimalId)
+                .HasConstraintName("FK__Flock__animal_id__02FC7413");
+        });
+
+        modelBuilder.Entity<Individual>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Individu__3213E83F703C1568");
+
+            entity.ToTable("Individual");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.Age)
+                .HasMaxLength(500)
+                .HasColumnName("age");
+            entity.Property(e => e.AnimalId).HasColumnName("animal_id");
+            entity.Property(e => e.ArrivalDate).HasColumnName("arrival_date");
+            entity.Property(e => e.BirthDate).HasColumnName("birth_date");
+            entity.Property(e => e.Gender)
+                .HasMaxLength(500)
+                .HasColumnName("gender");
+            entity.Property(e => e.Height)
+                .HasMaxLength(500)
+                .HasColumnName("height");
+            entity.Property(e => e.Name)
+                .HasMaxLength(500)
+                .HasColumnName("name");
+            entity.Property(e => e.Notes)
+                .HasMaxLength(500)
+                .HasColumnName("notes");
+            entity.Property(e => e.Status)
+                .HasMaxLength(20)
+                .HasColumnName("status");
+            entity.Property(e => e.Weight)
+                .HasMaxLength(500)
+                .HasColumnName("weight");
+
+            entity.HasOne(d => d.Animal).WithMany(p => p.Individuals)
+                .HasForeignKey(d => d.AnimalId)
+                .HasConstraintName("FK__Individua__anima__02084FDA");
         });
 
         modelBuilder.Entity<LeaderAssign>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__LeaderAs__3213E83F5B7852E9");
+            entity.HasKey(e => e.Id).HasName("PK__LeaderAs__3213E83F295D03F1");
 
             entity.ToTable("LeaderAssign");
 
@@ -442,16 +514,16 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
             entity.HasOne(d => d.Leader).WithMany(p => p.LeaderAssigns)
                 .HasForeignKey(d => d.LeaderId)
-                .HasConstraintName("FK__LeaderAss__leade__08B54D69");
+                .HasConstraintName("FK__LeaderAss__leade__10566F31");
 
             entity.HasOne(d => d.Team).WithMany(p => p.LeaderAssigns)
                 .HasForeignKey(d => d.TeamId)
-                .HasConstraintName("FK__LeaderAss__team___09A971A2");
+                .HasConstraintName("FK__LeaderAss__team___114A936A");
         });
 
         modelBuilder.Entity<MemberAssign>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__MemberAs__3213E83F7C5F8B26");
+            entity.HasKey(e => e.Id).HasName("PK__MemberAs__3213E83F2A6E5E0C");
 
             entity.ToTable("MemberAssign");
 
@@ -466,16 +538,16 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
             entity.HasOne(d => d.Member).WithMany(p => p.MemberAssigns)
                 .HasForeignKey(d => d.MemberId)
-                .HasConstraintName("FK__MemberAss__membe__0A9D95DB");
+                .HasConstraintName("FK__MemberAss__membe__123EB7A3");
 
             entity.HasOne(d => d.Team).WithMany(p => p.MemberAssigns)
                 .HasForeignKey(d => d.TeamId)
-                .HasConstraintName("FK__MemberAss__team___0B91BA14");
+                .HasConstraintName("FK__MemberAss__team___1332DBDC");
         });
 
         modelBuilder.Entity<News>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__News__3213E83F3AA5DA81");
+            entity.HasKey(e => e.Id).HasName("PK__News__3213E83F95421342");
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.AccountId).HasColumnName("account_id");
@@ -494,12 +566,12 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
             entity.HasOne(d => d.Account).WithMany(p => p.News)
                 .HasForeignKey(d => d.AccountId)
-                .HasConstraintName("FK__News__account_id__0C85DE4D");
+                .HasConstraintName("FK__News__account_id__14270015");
         });
 
         modelBuilder.Entity<Notification>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Notifica__3213E83F2CA42B8E");
+            entity.HasKey(e => e.Id).HasName("PK__Notifica__3213E83F9C5D71A1");
 
             entity.ToTable("Notification");
 
@@ -517,12 +589,12 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
             entity.HasOne(d => d.Account).WithMany(p => p.Notifications)
                 .HasForeignKey(d => d.AccountId)
-                .HasConstraintName("FK__Notificat__accou__0D7A0286");
+                .HasConstraintName("FK__Notificat__accou__151B244E");
         });
 
         modelBuilder.Entity<Report>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Report__3213E83F77407C64");
+            entity.HasKey(e => e.Id).HasName("PK__Report__3213E83FD73AFF93");
 
             entity.ToTable("Report");
 
@@ -544,16 +616,16 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
             entity.HasOne(d => d.Receiver).WithMany(p => p.ReportReceivers)
                 .HasForeignKey(d => d.ReceiverId)
-                .HasConstraintName("FK__Report__receiver__0E6E26BF");
+                .HasConstraintName("FK__Report__receiver__160F4887");
 
             entity.HasOne(d => d.Sender).WithMany(p => p.ReportSenders)
                 .HasForeignKey(d => d.SenderId)
-                .HasConstraintName("FK__Report__sender_i__0F624AF8");
+                .HasConstraintName("FK__Report__sender_i__17036CC0");
         });
 
         modelBuilder.Entity<ReportAttachment>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__ReportAt__3213E83F85680B08");
+            entity.HasKey(e => e.Id).HasName("PK__ReportAt__3213E83F34A25B95");
 
             entity.ToTable("ReportAttachment");
 
@@ -566,12 +638,12 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
             entity.HasOne(d => d.Report).WithMany(p => p.ReportAttachments)
                 .HasForeignKey(d => d.ReportId)
-                .HasConstraintName("FK__ReportAtt__repor__10566F31");
+                .HasConstraintName("FK__ReportAtt__repor__17F790F9");
         });
 
         modelBuilder.Entity<Role>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Role__3213E83F82E2795C");
+            entity.HasKey(e => e.Id).HasName("PK__Role__3213E83F37CFDE90");
 
             entity.ToTable("Role");
 
@@ -584,7 +656,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<Schedule>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Schedule__3213E83F8FFED488");
+            entity.HasKey(e => e.Id).HasName("PK__Schedule__3213E83FDF6CBA32");
 
             entity.ToTable("Schedule");
 
@@ -600,12 +672,12 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
             entity.HasOne(d => d.Account).WithMany(p => p.Schedules)
                 .HasForeignKey(d => d.AccountId)
-                .HasConstraintName("FK__Schedule__accoun__114A936A");
+                .HasConstraintName("FK__Schedule__accoun__18EBB532");
         });
 
         modelBuilder.Entity<Task>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Task__3213E83FC7A10923");
+            entity.HasKey(e => e.Id).HasName("PK__Task__3213E83FEEFE665E");
 
             entity.ToTable("Task");
 
@@ -632,16 +704,16 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
             entity.HasOne(d => d.Schedule).WithMany(p => p.Tasks)
                 .HasForeignKey(d => d.ScheduleId)
-                .HasConstraintName("FK__Task__schedule_i__123EB7A3");
+                .HasConstraintName("FK__Task__schedule_i__19DFD96B");
 
             entity.HasOne(d => d.TaskType).WithMany(p => p.Tasks)
                 .HasForeignKey(d => d.TaskTypeId)
-                .HasConstraintName("FK__Task__task_type___151B244E");
+                .HasConstraintName("FK__Task__task_type___1CBC4616");
         });
 
         modelBuilder.Entity<TaskEstimate>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__TaskEsti__3213E83F4E857586");
+            entity.HasKey(e => e.Id).HasName("PK__TaskEsti__3213E83F8EF04DF5");
 
             entity.ToTable("TaskEstimate");
 
@@ -657,16 +729,16 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
             entity.HasOne(d => d.AnimalType).WithMany(p => p.TaskEstimates)
                 .HasForeignKey(d => d.AnimalTypeId)
-                .HasConstraintName("FK__TaskEstim__anima__17036CC0");
+                .HasConstraintName("FK__TaskEstim__anima__208CD6FA");
 
             entity.HasOne(d => d.TaskType).WithMany(p => p.TaskEstimates)
                 .HasForeignKey(d => d.TaskTypeId)
-                .HasConstraintName("FK__TaskEstim__task___160F4887");
+                .HasConstraintName("FK__TaskEstim__task___1F98B2C1");
         });
 
         modelBuilder.Entity<TaskType>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__TaskType__3213E83F3F159F05");
+            entity.HasKey(e => e.Id).HasName("PK__TaskType__3213E83F6D4B26A1");
 
             entity.ToTable("TaskType");
 
@@ -684,7 +756,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<Team>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Team__3213E83F9E9F023F");
+            entity.HasKey(e => e.Id).HasName("PK__Team__3213E83FC67EE712");
 
             entity.ToTable("Team");
 
@@ -702,12 +774,12 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
             entity.HasOne(d => d.ZooArea).WithMany(p => p.Teams)
                 .HasForeignKey(d => d.ZooAreaId)
-                .HasConstraintName("FK__Team__zoo_area_i__14270015");
+                .HasConstraintName("FK__Team__zoo_area_i__1BC821DD");
         });
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__User__3213E83F7446DB0B");
+            entity.HasKey(e => e.Id).HasName("PK__User__3213E83FD4B18508");
 
             entity.ToTable("User");
 
@@ -734,12 +806,12 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
             entity.HasOne(d => d.Account).WithMany(p => p.Users)
                 .HasForeignKey(d => d.AccountId)
-                .HasConstraintName("FK__User__account_id__1332DBDC");
+                .HasConstraintName("FK__User__account_id__1AD3FDA4");
         });
 
         modelBuilder.Entity<ZooArea>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__ZooArea__3213E83F75A8A9B7");
+            entity.HasKey(e => e.Id).HasName("PK__ZooArea__3213E83FF7AAD095");
 
             entity.ToTable("ZooArea");
 

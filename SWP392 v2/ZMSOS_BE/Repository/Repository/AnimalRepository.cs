@@ -47,13 +47,8 @@ namespace Repository.Repository
                 Animal animal = new()
                 {
                     AnimalTypeId = key.AnimalTypeId,
-                    Name = key.Name,
                     Description = key.Description,
-                    Age = key.Age,
-                    Gender = key.Gender,
-                    Weight = key.Weight,
-                    Notes = key.Notes,
-                    ArrivalDate = DateOnly.FromDateTime(DateTime.Now),
+                    Classify = key.Classify,
                     Status = "",
                     UrlImage = key.UrlImage,
                 };
@@ -72,12 +67,8 @@ namespace Repository.Repository
                 var animal = GetById(key.Id);
                 if (animal == null) return null;
                 animal.AnimalTypeId = key.AnimalTypeId;
-                animal.Name = key.Name;
                 animal.Description = key.Description;
-                animal.Age = key.Age;
-                animal.Gender = key.Gender;
-                animal.Weight = key.Weight;
-                animal.Notes = key.Notes;
+                animal.Classify = key.Classify;
                 animal.Status = key.Status;
                 animal.UrlImage = key.UrlImage;
                 await UpdateAsync(animal);
@@ -88,28 +79,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public List<AnimalView> ConvertListAnimalIntoListAnimalView(List<Animal> animals, List<AnimalTypeView> animalTypes)
-        {
-            try
-            {
-                List<AnimalView> result = new();
-                for (int i = 0; i < animals.Count; i++)
-                {
-                    result.Add(ConvertAnimalIntoAnimalView(animals[i], animalTypes[i]));
-                }
-                return result;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-        public AnimalView ConvertAnimalIntoAnimalView(Animal animal, AnimalTypeView animalType)
+        public AnimalView ConvertAnimalIntoAnimalView(Animal animal, AnimalTypeView animalType, FlockView flock, IndividualView individual)
         {
             try
             {
                 AnimalView result = new AnimalView();
-                result.ConvertAnimalIntoAnimalView(animal, animalType);
+                result.ConvertAnimalIntoAnimalView(animal, animalType,flock, individual);
                 return result;
             }
             catch (Exception)

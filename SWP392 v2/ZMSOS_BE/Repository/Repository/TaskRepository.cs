@@ -1,5 +1,6 @@
 ﻿using BO.Models;
 using DAO.AddModel;
+using DAO.OtherModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
 using Repository.IRepositoyr;
@@ -71,28 +72,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public List<TaskView> ConvertListTaskIntoListTaskView(List<BO.Models.Task> tasks)
-        {
-            try
-            {
-                List<TaskView> result = new();
-                foreach (var task in tasks)
-                {
-                    result.Add(ConvertTaskIntoTaskView(task));
-                }
-                return result;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-        public TaskView ConvertTaskIntoTaskView(BO.Models.Task task)
+        public TaskView ConvertTaskIntoTaskView(BO.Models.Task task, List<AnimalCageTask> animalCageTasks, TaskTypeView taskType)
         {
             try
             {
                 TaskView result = new TaskView();
-                result.ConvertTaskIntoTaskView(task);
+                result.ConvertTaskIntoTaskView(task, animalCageTasks, taskType);
                 return result;
             }
             catch (Exception)

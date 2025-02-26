@@ -15,10 +15,12 @@ namespace Service.Service
     {
         public IAccountRepository repo;
         public IUserRepository userRepo;
-        public AccountService(IAccountRepository repo, IUserRepository userRepo)
+        public IObjectViewService objectViewService;
+        public AccountService(IAccountRepository repo, IUserRepository userRepo, IObjectViewService objectViewService)
         {
             this.repo = repo;
             this.userRepo = userRepo;
+            this.objectViewService = objectViewService;
         }
         public async Task<ServiceResult> Login(string accountName, string password)
         {
@@ -33,13 +35,13 @@ namespace Service.Service
                         Message = "Wrong AccountName Or Password!",
                     };
                 }
-                AccountView accountView = new AccountView();
-                accountView = repo.ConvertAccountIntoAccountView(account);
+                AccountView result = new AccountView();
+                result = await objectViewService.GetAccountView(account);
                 return new ServiceResult
                 {
                     Status = 200,
                     Message = "Login Succeess",
-                    Data = accountView
+                    Data = result
                 };
             }
             catch (Exception ex)

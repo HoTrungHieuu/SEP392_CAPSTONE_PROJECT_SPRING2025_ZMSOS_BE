@@ -15,9 +15,38 @@ namespace Repository.Repository
         {
             try
             {
-                var animalCages = (await GetAllAsync()).FindAll(l => l.CageId == cageId);
-                if (animalCages != null) return null;
+                var animalCages = (await GetAllAsync()).FindAll(l => l.CageId == cageId && l.ToDate == null);
                 return animalCages;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public async Task<List<int?>?> GetListAnimalCageIdByCageId(int cageId)
+        {
+            try
+            {
+                var animalCages = (await GetAllAsync()).FindAll(l => l.CageId == cageId && l.ToDate == null);
+                List<int?> result = new List<int?>();
+                foreach (var animalCage in animalCages)
+                {
+                    result.Add(animalCage.Id);
+                }
+                return result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public async Task<int?> GetAnimalCageIdByCageIdAndAnimalId(int cageId, int animalId)
+        {
+            try
+            {
+                var animalCage = (await GetAllAsync()).FirstOrDefault(l => l.CageId == cageId && l.AnimalId == animalId && l.ToDate == null);
+                if (animalCage != null) return null;
+                return animalCage.Id;
             }
             catch (Exception)
             {

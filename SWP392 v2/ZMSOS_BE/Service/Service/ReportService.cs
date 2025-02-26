@@ -15,11 +15,13 @@ namespace Service.Service
         public IReportRepository repo;
         public IReportAttachmentRepository attachmentRepo;
         public IUserRepository userRepo;
-        public ReportService(IReportRepository repo, IReportAttachmentRepository attachmentRepo, IUserRepository userRepo)
+        public IObjectViewService objectViewService;
+        public ReportService(IReportRepository repo, IReportAttachmentRepository attachmentRepo, IUserRepository userRepo, IObjectViewService objectViewService)
         {
             this.repo = repo;
             this.attachmentRepo = attachmentRepo;
             this.userRepo = userRepo;
+            this.objectViewService = objectViewService;
         }
         public async Task<ServiceResult> GetListReportBySenderId(int senderId)
         {
@@ -34,24 +36,8 @@ namespace Service.Service
                         Message = "Not Found!",
                     };
                 }
-
-                List<UserView> senders = new List<UserView>();
-                List<UserView> recievers = new List<UserView>();
-                List<List<string>> fileUrls = new(); 
-                for(int i = 0; i < reports.Count; i++)
-                {
-                    UserView sender = new();
-                    sender.ConvertUserIntoUserView(await userRepo.GetUserByAccountId((int)reports[i].SenderId));
-                    senders.Add(sender);
-                    UserView reciever = new();
-                    reciever.ConvertUserIntoUserView(await userRepo.GetUserByAccountId((int)reports[i].ReceiverId));
-                    recievers.Add(reciever);
-                    var attachs = await attachmentRepo.GetListReportAttachmentByReportId(reports[i].Id);
-                    List<string> fileUrl = attachmentRepo.ConvertListReportAttachmentIntoListString(attachs);
-                    fileUrls.Add(fileUrl);
-                }
                 
-                var result = repo.ConvertListReportIntoListReportView(reports,senders,recievers,fileUrls);
+                var result = await objectViewService.GetListReportView(reports);
                 return new ServiceResult
                 {
                     Status = 200,
@@ -82,23 +68,7 @@ namespace Service.Service
                     };
                 }
 
-                List<UserView> senders = new List<UserView>();
-                List<UserView> recievers = new List<UserView>();
-                List<List<string>> fileUrls = new();
-                for (int i = 0; i < reports.Count; i++)
-                {
-                    UserView sender = new();
-                    sender.ConvertUserIntoUserView(await userRepo.GetUserByAccountId((int)reports[i].SenderId));
-                    senders.Add(sender);
-                    UserView reciever = new();
-                    reciever.ConvertUserIntoUserView(await userRepo.GetUserByAccountId((int)reports[i].ReceiverId));
-                    recievers.Add(reciever);
-                    var attachs = await attachmentRepo.GetListReportAttachmentByReportId(reports[i].Id);
-                    List<string> fileUrl = attachmentRepo.ConvertListReportAttachmentIntoListString(attachs);
-                    fileUrls.Add(fileUrl);
-                }
-
-                var result = repo.ConvertListReportIntoListReportView(reports, senders, recievers, fileUrls);
+                var result = await objectViewService.GetListReportView(reports);
                 return new ServiceResult
                 {
                     Status = 200,
@@ -129,14 +99,7 @@ namespace Service.Service
                     };
                 }
 
-                UserView sender = new();
-                sender.ConvertUserIntoUserView(await userRepo.GetUserByAccountId((int)report.SenderId));
-                UserView reciever = new();
-                reciever.ConvertUserIntoUserView(await userRepo.GetUserByAccountId((int)report.ReceiverId));
-                var attachs = await attachmentRepo.GetListReportAttachmentByReportId(report.Id);
-                List<string> fileUrl = attachmentRepo.ConvertListReportAttachmentIntoListString(attachs);
-
-                var result = repo.ConvertReportIntoReportView(report, sender, reciever, fileUrl);
+                var result = await objectViewService.GetReportView(report);
                 return new ServiceResult
                 {
                     Status = 200,

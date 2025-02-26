@@ -16,7 +16,6 @@ namespace Repository.IRepository
         public Task<List<Animal>?> GetListAnimalByAnimalTypeId(int animalTypeId);
         public Task<Animal> AddAnimal(AnimalAdd key);
         public Task<Animal?> UpdateAnimal(AnimalUpdate key);
-        public List<AnimalView> ConvertListAnimalIntoListAnimalView(List<Animal> animals, List<AnimalTypeView> animalTypes);
-        public AnimalView ConvertAnimalIntoAnimalView(Animal animal, AnimalTypeView animalType);
+        public AnimalView ConvertAnimalIntoAnimalView(Animal animal, AnimalTypeView animalType, FlockView flock, IndividualView individual);
     }
 }
