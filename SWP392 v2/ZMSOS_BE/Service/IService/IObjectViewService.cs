@@ -38,5 +38,7 @@ namespace Service.IService
         public Task<ApplicationView> GetApplicationView(Application application);
         public Task<List<ApplicationTypeView>> GetListApplicationTypeView(List<ApplicationType> applicationTypes);
         public Task<ApplicationTypeView> GetApplicationTypeView(ApplicationType applicationType);
+        public Task<List<IncompatibleAnimalTypeView>> GetListIncompatibleAnimalTypeView(List<IncompatibleAnimalType> incompatibleAnimalTypes);
+        public Task<IncompatibleAnimalTypeView> GetIncompatibleAnimalTypeView(IncompatibleAnimalType incompatibleAnimalType);
     }
 }

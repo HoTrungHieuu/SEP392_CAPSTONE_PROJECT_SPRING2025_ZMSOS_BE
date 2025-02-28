@@ -141,6 +141,8 @@ builder.Services.AddScoped<IFlockRepository, FlockRepository>();
 builder.Services.AddScoped<IIndividualRepository, IndividualRepository>();
 builder.Services.AddScoped<IObjectViewService, ObjectViewService>();
 builder.Services.AddScoped<IAnimalAssignRepository, AnimalAssignRepository>();
+builder.Services.AddScoped<IIncompatibleAnimalTypeRepository, IncompatibleAnimalTypeRepository>();
+builder.Services.AddScoped<IIncompatibleAnimalTypeService, IncompatibleAnimalTypeService>();
 
 var app = builder.Build();
 

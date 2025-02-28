@@ -1,5 +1,8 @@
-﻿using DAO.AddModel;
+﻿using BO.Models;
+using DAO.AddModel;
+using DAO.SearchModel;
 using DAO.UpdateModel;
+using DAO.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +14,7 @@ namespace Service.IService
     public interface IAnimalService
     {
         public Task<ServiceResult> GetListAnimal();
+        public Task<ServiceResult> GetListAnimalSearching(AnimalSearch<AnimalView> key);
         public Task<ServiceResult> GetListAnimalByAnimalTypeId(int animalTypeId);
         public Task<ServiceResult> GetListAnimalByCageId(int cageId);
         public Task<ServiceResult> GetAnimalById(int id);

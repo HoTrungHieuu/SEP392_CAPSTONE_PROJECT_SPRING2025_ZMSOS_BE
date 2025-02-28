@@ -1,5 +1,7 @@
 ﻿using BO.Models;
 using DAO.AddModel;
+using DAO.OtherModel;
+using DAO.SearchModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
 using Repository.IRepository;
@@ -20,8 +22,12 @@ namespace Service.Service
         public IAnimalCageRepository animalCageRepo;
         public IFlockRepository flockRepo;
         public IIndividualRepository individualRepo;
+        public IIncompatibleAnimalTypeRepository incompatibleAnimalTypeRepo;
         public IObjectViewService objectViewService;
-        public AnimalService(IAnimalRepository repo, IAnimalTypeRepository typeRepo, IAnimalCageRepository animalCageRepo, ICageRepository cageRepo, IObjectViewService objectViewService, IFlockRepository flockRepo, IIndividualRepository individualRepo)
+        public AnimalService(IAnimalRepository repo, IAnimalTypeRepository typeRepo, 
+            IAnimalCageRepository animalCageRepo, ICageRepository cageRepo, IObjectViewService objectViewService, 
+            IFlockRepository flockRepo, IIndividualRepository individualRepo, 
+            IIncompatibleAnimalTypeRepository incompatibleAnimalTypeRepo)
         {
             this.repo = repo;
             this.typeRepo = typeRepo;
@@ -30,6 +36,7 @@ namespace Service.Service
             this.flockRepo = flockRepo;
             this.individualRepo = individualRepo;
             this.objectViewService = objectViewService;
+            this.incompatibleAnimalTypeRepo = incompatibleAnimalTypeRepo;
         }
         public async Task<ServiceResult> GetListAnimal()
         {
@@ -45,6 +52,98 @@ namespace Service.Service
                     };
                 }
                 var result = await objectViewService.GetListAnimalView(animals);
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "Animals",
+                    Data = result
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
+        public async Task<ServiceResult> GetListAnimalSearching(AnimalSearch<AnimalView> key)
+        {
+            try
+            {
+                var animals = await repo.GetListAnimal();
+                if (animals == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Not Found!",
+                    };
+                }
+                var result = await objectViewService.GetListAnimalView(animals);
+                if (key.AnimalTypeId != null)
+                {
+                    result = result.FindAll(l => l.AnimalType?.Id == key.AnimalTypeId);
+                }
+                if(key.Classify == "Flock")
+                {
+                    result = result.FindAll(l => l.Classify == key.Classify);
+                }
+                else if (key.Classify == "Individual")
+                {
+                    result = result.FindAll(l => l.Classify == key.Classify);
+                    result = result.FindAll(l => l.Individual.Name.Contains(key.Individual.Name));
+                    if (key.Sorting?.PropertySort == "Name")
+                    {
+                        if (key.Sorting.IsAsc)
+                        {
+                            result.OrderBy(l => l.Individual?.Name);
+                        }
+                        else
+                        {
+                            result.OrderByDescending(l => l.Individual?.Name);
+                        }
+                    }
+                    else if (key.Sorting?.PropertySort == "Age")
+                    {
+                        if (key.Sorting.IsAsc)
+                        {
+                            result.OrderBy(l => l.Individual?.Age);
+                        }
+                        else
+                        {
+                            result.OrderByDescending(l => l.Individual?.Age);
+                        }
+                    }
+                    else if (key.Sorting?.PropertySort == "ArrivalDate")
+                    {
+                        if (key.Sorting.IsAsc)
+                        {
+                            result.OrderBy(l => l.Individual?.ArrivalDate);
+                        }
+                        else
+                        {
+                            result.OrderByDescending(l => l.Individual?.ArrivalDate);
+                        }
+                    }
+                }
+                if(key.Sorting?.PropertySort == "Id")
+                {
+                    if (key.Sorting.IsAsc)
+                    {
+                        result.OrderBy(l => l.Id);
+                    }
+                    else
+                    {
+                        result.OrderByDescending(l => l.Id);
+                    }
+                }
+                if(key.Paging != null)
+                {
+                    Paging<AnimalView> paging = new();
+                    result = paging.PagingList(result, key.Paging.PageSize, key.Paging.PageNumber);
+                }
                 return new ServiceResult
                 {
                     Status = 200,
@@ -104,6 +203,15 @@ namespace Service.Service
         {
             try
             {
+                var cage = cageRepo.GetById(cageId);
+                if(cage == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Cage Not Found!",
+                    };
+                }
                 var animalCages = await animalCageRepo.GetListAnimalCageByCageId(cageId);
                 if(animalCages == null)
                 {
@@ -255,11 +363,27 @@ namespace Service.Service
                 List<int> unsuccessId = new List<int>();
                 foreach (int id in animalIds)
                 {
-                    var animalCage = await animalCageRepo.AddAnimalCage(id, cageId);
-                    if(animalCage == null)
+                    var animalCages = await animalCageRepo.GetListAnimalCageByCageId(cageId);
+                    bool incompatible = false;
+                    foreach (var animalCageTemp in animalCages)
                     {
-                        unsuccessId.Add(id);
+                        var animal1 = repo.GetById(animalCageTemp.AnimalId);
+                        var animal2 = repo.GetById(id);
+                        if((await incompatibleAnimalTypeRepo.CheckIncompatibleAnimalType((int)animal1.AnimalTypeId, (int)animal2.AnimalTypeId)) == true)
+                        {
+                            incompatible = true;
+                            break;
+                        }
                     }
+                    if (incompatible == false)
+                    {
+                        var animalCage = await animalCageRepo.AddAnimalCage(id, cageId);
+                        if (animalCage == null)
+                        {
+                            unsuccessId.Add(id);
+                        }
+                    }
+                    unsuccessId.Add(id);
                 }
                 return new ServiceResult
                 {
@@ -345,7 +469,8 @@ namespace Service.Service
                         Message = "Animal Not Found"
                     };
                 }
-                var animalCage = await animalCageRepo.RemoveAnimalCage(animalId, cageId);
+                var animalCage = await animalCageRepo.GetAnimalCageCurrentByAnimalId(animalId);
+                animalCage = await animalCageRepo.RemoveAnimalCage(animalId, (int)animalCage.CageId);
                 if (animalCage == null)
                 {
                     return new ServiceResult

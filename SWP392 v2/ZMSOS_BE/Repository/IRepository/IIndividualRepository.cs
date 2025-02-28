@@ -15,7 +15,6 @@ namespace Repository.IRepository
         public Task<Individual?> GetIndividualByAnimalId(int animalId);
         public Task<Individual> AddIndividual(int animalId, IndividualAdd key);
         public Task<Individual?> UpdateIndividual(int animalId, IndividualUpdate key);
-        public List<IndividualView> ConvertListIndividualIntoListIndividualView(List<Individual> individuals);
         public IndividualView ConvertIndividualIntoIndividualView(Individual individual);
     }
 }

@@ -37,5 +37,9 @@ public partial class AnimalType
 
     public virtual ICollection<Animal> Animals { get; set; } = new List<Animal>();
 
+    public virtual ICollection<IncompatibleAnimalType> IncompatibleAnimalTypeAnimalTypeId1Navigations { get; set; } = new List<IncompatibleAnimalType>();
+
+    public virtual ICollection<IncompatibleAnimalType> IncompatibleAnimalTypeAnimalTypeId2Navigations { get; set; } = new List<IncompatibleAnimalType>();
+
     public virtual ICollection<TaskEstimate> TaskEstimates { get; set; } = new List<TaskEstimate>();
 }

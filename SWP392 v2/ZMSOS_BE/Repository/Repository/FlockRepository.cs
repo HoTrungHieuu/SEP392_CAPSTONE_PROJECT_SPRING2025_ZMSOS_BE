@@ -63,22 +63,6 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public List<FlockView> ConvertListFlockIntoListFlockView(List<Flock> flocks)
-        {
-            try
-            {
-                List<FlockView> result = new();
-                for (int i = 0; i < flocks.Count; i++)
-                {
-                    result.Add(ConvertFlockIntoFlockView(flocks[i]));
-                }
-                return result;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
         public FlockView ConvertFlockIntoFlockView(Flock flock)
         {
             try

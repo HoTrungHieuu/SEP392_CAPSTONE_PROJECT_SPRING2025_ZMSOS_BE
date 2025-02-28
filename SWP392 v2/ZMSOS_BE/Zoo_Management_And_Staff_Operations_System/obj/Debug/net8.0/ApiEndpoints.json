@@ -190,6 +190,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AnimalAndCageManagement.Controllers.AnimalController",
+    "Method": "GetListAnimalSearch",
+    "RelativePath": "api/Animal/animals/search-sort-paging",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.SearchModel.AnimalSearch\u00601[[DAO.ViewModel.AnimalView, DAO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AnimalAndCageManagement.Controllers.AnimalTypeController",
     "Method": "AddAnimalType",
     "RelativePath": "api/AnimalType/animalType",
@@ -421,6 +437,48 @@
     "Parameters": [
       {
         "Name": "zooAreaId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.IncompatibleAnimalTypeController",
+    "Method": "AddIncompatibleAnimalType",
+    "RelativePath": "api/IncompatibleAnimalType/incompatibleAnimalType",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.AddModel.IncompatibleAnimalTypeAdd",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.IncompatibleAnimalTypeController",
+    "Method": "GetListIncompatibleAnimalType",
+    "RelativePath": "api/IncompatibleAnimalType/incompatibleAnimalTypes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.IncompatibleAnimalTypeController",
+    "Method": "GetIncompatibleAnimalTypeById",
+    "RelativePath": "api/IncompatibleAnimalType/ncompatibleAnimalType/id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
         "Type": "System.Int32",
         "IsRequired": false
       }

@@ -71,6 +71,10 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[IncompatibleAnimalType]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[Individual]",
          "ObjectType": 0
       },

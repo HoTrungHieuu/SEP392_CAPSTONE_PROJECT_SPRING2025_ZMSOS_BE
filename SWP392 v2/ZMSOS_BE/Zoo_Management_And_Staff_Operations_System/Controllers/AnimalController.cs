@@ -1,6 +1,8 @@
 ﻿using AccountManagement;
 using DAO.AddModel;
+using DAO.SearchModel;
 using DAO.UpdateModel;
+using DAO.ViewModel;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Service.IService;
@@ -20,6 +22,13 @@ namespace AnimalAndCageManagement.Controllers
         public async Task<IActionResult> GetListAnimal()
         {
             var result = await service.GetListAnimal();
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
+        [HttpPost("animals/search-sort-paging")]
+        public async Task<IActionResult> GetListAnimalSearch(AnimalSearch<AnimalView> key)
+        {
+            var result = await service.GetListAnimalSearching(key);
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }

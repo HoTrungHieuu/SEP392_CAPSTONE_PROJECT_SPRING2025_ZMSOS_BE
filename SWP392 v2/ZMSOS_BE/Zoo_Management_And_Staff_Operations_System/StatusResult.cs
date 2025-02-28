@@ -14,7 +14,7 @@ namespace AccountManagement
                 case 400:
                     return NotFound(result);
                 case 404:
-                    return NotFound();
+                    return NotFound(result);
                 case 409:
                     return Conflict(result);
                 case 501:

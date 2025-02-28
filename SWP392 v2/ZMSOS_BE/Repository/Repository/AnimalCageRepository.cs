@@ -53,6 +53,18 @@ namespace Repository.Repository
                 throw;
             }
         }
+        public async Task<AnimalCage?> GetAnimalCageCurrentByAnimalId(int animalId)
+        {
+            try
+            {
+                var animalCage = (await GetAllAsync()).FirstOrDefault(l => l.AnimalId == animalId && l.ToDate == null);
+                return animalCage;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         public async Task<AnimalCage?> AddAnimalCage(int animalId, int cageId)
         {
             try

@@ -75,22 +75,6 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public List<IndividualView> ConvertListIndividualIntoListIndividualView(List<Individual> individuals)
-        {
-            try
-            {
-                List<IndividualView> result = new();
-                for (int i = 0; i < individuals.Count; i++)
-                {
-                    result.Add(ConvertIndividualIntoIndividualView(individuals[i]));
-                }
-                return result;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
         public IndividualView ConvertIndividualIntoIndividualView(Individual individual)
         {
             try

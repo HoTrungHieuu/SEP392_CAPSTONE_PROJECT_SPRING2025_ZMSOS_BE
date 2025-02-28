@@ -33,6 +33,7 @@ namespace Service.Service
         public IReportAttachmentRepository reportAttachmentRepo;
         public IApplicationRepository applicationRepo;
         public IApplicationTypeRepository applicationTypeRepo;
+        public IIncompatibleAnimalTypeRepository incompatibleAnimalTypeRepo;
         public ObjectViewService(IAnimalRepository animalRepo, IAnimalTypeRepository animalTypeRepo, 
             ICageRepository cageRepo, IZooAreaRepository zooAreaRepo,
             ITaskRepository taskRepo, ITaskTypeRepository taskTypeRepo, IAnimalCageRepository animalCageRepo, IAnimalAssignRepository animalAssignRepo, 
@@ -40,7 +41,8 @@ namespace Service.Service
             IAccountRepository accountRepo, IUserRepository userRepo,
             ITeamRepository teamRepo, ILeaderAssignRepository leaderRepo, IMemberAssignRepository memberRepo,
             IReportRepository reportRepo, IReportAttachmentRepository reportAttachmentRepo,
-            IApplicationRepository applicationRepo, IApplicationTypeRepository applicationTypeRepo)
+            IApplicationRepository applicationRepo, IApplicationTypeRepository applicationTypeRepo,
+            IIncompatibleAnimalTypeRepository incompatibleAnimalTypeRepo)
         {
             this.animalRepo = animalRepo;
             this.animalTypeRepo = animalTypeRepo;
@@ -61,6 +63,7 @@ namespace Service.Service
             this.reportAttachmentRepo = reportAttachmentRepo;
             this.applicationRepo = applicationRepo;
             this.applicationTypeRepo = applicationTypeRepo;
+            this.incompatibleAnimalTypeRepo = incompatibleAnimalTypeRepo;
         }
         public async Task<List<AnimalView>> GetListAnimalView(List<Animal> animals)
         {
@@ -338,6 +341,24 @@ namespace Service.Service
         public async Task<ApplicationTypeView> GetApplicationTypeView(ApplicationType applicationType)
         {
             var result = applicationTypeRepo.ConvertApplicationTypeIntoApplicationTypeView(applicationType);
+            return result;
+        }
+        public async Task<List<IncompatibleAnimalTypeView>> GetListIncompatibleAnimalTypeView(List<IncompatibleAnimalType> incompatibleAnimalTypes)
+        {
+            List<IncompatibleAnimalTypeView> result = new List<IncompatibleAnimalTypeView>();
+            foreach (var incompatibleAnimalType in incompatibleAnimalTypes)
+            {
+                result.Add(await GetIncompatibleAnimalTypeView(incompatibleAnimalType));
+            }
+            return result;
+        }
+        public async Task<IncompatibleAnimalTypeView> GetIncompatibleAnimalTypeView(IncompatibleAnimalType incompatibleAnimalType)
+        {
+            AnimalTypeView animalType1 = new();
+            animalType1 = await GetAnimalTypeView(animalTypeRepo.GetById((int)incompatibleAnimalType.AnimalTypeId1));
+            AnimalTypeView animalType2 = new();
+            animalType2 = await GetAnimalTypeView(animalTypeRepo.GetById((int)incompatibleAnimalType.AnimalTypeId2));
+            var result = incompatibleAnimalTypeRepo.ConvertIncompatibleAnimalTypeIntoIncompatibleAnimalTypeView(incompatibleAnimalType,animalType1,animalType2);
             return result;
         }
     }
