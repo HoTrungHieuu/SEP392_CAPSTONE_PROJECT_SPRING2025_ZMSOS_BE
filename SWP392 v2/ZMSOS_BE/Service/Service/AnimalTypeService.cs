@@ -1,4 +1,6 @@
 ﻿using DAO.AddModel;
+using DAO.OtherModel;
+using DAO.SearchModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
 using Repository.IRepository;
@@ -38,6 +40,100 @@ namespace Service.Service
                 {
                     Status = 200,
                     Message = "AnimalTypes",
+                    Data = result
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
+        public async Task<ServiceResult> GetListAnimalTypeSearching(AnimalTypeSearch<AnimalTypeView> key)
+        {
+            try
+            {
+                var animalTypes = await repo.GetListAnimalType();
+                if (animalTypes == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Not Found!",
+                    };
+                }
+                var result = await objectViewService.GetListAnimalTypeView(animalTypes);
+                if (key.ScientificName != null)
+                {
+                    result = result.FindAll(l => l.ScientificName == key.ScientificName);
+                }
+                if (key.VietnameseName != null)
+                {
+                    result = result.FindAll(l => l.VietnameseName == key.VietnameseName);
+                }
+                if (key.EnglishName != null)
+                {
+                    result = result.FindAll(l => l.EnglishName == key.EnglishName);
+                }
+                if (key.Sorting?.PropertySort == "Id")
+                {
+                    if (key.Sorting.IsAsc)
+                    {
+                        result.OrderBy(l => l.Id);
+                    }
+                    else
+                    {
+                        result.OrderByDescending(l => l.Id);
+                    }
+                }
+                else if(key.Sorting?.PropertySort == "ScientificName")
+                {
+                    if (key.Sorting.IsAsc)
+                    {
+                        result.OrderBy(l => l.ScientificName);
+                    }
+                    else
+                    {
+                        result.OrderByDescending(l => l.ScientificName);
+                    }
+                }
+                else if (key.Sorting?.PropertySort == "VietnameseName")
+                {
+                    if (key.Sorting.IsAsc)
+                    {
+                        result.OrderBy(l => l.VietnameseName);
+                    }
+                    else
+                    {
+                        result.OrderByDescending(l => l.VietnameseName);
+                    }
+                }
+                else if (key.Sorting?.PropertySort == "EnglishName")
+                {
+                    if (key.Sorting.IsAsc)
+                    {
+                        result.OrderBy(l => l.EnglishName);
+                    }
+                    else
+                    {
+                        result.OrderByDescending(l => l.EnglishName);
+                    }
+                }
+                int? totalNumberPaging = null;
+                if (key.Paging != null)
+                {
+                    Paging<AnimalTypeView> paging = new();
+                    result = paging.PagingList(result, key.Paging.PageSize, key.Paging.PageNumber);
+                    totalNumberPaging = paging.MaxPageNumber(result, key.Paging.PageSize);
+                }
+                if (totalNumberPaging == null) totalNumberPaging = 1;
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = totalNumberPaging.ToString(),
                     Data = result
                 };
             }

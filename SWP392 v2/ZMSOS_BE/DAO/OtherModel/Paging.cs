@@ -22,5 +22,18 @@ namespace DAO.OtherModel
             }
             return result;
         }
+        public int? MaxPageNumber(List<T>? list, int pageSize)
+        {
+            if (list == null) return null;
+            int count = list.Count;
+            if(count%pageSize == 0)
+            {
+                return count/pageSize;
+            }
+            else
+            {
+                return count / pageSize + 1;
+            }
+        }
     }
 }

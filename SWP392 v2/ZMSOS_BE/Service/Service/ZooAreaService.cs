@@ -1,5 +1,7 @@
 ﻿using BO.Models;
 using DAO.AddModel;
+using DAO.OtherModel;
+using DAO.SearchModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
 using Repository.IRepository;
@@ -36,6 +38,59 @@ namespace Service.Service
                 }
 
                 var result = await objectViewService.GetListZooAreaView(zooAreas);
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "Zoo Areas",
+                    Data = result
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
+        public async Task<ServiceResult> GetListZooAreaSearching(ZooAreaSearch<ZooAreaView> key)
+        {
+            try
+            {
+                var zooAreas = await repo.GetListZooArea();
+                if (zooAreas == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Not Found!",
+                    };
+                }
+                var result = await objectViewService.GetListZooAreaView(zooAreas);
+                if (key.Name != null)
+                {
+                    result = result.FindAll(l => l.Name == key.Name);
+                }
+                if (key.Sorting?.PropertySort == "Name")
+                {
+                    if (key.Sorting.IsAsc)
+                    {
+                        result.OrderBy(l => l.Name);
+                    }
+                    else
+                    {
+                        result.OrderByDescending(l => l.Name);
+                    }
+                }
+                int? totalNumberPaging = null;
+                if (key.Paging != null)
+                {
+                    Paging<ZooAreaView> paging = new();
+                    result = paging.PagingList(result, key.Paging.PageSize, key.Paging.PageNumber);
+                    totalNumberPaging = paging.MaxPageNumber(result, key.Paging.PageSize);
+                }
+                if (totalNumberPaging == null) totalNumberPaging = 1;
                 return new ServiceResult
                 {
                     Status = 200,

@@ -1,4 +1,7 @@
-﻿using DAO.AddModel;
+﻿using BO.Models;
+using DAO.AddModel;
+using DAO.OtherModel;
+using DAO.SearchModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
 using Repository.IRepository;
@@ -35,20 +38,80 @@ namespace Service.Service
                         Message = "Not Found!",
                     };
                 }
-
-                List<ZooAreaView> zooAreas = new();
-                for (int i = 0; i < cages.Count; i++)
-                {
-                    ZooAreaView zooArea = new();
-                    zooArea = areaRepo.ConvertZooAreaIntoZooAreaView(areaRepo.GetById((int)cages[i].ZooAreaId));
-                    zooAreas.Add(zooArea);
-                }
-
                 var result = await objectViewService.GetListCageView(cages);
                 return new ServiceResult
                 {
                     Status = 200,
                     Message = "Cages",
+                    Data = result
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
+        public async Task<ServiceResult> GetListCageSearching(CageSearch<CageView> key)
+        {
+            try
+            {
+                var cages = await repo.GetListCage();
+                if (cages == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Not Found!",
+                    };
+                }
+                var result = await objectViewService.GetListCageView(cages);
+                if (key.ZooAreaId != null)
+                {
+                    result = result.FindAll(l => l.ZooArea.Id == key.ZooAreaId);
+                }
+                if (key.Name != null)
+                {
+                    result = result.FindAll(l => l.Name == key.Name);
+                }
+                if (key.Sorting?.PropertySort == "ZooAreaId")
+                {
+                    if (key.Sorting.IsAsc)
+                    {
+                        result.OrderBy(l => l.ZooArea.Id);
+                    }
+                    else
+                    {
+                        result.OrderByDescending(l => l.ZooArea.Id);
+                    }
+                }
+                else if (key.Sorting?.PropertySort == "Name")
+                {
+                    if (key.Sorting.IsAsc)
+                    {
+                        result.OrderBy(l => l.Name);
+                    }
+                    else
+                    {
+                        result.OrderByDescending(l => l.Name);
+                    }
+                }
+                int? totalNumberPaging = null;
+                if (key.Paging != null)
+                {
+                    Paging<CageView> paging = new();
+                    result = paging.PagingList(result, key.Paging.PageSize, key.Paging.PageNumber);
+                    totalNumberPaging = paging.MaxPageNumber(result, key.Paging.PageSize);
+                }
+                if (totalNumberPaging == null) totalNumberPaging = 1;
+
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = totalNumberPaging.ToString(),
                     Data = result
                 };
             }
@@ -73,14 +136,6 @@ namespace Service.Service
                         Status = 404,
                         Message = "Not Found!",
                     };
-                }
-
-                List<ZooAreaView> zooAreas = new();
-                for (int i = 0; i < cages.Count; i++)
-                {
-                    ZooAreaView zooArea = new();
-                    zooArea = areaRepo.ConvertZooAreaIntoZooAreaView(areaRepo.GetById((int)cages[i].ZooAreaId));
-                    zooAreas.Add(zooArea);
                 }
 
                 var result = await objectViewService.GetListCageView(cages);
@@ -113,9 +168,6 @@ namespace Service.Service
                         Message = "Not Found!",
                     };
                 }
-
-                ZooAreaView zooArea = new();
-                zooArea = areaRepo.ConvertZooAreaIntoZooAreaView(areaRepo.GetById((int)cage.ZooAreaId));
 
                 var result = await objectViewService.GetCageView(cage);
                 return new ServiceResult

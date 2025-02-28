@@ -264,6 +264,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AnimalAndCageManagement.Controllers.AnimalTypeController",
+    "Method": "GetListAnimalTypeSearch",
+    "RelativePath": "api/AnimalType/animalTypes/search-sort-paging",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.SearchModel.AnimalTypeSearch\u00601[[DAO.ViewModel.AnimalTypeView, DAO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AccountManagement.Controllers.ApplicationController",
     "Method": "AddApplication",
     "RelativePath": "api/Application/application",
@@ -425,6 +441,22 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.CageController",
+    "Method": "GetListCageSearch",
+    "RelativePath": "api/Cage/cages/search-sort-paging",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.SearchModel.CageSearch\u00601[[DAO.ViewModel.CageView, DAO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -1167,6 +1199,22 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.ZooAreaController",
+    "Method": "GetListZooAreaSearch",
+    "RelativePath": "api/ZooArea/zooAreas/search-sort-paging",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.SearchModel.ZooAreaSearch\u00601[[DAO.ViewModel.ZooAreaView, DAO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   }
 ]

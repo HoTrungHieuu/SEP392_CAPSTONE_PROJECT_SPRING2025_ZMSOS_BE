@@ -139,16 +139,19 @@ namespace Service.Service
                         result.OrderByDescending(l => l.Id);
                     }
                 }
-                if(key.Paging != null)
+                int? totalNumberPaging = null;
+                if (key.Paging != null)
                 {
                     Paging<AnimalView> paging = new();
                     result = paging.PagingList(result, key.Paging.PageSize, key.Paging.PageNumber);
+                    totalNumberPaging = paging.MaxPageNumber(result, key.Paging.PageSize);
                 }
+                if (totalNumberPaging == null) totalNumberPaging = 1;
                 return new ServiceResult
                 {
                     Status = 200,
                     Message = "Animals",
-                    Data = result
+                    Data = totalNumberPaging.ToString()
                 };
             }
             catch (Exception ex)
