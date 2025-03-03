@@ -18,8 +18,8 @@ namespace DAO.ViewModel
         public string Height {  get; set; }
         public DateOnly? ArrivalDate {  get; set; }
         public string Note {  get; set; }
-        public string Status {  get; set; }
-        public void ConvertIndividualIntoIndividualView(Individual key)
+        public StatusView? Status {  get; set; }
+        public void ConvertIndividualIntoIndividualView(Individual key, StatusView? status)
         {
             Id = key.Id;
             BirthDate = key.BirthDate;
@@ -30,7 +30,7 @@ namespace DAO.ViewModel
             Height = key.Height;
             ArrivalDate = key.ArrivalDate;
             Note = key.Notes;
-            Status = key.Status;
+            Status = status;
         }
     }
 }

@@ -17,11 +17,13 @@ public partial class AnimalCage
 
     public DateOnly? ToDate { get; set; }
 
-    public string Status { get; set; }
+    public int? StatusId { get; set; }
 
     public virtual Animal Animal { get; set; }
 
     public virtual ICollection<AnimalAssign> AnimalAssigns { get; set; } = new List<AnimalAssign>();
 
     public virtual Cage Cage { get; set; }
+
+    public virtual Status Status { get; set; }
 }

@@ -36,7 +36,7 @@ namespace Repository.Repository
                 {
                     Name = key.Name,
                     Description = key.Description,
-                    Status = "Active",
+                    Status = null,
                 };
                 await CreateAsync(team);
                 return team;
@@ -62,28 +62,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public List<TeamView> ConvertListTeamIntoListTeamView(List<Team> teams)
-        {
-            try
-            {
-                List<TeamView> result = new();
-                for (int i = 0; i < teams.Count; i++)
-                {
-                    result.Add(ConvertTeamIntoTeamView(teams[i]));
-                }
-                return result;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-        public TeamView ConvertTeamIntoTeamView(Team team)
+        public TeamView ConvertTeamIntoTeamView(Team team, StatusView? status)
         {
             try
             {
                 TeamView result = new TeamView();
-                result.ConvertTeamIntoTeamView(team);
+                result.ConvertTeamIntoTeamView(team,status);
                 return result;
             }
             catch (Exception)

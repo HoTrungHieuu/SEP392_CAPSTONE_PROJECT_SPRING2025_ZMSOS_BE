@@ -35,6 +35,10 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[AnimalImage]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[AnimalIncidentHistory]",
          "ObjectType": 0
       },
@@ -108,6 +112,10 @@
       },
       {
          "Name": "[dbo].[Schedule]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Status]",
          "ObjectType": 0
       },
       {

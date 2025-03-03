@@ -15,14 +15,14 @@ namespace DAO.ViewModel
         public UserView User { get; set; }
         public DateOnly? Date { get; set; }
         public string Note { get; set; }
-        public string Status { get; set; }
-        public void ConvertSchedualIntoSchedualView(Schedule key, UserView user)
+        public StatusView? Status { get; set; }
+        public void ConvertSchedualIntoSchedualView(Schedule key, UserView user, StatusView? status)
         {
             Id = key.Id;
             User = user;
             Date = key.Date;
             Note = key.Note;
-            Status = key.Status;
+            Status = status;
         }
     }
 }

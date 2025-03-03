@@ -40,7 +40,7 @@ namespace Repository.Repository
                     MemberId = accountId,
                     FromDate = DateOnly.FromDateTime(DateTime.Now),
                     ToDate = null,
-                    Status = "Active"
+                    Status = null
                 };
                 await CreateAsync(memberAssign);
                 return memberAssign;
@@ -57,7 +57,7 @@ namespace Repository.Repository
                 var memberAssign = (await GetAllAsync()).FirstOrDefault(l => l.TeamId == teamId && l.MemberId == accountId && l.ToDate == null);
                 if (memberAssign == null) return null;
                 memberAssign.ToDate = DateOnly.FromDateTime(DateTime.Now);
-                memberAssign.Status = "InActive";
+                memberAssign.Status = null;
                 await UpdateAsync(memberAssign);
                 return memberAssign;
             }
@@ -66,28 +66,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public List<MemberAssignView> ConvertListMemberAssignIntoListMemberAssignView(List<MemberAssign> memberAssigns, List<TeamView> teams, List<UserView> users)
-        {
-            try
-            {
-                List<MemberAssignView> result = new();
-                for (int i = 0; i < memberAssigns.Count; i++)
-                {
-                    result.Add(ConvertMemberAssignIntoMemberAssignView(memberAssigns[i], teams[i], users[i]));
-                }
-                return result;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-        public MemberAssignView ConvertMemberAssignIntoMemberAssignView(MemberAssign memberAssign,TeamView team, UserView user)
+        public MemberAssignView ConvertMemberAssignIntoMemberAssignView(MemberAssign memberAssign,TeamView team, UserView user, StatusView? status)
         {
             try
             {
                 MemberAssignView result = new MemberAssignView();
-                result.ConvertMemberAssignIntoMemberAssignView(memberAssign,team,user);
+                result.ConvertMemberAssignIntoMemberAssignView(memberAssign,team,user, status);
                 return result;
             }
             catch (Exception)

@@ -36,7 +36,7 @@ namespace Repository.Repository
                     AccountId = key.AccountId,
                     Content = key.Content,
                     CreatedDate = DateTime.Now,
-                    Status = ""
+                    Status = null
                 };
                 await CreateAsync(notification);
                 return notification;
@@ -46,28 +46,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public List<NotificationView> ConvertListNotificationIntoListNotificationView(List<Notification> notificaions)
-        {
-            try
-            {
-                List<NotificationView> result = new();
-                foreach (var notification in notificaions)
-                {
-                    result.Add(ConvertNotificationIntoNotificationView(notification));
-                }
-                return result;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-        public NotificationView ConvertNotificationIntoNotificationView(Notification notificaion)
+        public NotificationView ConvertNotificationIntoNotificationView(Notification notificaion, StatusView? status)
         {
             try
             {
                 NotificationView result = new NotificationView();
-                result.ConvertNotificationIntoNotificationView(notificaion);
+                result.ConvertNotificationIntoNotificationView(notificaion,status);
                 return result;
             }
             catch (Exception)

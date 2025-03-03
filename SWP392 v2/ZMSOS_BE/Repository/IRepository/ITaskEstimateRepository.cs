@@ -17,7 +17,6 @@ namespace Repository.IRepository
         public Task<List<TaskEstimate>?> GetListTaskEstimateByAnimalTypeId(int animalTypeId);
         public Task<TaskEstimate> AddTaskEstimate(TaskEstimateAdd key);
         public Task<TaskEstimate?> UpdateTaskEstimate(TaskEstimateUpdate key);
-        public List<TaskEstimateView> ConvertListTaskEstimateIntoListTaskEstimateView(List<TaskEstimate> taskEstimates, List<TaskTypeView> taskTypes, List<AnimalTypeView> animalTypes);
-        public TaskEstimateView ConvertTaskEstimateIntoTaskEstimateView(TaskEstimate taskEstimate, TaskTypeView taskType, AnimalTypeView animalType);
+        public TaskEstimateView ConvertTaskEstimateIntoTaskEstimateView(TaskEstimate taskEstimate, TaskTypeView taskType, AnimalTypeView animalType, StatusView? status);
     }
 }

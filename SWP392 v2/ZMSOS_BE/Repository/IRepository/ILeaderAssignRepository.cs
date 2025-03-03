@@ -14,6 +14,6 @@ namespace Repository.IRepository
         public Task<LeaderAssign?> GetLeaderAssignByTeamId(int teamId);
         public Task<LeaderAssign> AddLeaderAssign(LeaderAssignAdd key);
         public Task<LeaderAssign?> RemoveLeaderAssign(int teamId, int accountId);
-        public LeaderAssignView ConvertLeaderAssignIntoLeaderAssignView(LeaderAssign leaderAssign, TeamView team, UserView user);
+        public LeaderAssignView ConvertLeaderAssignIntoLeaderAssignView(LeaderAssign leaderAssign, TeamView team, UserView user, StatusView? status);
     }
 }

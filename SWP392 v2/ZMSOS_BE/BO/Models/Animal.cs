@@ -15,11 +15,11 @@ public partial class Animal
 
     public string Classify { get; set; }
 
-    public string Status { get; set; }
-
-    public string UrlImage { get; set; }
+    public int? StatusId { get; set; }
 
     public virtual ICollection<AnimalCage> AnimalCages { get; set; } = new List<AnimalCage>();
+
+    public virtual ICollection<AnimalImage> AnimalImages { get; set; } = new List<AnimalImage>();
 
     public virtual ICollection<AnimalIncidentHistory> AnimalIncidentHistories { get; set; } = new List<AnimalIncidentHistory>();
 
@@ -30,4 +30,6 @@ public partial class Animal
     public virtual ICollection<Flock> Flocks { get; set; } = new List<Flock>();
 
     public virtual ICollection<Individual> Individuals { get; set; } = new List<Individual>();
+
+    public virtual Status Status { get; set; }
 }

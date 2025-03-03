@@ -12,13 +12,13 @@ namespace DAO.ViewModel
         public int Id { get; set; }
         public string Content { get; set; }
         public DateTime? Date { get; set; }
-        public string Status {  get; set; }
-        public void ConvertNotificationIntoNotificationView(Notification key)
+        public StatusView? Status {  get; set; }
+        public void ConvertNotificationIntoNotificationView(Notification key, StatusView? status)
         {
             Id = key.Id;
             Content = key.Content;
             Date = key.CreatedDate;
-            Status = key.Status;    
+            Status = status;    
         }
     }
 }

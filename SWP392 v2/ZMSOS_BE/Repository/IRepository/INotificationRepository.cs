@@ -14,7 +14,6 @@ namespace Repository.IRepositoyr
     {
         public Task<List<Notification>?> GetListNotificationByAccountId(int accountId);
         public Task<Notification> AddNotification(NotificationAdd key);
-        public List<NotificationView> ConvertListNotificationIntoListNotificationView(List<Notification> notificaions);
-        public NotificationView ConvertNotificationIntoNotificationView(Notification notificaion);
+        public NotificationView ConvertNotificationIntoNotificationView(Notification notificaion, StatusView? status);
     }
 }

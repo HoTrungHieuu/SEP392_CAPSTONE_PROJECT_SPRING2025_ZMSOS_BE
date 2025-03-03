@@ -51,7 +51,7 @@ namespace Repository.Repository
                     Title = key.Title,
                     Details = key.Detail,
                     //Date = DateTime.Now,
-                    Status = ""
+                    Status = null
                 };
                 await CreateAsync(application);
                 return application;
@@ -79,12 +79,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public ApplicationView ConvertApplicationIntoApplicationView(Application application, UserView sender, UserView reciever, ApplicationTypeView applicationType)
+        public ApplicationView ConvertApplicationIntoApplicationView(Application application, UserView sender, UserView reciever, ApplicationTypeView applicationType, StatusView? status)
         {
             try
             {
                 ApplicationView result = new ApplicationView();
-                result.ConvertApplicationIntoApplicationView(application, sender, reciever, applicationType);
+                result.ConvertApplicationIntoApplicationView(application, sender, reciever, applicationType, status);
                 return result;
             }
             catch (Exception)

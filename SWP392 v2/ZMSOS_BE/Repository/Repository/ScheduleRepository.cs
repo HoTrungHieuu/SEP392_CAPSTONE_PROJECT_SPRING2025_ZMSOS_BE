@@ -37,7 +37,7 @@ namespace Repository.Repository
                     AccountId = key.AccountId,
                     Date = key.Date,
                     Note = key.Note,
-                    Status = ""
+                    Status = null
                 };
                 await CreateAsync(schedule);
                 return schedule;
@@ -66,28 +66,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public List<ScheduleView> ConvertListScheduleIntoListScheduleView(List<Schedule> schedules, List<UserView> users)
-        {
-            try
-            {
-                List<ScheduleView> result = new();
-                for (int i = 0; i < schedules.Count; i++)
-                {
-                    result.Add(ConvertScheduleIntoScheduleView(schedules[i], users[i]));
-                }
-                return result;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-        public ScheduleView ConvertScheduleIntoScheduleView(Schedule schedule, UserView user)
+        public ScheduleView ConvertScheduleIntoScheduleView(Schedule schedule, UserView user, StatusView? status)
         {
             try
             {
                 ScheduleView result = new ScheduleView();
-                result.ConvertSchedualIntoSchedualView(schedule, user);
+                result.ConvertSchedualIntoSchedualView(schedule, user,status);
                 return result;
             }
             catch (Exception)

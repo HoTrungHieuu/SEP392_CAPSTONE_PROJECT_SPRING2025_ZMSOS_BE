@@ -15,9 +15,13 @@ public partial class TaskEstimate
 
     public string TimeEstimate { get; set; }
 
-    public string Status { get; set; }
+    public string ImplementationProcess { get; set; }
+
+    public int? StatusId { get; set; }
 
     public virtual AnimalType AnimalType { get; set; }
+
+    public virtual Status Status { get; set; }
 
     public virtual TaskType TaskType { get; set; }
 }

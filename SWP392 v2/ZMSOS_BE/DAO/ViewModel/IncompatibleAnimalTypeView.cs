@@ -13,14 +13,14 @@ namespace DAO.ViewModel
         public AnimalTypeView? AnimalType1 { get; set; }
         public AnimalTypeView? AnimalType2 { get; set; }
         public string Reason { get; set; }
-        public string Status { get; set; }
-        public void ConvertIncompatibleAnimalTypeIntoIncompatibleAnimalTypeView(IncompatibleAnimalType key,AnimalTypeView animalType1, AnimalTypeView animalType2)
+        public StatusView? Status { get; set; }
+        public void ConvertIncompatibleAnimalTypeIntoIncompatibleAnimalTypeView(IncompatibleAnimalType key,AnimalTypeView animalType1, AnimalTypeView animalType2, StatusView? status)
         {
             Id = key.Id;
             AnimalType1 = animalType1;
             AnimalType2 = animalType2;
             Reason = key.Reason;
-            Status = key.Status;
+            Status = status;
         }
     }
 }

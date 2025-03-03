@@ -20,18 +20,16 @@ namespace DAO.ViewModel
         public FlockView Flock { get; set; }
         public string Description { get; set; }
         public string Classify {  get; set; }
-        public string Status {  get; set; }
-        public string UrlImage {  get; set; }
-        public void ConvertAnimalIntoAnimalView(Animal key,AnimalTypeView animalType,FlockView flock, IndividualView individual)
+        public StatusView? Status {  get; set; }
+        public void ConvertAnimalIntoAnimalView(Animal key,AnimalTypeView animalType,FlockView flock, IndividualView individual, StatusView? status)
         {
             Id = key.Id;
             Description = key.Description;
             Classify = key.Classify;
-            Status = key.Status;
+            Status = status;
             AnimalType = animalType;
             Individual = individual;
             Flock = flock;
-            UrlImage = key.UrlImage;
         }
     }
 }

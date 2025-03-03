@@ -40,7 +40,7 @@ namespace Repository.Repository
                     Note = key.Note,
                     TimeStart = key.TimeStart,
                     TimeEnd = key.TimeEnd,
-                    Status = ""
+                    Status = null
                 };
                 await CreateAsync(task);
                 return task;
@@ -72,12 +72,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public TaskView ConvertTaskIntoTaskView(BO.Models.Task task, List<AnimalCageTask> animalCageTasks, TaskTypeView taskType)
+        public TaskView ConvertTaskIntoTaskView(BO.Models.Task task, List<AnimalCageTask> animalCageTasks, TaskTypeView taskType, StatusView? status)
         {
             try
             {
                 TaskView result = new TaskView();
-                result.ConvertTaskIntoTaskView(task, animalCageTasks, taskType);
+                result.ConvertTaskIntoTaskView(task, animalCageTasks, taskType, status);
                 return result;
             }
             catch (Exception)

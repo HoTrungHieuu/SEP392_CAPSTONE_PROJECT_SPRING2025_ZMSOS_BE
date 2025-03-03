@@ -1,4 +1,5 @@
-﻿using DAO.AddModel;
+﻿using BO.Models;
+using DAO.AddModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
 using Repository.IRepositoyr;
@@ -15,10 +16,12 @@ namespace Service.Service
     {
         public IScheduleRepository repo;
         public IUserRepository userRepo;
-        public ScheduleService(IScheduleRepository repo, IUserRepository userRepo)
+        public IObjectViewService objectViewService;
+        public ScheduleService(IScheduleRepository repo, IUserRepository userRepo, IObjectViewService objectViewService)
         {
             this.repo = repo;
             this.userRepo = userRepo;
+            this.objectViewService = objectViewService;
         }
         public async Task<ServiceResult> GetListScheduleByAccountId(int accountId)
         {
@@ -34,15 +37,7 @@ namespace Service.Service
                     };
                 }
 
-                List<UserView> users = new List<UserView>();
-                for (int i = 0; i < schedules.Count; i++)
-                {
-                    UserView user = new();
-                    user.ConvertUserIntoUserView(await userRepo.GetUserByAccountId((int)schedules[i].AccountId));
-                    users.Add(user);
-                }
-
-                var result = repo.ConvertListScheduleIntoListScheduleView(schedules, users);
+                var result = await objectViewService.GetListScheduleView(schedules);
                 return new ServiceResult
                 {
                     Status = 200,
@@ -74,7 +69,7 @@ namespace Service.Service
                 }
                 UserView user = new();
                 user.ConvertUserIntoUserView(await userRepo.GetUserByAccountId((int)schedule.AccountId));
-                var result = repo.ConvertScheduleIntoScheduleView(schedule, user);
+                var result = await objectViewService.GetScheduleView(schedule);
                 return new ServiceResult
                 {
                     Status = 200,

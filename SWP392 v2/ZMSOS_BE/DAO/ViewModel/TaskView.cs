@@ -19,8 +19,8 @@ namespace DAO.ViewModel
         public TaskTypeView TaskType { get;set; }
         public TimeOnly? TimeStart { get; set; }
         public TimeOnly? TimeEnd { get; set; }
-        public string Status {  get; set; }
-        public void ConvertTaskIntoTaskView(BO.Models.Task key,List<AnimalCageTask> animalCageTask, TaskTypeView taskType)
+        public StatusView? Status {  get; set; }
+        public void ConvertTaskIntoTaskView(BO.Models.Task key,List<AnimalCageTask> animalCageTask, TaskTypeView taskType, StatusView? status)
         {
             Id = key.Id;
             TaskName = key.TaskName;
@@ -28,7 +28,7 @@ namespace DAO.ViewModel
             Note = key.Note;    
             TimeStart = key.TimeStart;
             TimeEnd = key.TimeEnd;
-            Status = key.Status;
+            Status = status;
             AnimalCageTask = animalCageTask;
             TaskType = taskType;
         }

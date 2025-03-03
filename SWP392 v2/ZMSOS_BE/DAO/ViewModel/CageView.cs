@@ -15,13 +15,13 @@ namespace DAO.ViewModel
         public ZooAreaView ZooArea {  get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public string Status {  get; set; }
-        public void ConvertCageIntoCageView(Cage key, ZooAreaView zooArea)
+        public StatusView? Status {  get; set; }
+        public void ConvertCageIntoCageView(Cage key, ZooAreaView zooArea, StatusView? status)
         {
             Id = key.Id;
             Name = key.Name;
             Description = key.Description;
-            Status = key.Status;
+            Status = status;
             ZooArea = zooArea;
         }
     }

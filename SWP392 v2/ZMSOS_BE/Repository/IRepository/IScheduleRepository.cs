@@ -16,7 +16,6 @@ namespace Repository.IRepositoyr
         public Task<List<Schedule>?> GetListScheduleByAccountId(int accountId);
         public Task<Schedule> AddSchedule(ScheduleAdd key);
         public Task<Schedule?> UpdateSchedule(ScheduleUpdate key);
-        public List<ScheduleView> ConvertListScheduleIntoListScheduleView(List<Schedule> schedules, List<UserView> users);
-        public ScheduleView ConvertScheduleIntoScheduleView(Schedule schedule, UserView user);
+        public ScheduleView ConvertScheduleIntoScheduleView(Schedule schedule, UserView user, StatusView? status);
     }
 }

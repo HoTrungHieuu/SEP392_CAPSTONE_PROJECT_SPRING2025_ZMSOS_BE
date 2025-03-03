@@ -15,10 +15,12 @@ namespace Service.Service
     {
         public INewsRepository repo;
         public IUserRepository userRepo;
-        public NewsService(INewsRepository repo, IUserRepository userRepo)
+        public IObjectViewService objectViewService;
+        public NewsService(INewsRepository repo, IUserRepository userRepo, IObjectViewService objectViewService)
         {
             this.repo = repo;
             this.userRepo = userRepo;
+            this.objectViewService = objectViewService;
         }
         public async Task<ServiceResult> GetListNews()
         {
@@ -34,15 +36,7 @@ namespace Service.Service
                     };
                 }
 
-                List<UserView> users = new List<UserView>();
-                for (int i = 0; i < newss.Count; i++)
-                {
-                    UserView user = new();
-                    user.ConvertUserIntoUserView(await userRepo.GetUserByAccountId((int)newss[i].AccountId));
-                    users.Add(user);
-                }
-
-                var result = repo.ConvertListNewsIntoListNewsView(newss, users);
+                var result = await objectViewService.GetListNewsView(newss);
                 return new ServiceResult
                 {
                     Status = 200,
@@ -73,10 +67,7 @@ namespace Service.Service
                     };
                 }
 
-                UserView user = new();
-                user.ConvertUserIntoUserView(await userRepo.GetUserByAccountId((int)news.AccountId));
-
-                var result = repo.ConvertNewsIntoNewsView(news, user);
+                var result = await objectViewService.GetNewsView(news);
                 return new ServiceResult
                 {
                     Status = 200,

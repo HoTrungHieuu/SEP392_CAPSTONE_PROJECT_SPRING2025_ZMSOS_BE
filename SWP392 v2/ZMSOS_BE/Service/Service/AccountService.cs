@@ -75,7 +75,7 @@ namespace Service.Service
                 await repo.CreateAsync(account);
 
                 AccountView accountView = new AccountView();
-                accountView = repo.ConvertAccountIntoAccountView(account);
+                accountView = await objectViewService.GetAccountView(account);
 
                 User user = new User()
                 {

@@ -38,7 +38,7 @@ namespace Repository.Repository
                     LeaderId = key.AccountId,
                     FromDate = DateOnly.FromDateTime(DateTime.Now),
                     ToDate = null,
-                    Status = "Active"
+                    Status = null
                 };
                 await CreateAsync(leaderAssign);
                 return leaderAssign;
@@ -55,7 +55,7 @@ namespace Repository.Repository
                 var leaderAssign = (await GetAllAsync()).FirstOrDefault(l => l.TeamId == teamId && l.LeaderId == accountId && l.ToDate == null);
                 if (leaderAssign == null) return null;
                 leaderAssign.ToDate = DateOnly.FromDateTime(DateTime.Now);
-                leaderAssign.Status = "InActive";
+                leaderAssign.Status = null;
                 await UpdateAsync(leaderAssign);
                 return leaderAssign;
             }
@@ -64,12 +64,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public LeaderAssignView ConvertLeaderAssignIntoLeaderAssignView(LeaderAssign leaderAssign, TeamView team, UserView user)
+        public LeaderAssignView ConvertLeaderAssignIntoLeaderAssignView(LeaderAssign leaderAssign, TeamView team, UserView user, StatusView? status)
         {
             try
             {
                 LeaderAssignView result = new LeaderAssignView();
-                result.ConvertLeaderAssignIntoLeaderAssignView(leaderAssign, team, user);
+                result.ConvertLeaderAssignIntoLeaderAssignView(leaderAssign, team, user, status);
                 return result;
             }
             catch (Exception)

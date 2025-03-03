@@ -17,9 +17,11 @@ public partial class CageUpdateHistory
 
     public DateOnly? UpdateDate { get; set; }
 
-    public string Status { get; set; }
+    public int? StatusId { get; set; }
 
     public virtual Account Account { get; set; }
 
     public virtual Cage Cage { get; set; }
+
+    public virtual Status Status { get; set; }
 }

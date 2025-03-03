@@ -38,7 +38,7 @@ namespace Repository.Repository
                     Headline = key.Headlinen,
                     Content = key.Content,
                     Date = DateTime.Now,
-                    Status = ""
+                    Status = null
                 };
                 await CreateAsync(news);
                 return news;
@@ -67,28 +67,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public List<NewsView> ConvertListNewsIntoListNewsView(List<News> newss, List<UserView> users)
-        {
-            try
-            {
-                List<NewsView> result = new();
-                for(int i =0; i < users.Count; i++)
-                {
-                    result.Add(ConvertNewsIntoNewsView(newss[i], users[i]));
-                }
-                return result;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-        public NewsView ConvertNewsIntoNewsView(News news, UserView user)
+        public NewsView ConvertNewsIntoNewsView(News news, UserView user, StatusView? status)
         {
             try
             {
                 NewsView result = new NewsView();
-                result.ConvertNewsIntoNewsView(news, user);
+                result.ConvertNewsIntoNewsView(news, user, status);
                 return result;
             }
             catch (Exception)

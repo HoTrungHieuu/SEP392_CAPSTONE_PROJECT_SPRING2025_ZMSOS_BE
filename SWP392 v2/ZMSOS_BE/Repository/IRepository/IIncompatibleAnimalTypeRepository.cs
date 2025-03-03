@@ -15,7 +15,7 @@ namespace Repository.IRepository
         public Task<List<IncompatibleAnimalType>?> GetListIncompatibleAnimalTypeByAnimalTypeId(int animalTypeId);
         public Task<bool> CheckIncompatibleAnimalType(int animalTypeId1, int animalTypeId2);
         public Task<IncompatibleAnimalType> AddIncompatibleAnimalType(IncompatibleAnimalTypeAdd key);
-        public IncompatibleAnimalTypeView ConvertIncompatibleAnimalTypeIntoIncompatibleAnimalTypeView(IncompatibleAnimalType incompatibleAnimalType, AnimalTypeView animalType1, AnimalTypeView animalType2);
+        public IncompatibleAnimalTypeView ConvertIncompatibleAnimalTypeIntoIncompatibleAnimalTypeView(IncompatibleAnimalType incompatibleAnimalType, AnimalTypeView animalType1, AnimalTypeView animalType2, StatusView? status);
 
 
     }

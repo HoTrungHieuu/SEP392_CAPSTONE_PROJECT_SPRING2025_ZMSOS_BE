@@ -14,14 +14,14 @@ namespace DAO.ViewModel
         public TaskTypeView TaskType { get; set; }
         public AnimalTypeView AnimalType { get; set; }
         public string TimeEstimate {  get; set; }
-        public string Status {  get; set; }
-        public void ConvertTaskEstimateIntoTaskEstimateView(TaskEstimate key, TaskTypeView taskType, AnimalTypeView animalType)
+        public StatusView? Status {  get; set; }
+        public void ConvertTaskEstimateIntoTaskEstimateView(TaskEstimate key, TaskTypeView taskType, AnimalTypeView animalType, StatusView? status)
         {
             Id = key.Id;
             TaskType = taskType;
             AnimalType = animalType;
             TimeEstimate = key.TimeEstimate;
-            Status = key.Status;
+            Status = status;
         }
     }
 }

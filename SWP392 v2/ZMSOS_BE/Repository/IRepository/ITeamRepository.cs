@@ -15,7 +15,6 @@ namespace Repository.IRepository
         public Task<List<Team>?> GetListTeam();
         public Task<Team> AddTeam(TeamAdd key);
         public Task<Team?> UpdateTeam(TeamUpdate key);
-        public List<TeamView> ConvertListTeamIntoListTeamView(List<Team> teams);
-        public TeamView ConvertTeamIntoTeamView(Team team);
+        public TeamView ConvertTeamIntoTeamView(Team team, StatusView? status);
     }
 }

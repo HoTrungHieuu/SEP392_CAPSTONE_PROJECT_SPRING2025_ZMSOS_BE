@@ -143,6 +143,7 @@ builder.Services.AddScoped<IObjectViewService, ObjectViewService>();
 builder.Services.AddScoped<IAnimalAssignRepository, AnimalAssignRepository>();
 builder.Services.AddScoped<IIncompatibleAnimalTypeRepository, IncompatibleAnimalTypeRepository>();
 builder.Services.AddScoped<IIncompatibleAnimalTypeService, IncompatibleAnimalTypeService>();
+builder.Services.AddScoped<IStatusRepository, StatusRepository>();
 
 var app = builder.Build();
 

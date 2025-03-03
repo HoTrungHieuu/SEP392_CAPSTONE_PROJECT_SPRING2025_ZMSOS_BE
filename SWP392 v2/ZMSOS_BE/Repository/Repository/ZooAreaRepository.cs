@@ -36,7 +36,7 @@ namespace Repository.Repository
                 {
                     Name = key.Name,
                     Description = key.Description,
-                    Status = ""
+                    Status = null
                 };
                 await CreateAsync(zooArea);
                 return zooArea;
@@ -54,7 +54,6 @@ namespace Repository.Repository
                 if (zooArea == null) return null;
                 zooArea.Name = key.Name;
                 zooArea.Description = key.Description;
-                zooArea.Status = "";
                 await UpdateAsync(zooArea);
                 return zooArea;
             }
@@ -63,28 +62,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public List<ZooAreaView> ConvertListZooAreaIntoListZooAreaView(List<ZooArea> zooAreas)
-        {
-            try
-            {
-                List<ZooAreaView> result = new();
-                for (int i = 0; i < zooAreas.Count; i++)
-                {
-                    result.Add(ConvertZooAreaIntoZooAreaView(zooAreas[i]));
-                }
-                return result;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-        public ZooAreaView ConvertZooAreaIntoZooAreaView(ZooArea zooArea)
+        public ZooAreaView ConvertZooAreaIntoZooAreaView(ZooArea zooArea, StatusView? status)
         {
             try
             {
                 ZooAreaView result = new ZooAreaView();
-                result.ConvertZooAreaIntoZooAreaView(zooArea);
+                result.ConvertZooAreaIntoZooAreaView(zooArea, status);
                 return result;
             }
             catch (Exception)

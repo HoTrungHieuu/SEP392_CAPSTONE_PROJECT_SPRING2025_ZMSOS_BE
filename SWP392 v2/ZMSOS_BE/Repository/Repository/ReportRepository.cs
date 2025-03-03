@@ -50,7 +50,7 @@ namespace Repository.Repository
                     Title = key.Title,
                     Content = key.Content,
                     Date = DateTime.Now,
-                    Status = ""
+                    Status = null
                 };
                 await CreateAsync(report);
                 return report;
@@ -60,12 +60,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public ReportView ConvertReportIntoReportView(Report report, UserView sender,UserView reciever, List<string> urlFile)
+        public ReportView ConvertReportIntoReportView(Report report, UserView sender,UserView reciever, List<string> urlFile, StatusView? status)
         {
             try
             {
                 ReportView result = new ReportView();
-                result.ConvertReportIntoReportView(report,sender,reciever,urlFile);
+                result.ConvertReportIntoReportView(report,sender,reciever,urlFile,status);
                 return result;
             }
             catch (Exception)

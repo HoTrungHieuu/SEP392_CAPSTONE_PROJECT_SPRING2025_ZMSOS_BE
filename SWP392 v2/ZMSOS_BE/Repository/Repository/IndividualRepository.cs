@@ -43,7 +43,7 @@ namespace Repository.Repository
                     Height = key.Height,
                     ArrivalDate = key.ArrivalDate,
                     Notes = key.Note,
-                    Status = "",
+                    Status = null,
                 };
                 await CreateAsync(individual);
                 return individual;
@@ -75,12 +75,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public IndividualView ConvertIndividualIntoIndividualView(Individual individual)
+        public IndividualView ConvertIndividualIntoIndividualView(Individual individual, StatusView? status)
         {
             try
             {
                 IndividualView result = new IndividualView();
-                result.ConvertIndividualIntoIndividualView(individual);
+                result.ConvertIndividualIntoIndividualView(individual, status);
                 return result;
             }
             catch (Exception)

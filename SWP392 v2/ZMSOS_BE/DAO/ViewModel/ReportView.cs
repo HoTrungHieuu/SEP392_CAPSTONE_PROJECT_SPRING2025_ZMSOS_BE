@@ -17,9 +17,9 @@ namespace DAO.ViewModel
         public string Title {  get; set; }
         public string Content {  get; set; }
         public DateTime? Date { get; set; }
-        public string Status {  get; set; }
+        public StatusView? Status {  get; set; }
         public List<string> UrlFile {  get; set; }
-        public void ConvertReportIntoReportView(Report key,UserView sender, UserView reciever, List<string> urlFile)
+        public void ConvertReportIntoReportView(Report key,UserView sender, UserView reciever, List<string> urlFile, StatusView? status)
         {
             Id = key.Id;
             Sender = sender;
@@ -27,7 +27,7 @@ namespace DAO.ViewModel
             Title = key.Title;
             Content = key.Content;
             Date = key.Date;
-            Status = key.Status;
+            Status = status;
             UrlFile = urlFile.ToList();
         }
     }

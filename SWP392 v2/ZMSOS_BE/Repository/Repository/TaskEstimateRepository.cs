@@ -61,7 +61,7 @@ namespace Repository.Repository
                     TaskTypeId = key.TaskTypeId,
                     AnimalTypeId = key.AnimalTypeId,
                     TimeEstimate = key.TimeEstimate,
-                    Status = ""
+                    Status = null
                 };
                 await CreateAsync(taskEstimate);
                 return taskEstimate;
@@ -91,28 +91,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public List<TaskEstimateView> ConvertListTaskEstimateIntoListTaskEstimateView(List<TaskEstimate> taskEstimates, List<TaskTypeView> taskTypes, List<AnimalTypeView> animalTypes)
-        {
-            try
-            {
-                List<TaskEstimateView> result = new();
-                for (int i = 0; i < taskEstimates.Count; i++)
-                {
-                    result.Add(ConvertTaskEstimateIntoTaskEstimateView(taskEstimates[i], taskTypes[i], animalTypes[i]));
-                }
-                return result;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-        public TaskEstimateView ConvertTaskEstimateIntoTaskEstimateView(TaskEstimate taskEstimate, TaskTypeView taskType, AnimalTypeView animalType)
+        public TaskEstimateView ConvertTaskEstimateIntoTaskEstimateView(TaskEstimate taskEstimate, TaskTypeView taskType, AnimalTypeView animalType, StatusView? status)
         {
             try
             {
                 TaskEstimateView result = new TaskEstimateView();
-                result.ConvertTaskEstimateIntoTaskEstimateView(taskEstimate,taskType,animalType);
+                result.ConvertTaskEstimateIntoTaskEstimateView(taskEstimate,taskType,animalType,status);
                 return result;
             }
             catch (Exception)

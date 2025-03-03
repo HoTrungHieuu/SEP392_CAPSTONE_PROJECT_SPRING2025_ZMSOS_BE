@@ -1,4 +1,5 @@
-﻿using DAO.AddModel;
+﻿using BO.Models;
+using DAO.AddModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
 using Repository.IRepository;
@@ -17,11 +18,13 @@ namespace Service.Service
         public ITaskEstimateRepository repo;
         public ITaskTypeRepository taskTypeRepo;
         public IAnimalTypeRepository animalTypeRepo;
-        public TaskEstimateService(ITaskEstimateRepository repo, ITaskTypeRepository taskTypeRepo, IAnimalTypeRepository animalTypeRepo)
+        public IObjectViewService objectViewService;
+        public TaskEstimateService(ITaskEstimateRepository repo, ITaskTypeRepository taskTypeRepo, IAnimalTypeRepository animalTypeRepo, IObjectViewService objectViewService)
         {
             this.repo = repo;
             this.taskTypeRepo = taskTypeRepo;
             this.animalTypeRepo = animalTypeRepo;
+            this.objectViewService = objectViewService;
         }
         public async Task<ServiceResult> GetListTaskEstimate()
         {
@@ -36,20 +39,7 @@ namespace Service.Service
                         Message = "Not Found!",
                     };
                 }
-
-                List<TaskTypeView> taskTypes = new List<TaskTypeView>();
-                List<AnimalTypeView> animalTypes = new List<AnimalTypeView>();
-                for (int i = 0; i < taskEstimates.Count; i++)
-                {
-                    TaskTypeView taskType = new();
-                    taskType = taskTypeRepo.ConvertTaskTypeIntoTaskTypeView(taskTypeRepo.GetById((int)taskEstimates[i].TaskTypeId));
-                    taskTypes.Add(taskType);
-                    AnimalTypeView animalType = new();
-                    animalType = animalTypeRepo.ConvertAnimalTypeIntoAnimalTypeView(animalTypeRepo.GetById((int)taskEstimates[i].AnimalTypeId));
-                    animalTypes.Add(animalType);
-                }
-
-                var result = repo.ConvertListTaskEstimateIntoListTaskEstimateView(taskEstimates, taskTypes, animalTypes);
+                var result = await objectViewService.GetListTaskEstimateView(taskEstimates);
                 return new ServiceResult
                 {
                     Status = 200,
@@ -80,19 +70,7 @@ namespace Service.Service
                     };
                 }
 
-                List<TaskTypeView> taskTypes = new List<TaskTypeView>();
-                List<AnimalTypeView> animalTypes = new List<AnimalTypeView>();
-                for (int i = 0; i < taskEstimates.Count; i++)
-                {
-                    TaskTypeView taskType = new();
-                    taskType = taskTypeRepo.ConvertTaskTypeIntoTaskTypeView(taskTypeRepo.GetById((int)taskEstimates[i].TaskTypeId));
-                    taskTypes.Add(taskType);
-                    AnimalTypeView animalType = new();
-                    animalType = animalTypeRepo.ConvertAnimalTypeIntoAnimalTypeView(animalTypeRepo.GetById((int)taskEstimates[i].AnimalTypeId));
-                    animalTypes.Add(animalType);
-                }
-
-                var result = repo.ConvertListTaskEstimateIntoListTaskEstimateView(taskEstimates, taskTypes, animalTypes);
+                var result = await objectViewService.GetListTaskEstimateView(taskEstimates);
                 return new ServiceResult
                 {
                     Status = 200,
@@ -123,19 +101,7 @@ namespace Service.Service
                     };
                 }
 
-                List<TaskTypeView> taskTypes = new List<TaskTypeView>();
-                List<AnimalTypeView> animalTypes = new List<AnimalTypeView>();
-                for (int i = 0; i < taskEstimates.Count; i++)
-                {
-                    TaskTypeView taskType = new();
-                    taskType = taskTypeRepo.ConvertTaskTypeIntoTaskTypeView(taskTypeRepo.GetById((int)taskEstimates[i].TaskTypeId));
-                    taskTypes.Add(taskType);
-                    AnimalTypeView animalType = new();
-                    animalType = animalTypeRepo.ConvertAnimalTypeIntoAnimalTypeView(animalTypeRepo.GetById((int)taskEstimates[i].AnimalTypeId));
-                    animalTypes.Add(animalType);
-                }
-
-                var result = repo.ConvertListTaskEstimateIntoListTaskEstimateView(taskEstimates, taskTypes, animalTypes);
+                var result = await objectViewService.GetListTaskEstimateView(taskEstimates);
                 return new ServiceResult
                 {
                     Status = 200,
@@ -165,11 +131,7 @@ namespace Service.Service
                         Message = "Not Found!",
                     };
                 }
-                TaskTypeView taskType = new();
-                taskType = taskTypeRepo.ConvertTaskTypeIntoTaskTypeView(taskTypeRepo.GetById((int)taskEstimate.TaskTypeId));
-                AnimalTypeView animalType = new();
-                animalType = animalTypeRepo.ConvertAnimalTypeIntoAnimalTypeView(animalTypeRepo.GetById((int)taskEstimate.AnimalTypeId));
-                var result = repo.ConvertTaskEstimateIntoTaskEstimateView(taskEstimate, taskType, animalType);
+                var result = await objectViewService.GetTaskEstimateView(taskEstimate);
                 return new ServiceResult
                 {
                     Status = 200,

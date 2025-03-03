@@ -63,7 +63,7 @@ namespace Repository.Repository
                     AnimalTypeId1 = key.AnimalTypeId1,
                     AnimalTypeId2 = key.AnimalTypeId2,
                     Reason = key.Reason,
-                    Status = ""
+                    Status = null
                 };
                 await CreateAsync(incompatibleAnimalType);
                 return incompatibleAnimalType;
@@ -73,12 +73,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public IncompatibleAnimalTypeView ConvertIncompatibleAnimalTypeIntoIncompatibleAnimalTypeView(IncompatibleAnimalType incompatibleAnimalType, AnimalTypeView animalType1, AnimalTypeView animalType2)
+        public IncompatibleAnimalTypeView ConvertIncompatibleAnimalTypeIntoIncompatibleAnimalTypeView(IncompatibleAnimalType incompatibleAnimalType, AnimalTypeView animalType1, AnimalTypeView animalType2, StatusView? status)
         {
             try
             {
                 IncompatibleAnimalTypeView result = new IncompatibleAnimalTypeView();
-                result.ConvertIncompatibleAnimalTypeIntoIncompatibleAnimalTypeView(incompatibleAnimalType,animalType1,animalType2);
+                result.ConvertIncompatibleAnimalTypeIntoIncompatibleAnimalTypeView(incompatibleAnimalType,animalType1,animalType2,status);
                 return result;
             }
             catch (Exception)

@@ -13,9 +13,11 @@ namespace Service.Service
     public class NotificationService : INotificationService
     {
         public INotificationRepository repo;
-        public NotificationService(INotificationRepository repo)
+        public IObjectViewService objectViewService;
+        public NotificationService(INotificationRepository repo, IObjectViewService objectViewService)
         {
             this.repo = repo;
+            this.objectViewService = objectViewService;
         }
         public async Task<ServiceResult> GetListNotification(int accountId)
         {
@@ -30,7 +32,7 @@ namespace Service.Service
                         Message = "Not Found!",
                     };
                 }
-                var result = repo.ConvertListNotificationIntoListNotificationView(notifications);
+                var result = await objectViewService.GetListNotificationView(notifications);
                 return new ServiceResult
                 {
                     Status = 200,

@@ -17,15 +17,15 @@ namespace DAO.ViewModel
         public UserView User { get; set; }
         public DateOnly? FromDate { get; set; }
         public DateOnly? ToDate { get; set; }
-        public string Status {  get; set; }
-        public void ConvertLeaderAssignIntoLeaderAssignView(LeaderAssign key, TeamView team, UserView user)
+        public StatusView? Status {  get; set; }
+        public void ConvertLeaderAssignIntoLeaderAssignView(LeaderAssign key, TeamView team, UserView user, StatusView? status)
         {
             Id = key.Id;
             Team = team;
             User = user;
             FromDate = key.FromDate;
             ToDate = key.ToDate;
-            Status = key.Status;
+            Status = status;
         }
     }
 }

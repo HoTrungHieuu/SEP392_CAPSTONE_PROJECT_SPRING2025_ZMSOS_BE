@@ -37,7 +37,7 @@ namespace Repository.Repository
                 {
                     Name = key.Name,
                     Description = key.Description,
-                    Status = ""
+                    Status = null
                 };
                 await CreateAsync(taskType);
                 return taskType;
@@ -66,12 +66,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public TaskTypeView ConvertTaskTypeIntoTaskTypeView(TaskType taskType)
+        public TaskTypeView ConvertTaskTypeIntoTaskTypeView(TaskType taskType, StatusView? status)
         {
             try
             {
                 TaskTypeView result = new TaskTypeView();
-                result.ConvertTaskTypeIntoTaskTypeView(taskType);
+                result.ConvertTaskTypeIntoTaskTypeView(taskType,status);
                 return result;
             }
             catch (Exception)

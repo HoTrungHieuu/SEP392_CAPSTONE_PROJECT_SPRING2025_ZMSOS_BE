@@ -49,7 +49,7 @@ namespace Repository.Repository
                     ZooAreaId = key.ZooAreaId,
                     Name = key.Name,
                     Description = key.Description,
-                    Status = ""
+                    Status = null
                 };
                 await CreateAsync(cage);
                 return cage;
@@ -68,7 +68,7 @@ namespace Repository.Repository
                 cage.ZooAreaId = key.ZooAreaId;
                 cage.Name = key.Name;
                 cage.Description = key.Description;
-                cage.Status = "";
+                cage.Status = null;
                 await UpdateAsync(cage);
                 return cage;
             }
@@ -77,28 +77,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public List<CageView> ConvertListCageIntoListCageView(List<Cage> cages, List<ZooAreaView> zooAreas)
-        {
-            try
-            {
-                List<CageView> result = new();
-                for (int i = 0; i < cages.Count; i++)
-                {
-                    result.Add(ConvertCageIntoCageView(cages[i], zooAreas[i]));
-                }
-                return result;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-        public CageView ConvertCageIntoCageView(Cage cage, ZooAreaView zooArea)
+        public CageView ConvertCageIntoCageView(Cage cage, ZooAreaView zooArea, StatusView? status)
         {
             try
             {
                 CageView result = new CageView();
-                result.ConvertCageIntoCageView(cage,zooArea);
+                result.ConvertCageIntoCageView(cage,zooArea,status);
                 return result;
             }
             catch (Exception)

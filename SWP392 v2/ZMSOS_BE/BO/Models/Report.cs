@@ -19,11 +19,13 @@ public partial class Report
 
     public DateTime? Date { get; set; }
 
-    public string Status { get; set; }
+    public int? StatusId { get; set; }
 
     public virtual Account Receiver { get; set; }
 
     public virtual ICollection<ReportAttachment> ReportAttachments { get; set; } = new List<ReportAttachment>();
 
     public virtual Account Sender { get; set; }
+
+    public virtual Status Status { get; set; }
 }

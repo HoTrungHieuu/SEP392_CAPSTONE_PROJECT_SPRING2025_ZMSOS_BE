@@ -16,7 +16,6 @@ namespace Repository.IRepository
         public Task<List<Cage>?> GetListCageByAreaId(int zooAreaId);
         public Task<Cage> AddCage(CageAdd key);
         public Task<Cage?> UpdateCage(CageUpdate key);
-        public List<CageView> ConvertListCageIntoListCageView(List<Cage> cages, List<ZooAreaView> zooAreas);
-        public CageView ConvertCageIntoCageView(Cage cage, ZooAreaView zooArea);
+        public CageView ConvertCageIntoCageView(Cage cage, ZooAreaView zooArea, StatusView? status);
     }
 }

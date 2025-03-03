@@ -15,15 +15,15 @@ namespace DAO.ViewModel
         public string Headline {  get; set; }
         public string Content {  get; set; }
         public DateTime? Date { get; set; }
-        public string Status {  get; set; }
+        public StatusView? Status {  get; set; }
         public UserView User { get; set; }
-        public void ConvertNewsIntoNewsView(News key, UserView user)
+        public void ConvertNewsIntoNewsView(News key, UserView user, StatusView? status)
         {
             Id = key.Id;
             Headline = key.Headline;
             Content = key.Content;
             Date = key.Date;
-            Status = key.Status;
+            Status = status;
             User = user;
         }
     }

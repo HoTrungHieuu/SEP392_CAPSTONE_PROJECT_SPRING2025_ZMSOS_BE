@@ -12,13 +12,13 @@ namespace DAO.ViewModel
         public int Id { get; set; }
         public int? Quantity {  get; set; }
         public string Note {  get; set; }
-        public string Status {  get; set; }
-        public void ConvertFlockIntoFlockView(Flock key)
+        public StatusView? Status {  get; set; }
+        public void ConvertFlockIntoFlockView(Flock key, StatusView? status)
         {
             Id = key.Id;
             Quantity = key.Quantity;
             Note = key.Notes;
-            Status = key.Status;
+            Status = status;
         }
     }
 }

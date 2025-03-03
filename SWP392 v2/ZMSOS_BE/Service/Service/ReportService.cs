@@ -127,7 +127,7 @@ namespace Service.Service
                     {
                         ReportId = report.Id,
                         FileUrl = item,
-                        Status = ""
+                        Status = null
                     });
                 }
                 return new ServiceResult

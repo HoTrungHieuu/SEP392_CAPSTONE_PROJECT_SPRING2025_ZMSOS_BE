@@ -13,13 +13,13 @@ namespace DAO.ViewModel
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public string Status {  get; set; }
-        public void ConvertTeamIntoTeamView(Team key)
+        public StatusView? Status {  get; set; }
+        public void ConvertTeamIntoTeamView(Team key, StatusView? status)
         {
             Id = key.Id;
             Name = key.Name;
             Description = key.Description;
-            Status = key.Status;
+            Status = status;
         }
     }
 }

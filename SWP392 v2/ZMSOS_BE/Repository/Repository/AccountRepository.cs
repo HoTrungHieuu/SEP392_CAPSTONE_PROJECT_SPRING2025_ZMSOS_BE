@@ -14,12 +14,12 @@ namespace Repository.Repository
         public AccountRepository()
         {
         }
-        public AccountView ConvertAccountIntoAccountView(Account account)
+        public AccountView ConvertAccountIntoAccountView(Account account, StatusView? status)
         {
             try
             {
                 AccountView result = new AccountView();
-                result.ConvertAccountIntoAccountView(account);
+                result.ConvertAccountIntoAccountView(account,status);
                 return result;
             }
             catch (Exception)

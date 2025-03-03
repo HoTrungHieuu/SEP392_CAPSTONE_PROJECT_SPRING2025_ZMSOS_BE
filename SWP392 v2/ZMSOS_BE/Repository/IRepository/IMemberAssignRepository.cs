@@ -13,7 +13,6 @@ namespace Repository.IRepository
         public Task<List<MemberAssign>?> GetListMemberAssignByTeamId(int teamId);
         public Task<MemberAssign?> AddMemberAssign(int teamId, int accountId);
         public Task<MemberAssign?> RemoveMemberAssign(int teamId, int accountId);
-        public List<MemberAssignView> ConvertListMemberAssignIntoListMemberAssignView(List<MemberAssign> memberAssigns, List<TeamView> teams, List<UserView> users);
-        public MemberAssignView ConvertMemberAssignIntoMemberAssignView(MemberAssign memberAssign, TeamView team, UserView user);
+        public MemberAssignView ConvertMemberAssignIntoMemberAssignView(MemberAssign memberAssign, TeamView team, UserView user, StatusView? status);
     }
 }

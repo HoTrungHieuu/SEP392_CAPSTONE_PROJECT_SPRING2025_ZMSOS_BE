@@ -13,9 +13,11 @@ public partial class ZooArea
 
     public string Description { get; set; }
 
-    public string Status { get; set; }
+    public int? StatusId { get; set; }
 
     public virtual ICollection<Cage> Cages { get; set; } = new List<Cage>();
+
+    public virtual Status Status { get; set; }
 
     public virtual ICollection<Team> Teams { get; set; } = new List<Team>();
 }

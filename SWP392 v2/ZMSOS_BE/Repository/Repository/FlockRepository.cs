@@ -37,7 +37,7 @@ namespace Repository.Repository
                     AnimalId = animalId,
                     Quantity = key.Quantity,
                     Notes = key.Note,
-                    Status = "",
+                    Status = null
                 };
                 await CreateAsync(flock);
                 return flock;
@@ -63,12 +63,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public FlockView ConvertFlockIntoFlockView(Flock flock)
+        public FlockView ConvertFlockIntoFlockView(Flock flock, StatusView? status)
         {
             try
             {
                 FlockView result = new FlockView();
-                result.ConvertFlockIntoFlockView(flock);
+                result.ConvertFlockIntoFlockView(flock,status);
                 return result;
             }
             catch (Exception)
