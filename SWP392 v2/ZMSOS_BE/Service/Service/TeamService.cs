@@ -289,6 +289,22 @@ namespace Service.Service
                         Message = "Team Not Found"
                     };
                 }
+                if(team.CurrentQuantity >= team.MaxQuantity)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Team is full"
+                    };
+                }
+                if(team.MaxQuantity - team.CurrentQuantity < key.AccountIds.Count)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Not Enough Position"
+                    };
+                }
                 List<int> unsuccessId = new List<int>();
                 foreach (int id in key.AccountIds)
                 {
@@ -297,7 +313,12 @@ namespace Service.Service
                     {
                         unsuccessId.Add(id);
                     }
+                    else
+                    {
+                        team.CurrentQuantity += 1;
+                    }
                 }
+                await repo.UpdateAsync(team);
                 return new ServiceResult
                 {
                     Status = 200,
@@ -336,6 +357,8 @@ namespace Service.Service
                         Message = "Member Not In Team"
                     };
                 }
+                team.CurrentQuantity -= 1;
+                await repo.UpdateAsync(team);
                 return new ServiceResult
                 {
                     Status = 200,

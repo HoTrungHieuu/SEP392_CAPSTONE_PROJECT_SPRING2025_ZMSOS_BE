@@ -28,6 +28,19 @@ namespace Repository.Repository
                 throw;
             }
         }
+        public async Task<LeaderAssign?> GetLeaderAssignByAccountId(int accountId)
+        {
+            try
+            {
+                var leaderAssign = (await GetAllAsync()).FirstOrDefault(l => l.LeaderId == accountId && l.ToDate == null);
+                if (leaderAssign == null) return null;
+                return leaderAssign;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         public async Task<LeaderAssign> AddLeaderAssign(LeaderAssignAdd key)
         {
             try

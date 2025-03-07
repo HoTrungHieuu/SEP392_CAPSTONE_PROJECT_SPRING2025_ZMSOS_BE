@@ -1,5 +1,6 @@
 ﻿using DAO.AddModel;
 using DAO.ViewModel;
+using Repository.IRepository;
 using Repository.IRepositoyr;
 using Service.IService;
 using System;
@@ -15,12 +16,20 @@ namespace Service.Service
         public IReportRepository repo;
         public IReportAttachmentRepository attachmentRepo;
         public IUserRepository userRepo;
+        public IAccountRepository accountRepo;
+        public ITeamRepository teamRepo;
+        public ILeaderAssignRepository leaderAssignRepo;
+        public IMemberAssignRepository memberAssignRepo;
         public IObjectViewService objectViewService;
-        public ReportService(IReportRepository repo, IReportAttachmentRepository attachmentRepo, IUserRepository userRepo, IObjectViewService objectViewService)
+        public ReportService(IReportRepository repo, IReportAttachmentRepository attachmentRepo, IUserRepository userRepo,IAccountRepository accountRepo,ITeamRepository teamRepo, ILeaderAssignRepository leaderAssignRepo, IMemberAssignRepository memberAssignRepo, IObjectViewService objectViewService)
         {
             this.repo = repo;
             this.attachmentRepo = attachmentRepo;
             this.userRepo = userRepo;
+            this.accountRepo = accountRepo;
+            this.teamRepo = teamRepo;
+            this.leaderAssignRepo = leaderAssignRepo;
+            this.memberAssignRepo = memberAssignRepo;
             this.objectViewService = objectViewService;
         }
         public async Task<ServiceResult> GetListReportBySenderId(int senderId)
@@ -120,7 +129,36 @@ namespace Service.Service
         {
             try
             {
-                var report = await repo.AddReport(key);
+                var account = accountRepo.GetById(key.SenderId);
+                if (account == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Sender Not Found",
+                    };
+                }
+                int? recieverId = null;
+                if (account.RoleId == 3)
+                {
+                    recieverId = (await accountRepo.GetAccountManager())?.Id;
+                }
+                else if (account.RoleId == 4)
+                {
+                    var member = await memberAssignRepo.GetMemberAssignByAccountId(key.SenderId);
+                    var team = teamRepo.GetById(member.TeamId);
+                    var leader = await leaderAssignRepo.GetLeaderAssignByTeamId(team.Id);
+                    recieverId = leader?.LeaderId;
+                }
+                if (recieverId == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Reciever Not Found",
+                    };
+                }
+                var report = await repo.AddReport(key,(int)recieverId);
                 foreach(var item in key.UrlFile)
                 {
                     await attachmentRepo.CreateAsync(new()

@@ -39,13 +39,13 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public async Task<Report> AddReport(ReportAdd key)
+        public async Task<Report> AddReport(ReportAdd key, int recieverId)
         {
             try
             {
                 Report report = new()
                 {
-                    ReceiverId = key.RecieverId,
+                    ReceiverId = recieverId,
                     SenderId = key.SenderId,
                     Title = key.Title,
                     Content = key.Content,

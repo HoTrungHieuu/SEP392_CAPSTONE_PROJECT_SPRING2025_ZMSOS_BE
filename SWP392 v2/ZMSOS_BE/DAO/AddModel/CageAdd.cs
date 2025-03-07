@@ -9,7 +9,9 @@ namespace DAO.AddModel
     public class CageAdd
     {
         public int ZooAreaId { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public string? Name { get; set; }
+        public string? Description { get; set; }
+        public string? Classify {  get; set; }
+        public int? MaxQuantity { get; set; }
     }
 }

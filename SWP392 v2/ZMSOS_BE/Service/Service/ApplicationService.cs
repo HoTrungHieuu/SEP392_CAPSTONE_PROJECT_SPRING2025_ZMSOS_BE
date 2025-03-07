@@ -1,6 +1,7 @@
 ﻿using BO.Models;
 using DAO.AddModel;
 using DAO.ViewModel;
+using Repository.IRepository;
 using Repository.IRepositoyr;
 using Service.IService;
 using System;
@@ -17,12 +18,20 @@ namespace Service.Service
         public IApplicationRepository repo;
         public IApplicationTypeRepository applicationTypeRepo;
         public IUserRepository userRepo;
+        public IAccountRepository accountRepo;
+        public ITeamRepository teamRepo;
+        public IMemberAssignRepository memberAssignRepo;
+        public ILeaderAssignRepository leaderAssignRepo;
         public IObjectViewService objectViewService;
-        public ApplicationService(IApplicationRepository repo, IApplicationTypeRepository applicationTypeRepo, IUserRepository userRepo, IObjectViewService objectViewService)
+        public ApplicationService(IApplicationRepository repo, IApplicationTypeRepository applicationTypeRepo,IAccountRepository accountRepo, ITeamRepository teamRepo, IMemberAssignRepository memberAssignRepo, ILeaderAssignRepository leaderAssignRepo, IUserRepository userRepo, IObjectViewService objectViewService)
         {
             this.repo = repo;
             this.applicationTypeRepo = applicationTypeRepo;
             this.userRepo = userRepo;
+            this.accountRepo = accountRepo;
+            this.teamRepo = teamRepo;
+            this.memberAssignRepo = memberAssignRepo;
+            this.leaderAssignRepo = leaderAssignRepo;
             this.objectViewService = objectViewService;
         }
         public async Task<ServiceResult> GetListApplicationBySenderId(int senderId)
@@ -122,7 +131,36 @@ namespace Service.Service
         {
             try
             {
-                var application = await repo.AddApplication(key);
+                var account = accountRepo.GetById(key.SenderId);
+                if(account == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Sender Not Found",
+                    };
+                }
+                int? recieverId = null;
+                if(account.RoleId == 3)
+                {
+                    recieverId = (await accountRepo.GetAccountManager())?.Id;
+                }
+                else if(account.RoleId == 4)
+                {
+                    var member = await memberAssignRepo.GetMemberAssignByAccountId(key.SenderId);
+                    var team = teamRepo.GetById(member.TeamId);
+                    var leader = await leaderAssignRepo.GetLeaderAssignByTeamId(team.Id);
+                    recieverId = leader?.LeaderId;
+                }
+                if(recieverId == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Reciever Not Found",
+                    };
+                }
+                var application = await repo.AddApplication(key, (int)recieverId);
                 return new ServiceResult
                 {
                     Status = 200,

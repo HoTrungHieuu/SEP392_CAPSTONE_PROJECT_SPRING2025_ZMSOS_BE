@@ -15,6 +15,12 @@ public partial class Cage
 
     public string Description { get; set; }
 
+    public string Classify { get; set; }
+
+    public int? CurrentQuantity { get; set; }
+
+    public int? MaxQuantity { get; set; }
+
     public int? StatusId { get; set; }
 
     public virtual ICollection<AnimalCage> AnimalCages { get; set; } = new List<AnimalCage>();

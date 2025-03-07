@@ -14,6 +14,11 @@ namespace Repository.Repository
         public AccountRepository()
         {
         }
+        public async Task<Account?> GetAccountManager()
+        {
+            var account = (await GetAllAsync()).FirstOrDefault(l => l.RoleId == 2);
+            return account;
+        }
         public AccountView ConvertAccountIntoAccountView(Account account, StatusView? status)
         {
             try

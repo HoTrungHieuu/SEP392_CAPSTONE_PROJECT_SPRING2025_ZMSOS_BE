@@ -4,6 +4,7 @@ using DAO.OtherModel;
 using DAO.SearchModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
+using Nest;
 using Repository.IRepository;
 using Service.IService;
 using System;
@@ -150,8 +151,8 @@ namespace Service.Service
                 return new ServiceResult
                 {
                     Status = 200,
-                    Message = "Animals",
-                    Data = totalNumberPaging.ToString()
+                    Message = totalNumberPaging.ToString(),
+                    Data = result
                 };
             }
             catch (Exception ex)
@@ -350,7 +351,7 @@ namespace Service.Service
                 };
             }
         }
-        public async Task<ServiceResult> AddAnimalCage(List<int> animalIds, int cageId)
+        public async Task<ServiceResult> AddAnimalCage(int animalId, int cageId)
         {
             try
             {
@@ -363,16 +364,33 @@ namespace Service.Service
                         Message = "Cage Not Found"
                     };
                 }
-                List<int> unsuccessId = new List<int>();
-                foreach (int id in animalIds)
+                if(cage.Classify == "Individual" && cage.CurrentQuantity >= cage.MaxQuantity)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Cage is Max"
+                    };
+                }
+
+                var animal = repo.GetById(animalId);
+                if(cage.Classify != animal.Classify && cage.Classify == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Not Same Classify"
+                    };
+                }
+
+                if(animal.Classify == "Individual")
                 {
                     var animalCages = await animalCageRepo.GetListAnimalCageByCageId(cageId);
                     bool incompatible = false;
                     foreach (var animalCageTemp in animalCages)
                     {
                         var animal1 = repo.GetById(animalCageTemp.AnimalId);
-                        var animal2 = repo.GetById(id);
-                        if((await incompatibleAnimalTypeRepo.CheckIncompatibleAnimalType((int)animal1.AnimalTypeId, (int)animal2.AnimalTypeId)) == true)
+                        if ((await incompatibleAnimalTypeRepo.CheckIncompatibleAnimalType((int)animal1.AnimalTypeId, (int)animal.AnimalTypeId)) == true)
                         {
                             incompatible = true;
                             break;
@@ -380,19 +398,52 @@ namespace Service.Service
                     }
                     if (incompatible == false)
                     {
-                        var animalCage = await animalCageRepo.AddAnimalCage(id, cageId);
+                        var animalCage = await animalCageRepo.AddAnimalCage(animalId, cageId);
                         if (animalCage == null)
                         {
-                            unsuccessId.Add(id);
+                            return new ServiceResult
+                            {
+                                Status = 200,
+                                Message = "Add Fail",
+                            };
                         }
+                        cage.CurrentQuantity += 1;
                     }
-                    unsuccessId.Add(id);
+                    else
+                    {
+                        return new ServiceResult
+                        {
+                            Status = 400,
+                            Message = "Cage Has Animal Incompatible",
+                        };
+                    }
+                    await cageRepo.UpdateAsync(cage);
+                }
+                else if(animal.Classify == "Flock")
+                {
+                    var animalCages = await animalCageRepo.GetListAnimalCageByCageId(cageId);
+                    if(animalCages?.Count > 0)
+                    {
+                        return new ServiceResult
+                        {
+                            Status = 400,
+                            Message = "Cage Had Animal",
+                        };
+                    }
+                    var animalCage = await animalCageRepo.AddAnimalCage(animalId, cageId);
+                    if (animalCage == null)
+                    {
+                        return new ServiceResult
+                        {
+                            Status = 200,
+                            Message = "Add Fail",
+                        };
+                    }
                 }
                 return new ServiceResult
                 {
                     Status = 200,
-                    Message = "Add Success With Id UnSuccess",
-                    Data = unsuccessId
+                    Message = "Add Success",
                 };
             }
             catch (Exception ex)
@@ -434,6 +485,11 @@ namespace Service.Service
                         Status = 400,
                         Message = "Animal Not In Cage"
                     };
+                }
+                if(cage.Classify == "Individual")
+                {
+                    cage.CurrentQuantity -= 1;
+                    await cageRepo.UpdateAsync(cage);
                 }
                 return new ServiceResult
                 {

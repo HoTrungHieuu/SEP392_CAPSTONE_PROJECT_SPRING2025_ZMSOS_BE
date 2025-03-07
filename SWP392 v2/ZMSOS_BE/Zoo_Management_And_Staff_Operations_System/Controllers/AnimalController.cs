@@ -68,9 +68,9 @@ namespace AnimalAndCageManagement.Controllers
             return statusResult.Result(result);
         }
         [HttpPost("animal/cage/animalIds&&cageId")]
-        public async Task<IActionResult> AddAnimalCage(List<int> animalIds, int cageId)
+        public async Task<IActionResult> AddAnimalCage(int animalId, int cageId)
         {
-            var result = await service.AddAnimalCage(animalIds, cageId);
+            var result = await service.AddAnimalCage(animalId, cageId);
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }

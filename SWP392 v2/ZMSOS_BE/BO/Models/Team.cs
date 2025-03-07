@@ -15,6 +15,10 @@ public partial class Team
 
     public string Description { get; set; }
 
+    public int? CurrentQuantity { get; set; }
+
+    public int? MaxQuantity { get; set; }
+
     public int? StatusId { get; set; }
 
     public virtual ICollection<LeaderAssign> LeaderAssigns { get; set; } = new List<LeaderAssign>();

@@ -10,15 +10,19 @@ namespace DAO.ViewModel
 {
     public class TeamView
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public int? Id { get; set; }
+        public string? Name { get; set; }
+        public string? Description { get; set; }
+        public int? CurrentQuantity {  get; set; }
+        public int? MaxQuantity {  get; set; }
         public StatusView? Status {  get; set; }
         public void ConvertTeamIntoTeamView(Team key, StatusView? status)
         {
             Id = key.Id;
             Name = key.Name;
             Description = key.Description;
+            CurrentQuantity = key.CurrentQuantity;
+            MaxQuantity = key.MaxQuantity;
             Status = status;
         }
     }

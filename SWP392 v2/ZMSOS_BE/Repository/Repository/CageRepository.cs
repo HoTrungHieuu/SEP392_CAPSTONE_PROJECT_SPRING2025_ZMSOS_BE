@@ -49,8 +49,19 @@ namespace Repository.Repository
                     ZooAreaId = key.ZooAreaId,
                     Name = key.Name,
                     Description = key.Description,
+                    Classify = key.Classify,
                     Status = null
                 };
+                if(key.Classify == "Individual")
+                {
+                    cage.MaxQuantity = key.MaxQuantity;
+                    cage.CurrentQuantity = 0;
+                }
+                else
+                {
+                    cage.MaxQuantity = null;
+                    cage.CurrentQuantity = null;
+                }
                 await CreateAsync(cage);
                 return cage;
             }
@@ -68,6 +79,7 @@ namespace Repository.Repository
                 cage.ZooAreaId = key.ZooAreaId;
                 cage.Name = key.Name;
                 cage.Description = key.Description;
+                cage.MaxQuantity = key.MaxQuantity;
                 cage.Status = null;
                 await UpdateAsync(cage);
                 return cage;

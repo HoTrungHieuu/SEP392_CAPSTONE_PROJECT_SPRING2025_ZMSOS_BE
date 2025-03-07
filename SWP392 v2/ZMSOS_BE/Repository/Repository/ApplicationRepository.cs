@@ -40,13 +40,13 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public async Task<Application> AddApplication(ApplicationAdd key)
+        public async Task<Application> AddApplication(ApplicationAdd key, int recieverId)
         {
             try
             {
                 Application application = new()
                 {
-                    RecieverId = key.RecieverId,
+                    RecieverId = recieverId,
                     SenderId = key.SenderId,
                     Title = key.Title,
                     Details = key.Detail,

@@ -9,9 +9,10 @@ namespace DAO.UpdateModel
 {
     public class CageUpdate
     {
-        public int Id { get; set; }
-        public int ZooAreaId { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public int? Id { get; set; }
+        public int? ZooAreaId { get; set; }
+        public string? Name { get; set; }
+        public string? Description { get; set; }
+        public int? MaxQuantity {  get; set; }
     }
 }

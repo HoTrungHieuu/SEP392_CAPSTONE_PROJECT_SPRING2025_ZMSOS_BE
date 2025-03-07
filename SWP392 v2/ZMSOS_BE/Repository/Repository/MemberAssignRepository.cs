@@ -28,6 +28,19 @@ namespace Repository.Repository
                 throw;
             }
         }
+        public async Task<MemberAssign> GetMemberAssignByAccountId(int accountId)
+        {
+            try
+            {
+                var memberAssign = (await GetAllAsync()).FirstOrDefault(l => l.MemberId == accountId && l.ToDate == null);
+                if (memberAssign == null) return null;
+                return memberAssign;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         public async Task<MemberAssign?> AddMemberAssign(int teamId, int accountId)
         {
             try

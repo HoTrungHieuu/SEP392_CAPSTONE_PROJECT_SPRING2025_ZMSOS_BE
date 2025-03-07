@@ -36,6 +36,8 @@ namespace Repository.Repository
                 {
                     Name = key.Name,
                     Description = key.Description,
+                    MaxQuantity = key.MaxQuantity,
+                    CurrentQuantity = 0,
                     Status = null,
                 };
                 await CreateAsync(team);
@@ -54,6 +56,7 @@ namespace Repository.Repository
                 if (team == null) return null;
                 team.Name = key.Name;
                 team.Description = key.Description;
+                team.MaxQuantity = key.MaxQuantity;
                 await UpdateAsync(team);
                 return team;
             }
