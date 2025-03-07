@@ -329,6 +329,27 @@
   },
   {
     "ContainingType": "AccountManagement.Controllers.ApplicationController",
+    "Method": "GetListApplicationByRecieverIdSearch",
+    "RelativePath": "api/Application/applications/recieverId/search-sort-paging",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "recieverId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "key",
+        "Type": "DAO.SearchModel.ApplicationSearch\u00601[[DAO.ViewModel.ApplicationView, DAO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.ApplicationController",
     "Method": "GetListApplicationBySenderId",
     "RelativePath": "api/Application/applications/senderId",
     "HttpMethod": "GET",
@@ -339,6 +360,27 @@
         "Name": "senderId",
         "Type": "System.Int32",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.ApplicationController",
+    "Method": "GetListApplicationBySenderIdSearch",
+    "RelativePath": "api/Application/applications/senderId/search-sort-paging",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "senderId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "key",
+        "Type": "DAO.SearchModel.ApplicationSearch\u00601[[DAO.ViewModel.ApplicationView, DAO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -657,6 +699,27 @@
   },
   {
     "ContainingType": "AccountManagement.Controllers.ReportController",
+    "Method": "GetListReportByRecieverIdSearch",
+    "RelativePath": "api/Report/reports/recieverId/search-sort-paging",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "recieverId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "key",
+        "Type": "DAO.SearchModel.ReportSearch\u00601[[DAO.ViewModel.ReportView, DAO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.ReportController",
     "Method": "GetListReportBySenderId",
     "RelativePath": "api/Report/reports/senderId",
     "HttpMethod": "GET",
@@ -667,6 +730,27 @@
         "Name": "senderId",
         "Type": "System.Int32",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.ReportController",
+    "Method": "GetListReportBySenderIdSearch",
+    "RelativePath": "api/Report/reports/senderId/search-sort-paging",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "senderId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "key",
+        "Type": "DAO.SearchModel.ReportSearch\u00601[[DAO.ViewModel.ReportView, DAO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -698,6 +782,22 @@
       {
         "Name": "key",
         "Type": "DAO.UpdateModel.ScheduleUpdate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.ScheduleController",
+    "Method": "AddScheduleAuto",
+    "RelativePath": "api/Schedule/schedule/auto",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.AddModel.ScheduleAutoAdd",
         "IsRequired": true
       }
     ],

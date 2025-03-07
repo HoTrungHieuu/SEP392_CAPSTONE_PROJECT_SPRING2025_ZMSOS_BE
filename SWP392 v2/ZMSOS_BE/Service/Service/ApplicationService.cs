@@ -1,5 +1,7 @@
 ﻿using BO.Models;
 using DAO.AddModel;
+using DAO.OtherModel;
+using DAO.SearchModel;
 using DAO.ViewModel;
 using Repository.IRepository;
 using Repository.IRepositoyr;
@@ -65,6 +67,45 @@ namespace Service.Service
                 };
             }
         }
+        public async Task<ServiceResult> GetListApplicationBySenderIdSearch(int senderId, ApplicationSearch<ApplicationView> key)
+        {
+            try
+            {
+                var applications = await repo.GetListApplcationBySenderId(senderId);
+                if (applications == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Not Found!",
+                    };
+                }
+
+                var result = await objectViewService.GetListApplicationView(applications);
+                int? totalNumberPaging = null;
+                if (key.Paging != null)
+                {
+                    Paging<ApplicationView> paging = new();
+                    result = paging.PagingList(result, key.Paging.PageSize, key.Paging.PageNumber);
+                    totalNumberPaging = paging.MaxPageNumber(result, key.Paging.PageSize);
+                }
+                if (totalNumberPaging == null) totalNumberPaging = 1;
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = totalNumberPaging.ToString(),
+                    Data = result
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
         public async Task<ServiceResult> GetListApplicationByRecieverId(int recieverId)
         {
             try
@@ -84,6 +125,45 @@ namespace Service.Service
                 {
                     Status = 200,
                     Message = "Applications",
+                    Data = result
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
+        public async Task<ServiceResult> GetListApplicationByRecieverIdSearch(int recieverId, ApplicationSearch<ApplicationView> key)
+        {
+            try
+            {
+                var applications = await repo.GetListApplcationByRecieverId(recieverId);
+                if (applications == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Not Found!",
+                    };
+                }
+
+                var result = await objectViewService.GetListApplicationView(applications);
+                int? totalNumberPaging = null;
+                if (key.Paging != null)
+                {
+                    Paging<ApplicationView> paging = new();
+                    result = paging.PagingList(result, key.Paging.PageSize, key.Paging.PageNumber);
+                    totalNumberPaging = paging.MaxPageNumber(result, key.Paging.PageSize);
+                }
+                if (totalNumberPaging == null) totalNumberPaging = 1;
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = totalNumberPaging.ToString(),
                     Data = result
                 };
             }

@@ -1,5 +1,6 @@
 ﻿using BO.Models;
 using DAO.AddModel;
+using DAO.OtherModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
 using Repository.IRepositoyr;
@@ -41,6 +42,30 @@ namespace Repository.Repository
                 };
                 await CreateAsync(schedule);
                 return schedule;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public async System.Threading.Tasks.Task AddScheduleAuto(ScheduleAutoAdd key)
+        {
+            try
+            {
+                for (DateOnly date = key.FromDate; date <= key.ToDate; date = date.AddDays(1))
+                {
+                    if(Day.CheckDateOfWeek(date, key.DayOfWeek) && !key.DateExclution.Contains(date))
+                    {
+                        Schedule schedule = new()
+                        {
+                            AccountId = key.AccountId,
+                            Date = date,
+                            Note = null,
+                            Status = null
+                        };
+                        await CreateAsync(schedule);
+                    }
+                }
             }
             catch (Exception)
             {

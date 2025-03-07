@@ -36,6 +36,13 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [HttpPost("schedule/auto")]
+        public async Task<IActionResult> AddScheduleAuto(ScheduleAutoAdd key)
+        {
+            var result = await service.AddScheduleAuto(key);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
         [HttpPut("schedule")]
         public async Task<IActionResult> UpdateSchedule(ScheduleUpdate key)
         {

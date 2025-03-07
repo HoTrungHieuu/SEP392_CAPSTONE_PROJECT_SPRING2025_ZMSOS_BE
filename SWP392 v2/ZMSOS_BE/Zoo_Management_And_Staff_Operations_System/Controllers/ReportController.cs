@@ -1,4 +1,6 @@
 ﻿using DAO.AddModel;
+using DAO.SearchModel;
+using DAO.ViewModel;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Service.IService;
@@ -21,10 +23,24 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [HttpPost("reports/senderId/search-sort-paging")]
+        public async Task<IActionResult> GetListReportBySenderIdSearch(int senderId, ReportSearch<ReportView> key)
+        {
+            var result = await service.GetListReportBySenderIdSearch(senderId, key);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
         [HttpGet("reports/recieverId")]
         public async Task<IActionResult> GetListReportByRecieverId(int recieverId)
         {
             var result = await service.GetListReportByRecieverId(recieverId);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
+        [HttpPost("reports/recieverId/search-sort-paging")]
+        public async Task<IActionResult> GetListReportByRecieverIdSearch(int recieverId, ReportSearch<ReportView> key)
+        {
+            var result = await service.GetListReportByRecieverIdSearch(recieverId, key);
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }

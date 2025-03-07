@@ -13,6 +13,7 @@ namespace Service.IService
         public Task<ServiceResult> GetListScheduleByAccountId(int accountId);
         public Task<ServiceResult> GetScheduleById(int id);
         public Task<ServiceResult> AddSchedule(ScheduleAdd key);
+        public Task<ServiceResult> AddScheduleAuto(ScheduleAutoAdd key);
         public Task<ServiceResult> UpdateSchedule(ScheduleUpdate key);
     }
 }

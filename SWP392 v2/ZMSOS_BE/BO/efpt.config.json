@@ -67,6 +67,10 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[Category]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[Evaluation]",
          "ObjectType": 0
       },

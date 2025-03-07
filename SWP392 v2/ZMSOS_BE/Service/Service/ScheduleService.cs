@@ -16,11 +16,13 @@ namespace Service.Service
     {
         public IScheduleRepository repo;
         public IUserRepository userRepo;
+        public IAccountRepository accountRepo;
         public IObjectViewService objectViewService;
-        public ScheduleService(IScheduleRepository repo, IUserRepository userRepo, IObjectViewService objectViewService)
+        public ScheduleService(IScheduleRepository repo, IUserRepository userRepo,IAccountRepository accountRepo, IObjectViewService objectViewService)
         {
             this.repo = repo;
             this.userRepo = userRepo;
+            this.accountRepo = accountRepo;
             this.objectViewService = objectViewService;
         }
         public async Task<ServiceResult> GetListScheduleByAccountId(int accountId)
@@ -91,6 +93,43 @@ namespace Service.Service
             try
             {
                 var schedule = await repo.AddSchedule(key);
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "Add Success",
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
+        public async Task<ServiceResult> AddScheduleAuto(ScheduleAutoAdd key)
+        {
+            try
+            {
+                if(key.FromDate > key.ToDate)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Date is Invalid",
+                    };
+                }
+                var account = accountRepo.GetById(key.AccountId);
+                if(account == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Account Not Exist",
+                    };
+                }
+                await repo.AddScheduleAuto(key);
                 return new ServiceResult
                 {
                     Status = 200,
