@@ -163,7 +163,7 @@ app.UseRouting();
 
 app.UseAuthentication();
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseAuthorization();
 

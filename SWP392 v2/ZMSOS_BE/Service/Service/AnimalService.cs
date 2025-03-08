@@ -464,7 +464,7 @@ namespace Service.Service
                 {
                     return new ServiceResult
                     {
-                        Status = 404,
+                        Status = 404,   
                         Message = "Cage Not Found"
                     };
                 }
