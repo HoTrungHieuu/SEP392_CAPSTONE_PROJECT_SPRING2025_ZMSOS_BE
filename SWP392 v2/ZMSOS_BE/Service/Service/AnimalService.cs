@@ -23,11 +23,13 @@ namespace Service.Service
         public IAnimalCageRepository animalCageRepo;
         public IFlockRepository flockRepo;
         public IIndividualRepository individualRepo;
+        public IAnimalImageRepository animalImageRepo;
         public IIncompatibleAnimalTypeRepository incompatibleAnimalTypeRepo;
         public IObjectViewService objectViewService;
         public AnimalService(IAnimalRepository repo, IAnimalTypeRepository typeRepo, 
             IAnimalCageRepository animalCageRepo, ICageRepository cageRepo, IObjectViewService objectViewService, 
             IFlockRepository flockRepo, IIndividualRepository individualRepo, 
+            IAnimalImageRepository animalImageRepo,
             IIncompatibleAnimalTypeRepository incompatibleAnimalTypeRepo)
         {
             this.repo = repo;
@@ -36,6 +38,7 @@ namespace Service.Service
             this.cageRepo = cageRepo;
             this.flockRepo = flockRepo;
             this.individualRepo = individualRepo;
+            this.animalImageRepo = animalImageRepo;
             this.objectViewService = objectViewService;
             this.incompatibleAnimalTypeRepo = incompatibleAnimalTypeRepo;
         }
@@ -300,6 +303,7 @@ namespace Service.Service
                 {
                     await individualRepo.AddIndividual(animal.Id, key.Individual);
                 }
+                await animalImageRepo.AddAnimalImageByAnimalId(animal.Id, key.UrlImages);
                 return new ServiceResult
                 {
                     Status = 200,
@@ -336,6 +340,8 @@ namespace Service.Service
                 {
                     await individualRepo.UpdateIndividual(animal.Id, key.Individual);
                 }
+                await animalImageRepo.DeleteAnimalImageByAnimalId(animal.Id);
+                await animalImageRepo.AddAnimalImageByAnimalId(animal.Id, key.UrlImages);
                 return new ServiceResult
                 {
                     Status = 200,

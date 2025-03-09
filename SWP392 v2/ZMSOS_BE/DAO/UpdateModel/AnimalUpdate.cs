@@ -15,6 +15,6 @@ namespace DAO.UpdateModel
         public FlockUpdate? Flock { get; set; }
         public IndividualUpdate? Individual { get; set; }
         public string? Status {  get; set; }
-        public string? UrlImage { get; set; }
+        public List<string>? UrlImages { get; set; }
     }
 }

@@ -13,5 +13,7 @@ namespace DAO.AddModel
         public string? Description { get; set; }
         public string? Classify {  get; set; }
         public int? MaxQuantity { get; set; }
+        public string? Size { get; set; }
+        public string? UrlImage { get; set; }
     }
 }

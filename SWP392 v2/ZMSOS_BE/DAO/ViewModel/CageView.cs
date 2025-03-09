@@ -18,6 +18,9 @@ namespace DAO.ViewModel
         public string? Classify {  get; set; }
         public int? CurrentQuantity {  get; set; }
         public int? MaxQuantity {  get; set; }
+        public string? Size {  get; set; }
+        public string? UrlImage {  get; set; }
+        public DateOnly? DateCreate { get; set; }
         public StatusView? Status {  get; set; }
         public void ConvertCageIntoCageView(Cage key, ZooAreaView zooArea, StatusView? status)
         {
@@ -29,6 +32,9 @@ namespace DAO.ViewModel
             MaxQuantity = key.MaxQuantity;
             Status = status;
             ZooArea = zooArea;
+            Size = key.Size;
+            DateCreate = key.DateCreate;
+            UrlImage = key.UrlImage;
         }
     }
 }

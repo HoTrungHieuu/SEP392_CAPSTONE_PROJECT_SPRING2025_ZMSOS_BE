@@ -50,7 +50,10 @@ namespace Repository.Repository
                     Name = key.Name,
                     Description = key.Description,
                     Classify = key.Classify,
-                    Status = null
+                    Size = key.Size,
+                    UrlImage = key.UrlImage,
+                    DateCreate = DateOnly.FromDateTime(DateTime.Now),
+                    StatusId = 1
                 };
                 if(key.Classify == "Individual")
                 {
@@ -80,6 +83,8 @@ namespace Repository.Repository
                 cage.Name = key.Name;
                 cage.Description = key.Description;
                 cage.MaxQuantity = key.MaxQuantity;
+                cage.UrlImage = key.UrlImage;
+                cage.Size    = key.Size;
                 cage.Status = null;
                 await UpdateAsync(cage);
                 return cage;

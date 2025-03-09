@@ -17,11 +17,13 @@ namespace Service.Service
     public class ZooAreaService : IZooAreaService
     {
         public IZooAreaRepository repo;
+        public IZooAreaImageRepository zooAreaImageRepo;
         public IObjectViewService objectViewService;
-        public ZooAreaService(IZooAreaRepository repo, IObjectViewService objectViewService)
+        public ZooAreaService(IZooAreaRepository repo, IObjectViewService objectViewService, IZooAreaImageRepository zooAreaImageRepo)
         {
             this.repo = repo;
             this.objectViewService = objectViewService;
+            this.zooAreaImageRepo = zooAreaImageRepo;
         }
         public async Task<ServiceResult> GetListZooArea()
         {
@@ -143,6 +145,7 @@ namespace Service.Service
             try
             {
                 var zooArea = await repo.AddZooArea(key);
+                await zooAreaImageRepo.AddZooAreaImageByZooAreaId(zooArea.Id, key.UrlImages);
                 return new ServiceResult
                 {
                     Status = 200,
@@ -163,6 +166,8 @@ namespace Service.Service
             try
             {
                 var zooArea = await repo.UpdateZooArea(key);
+                await zooAreaImageRepo.DeleteZooAreaImageByZooAreaId(zooArea.Id);
+                await zooAreaImageRepo.AddZooAreaImageByZooAreaId(zooArea.Id, key.UrlImages);
                 if (zooArea == null)
                 {
                     return new ServiceResult

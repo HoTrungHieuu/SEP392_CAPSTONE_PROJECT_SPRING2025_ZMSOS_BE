@@ -9,10 +9,10 @@ namespace DAO.AddModel
     public class AnimalAdd
     {
         public int AnimalTypeId { get; set; }
-        public string Description { get; set; }
-        public string Classify {  get; set; }
+        public string? Description { get; set; }
+        public string? Classify {  get; set; }
         public FlockAdd? Flock { get; set; }
         public IndividualAdd? Individual { get; set; }
-        public string UrlImage {  get; set; }
+        public List<string>? UrlImages {  get; set; }
     }
 }

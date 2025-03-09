@@ -39,6 +39,8 @@ namespace Service.Service
         public INotificationRepository notificationRepo;
         public IScheduleRepository scheduleRepo;
         public ITaskEstimateRepository taskEstimateRepo;
+        public IAnimalImageRepository animalImageRepo;
+        public IZooAreaImageRepository zooAreaImageRepo;
         public ObjectViewService(IAnimalRepository animalRepo, IAnimalTypeRepository animalTypeRepo, 
             ICageRepository cageRepo, IZooAreaRepository zooAreaRepo,
             ITaskRepository taskRepo, ITaskTypeRepository taskTypeRepo, IAnimalCageRepository animalCageRepo, IAnimalAssignRepository animalAssignRepo, 
@@ -52,7 +54,8 @@ namespace Service.Service
             INewsRepository newsRepo,
             INotificationRepository notificationRepo,
             IScheduleRepository scheduleRepo,
-            ITaskEstimateRepository taskEstimateRepo)
+            ITaskEstimateRepository taskEstimateRepo,
+            IAnimalImageRepository animalImageRepo, IZooAreaImageRepository zooAreaImageRepo)
         {
             this.animalRepo = animalRepo;
             this.animalTypeRepo = animalTypeRepo;
@@ -79,6 +82,8 @@ namespace Service.Service
             this.notificationRepo = notificationRepo;
             this.scheduleRepo = scheduleRepo;
             this.taskEstimateRepo = taskEstimateRepo;
+            this.animalImageRepo = animalImageRepo;
+            this.zooAreaImageRepo = zooAreaImageRepo;
         }
         public async Task<List<AnimalView>> GetListAnimalView(List<Animal> animals)
         {
@@ -93,23 +98,37 @@ namespace Service.Service
         {
             AnimalTypeView animalType = new();
             animalType = await GetAnimalTypeView(animalTypeRepo.GetById((int)animal.AnimalTypeId));
-            if(animal.Classify == "Flock")
+            List<string> urlImages = new List<string>();
+            urlImages = await animalImageRepo.GetListAnimalImageUrlByAnimalId(animal.Id);
+            CageView cage = new();
+            var animalCage = await animalCageRepo.GetAnimalCageCurrentByAnimalId((int)animal.Id);
+            if(animalCage != null)
+            {
+                cage = await GetCageView(cageRepo.GetById((int)animalCage.CageId));
+            }
+            else
+            {
+                cage = null;
+            }
+            StatusView status = new StatusView();
+            status = await GetStatusView(statusRepo.GetById((int)animal.StatusId));
+            if (animal.Classify == "Flock")
             {
                 FlockView flock = new();
                 flock = await GetFlockView(await flockRepo.GetFlockByAnimalId((int)animal.Id));
-                var result = animalRepo.ConvertAnimalIntoAnimalView(animal, animalType, flock, null, null);
+                var result = animalRepo.ConvertAnimalIntoAnimalView(animal, animalType, flock, null, status,cage,urlImages);
                 return result;
             }
             else if(animal.Classify == "Individual")
             {
                 IndividualView individual = new();
                 individual = await GetIndividualView(await individualRepo.GetIndividualByAnimalId((int)animal.Id));
-                var result = animalRepo.ConvertAnimalIntoAnimalView(animal, animalType, null, individual, null);
+                var result = animalRepo.ConvertAnimalIntoAnimalView(animal, animalType, null, individual, status, cage, urlImages);
                 return result;
             }
             else
             {
-                var result = animalRepo.ConvertAnimalIntoAnimalView(animal, animalType, null, null, null);
+                var result = animalRepo.ConvertAnimalIntoAnimalView(animal, animalType, null, null, status, cage, urlImages);
                 return result;
             }
         }
@@ -164,7 +183,11 @@ namespace Service.Service
         }
         public async Task<ZooAreaView> GetZooAreaView(ZooArea zooArea)
         {
-            var result = zooAreaRepo.ConvertZooAreaIntoZooAreaView(zooArea, null);
+            List<string> urlImages = new List<string>();
+            urlImages = await zooAreaImageRepo.GetListZooAreaImageUrlByZooAreaId(zooArea.Id);
+            StatusView status = new StatusView();
+            status = await GetStatusView(statusRepo.GetById((int)zooArea.StatusId));
+            var result = zooAreaRepo.ConvertZooAreaIntoZooAreaView(zooArea, status, urlImages);
             return result;
         }
         public async Task<List<TaskView>> GetListTaskView(List<BO.Models.Task> tasks)

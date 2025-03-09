@@ -14,5 +14,7 @@ namespace DAO.UpdateModel
         public string? Name { get; set; }
         public string? Description { get; set; }
         public int? MaxQuantity {  get; set; }
+        public string? Size { get; set; }
+        public string? UrlImage { get; set; }
     }
 }

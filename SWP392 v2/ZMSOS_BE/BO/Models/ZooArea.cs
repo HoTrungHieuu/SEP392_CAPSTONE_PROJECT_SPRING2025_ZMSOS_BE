@@ -13,6 +13,12 @@ public partial class ZooArea
 
     public string Description { get; set; }
 
+    public string AnimalOrder { get; set; }
+
+    public string Location { get; set; }
+
+    public string Size { get; set; }
+
     public int? StatusId { get; set; }
 
     public virtual ICollection<Cage> Cages { get; set; } = new List<Cage>();
@@ -20,4 +26,6 @@ public partial class ZooArea
     public virtual Status Status { get; set; }
 
     public virtual ICollection<Team> Teams { get; set; } = new List<Team>();
+
+    public virtual ICollection<ZooAreaImage> ZooAreaImages { get; set; } = new List<ZooAreaImage>();
 }

@@ -123,6 +123,10 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[StatusCategory]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[Task]",
          "ObjectType": 0
       },
@@ -144,6 +148,10 @@
       },
       {
          "Name": "[dbo].[ZooArea]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ZooAreaImage]",
          "ObjectType": 0
       }
    ],

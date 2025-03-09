@@ -9,7 +9,7 @@ public partial class Category
 {
     public int Id { get; set; }
 
-    public int? Name { get; set; }
+    public string Name { get; set; }
 
-    public virtual ICollection<Status> Statuses { get; set; } = new List<Status>();
+    public virtual ICollection<StatusCategory> StatusCategories { get; set; } = new List<StatusCategory>();
 }

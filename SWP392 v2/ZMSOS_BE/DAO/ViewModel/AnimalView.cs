@@ -17,11 +17,13 @@ namespace DAO.ViewModel
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public IndividualView? Individual { get; set; }
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public FlockView Flock { get; set; }
-        public string Description { get; set; }
-        public string Classify {  get; set; }
+        public FlockView? Flock { get; set; }
+        public string? Description { get; set; }
+        public string? Classify {  get; set; }
+        public CageView? Cage { get; set; }
         public StatusView? Status {  get; set; }
-        public void ConvertAnimalIntoAnimalView(Animal key,AnimalTypeView animalType,FlockView flock, IndividualView individual, StatusView? status)
+        public List<string>? UrlImages { get; set; }
+        public void ConvertAnimalIntoAnimalView(Animal key,AnimalTypeView animalType,FlockView flock, IndividualView individual, StatusView? status, CageView cage, List<string> urlImages)
         {
             Id = key.Id;
             Description = key.Description;
@@ -30,6 +32,9 @@ namespace DAO.ViewModel
             AnimalType = animalType;
             Individual = individual;
             Flock = flock;
+            Cage = cage;
+            UrlImages = urlImages;
+            Status = status;
         }
     }
 }

@@ -13,8 +13,6 @@ public partial class Status
 
     public string Description { get; set; }
 
-    public int? CategoryId { get; set; }
-
     public virtual ICollection<AbsentTime> AbsentTimes { get; set; } = new List<AbsentTime>();
 
     public virtual ICollection<Account> Accounts { get; set; } = new List<Account>();
@@ -34,8 +32,6 @@ public partial class Status
     public virtual ICollection<CageUpdateHistory> CageUpdateHistories { get; set; } = new List<CageUpdateHistory>();
 
     public virtual ICollection<Cage> Cages { get; set; } = new List<Cage>();
-
-    public virtual Category Category { get; set; }
 
     public virtual ICollection<Evaluation> Evaluations { get; set; } = new List<Evaluation>();
 
@@ -58,6 +54,8 @@ public partial class Status
     public virtual ICollection<Report> Reports { get; set; } = new List<Report>();
 
     public virtual ICollection<Schedule> Schedules { get; set; } = new List<Schedule>();
+
+    public virtual ICollection<StatusCategory> StatusCategories { get; set; } = new List<StatusCategory>();
 
     public virtual ICollection<TaskEstimate> TaskEstimates { get; set; } = new List<TaskEstimate>();
 

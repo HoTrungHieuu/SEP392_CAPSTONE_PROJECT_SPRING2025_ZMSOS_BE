@@ -21,6 +21,12 @@ public partial class Cage
 
     public int? MaxQuantity { get; set; }
 
+    public string Size { get; set; }
+
+    public string UrlImage { get; set; }
+
+    public DateOnly? DateCreate { get; set; }
+
     public int? StatusId { get; set; }
 
     public virtual ICollection<AnimalCage> AnimalCages { get; set; } = new List<AnimalCage>();

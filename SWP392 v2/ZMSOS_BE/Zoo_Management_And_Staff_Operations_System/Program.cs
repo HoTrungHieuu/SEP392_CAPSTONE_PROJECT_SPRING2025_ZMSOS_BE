@@ -144,6 +144,8 @@ builder.Services.AddScoped<IAnimalAssignRepository, AnimalAssignRepository>();
 builder.Services.AddScoped<IIncompatibleAnimalTypeRepository, IncompatibleAnimalTypeRepository>();
 builder.Services.AddScoped<IIncompatibleAnimalTypeService, IncompatibleAnimalTypeService>();
 builder.Services.AddScoped<IStatusRepository, StatusRepository>();
+builder.Services.AddScoped<IAnimalImageRepository, AnimalImageRepository>();
+builder.Services.AddScoped<IZooAreaImageRepository, ZooAreaImageRepository>();
 
 var app = builder.Build();
 
