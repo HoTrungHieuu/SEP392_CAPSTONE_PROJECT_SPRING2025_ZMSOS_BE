@@ -16,21 +16,8 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
     {
         if (!optionsBuilder.IsConfigured)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer(GetConnectionString());
-            }
+            optionsBuilder.UseSqlServer(new ConfigurationBuilder().AddJsonFile("appsettings.json").Build().GetConnectionString("DefaultConnection"));
         }
-    }
-    private string GetConnectionString()
-    {
-        IConfiguration config = new ConfigurationBuilder()
-             .SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "..", "Zoo_Management_And_Staff_Operations_System"))
-             .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-             .Build();
-        var strConn = config["ConnectionStrings:DefaultConnection"];
-
-        return strConn;
     }
     public Zoo_Management_And_Staff_Operations_SystemContext(DbContextOptions<Zoo_Management_And_Staff_Operations_SystemContext> options)
         : base(options)
