@@ -1,13 +1,26 @@
-FROM --platform=$BUILDPLATFORM mcr.microsoft.com/dotnet/sdk:8.0-alpine AS build
-COPY . /source
-WORKDIR /source/Zoo_Management_And_Staff_Operations_System
-ARG TARGETARCH
-RUN --mount=type=cache,id=nuget,target=/root/.nuget/packages \
-    dotnet publish -a ${TARGETARCH/amd64/x64} --use-current-runtime --self-contained false -o /app
+# Build stage
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
 
-FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS final
+# Copy và restore riêng các file .csproj trước
+COPY ["Zoo_Management_And_Staff_Operations_System/Zoo_Management_And_Staff_Operations_System.csproj", "Zoo_Management_And_Staff_Operations_System/"]
+COPY ["BO/BO.csproj", "BO/"]
+COPY ["DAO/DAO.csproj", "DAO/"]
+COPY ["Repository/Repository.csproj", "Repository/"]
+COPY ["Service/Service.csproj", "Service/"]
+
+RUN dotnet restore "Zoo_Management_And_Staff_Operations_System/Zoo_Management_And_Staff_Operations_System.csproj"
+
+# Copy toàn bộ source code
+COPY . .
+
+# Build và publish
+WORKDIR "/src/Zoo_Management_And_Staff_Operations_System"
+RUN dotnet publish -c Release -o /app/publish
+
+# Runtime stage
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
-COPY --from=build /app .
-RUN ls -la /app  # Kiểm tra các tệp trong /app
-USER $APP_UID
-ENTRYPOINT ["dotnet", "Zoo_Management_And_Staff_Operations_System.dll"]
+EXPOSE 80
+COPY --from=build /app/publish .
+ENTRYPOINT ["dotnet", "Zoo_Management_And_Staff_Operations_System.dll", "--urls=http://0.0.0.0:80"]

@@ -611,8 +611,7 @@
               "RelativeToolTip": "Repository\\Repository\\AnimalRepository.cs",
               "ViewState": "AgIAACkAAAAAAAAAAAAAADMAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T10:44:59.077Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-03T10:44:59.077Z"
             },
             {
               "$type": "Document",
@@ -624,8 +623,7 @@
               "RelativeToolTip": "Service\\Service\\ZooAreaService.cs",
               "ViewState": "AgIAAJ0AAAAAAAAAAAAAAKgAAABRAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-28T16:29:26.904Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-28T16:29:26.904Z"
             },
             {
               "$type": "Document",
@@ -637,8 +635,7 @@
               "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Program.cs",
               "ViewState": "AgIAAIwAAAAAAAAAAIAwwJMAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T10:03:49.937Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-03T10:03:49.937Z"
             },
             {
               "$type": "Document",
@@ -650,8 +647,7 @@
               "RelativeToolTip": "BO\\Models\\Zoo_Management_And_Staff_Operations_SystemContext.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAA/wCEAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T09:47:39.756Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-03T09:47:39.756Z"
             },
             {
               "$type": "Document",
@@ -663,8 +659,7 @@
               "RelativeToolTip": "DAO\\ViewModel\\CageView.cs",
               "ViewState": "AgIAABYAAAAAAAAAAAAAACQAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T10:37:25.038Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-03T10:37:25.038Z"
             },
             {
               "$type": "Document",
@@ -676,8 +671,7 @@
               "RelativeToolTip": "DAO\\UpdateModel\\CageUpdate.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAuwBEAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T13:52:10.874Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-06T13:52:10.874Z"
             },
             {
               "$type": "Document",
@@ -689,8 +683,7 @@
               "RelativeToolTip": "DAO\\AddModel\\CageAdd.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAuwBAAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T13:47:39.982Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-06T13:47:39.982Z"
             },
             {
               "$type": "Document",
@@ -702,8 +695,7 @@
               "RelativeToolTip": "Repository\\Repository\\CageRepository.cs",
               "ViewState": "AgIAAE4AAAAAAAAAAAAAAFYAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T10:46:36.507Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-03T10:46:36.507Z"
             },
             {
               "$type": "Document",
@@ -715,8 +707,7 @@
               "RelativeToolTip": "Service\\Service\\ObjectViewService.cs",
               "ViewState": "AgIAAK8AAAAAAAAAAAAAAL0AAABPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-26T13:34:27.051Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-26T13:34:27.051Z"
             },
             {
               "$type": "Document",
@@ -728,8 +719,7 @@
               "RelativeToolTip": "Repository\\IRepository\\IZooAreaImageRepository.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAAAA4AAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T09:12:13.753Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-09T09:12:13.753Z"
             },
             {
               "$type": "Document",
@@ -741,8 +731,7 @@
               "RelativeToolTip": "DAO\\AddModel\\ZooAreaAdd.cs",
               "ViewState": "AgIAAAgAAAAAAAAAAAAAAA0AAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T09:18:47.744Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-09T09:18:47.744Z"
             },
             {
               "$type": "Document",
@@ -754,8 +743,7 @@
               "RelativeToolTip": "DAO\\UpdateModel\\ZooAreaUpdate.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAAABAAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T09:19:42.425Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-09T09:19:42.425Z"
             },
             {
               "$type": "Document",
@@ -767,8 +755,7 @@
               "RelativeToolTip": "Repository\\Repository\\ZooAreaImageRepository.cs",
               "ViewState": "AgIAAE8AAAAAAAAAAAAAAEAAAABdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T09:12:26.313Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-09T09:12:26.313Z"
             },
             {
               "$type": "Document",
@@ -780,8 +767,7 @@
               "RelativeToolTip": "Repository\\Repository\\AnimalImageRepository.cs",
               "ViewState": "AgIAAD8AAAAAAAAAAAAswE4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T06:24:33.848Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-09T06:24:33.848Z"
             },
             {
               "$type": "Document",
@@ -793,8 +779,7 @@
               "RelativeToolTip": "DAO\\ViewModel\\ZooAreaView.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAAABsAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T14:19:35.028Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-18T14:19:35.028Z"
             },
             {
               "$type": "Document",
