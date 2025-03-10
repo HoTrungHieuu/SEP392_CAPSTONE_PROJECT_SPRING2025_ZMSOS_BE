@@ -48,10 +48,8 @@ pipeline {
 
         stage('Push Docker Image to Docker Hub') {
             steps {
-                script {
-                    docker.withRegistry('https://registry.hub.docker.com', 'DockerHub') {
-                      dockerImage.push()
-                    }
+                withDockerRegistry([credentialsId: 'DockerHub', url: '']) {
+                    sh "docker push ${env.FULL_IMAGE_TAG}"
                 }
             }
         }
