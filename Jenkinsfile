@@ -68,7 +68,7 @@ pipeline {
                         docker pull ${env.FULL_IMAGE_TAG}
                         docker stop zmsos_be || true
                         docker rm zmsos_be || true
-                        docker run --platform linux/amd64 -d -p 8080:80 --name zmsos_be -e ASPNETCORE_ENVIRONMENT=Development ${env.FULL_IMAGE_TAG}
+                        docker run -d -p 8080:80 --name zmsos_be -e ASPNETCORE_ENVIRONMENT=Development ${env.FULL_IMAGE_TAG}
                         docker image prune -f
                         docker images --format '{{.Repository}}:{{.Tag}}' | grep '${env.IMAGE_NAME}' | sort -r | tail -n +3 | xargs -r docker rmi
                         EOF
