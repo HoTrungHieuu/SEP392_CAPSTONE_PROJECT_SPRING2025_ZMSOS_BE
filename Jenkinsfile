@@ -47,7 +47,7 @@ pipeline {
             steps {
                 script {
                     def cacheArg = env.CACHE_IMAGE ? "--cache-from=${env.CACHE_IMAGE}" : ""
-                    sh "docker build ${cacheArg} -t ${env.FULL_IMAGE_TAG} ."
+                    sh "docker buildx build --platform linux/amd64 ${cacheArg} -t ${env.FULL_IMAGE_TAG} ."
                 }
             }
         }
@@ -65,7 +65,7 @@ pipeline {
                 sshagent(['VPS_SSH_Credentials']) {
                     sh """
                         ssh ${env.DEPLOY_USER}@${env.DEPLOY_SERVER} << EOF
-                        docker pull --platform=linux/amd64 ${env.FULL_IMAGE_TAG}
+                        docker pull ${env.FULL_IMAGE_TAG}
                         docker stop zmsos_be || true
                         docker rm zmsos_be || true
                         docker run -d -p 8080:80 --name zmsos_be -e ASPNETCORE_ENVIRONMENT=Development ${env.FULL_IMAGE_TAG}
