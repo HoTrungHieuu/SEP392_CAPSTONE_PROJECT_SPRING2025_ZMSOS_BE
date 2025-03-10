@@ -1,3 +1,7 @@
+def remote=[:]
+remote.name="zmsos"
+remote.host="157.66.218.189"
+
 pipeline {
     agent any
     environment {
@@ -5,6 +9,7 @@ pipeline {
         IMAGE_NAME = 'trhoangduc/zmsos_be'
         DEPLOY_SERVER = '157.66.218.189'  // Change to your VPS IP
         DEPLOY_USER = 'zmsos'  // Change to your SSH user
+        SSH_CREDS = credentials("VPS_SSH_Credentials")
     }
 
     stages {
@@ -56,18 +61,16 @@ pipeline {
 
         stage('Deploy to VPS') {
             steps {
-                sshagent(['VPS_SSH_Credentials']) {
-                    sh """
-                        ssh ${env.DEPLOY_USER}@${env.DEPLOY_SERVER} << EOF
-                        docker pull ${env.FULL_IMAGE_TAG}
-                        docker stop zmsos_be || true
-                        docker rm zmsos_be || true
-                        docker run -d -p 8080:80 --name zmsos_be -e ASPNETCORE_ENVIRONMENT=Development ${env.FULL_IMAGE_TAG}
-                        docker image prune -f
-                        docker images --format '{{.Repository}}:{{.Tag}}' | grep '${env.IMAGE_NAME}' | sort -r | tail -n +3 | xargs -r docker rmi
-                        EOF
-                    """
+                script{
+                    remote.user = env.SSH_CREDS_USR
+                    remote.password = env.SSH_CREDS_PSW
                 }
+                sshCommand(remote: remote, command: "docker pull ${env.FULL_IMAGE_TAG}")
+                sshCommand(remote: remote, command: "docker stop zmsos_be || true")
+                sshCommand(remote: remote, command: "docker rm zmsos_be || true")
+                sshCommand(remote: remote, command: "docker run -d -p 8080:80 --name zmsos_be -e ASPNETCORE_ENVIRONMENT=Development ${env.FULL_IMAGE_TAG}")
+                sshCommand(remote: remote, command: "docker image prune -f")
+                sshCommand(remote: remote, command: "docker images --format '{{.Repository}}:{{.Tag}}' | grep '${env.IMAGE_NAME}' | sort -r | tail -n +3 | xargs -r docker rmi")
             }
         }
 
