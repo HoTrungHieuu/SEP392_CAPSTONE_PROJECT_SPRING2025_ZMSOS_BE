@@ -1,8 +1,3 @@
-def remote=[:]
-remote.name="vpssieutoc.1741395714"
-remote.host="157.66.218.189"
-allowAnyHosts=true
-
 pipeline {
     agent any
     environment {
@@ -47,7 +42,7 @@ pipeline {
             steps {
                 script {
                     def cacheArg = env.CACHE_IMAGE ? "--cache-from=${env.CACHE_IMAGE}" : ""
-                    sh "docker build ${cacheArg} -t ${env.FULL_IMAGE_TAG} ."
+                    sh "docker buildx build --platform linux/amd64,linux/arm64 ${cacheArg} -t ${env.FULL_IMAGE_TAG} ."
                 }
             }
         }
