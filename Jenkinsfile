@@ -56,7 +56,7 @@ pipeline {
 
         stage('Deploy to VPS') {
             steps {
-                sshagent(['vps-ssh-credentials']) {
+                sshagent(['VPS_SSH_Credentials']) {
                     sh """
                         ssh ${env.DEPLOY_USER}@${env.DEPLOY_SERVER} << EOF
                         docker pull ${env.FULL_IMAGE_TAG}
