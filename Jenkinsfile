@@ -47,7 +47,7 @@ pipeline {
             steps {
                 script {
                     def cacheArg = env.CACHE_IMAGE ? "--cache-from=${env.CACHE_IMAGE}" : ""
-                    sh "docker buildx build --platform linux/amd64 ${cacheArg} -t ${env.FULL_IMAGE_TAG} ."
+                    sh "docker buildx build --platform linux/amd64,linux/arm64 ${cacheArg} -t ${env.FULL_IMAGE_TAG} ."
                 }
             }
         }
