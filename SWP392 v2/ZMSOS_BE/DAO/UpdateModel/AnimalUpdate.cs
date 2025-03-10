@@ -16,5 +16,6 @@ namespace DAO.UpdateModel
         public IndividualUpdate? Individual { get; set; }
         public string? Status {  get; set; }
         public List<string>? UrlImages { get; set; }
+        public int? StatusId { get; set; }
     }
 }

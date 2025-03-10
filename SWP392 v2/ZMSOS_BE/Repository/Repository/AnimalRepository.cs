@@ -49,7 +49,7 @@ namespace Repository.Repository
                     AnimalTypeId = key.AnimalTypeId,
                     Description = key.Description,
                     Classify = key.Classify,
-                    StatusId = 3
+                    StatusId = key.StatusId,
                 };
                 await CreateAsync(animal);
                 return animal;
@@ -68,6 +68,7 @@ namespace Repository.Repository
                 animal.AnimalTypeId = key.AnimalTypeId;
                 animal.Description = key.Description;
                 animal.Classify = key.Classify;
+                animal.StatusId = key.StatusId;
                 await UpdateAsync(animal);
                 return animal;
             }

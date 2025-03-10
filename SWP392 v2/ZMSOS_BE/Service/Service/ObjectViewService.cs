@@ -41,6 +41,7 @@ namespace Service.Service
         public ITaskEstimateRepository taskEstimateRepo;
         public IAnimalImageRepository animalImageRepo;
         public IZooAreaImageRepository zooAreaImageRepo;
+        public ICategoryRepository categoryRepo;
         public ObjectViewService(IAnimalRepository animalRepo, IAnimalTypeRepository animalTypeRepo, 
             ICageRepository cageRepo, IZooAreaRepository zooAreaRepo,
             ITaskRepository taskRepo, ITaskTypeRepository taskTypeRepo, IAnimalCageRepository animalCageRepo, IAnimalAssignRepository animalAssignRepo, 
@@ -55,7 +56,8 @@ namespace Service.Service
             INotificationRepository notificationRepo,
             IScheduleRepository scheduleRepo,
             ITaskEstimateRepository taskEstimateRepo,
-            IAnimalImageRepository animalImageRepo, IZooAreaImageRepository zooAreaImageRepo)
+            IAnimalImageRepository animalImageRepo, IZooAreaImageRepository zooAreaImageRepo,
+            ICategoryRepository categoryRepo)
         {
             this.animalRepo = animalRepo;
             this.animalTypeRepo = animalTypeRepo;
@@ -84,6 +86,7 @@ namespace Service.Service
             this.taskEstimateRepo = taskEstimateRepo;
             this.animalImageRepo = animalImageRepo;
             this.zooAreaImageRepo = zooAreaImageRepo;
+            this.categoryRepo = categoryRepo;
         }
         public async Task<List<AnimalView>> GetListAnimalView(List<Animal> animals)
         {
@@ -399,6 +402,15 @@ namespace Service.Service
             var result = incompatibleAnimalTypeRepo.ConvertIncompatibleAnimalTypeIntoIncompatibleAnimalTypeView(incompatibleAnimalType,animalType1,animalType2, null);
             return result;
         }
+        public async Task<List<StatusView>> GetListStatusView(List<Status> statuss)
+        {
+            List<StatusView> result = new List<StatusView>();
+            foreach (var status in statuss)
+            {
+                result.Add(await GetStatusView(status));
+            }
+            return result;
+        }
         public async Task<StatusView> GetStatusView(Status status)
         {
             var result = statusRepo.ConvertStatusIntoStatusView(status);
@@ -466,6 +478,20 @@ namespace Service.Service
             AnimalTypeView animalType = new();
             animalType = await GetAnimalTypeView(animalTypeRepo.GetById((int)taskEstimate.AnimalTypeId));
             var result = taskEstimateRepo.ConvertTaskEstimateIntoTaskEstimateView(taskEstimate, taskType,animalType, null);
+            return result;
+        }
+        public async Task<List<CategoryView>> GetListCategoryView(List<Category> categorys)
+        {
+            List<CategoryView> result = new List<CategoryView>();
+            foreach (var category in categorys)
+            {
+                result.Add(await GetCategoryView(category));
+            }
+            return result;
+        }
+        public async Task<CategoryView> GetCategoryView(Category category)
+        {
+            var result = categoryRepo.ConvertCategoryIntoCategoryView(category);
             return result;
         }
     }

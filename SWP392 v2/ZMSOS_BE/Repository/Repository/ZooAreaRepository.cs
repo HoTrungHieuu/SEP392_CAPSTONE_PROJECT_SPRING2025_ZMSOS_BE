@@ -39,7 +39,7 @@ namespace Repository.Repository
                     AnimalOrder = key.AnimalOrder,
                     Location = key.Location,
                     Size = key.Size,
-                    StatusId = 1
+                    StatusId = key.StatusId
                 };
                 await CreateAsync(zooArea);
                 return zooArea;
@@ -60,6 +60,7 @@ namespace Repository.Repository
                 zooArea.AnimalOrder =key.AnimalOrder;
                 zooArea.Location = key.Location;
                 zooArea.Size = key.Size;
+                zooArea.StatusId = key.StatusId;
                 await UpdateAsync(zooArea);
                 return zooArea;
             }

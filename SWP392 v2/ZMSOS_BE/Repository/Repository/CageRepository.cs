@@ -53,7 +53,7 @@ namespace Repository.Repository
                     Size = key.Size,
                     UrlImage = key.UrlImage,
                     DateCreate = DateOnly.FromDateTime(DateTime.Now),
-                    StatusId = 1
+                    StatusId = key.StatusId,
                 };
                 if(key.Classify == "Individual")
                 {
@@ -84,8 +84,8 @@ namespace Repository.Repository
                 cage.Description = key.Description;
                 cage.MaxQuantity = key.MaxQuantity;
                 cage.UrlImage = key.UrlImage;
-                cage.Size    = key.Size;
-                cage.Status = null;
+                cage.Size = key.Size;
+                cage.StatusId = key.StatusId;
                 await UpdateAsync(cage);
                 return cage;
             }
