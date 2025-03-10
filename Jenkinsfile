@@ -1,6 +1,7 @@
 def remote=[:]
-remote.name="zmsos"
+remote.name="vpssieutoc.1741395714"
 remote.host="157.66.218.189"
+allowAnyHosts=true
 
 pipeline {
     agent any
@@ -62,8 +63,8 @@ pipeline {
         stage('Deploy to VPS') {
             steps {
                 script{
-                    remote.user = env.SSH_CREDS_USR
-                    remote.password = env.SSH_CREDS_PSW
+                    remote.user = zmsos
+                    remote.password = 12345678
                 }
                 sshCommand(remote: remote, command: "docker pull ${env.FULL_IMAGE_TAG}")
                 sshCommand(remote: remote, command: "docker stop zmsos_be || true")
