@@ -146,10 +146,12 @@ namespace Service.Service
             {
                 var zooArea = await repo.AddZooArea(key);
                 await zooAreaImageRepo.AddZooAreaImageByZooAreaId(zooArea.Id, key.UrlImages);
+                var result = await objectViewService.GetZooAreaView(zooArea);
                 return new ServiceResult
                 {
                     Status = 200,
                     Message = "Add Success",
+                    Data = result
                 };
             }
             catch (Exception ex)
@@ -176,10 +178,12 @@ namespace Service.Service
                         Message = "Not Found"
                     };
                 }
+                var result = await objectViewService.GetZooAreaView(zooArea);
                 return new ServiceResult
                 {
                     Status = 200,
                     Message = "Update Success",
+                    Data = result
                 };
             }
             catch (Exception ex)

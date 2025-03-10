@@ -159,10 +159,12 @@ namespace Service.Service
             try
             {
                 var status = await repo.AddStatus(key);
+                var result = await objectViewService.GetStatusView(status);
                 return new ServiceResult
                 {
                     Status = 200,
                     Message = "Add Success",
+                    Data = result
                 };
             }
             catch (Exception ex)
@@ -179,7 +181,7 @@ namespace Service.Service
             try
             {
                 var status = await repo.UpdateStatus(key);
-                if(status == null)
+                if (status == null)
                 {
                     return new ServiceResult
                     {
@@ -187,10 +189,12 @@ namespace Service.Service
                         Message = "Not Found"
                     };
                 }
+                var result = await objectViewService.GetStatusView(status);
                 return new ServiceResult
                 {
                     Status = 200,
                     Message = "Update Success",
+                    Data = result
                 };
             }
             catch (Exception ex)
@@ -207,10 +211,12 @@ namespace Service.Service
             try
             {
                 var category = await categoryRepo.AddCategory(key);
+                var result = await objectViewService.GetCategoryView(category);
                 return new ServiceResult
                 {
                     Status = 200,
                     Message = "Add Success",
+                    Data = result
                 };
             }
             catch (Exception ex)
@@ -226,8 +232,8 @@ namespace Service.Service
         {
             try
             {
-                var categorys = await categoryRepo.UpdateCategory(key);
-                if (categorys == null)
+                var category = await categoryRepo.UpdateCategory(key);
+                if (category == null)
                 {
                     return new ServiceResult
                     {
@@ -235,10 +241,12 @@ namespace Service.Service
                         Message = "Not Found"
                     };
                 }
+                var result = await objectViewService.GetCategoryView(category);
                 return new ServiceResult
                 {
                     Status = 200,
                     Message = "Update Success",
+                    Data = result
                 };
             }
             catch (Exception ex)

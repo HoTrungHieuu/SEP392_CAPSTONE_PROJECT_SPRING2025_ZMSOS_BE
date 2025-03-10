@@ -304,10 +304,12 @@ namespace Service.Service
                     await individualRepo.AddIndividual(animal.Id, key.Individual);
                 }
                 await animalImageRepo.AddAnimalImageByAnimalId(animal.Id, key.UrlImages);
+                var result = await objectViewService.GetAnimalView(animal);
                 return new ServiceResult
                 {
                     Status = 200,
                     Message = "Add Success",
+                    Data = result
                 };
             }
             catch (Exception ex)
@@ -342,10 +344,12 @@ namespace Service.Service
                 }
                 await animalImageRepo.DeleteAnimalImageByAnimalId(animal.Id);
                 await animalImageRepo.AddAnimalImageByAnimalId(animal.Id, key.UrlImages);
+                var result = await objectViewService.GetAnimalView(animal);
                 return new ServiceResult
                 {
                     Status = 200,
                     Message = "Update Success",
+                    Data = result
                 };
             }
             catch (Exception ex)

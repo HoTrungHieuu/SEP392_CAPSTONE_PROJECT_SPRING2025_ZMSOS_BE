@@ -1,4 +1,5 @@
-﻿using DAO.AddModel;
+﻿using BO.Models;
+using DAO.AddModel;
 using DAO.OtherModel;
 using DAO.SearchModel;
 using DAO.UpdateModel;
@@ -181,10 +182,12 @@ namespace Service.Service
             try
             {
                 var animalType = await repo.AddAnimalType(key);
+                var result = await objectViewService.GetAnimalTypeView(animalType);
                 return new ServiceResult
                 {
                     Status = 200,
                     Message = "Add Success",
+                    Data= result
                 };
             }
             catch (Exception ex)
@@ -209,10 +212,12 @@ namespace Service.Service
                         Message = "Not Found"
                     };
                 }
+                var result = await objectViewService.GetAnimalTypeView(animalType);
                 return new ServiceResult
                 {
                     Status = 200,
                     Message = "Update Success",
+                    Data = result
                 };
             }
             catch (Exception ex)

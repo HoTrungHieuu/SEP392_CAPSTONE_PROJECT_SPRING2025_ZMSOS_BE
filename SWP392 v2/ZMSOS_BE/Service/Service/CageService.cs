@@ -191,10 +191,12 @@ namespace Service.Service
             try
             {
                 var cage = await repo.AddCage(key);
+                var result = await objectViewService.GetCageView(cage);
                 return new ServiceResult
                 {
                     Status = 200,
                     Message = "Add Success",
+                    Data = cage
                 };
             }
             catch (Exception ex)
@@ -219,10 +221,12 @@ namespace Service.Service
                         Message = "Not Found"
                     };
                 }
+                var result = await objectViewService.GetCageView(cage);
                 return new ServiceResult
-                {
+                {   
                     Status = 200,
                     Message = "Update Success",
+                    Data = result
                 };
             }
             catch (Exception ex)
