@@ -19,7 +19,7 @@ pipeline {
         stage('Determine Running Docker Image') {
             steps {
                 script {
-                    def runningImage = sh '''ssh -o StrictHostKeyChecking=no zmsos@157.66.218.189 docker ps --format "{{'{{'}}.Image{{'}}'}}" | grep ${IMAGE_NAME} || echo ""'''
+                    def runningImage = sh """ssh -o StrictHostKeyChecking=no zmsos@157.66.218.189 docker ps --format "{{.Image}}" | grep trhoangduc/zmsos_be || echo """""
                     env.CACHE_IMAGE = runningImage ?: ''
                     echo "Using cache from: ${env.CACHE_IMAGE}"
                 }
