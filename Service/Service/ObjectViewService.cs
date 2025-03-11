@@ -172,7 +172,9 @@ namespace Service.Service
         {
             ZooAreaView zooArea = new();
             zooArea = await GetZooAreaView(zooAreaRepo.GetById((int)cage.ZooAreaId));
-            var result = cageRepo.ConvertCageIntoCageView(cage, zooArea, null);
+            StatusView status = new StatusView();
+            status = await GetStatusView(statusRepo.GetById((int)cage.StatusId));
+            var result = cageRepo.ConvertCageIntoCageView(cage, zooArea, status);
             return result;
         }
         public async Task<List<ZooAreaView>> GetListZooAreaView(List<ZooArea> zooAreas)
