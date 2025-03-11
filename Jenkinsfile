@@ -42,7 +42,7 @@ pipeline {
             steps {
                 sshagent(['VPS_SSH_Credentials']) {
                     sh """
-                        ssh ${env.DEPLOY_USER}@${env.DEPLOY_SERVER} "bash ${env.DEPLOY_SCRIPT} ${env.CACHE_IMAGE} $${env.FULL_IMAGE_TAG}"
+                        ssh ${env.DEPLOY_USER}@${env.DEPLOY_SERVER} "bash ${env.DEPLOY_SCRIPT} ${env.CACHE_IMAGE} ${env.FULL_IMAGE_TAG}"
                     """
                 }
             }
