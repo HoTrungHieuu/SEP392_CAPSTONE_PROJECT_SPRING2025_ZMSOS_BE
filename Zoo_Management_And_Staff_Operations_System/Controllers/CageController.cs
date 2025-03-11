@@ -60,5 +60,12 @@ namespace AnimalAndCageManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [HttpDelete("cage/id")]
+        public async Task<IActionResult> DeleteCage(int id)
+        {
+            var result = await service.DeleteCage(id);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
     }
 }

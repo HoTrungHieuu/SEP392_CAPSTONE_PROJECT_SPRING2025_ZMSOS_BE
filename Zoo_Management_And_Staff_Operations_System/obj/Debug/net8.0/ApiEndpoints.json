@@ -477,6 +477,22 @@
   },
   {
     "ContainingType": "AnimalAndCageManagement.Controllers.CageController",
+    "Method": "DeleteCage",
+    "RelativePath": "api/Cage/cage/id",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.CageController",
     "Method": "GetListCage",
     "RelativePath": "api/Cage/cages",
     "HttpMethod": "GET",
@@ -1438,6 +1454,22 @@
     "Method": "GetZooAreaById",
     "RelativePath": "api/ZooArea/zooArea/id",
     "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.ZooAreaController",
+    "Method": "DeleteZooArea",
+    "RelativePath": "api/ZooArea/zooArea/id",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [

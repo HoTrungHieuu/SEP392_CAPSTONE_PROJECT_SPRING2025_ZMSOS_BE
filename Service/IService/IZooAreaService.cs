@@ -17,5 +17,6 @@ namespace Service.IService
         public Task<ServiceResult> GetZooAreaById(int id);
         public Task<ServiceResult> AddZooArea(ZooAreaAdd key);
         public Task<ServiceResult> UpdateZooArea(ZooAreaUpdate key);
+        public Task<ServiceResult> DeleteZooArea(int id);
     } 
 }

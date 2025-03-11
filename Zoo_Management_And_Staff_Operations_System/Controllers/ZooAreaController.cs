@@ -53,5 +53,12 @@ namespace AnimalAndCageManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [HttpDelete("zooArea/id")]
+        public async Task<IActionResult> DeleteZooArea(int id)
+        {
+            var result = await service.DeleteZooArea(id);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
     }
 }

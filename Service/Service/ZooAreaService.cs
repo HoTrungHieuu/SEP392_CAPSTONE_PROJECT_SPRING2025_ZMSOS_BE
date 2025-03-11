@@ -168,8 +168,6 @@ namespace Service.Service
             try
             {
                 var zooArea = await repo.UpdateZooArea(key);
-                await zooAreaImageRepo.DeleteZooAreaImageByZooAreaId(zooArea.Id);
-                await zooAreaImageRepo.AddZooAreaImageByZooAreaId(zooArea.Id, key.UrlImages);
                 if (zooArea == null)
                 {
                     return new ServiceResult
@@ -178,12 +176,44 @@ namespace Service.Service
                         Message = "Not Found"
                     };
                 }
+                await zooAreaImageRepo.DeleteZooAreaImageByZooAreaId(zooArea.Id);
+                await zooAreaImageRepo.AddZooAreaImageByZooAreaId(zooArea.Id, key.UrlImages);
                 var result = await objectViewService.GetZooAreaView(zooArea);
                 return new ServiceResult
                 {
                     Status = 200,
                     Message = "Update Success",
                     Data = result
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
+        public async Task<ServiceResult> DeleteZooArea(int id)
+        {
+            try
+            {
+                var zooArea = repo.GetById(id);
+                if (zooArea == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Not Found"
+                    };
+                }
+                await zooAreaImageRepo.DeleteZooAreaImageByZooAreaId(zooArea.Id);
+                await repo.RemoveAsync(zooArea);
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "Delete Success",
                 };
             }
             catch (Exception ex)

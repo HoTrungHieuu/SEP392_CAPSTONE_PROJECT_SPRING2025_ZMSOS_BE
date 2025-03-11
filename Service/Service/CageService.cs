@@ -238,5 +238,34 @@ namespace Service.Service
                 };
             }
         }
+        public async Task<ServiceResult> DeleteCage(int id)
+        {
+            try
+            {
+                var cage = repo.GetById(id);
+                if (cage == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Not Found"
+                    };
+                }
+                await repo.RemoveAsync(cage);
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "Remove Success",
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
     }
 }
