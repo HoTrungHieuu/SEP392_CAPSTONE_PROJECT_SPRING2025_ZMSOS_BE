@@ -5,6 +5,7 @@ pipeline {
         IMAGE_NAME = 'trhoangduc/zmsos_be'
         DEPLOY_SERVER = '157.66.218.189'  // Change to your VPS IP
         DEPLOY_USER = 'zmsos'  // Change to your SSH user
+        DEPLOY_SCRIPT = 'deploy_be.sh'
         SSH_CREDS = credentials("VPS_SSH_Credentials")
     }
 
@@ -28,7 +29,7 @@ pipeline {
         stage('Generate Docker Tag') {
             steps {
                 script {
-                    def dateTag = new Date().format('MMddyyyy')
+                    def dateTag = new Date().format('ddMMyy')
                     def buildCount = sh(script: "docker images | grep ${env.IMAGE_NAME} | grep ${dateTag} | wc -l", returnStdout: true).trim()
                     def buildNumber = buildCount ? buildCount.toInteger() + 1 : 1
                     env.DOCKER_TAG = "${dateTag}${String.format('%02d', buildNumber)}"
@@ -37,55 +38,14 @@ pipeline {
                 }
             }
         }
-
-        stage('Build Docker Image') {
-            steps {
-                script {
-                    def cacheArg = env.CACHE_IMAGE ? "--cache-from=${env.CACHE_IMAGE}" : ""
-                    sh "docker buildx build --platform linux/amd64 ${cacheArg} -t ${env.FULL_IMAGE_TAG} --push ."
-                }
-            }
-        }
-
-        stage('Push Docker Image to Docker Hub') {
-            steps {
-                withDockerRegistry([credentialsId: 'DockerHub', url: '']) {
-                    sh "docker push ${env.FULL_IMAGE_TAG}"
-                }
-            }
-        }
-
         stage('Deploy to VPS') {
             steps {
                 sshagent(['VPS_SSH_Credentials']) {
                     sh """
-                        ssh ${env.DEPLOY_USER}@${env.DEPLOY_SERVER} << EOF
-                        docker pull ${env.FULL_IMAGE_TAG}
-                        docker stop zmsos_be || true
-                        docker rm zmsos_be || true
-                        docker run -d -p 8080:80 --name zmsos_be -e ASPNETCORE_ENVIRONMENT=Development ${env.FULL_IMAGE_TAG}
-                        docker image prune -f
-                        docker images --format '{{.Repository}}:{{.Tag}}' | grep '${env.IMAGE_NAME}' | sort -r | tail -n +3 | xargs -r docker rmi
-                        EOF
+                        ssh ${env.DEPLOY_USER}@${env.DEPLOY_SERVER} "bash ${env.DEPLOY_SCRIPT} ${env.CACHE_IMAGE} $${env.FULL_IMAGE_TAG}"
                     """
                 }
             }
-        }
-
-        stage('Send Email Notification') {
-            steps {
-                emailext subject: "Build Successful: ${env.FULL_IMAGE_TAG}",
-                          body: "The back-end service has been successfully built and deployed.\n\nDocker Image: ${env.FULL_IMAGE_TAG}",
-                          to: 'ducthse172258@fpt.edu.vn'
-            }
-        }
-    }
-
-    post {
-        failure {
-            emailext subject: "Build Failed: ${env.IMAGE_NAME}",
-                      body: "The build failed. Check the Jenkins logs for more details.",
-                      to: 'ducthse172258@fpt.edu.vn'
         }
     }
 }
