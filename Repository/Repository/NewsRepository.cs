@@ -67,12 +67,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public NewsView ConvertNewsIntoNewsView(News news, UserView user, StatusView? status)
+        public NewsView ConvertNewsIntoNewsView(News news, UserView user)
         {
             try
             {
                 NewsView result = new NewsView();
-                result.ConvertNewsIntoNewsView(news, user, status);
+                result.ConvertNewsIntoNewsView(news, user);
                 return result;
             }
             catch (Exception)

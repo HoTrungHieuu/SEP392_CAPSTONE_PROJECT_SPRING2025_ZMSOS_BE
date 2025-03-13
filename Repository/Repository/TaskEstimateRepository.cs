@@ -91,12 +91,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public TaskEstimateView ConvertTaskEstimateIntoTaskEstimateView(TaskEstimate taskEstimate, TaskTypeView taskType, AnimalTypeView animalType, StatusView? status)
+        public TaskEstimateView ConvertTaskEstimateIntoTaskEstimateView(TaskEstimate taskEstimate, TaskTypeView taskType, AnimalTypeView animalType)
         {
             try
             {
                 TaskEstimateView result = new TaskEstimateView();
-                result.ConvertTaskEstimateIntoTaskEstimateView(taskEstimate,taskType,animalType,status);
+                result.ConvertTaskEstimateIntoTaskEstimateView(taskEstimate,taskType,animalType);
                 return result;
             }
             catch (Exception)

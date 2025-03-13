@@ -63,12 +63,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public FlockView ConvertFlockIntoFlockView(Flock flock, StatusView? status)
+        public FlockView ConvertFlockIntoFlockView(Flock flock)
         {
             try
             {
                 FlockView result = new FlockView();
-                result.ConvertFlockIntoFlockView(flock,status);
+                result.ConvertFlockIntoFlockView(flock);
                 return result;
             }
             catch (Exception)

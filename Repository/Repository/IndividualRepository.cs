@@ -75,12 +75,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public IndividualView ConvertIndividualIntoIndividualView(Individual individual, StatusView? status)
+        public IndividualView ConvertIndividualIntoIndividualView(Individual individual)
         {
             try
             {
                 IndividualView result = new IndividualView();
-                result.ConvertIndividualIntoIndividualView(individual, status);
+                result.ConvertIndividualIntoIndividualView(individual);
                 return result;
             }
             catch (Exception)

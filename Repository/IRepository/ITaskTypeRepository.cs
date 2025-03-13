@@ -15,6 +15,6 @@ namespace Repository.IRepository
         public Task<List<TaskType>?> GetListTaskType();
         public Task<TaskType> AddTaskType(TaskTypeAdd key);
         public Task<TaskType?> UpdateTaskType(TaskTypeUpdate key);
-        public TaskTypeView ConvertTaskTypeIntoTaskTypeView(TaskType taskType, StatusView? status);
+        public TaskTypeView ConvertTaskTypeIntoTaskTypeView(TaskType taskType);
     }
 }

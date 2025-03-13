@@ -15,6 +15,6 @@ namespace Repository.IRepositoyr
         public Task<List<Report>?> GetListReportByRecieverId(int accountId);
         public Task<List<Report>?> GetListReportBySenderId(int accountId);
         public Task<Report> AddReport(ReportAdd key, int recieverId);   
-        public ReportView ConvertReportIntoReportView(Report report, UserView sender, UserView reciever, List<string> urlFile, StatusView? status);
+        public ReportView ConvertReportIntoReportView(Report report, UserView sender, UserView reciever, List<string> urlFile);
     }
 }

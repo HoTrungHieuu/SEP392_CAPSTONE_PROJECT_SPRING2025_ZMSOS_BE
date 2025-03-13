@@ -23,11 +23,9 @@ public partial class Evaluation
 
     public DateOnly? Date { get; set; }
 
-    public int? StatusId { get; set; }
+    public string Status { get; set; }
 
     public virtual LeaderAssign Leader { get; set; }
 
     public virtual MemberAssign Member { get; set; }
-
-    public virtual Status Status { get; set; }
 }

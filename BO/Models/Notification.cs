@@ -15,9 +15,7 @@ public partial class Notification
 
     public DateTime? CreatedDate { get; set; }
 
-    public int? StatusId { get; set; }
+    public string Status { get; set; }
 
     public virtual Account Account { get; set; }
-
-    public virtual Status Status { get; set; }
 }

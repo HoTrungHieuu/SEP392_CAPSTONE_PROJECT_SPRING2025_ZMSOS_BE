@@ -93,11 +93,11 @@ namespace Service.Service
                 }
                 if(key.AnimalTypeId1 > key.AnimalTypeId2)
                 {
-                    int temp = key.AnimalTypeId1;
+                    int? temp = key.AnimalTypeId1;
                     key.AnimalTypeId1 = key.AnimalTypeId2;
                     key.AnimalTypeId2 = temp;
                 }
-                if(await repo.CheckIncompatibleAnimalType(key.AnimalTypeId1, key.AnimalTypeId2))
+                if(await repo.CheckIncompatibleAnimalType((int)key.AnimalTypeId1, (int)key.AnimalTypeId2))
                 {
                     return new ServiceResult
                     {

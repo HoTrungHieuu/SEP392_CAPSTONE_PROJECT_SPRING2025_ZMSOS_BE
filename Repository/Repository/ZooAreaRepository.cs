@@ -39,7 +39,7 @@ namespace Repository.Repository
                     AnimalOrder = key.AnimalOrder,
                     Location = key.Location,
                     Size = key.Size,
-                    StatusId = key.StatusId
+                    Status = key.Status
                 };
                 await CreateAsync(zooArea);
                 return zooArea;
@@ -60,7 +60,7 @@ namespace Repository.Repository
                 zooArea.AnimalOrder =key.AnimalOrder;
                 zooArea.Location = key.Location;
                 zooArea.Size = key.Size;
-                zooArea.StatusId = key.StatusId;
+                zooArea.Status = key.Status;
                 await UpdateAsync(zooArea);
                 return zooArea;
             }
@@ -69,12 +69,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public ZooAreaView ConvertZooAreaIntoZooAreaView(ZooArea zooArea, StatusView? status, List<string> urlImages)
+        public ZooAreaView ConvertZooAreaIntoZooAreaView(ZooArea zooArea, List<string> urlImages)
         {
             try
             {
                 ZooAreaView result = new ZooAreaView();
-                result.ConvertZooAreaIntoZooAreaView(zooArea, status,urlImages);
+                result.ConvertZooAreaIntoZooAreaView(zooArea,urlImages);
                 return result;
             }
             catch (Exception)

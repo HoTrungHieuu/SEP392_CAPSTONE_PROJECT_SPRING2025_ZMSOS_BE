@@ -49,7 +49,7 @@ namespace Repository.Repository
                     AnimalTypeId = key.AnimalTypeId,
                     Description = key.Description,
                     Classify = key.Classify,
-                    StatusId = key.StatusId,
+                    Status = key.Status
                 };
                 await CreateAsync(animal);
                 return animal;
@@ -68,7 +68,7 @@ namespace Repository.Repository
                 animal.AnimalTypeId = key.AnimalTypeId;
                 animal.Description = key.Description;
                 animal.Classify = key.Classify;
-                animal.StatusId = key.StatusId;
+                animal.Status = key.Status;
                 await UpdateAsync(animal);
                 return animal;
             }
@@ -77,12 +77,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public AnimalView ConvertAnimalIntoAnimalView(Animal animal, AnimalTypeView animalType, FlockView flock, IndividualView individual, StatusView? status, CageView cage, List<string> urlImages)
+        public AnimalView ConvertAnimalIntoAnimalView(Animal animal, AnimalTypeView animalType, FlockView flock, IndividualView individual, CageView cage, List<string> urlImages)
         {
             try
             {
                 AnimalView result = new AnimalView();
-                result.ConvertAnimalIntoAnimalView(animal, animalType,flock, individual,status,cage,urlImages);
+                result.ConvertAnimalIntoAnimalView(animal, animalType,flock, individual,cage,urlImages);
                 return result;
             }
             catch (Exception)

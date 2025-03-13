@@ -16,5 +16,6 @@ namespace DAO.AddModel
         public string? Height { get; set; }
         public DateOnly? ArrivalDate {  get; set; }
         public string? Note {  get; set; }
+        public string? Status { get; set; }
     }
 }

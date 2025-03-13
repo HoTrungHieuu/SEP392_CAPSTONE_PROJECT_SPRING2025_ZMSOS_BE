@@ -15,7 +15,7 @@ public partial class Animal
 
     public string Classify { get; set; }
 
-    public int? StatusId { get; set; }
+    public string Status { get; set; }
 
     public virtual ICollection<AnimalCage> AnimalCages { get; set; } = new List<AnimalCage>();
 
@@ -30,6 +30,4 @@ public partial class Animal
     public virtual ICollection<Flock> Flocks { get; set; } = new List<Flock>();
 
     public virtual ICollection<Individual> Individuals { get; set; } = new List<Individual>();
-
-    public virtual Status Status { get; set; }
 }

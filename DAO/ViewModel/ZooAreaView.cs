@@ -16,8 +16,8 @@ namespace DAO.ViewModel
         public string? Location {  get; set; }
         public string? Size {  get; set; }
         public List<string>? UrlImages { get; set; } 
-        public StatusView? Status { get; set; }
-        public void ConvertZooAreaIntoZooAreaView(ZooArea key, StatusView? status, List<string>? urlImages)
+        public string? Status { get; set; }
+        public void ConvertZooAreaIntoZooAreaView(ZooArea key, List<string>? urlImages)
         {
             Id = key.Id;
             Name = key.Name;
@@ -26,7 +26,7 @@ namespace DAO.ViewModel
             Location = key.Location;
             Size = key.Size;
             UrlImages = urlImages;
-            Status = status;
+            Status = key.Status;
         }
     }
 }

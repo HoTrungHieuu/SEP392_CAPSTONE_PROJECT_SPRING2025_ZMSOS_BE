@@ -8,8 +8,8 @@ namespace DAO.AddModel
 {
     public class IncompatibleAnimalTypeAdd
     {
-        public int AnimalTypeId1 {  get; set; }
-        public int AnimalTypeId2 { get; set; }
-        public string Reason { get; set; }
+        public int? AnimalTypeId1 {  get; set; }
+        public int? AnimalTypeId2 { get; set; }
+        public string? Reason { get; set; }
     }
 }

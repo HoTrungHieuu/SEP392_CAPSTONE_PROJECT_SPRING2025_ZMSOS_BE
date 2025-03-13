@@ -13,9 +13,7 @@ public partial class ApplicationType
 
     public string Description { get; set; }
 
-    public int? StatusId { get; set; }
+    public string Status { get; set; }
 
     public virtual ICollection<Application> Applications { get; set; } = new List<Application>();
-
-    public virtual Status Status { get; set; }
 }

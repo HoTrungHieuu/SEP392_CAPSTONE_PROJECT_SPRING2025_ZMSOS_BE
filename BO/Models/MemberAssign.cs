@@ -17,13 +17,11 @@ public partial class MemberAssign
 
     public DateOnly? ToDate { get; set; }
 
-    public int? StatusId { get; set; }
+    public string Status { get; set; }
 
     public virtual ICollection<Evaluation> Evaluations { get; set; } = new List<Evaluation>();
 
     public virtual Account Member { get; set; }
-
-    public virtual Status Status { get; set; }
 
     public virtual Team Team { get; set; }
 }

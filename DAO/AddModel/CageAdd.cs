@@ -15,6 +15,6 @@ namespace DAO.AddModel
         public int? MaxQuantity { get; set; }
         public string? Size { get; set; }
         public string? UrlImage { get; set; }
-        public int? StatusId { get; set; }
+        public string? Status { get; set; }
     }
 }

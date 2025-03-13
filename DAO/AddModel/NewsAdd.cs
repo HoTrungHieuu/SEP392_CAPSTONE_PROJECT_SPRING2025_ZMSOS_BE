@@ -8,8 +8,8 @@ namespace DAO.AddModel
 {
     public class NewsAdd
     {
-        public int AccountId {  get; set; }
-        public string Headlinen {  get; set; }
-        public string Content { get; set; }
+        public int? AccountId {  get; set; }
+        public string? Headlinen {  get; set; }
+        public string? Content { get; set; }
     }
 }

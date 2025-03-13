@@ -15,11 +15,9 @@ public partial class IncompatibleAnimalType
 
     public string Reason { get; set; }
 
-    public int? StatusId { get; set; }
+    public string Status { get; set; }
 
     public virtual AnimalType AnimalTypeId1Navigation { get; set; }
 
     public virtual AnimalType AnimalTypeId2Navigation { get; set; }
-
-    public virtual Status Status { get; set; }
 }

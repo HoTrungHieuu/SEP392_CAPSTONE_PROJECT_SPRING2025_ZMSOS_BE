@@ -227,7 +227,7 @@ namespace Service.Service
                 }
                 else if(account.RoleId == 4)
                 {
-                    var member = await memberAssignRepo.GetMemberAssignByAccountId(key.SenderId);
+                    var member = await memberAssignRepo.GetMemberAssignByAccountId((int)key.SenderId);
                     var team = teamRepo.GetById(member.TeamId);
                     var leader = await leaderAssignRepo.GetLeaderAssignByTeamId(team.Id);
                     recieverId = leader?.LeaderId;

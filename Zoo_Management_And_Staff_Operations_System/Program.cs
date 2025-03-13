@@ -143,12 +143,8 @@ builder.Services.AddScoped<IObjectViewService, ObjectViewService>();
 builder.Services.AddScoped<IAnimalAssignRepository, AnimalAssignRepository>();
 builder.Services.AddScoped<IIncompatibleAnimalTypeRepository, IncompatibleAnimalTypeRepository>();
 builder.Services.AddScoped<IIncompatibleAnimalTypeService, IncompatibleAnimalTypeService>();
-builder.Services.AddScoped<IStatusRepository, StatusRepository>();
 builder.Services.AddScoped<IAnimalImageRepository, AnimalImageRepository>();
 builder.Services.AddScoped<IZooAreaImageRepository, ZooAreaImageRepository>();
-builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
-builder.Services.AddScoped<IStatusCategoryRepository, StatusCategoryRepository>();
-builder.Services.AddScoped<IStatusService, StatusService>();
 
 var app = builder.Build();
 

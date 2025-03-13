@@ -79,12 +79,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public MemberAssignView ConvertMemberAssignIntoMemberAssignView(MemberAssign memberAssign,TeamView team, UserView user, StatusView? status)
+        public MemberAssignView ConvertMemberAssignIntoMemberAssignView(MemberAssign memberAssign,TeamView team, UserView user)
         {
             try
             {
                 MemberAssignView result = new MemberAssignView();
-                result.ConvertMemberAssignIntoMemberAssignView(memberAssign,team,user, status);
+                result.ConvertMemberAssignIntoMemberAssignView(memberAssign,team,user);
                 return result;
             }
             catch (Exception)

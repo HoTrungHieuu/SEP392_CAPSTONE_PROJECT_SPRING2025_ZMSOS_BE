@@ -73,12 +73,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public IncompatibleAnimalTypeView ConvertIncompatibleAnimalTypeIntoIncompatibleAnimalTypeView(IncompatibleAnimalType incompatibleAnimalType, AnimalTypeView animalType1, AnimalTypeView animalType2, StatusView? status)
+        public IncompatibleAnimalTypeView ConvertIncompatibleAnimalTypeIntoIncompatibleAnimalTypeView(IncompatibleAnimalType incompatibleAnimalType, AnimalTypeView animalType1, AnimalTypeView animalType2)
         {
             try
             {
                 IncompatibleAnimalTypeView result = new IncompatibleAnimalTypeView();
-                result.ConvertIncompatibleAnimalTypeIntoIncompatibleAnimalTypeView(incompatibleAnimalType,animalType1,animalType2,status);
+                result.ConvertIncompatibleAnimalTypeIntoIncompatibleAnimalTypeView(incompatibleAnimalType,animalType1,animalType2);
                 return result;
             }
             catch (Exception)

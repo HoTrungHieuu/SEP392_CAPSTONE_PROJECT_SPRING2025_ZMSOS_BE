@@ -9,6 +9,6 @@ namespace DAO.UpdateModel
     public class ApplicationUpdate
     {
         public int Id { get; set; }
-        public string Reply {  get; set; }
+        public string? Reply {  get; set; }
     }
 }

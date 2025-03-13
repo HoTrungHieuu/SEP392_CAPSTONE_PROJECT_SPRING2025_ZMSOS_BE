@@ -67,10 +67,6 @@
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[Category]",
-         "ObjectType": 0
-      },
-      {
          "Name": "[dbo].[Evaluation]",
          "ObjectType": 0
       },
@@ -116,14 +112,6 @@
       },
       {
          "Name": "[dbo].[Schedule]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[Status]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[StatusCategory]",
          "ObjectType": 0
       },
       {

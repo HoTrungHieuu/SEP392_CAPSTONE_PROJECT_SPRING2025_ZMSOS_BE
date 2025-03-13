@@ -40,8 +40,6 @@ namespace Service.IService
         public Task<ApplicationTypeView> GetApplicationTypeView(ApplicationType applicationType);
         public Task<List<IncompatibleAnimalTypeView>> GetListIncompatibleAnimalTypeView(List<IncompatibleAnimalType> incompatibleAnimalTypes);
         public Task<IncompatibleAnimalTypeView> GetIncompatibleAnimalTypeView(IncompatibleAnimalType incompatibleAnimalType);
-        public Task<List<StatusView>> GetListStatusView(List<Status> statuss);
-        public Task<StatusView> GetStatusView(Status status);
         public Task<List<NewsView>> GetListNewsView(List<News> newss);
         public Task<NewsView> GetNewsView(News news);
         public Task<List<NotificationView>> GetListNotificationView(List<Notification> notifications);
@@ -50,7 +48,5 @@ namespace Service.IService
         public Task<ScheduleView> GetScheduleView(Schedule schedule);
         public Task<List<TaskEstimateView>> GetListTaskEstimateView(List<TaskEstimate> taskEstimates);
         public Task<TaskEstimateView> GetTaskEstimateView(TaskEstimate taskEstimate);
-        public Task<List<CategoryView>> GetListCategoryView(List<Category> categorys);
-        public Task<CategoryView> GetCategoryView(Category category);
     }
 }

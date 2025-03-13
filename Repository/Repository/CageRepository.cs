@@ -53,7 +53,7 @@ namespace Repository.Repository
                     Size = key.Size,
                     UrlImage = key.UrlImage,
                     DateCreate = DateOnly.FromDateTime(DateTime.Now),
-                    StatusId = key.StatusId,
+                    Status = key.Status,
                 };
                 if(key.Classify == "Individual")
                 {
@@ -85,7 +85,7 @@ namespace Repository.Repository
                 cage.MaxQuantity = key.MaxQuantity;
                 cage.UrlImage = key.UrlImage;
                 cage.Size = key.Size;
-                cage.StatusId = key.StatusId;
+                cage.Status = key.Status;
                 await UpdateAsync(cage);
                 return cage;
             }
@@ -94,12 +94,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public CageView ConvertCageIntoCageView(Cage cage, ZooAreaView zooArea, StatusView? status)
+        public CageView ConvertCageIntoCageView(Cage cage, ZooAreaView zooArea)
         {
             try
             {
                 CageView result = new CageView();
-                result.ConvertCageIntoCageView(cage,zooArea,status);
+                result.ConvertCageIntoCageView(cage,zooArea);
                 return result;
             }
             catch (Exception)

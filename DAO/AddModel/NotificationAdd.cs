@@ -9,6 +9,6 @@ namespace DAO.AddModel
     public class NotificationAdd
     {
         public int AccountId {  get; set; }
-        public string Content {  get; set; }
+        public string? Content {  get; set; }
     }
 }

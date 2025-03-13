@@ -17,16 +17,16 @@ namespace DAO.ViewModel
         public string Password {  get; set; }
         public DateOnly? DateCreated { get; set; }
         public DateOnly? DateUpdated { get; set; }
-        public StatusView? Status {  get; set; }
+        public string? Status {  get; set; }
         public string JwtToken { get; set; }
-        public void ConvertAccountIntoAccountView(Account key, StatusView? status)
+        public void ConvertAccountIntoAccountView(Account key)
         {
             Id = key.Id;
             AccountName = key.AccountName;
             Password = key.Password;
             DateCreated = key.CreatedDate;
             DateUpdated = key.UpdatedDate;
-            Status = status;
+            Status = key.Status;
             Role = "";
         }
     }

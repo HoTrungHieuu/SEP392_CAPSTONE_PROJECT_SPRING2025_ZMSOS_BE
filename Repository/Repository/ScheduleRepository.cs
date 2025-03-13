@@ -52,7 +52,7 @@ namespace Repository.Repository
         {
             try
             {
-                for (DateOnly date = key.FromDate; date <= key.ToDate; date = date.AddDays(1))
+                for (DateOnly date = (DateOnly)key.FromDate; date <= key.ToDate; date = date.AddDays(1))
                 {
                     if(Day.CheckDateOfWeek(date, key.DayOfWeek) && !key.DateExclution.Contains(date))
                     {
@@ -91,12 +91,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public ScheduleView ConvertScheduleIntoScheduleView(Schedule schedule, UserView user, StatusView? status)
+        public ScheduleView ConvertScheduleIntoScheduleView(Schedule schedule, UserView user)
         {
             try
             {
                 ScheduleView result = new ScheduleView();
-                result.ConvertSchedualIntoSchedualView(schedule, user,status);
+                result.ConvertSchedualIntoSchedualView(schedule, user);
                 return result;
             }
             catch (Exception)

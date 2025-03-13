@@ -60,12 +60,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public ReportView ConvertReportIntoReportView(Report report, UserView sender,UserView reciever, List<string> urlFile, StatusView? status)
+        public ReportView ConvertReportIntoReportView(Report report, UserView sender,UserView reciever, List<string> urlFile)
         {
             try
             {
                 ReportView result = new ReportView();
-                result.ConvertReportIntoReportView(report,sender,reciever,urlFile,status);
+                result.ConvertReportIntoReportView(report,sender,reciever,urlFile);
                 return result;
             }
             catch (Exception)

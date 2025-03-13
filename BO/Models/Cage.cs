@@ -27,13 +27,11 @@ public partial class Cage
 
     public DateOnly? DateCreate { get; set; }
 
-    public int? StatusId { get; set; }
+    public string Status { get; set; }
 
     public virtual ICollection<AnimalCage> AnimalCages { get; set; } = new List<AnimalCage>();
 
     public virtual ICollection<CageUpdateHistory> CageUpdateHistories { get; set; } = new List<CageUpdateHistory>();
-
-    public virtual Status Status { get; set; }
 
     public virtual ZooArea ZooArea { get; set; }
 }

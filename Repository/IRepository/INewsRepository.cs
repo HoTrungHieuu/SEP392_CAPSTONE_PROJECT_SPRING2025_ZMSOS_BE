@@ -16,6 +16,6 @@ namespace Repository.IRepositoyr
         public Task<List<News>?> GetListNews();
         public Task<News> AddNews(NewsAdd key);
         public Task<News?> UpdateNews(NewsUpdate key);
-        public NewsView ConvertNewsIntoNewsView(News news, UserView user, StatusView? status);
+        public NewsView ConvertNewsIntoNewsView(News news, UserView user);
     }
 }

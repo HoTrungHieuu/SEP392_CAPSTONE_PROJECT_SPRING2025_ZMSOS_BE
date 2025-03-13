@@ -72,12 +72,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public TaskView ConvertTaskIntoTaskView(BO.Models.Task task, List<AnimalCageTask> animalCageTasks, TaskTypeView taskType, StatusView? status)
+        public TaskView ConvertTaskIntoTaskView(BO.Models.Task task, List<AnimalCageTask> animalCageTasks, TaskTypeView taskType)
         {
             try
             {
                 TaskView result = new TaskView();
-                result.ConvertTaskIntoTaskView(task, animalCageTasks, taskType, status);
+                result.ConvertTaskIntoTaskView(task, animalCageTasks, taskType);
                 return result;
             }
             catch (Exception)

@@ -15,6 +15,6 @@ namespace Repository.IRepository
         public Task<List<ZooArea>?> GetListZooArea();
         public Task<ZooArea> AddZooArea(ZooAreaAdd key);
         public Task<ZooArea?> UpdateZooArea(ZooAreaUpdate key);
-        public ZooAreaView ConvertZooAreaIntoZooAreaView(ZooArea zooArea, StatusView? status, List<string> urlImages);
+        public ZooAreaView ConvertZooAreaIntoZooAreaView(ZooArea zooArea, List<string> urlImages);
     }
 }

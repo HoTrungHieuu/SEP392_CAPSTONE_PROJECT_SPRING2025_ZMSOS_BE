@@ -27,9 +27,7 @@ public partial class Individual
 
     public string Notes { get; set; }
 
-    public int? StatusId { get; set; }
+    public string Status { get; set; }
 
     public virtual Animal Animal { get; set; }
-
-    public virtual Status Status { get; set; }
 }

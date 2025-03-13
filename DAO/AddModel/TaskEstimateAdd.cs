@@ -8,8 +8,8 @@ namespace DAO.AddModel
 {
     public class TaskEstimateAdd
     {
-        public int TaskTypeId { get; set; }
-        public int AnimalTypeId { get; set; }
-        public string TimeEstimate { get; set; }
+        public int? TaskTypeId { get; set; }
+        public int? AnimalTypeId { get; set; }
+        public string? TimeEstimate { get; set; }
     }
 }

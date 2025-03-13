@@ -183,7 +183,7 @@ namespace Service.Service
                         Message = "Team Not Found"
                     };
                 }
-                var leader = await leaderRepo.GetLeaderAssignByTeamId(key.TeamId);
+                var leader = await leaderRepo.GetLeaderAssignByTeamId((int)key.TeamId);
                 if(leader != null)
                 {
                     return new ServiceResult

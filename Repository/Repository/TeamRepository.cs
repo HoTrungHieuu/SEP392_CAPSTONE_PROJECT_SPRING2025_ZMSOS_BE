@@ -65,12 +65,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public TeamView ConvertTeamIntoTeamView(Team team, StatusView? status)
+        public TeamView ConvertTeamIntoTeamView(Team team)
         {
             try
             {
                 TeamView result = new TeamView();
-                result.ConvertTeamIntoTeamView(team,status);
+                result.ConvertTeamIntoTeamView(team);
                 return result;
             }
             catch (Exception)

@@ -8,7 +8,8 @@ namespace DAO.UpdateModel
 {
     public class FlockUpdate
     {
-        public int Quantity { get; set; }
-        public string Note { get; set; }
+        public int? Quantity { get; set; }
+        public string? Note { get; set; }
+        public string? Status {  get; set; }
     }
 }

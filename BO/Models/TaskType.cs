@@ -13,9 +13,7 @@ public partial class TaskType
 
     public string Description { get; set; }
 
-    public int? StatusId { get; set; }
-
-    public virtual Status Status { get; set; }
+    public string Status { get; set; }
 
     public virtual ICollection<TaskEstimate> TaskEstimates { get; set; } = new List<TaskEstimate>();
 

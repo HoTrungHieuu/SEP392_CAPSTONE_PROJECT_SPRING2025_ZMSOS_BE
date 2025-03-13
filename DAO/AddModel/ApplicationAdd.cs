@@ -8,8 +8,8 @@ namespace DAO.AddModel
 {
     public class ApplicationAdd
     {
-        public int SenderId { get; set; }
-        public int ApplicationTypeId {  get; set; }
+        public int? SenderId { get; set; }
+        public int? ApplicationTypeId {  get; set; }
         public string? Title {  get; set; }
         public string? Detail {  get; set; }
     }

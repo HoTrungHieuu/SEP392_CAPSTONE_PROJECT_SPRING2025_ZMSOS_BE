@@ -77,12 +77,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public LeaderAssignView ConvertLeaderAssignIntoLeaderAssignView(LeaderAssign leaderAssign, TeamView team, UserView user, StatusView? status)
+        public LeaderAssignView ConvertLeaderAssignIntoLeaderAssignView(LeaderAssign leaderAssign, TeamView team, UserView user)
         {
             try
             {
                 LeaderAssignView result = new LeaderAssignView();
-                result.ConvertLeaderAssignIntoLeaderAssignView(leaderAssign, team, user, status);
+                result.ConvertLeaderAssignIntoLeaderAssignView(leaderAssign, team, user);
                 return result;
             }
             catch (Exception)

@@ -15,7 +15,7 @@ public partial class Account
 
     public string Password { get; set; }
 
-    public int? StatusId { get; set; }
+    public string Status { get; set; }
 
     public DateOnly? CreatedDate { get; set; }
 
@@ -46,8 +46,6 @@ public partial class Account
     public virtual Role Role { get; set; }
 
     public virtual ICollection<Schedule> Schedules { get; set; } = new List<Schedule>();
-
-    public virtual Status Status { get; set; }
 
     public virtual ICollection<User> Users { get; set; } = new List<User>();
 }

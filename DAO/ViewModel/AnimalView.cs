@@ -21,20 +21,19 @@ namespace DAO.ViewModel
         public string? Description { get; set; }
         public string? Classify {  get; set; }
         public CageView? Cage { get; set; }
-        public StatusView? Status {  get; set; }
+        public string? Status {  get; set; }
         public List<string>? UrlImages { get; set; }
-        public void ConvertAnimalIntoAnimalView(Animal key,AnimalTypeView animalType,FlockView flock, IndividualView individual, StatusView? status, CageView cage, List<string> urlImages)
+        public void ConvertAnimalIntoAnimalView(Animal key,AnimalTypeView animalType,FlockView flock, IndividualView individual, CageView cage, List<string> urlImages)
         {
             Id = key.Id;
             Description = key.Description;
             Classify = key.Classify;
-            Status = status;
             AnimalType = animalType;
             Individual = individual;
             Flock = flock;
             Cage = cage;
             UrlImages = urlImages;
-            Status = status;
+            Status = key.Status;
         }
     }
 }

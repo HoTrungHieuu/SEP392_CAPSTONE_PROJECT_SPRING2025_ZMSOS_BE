@@ -46,12 +46,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public NotificationView ConvertNotificationIntoNotificationView(Notification notificaion, StatusView? status)
+        public NotificationView ConvertNotificationIntoNotificationView(Notification notificaion)
         {
             try
             {
                 NotificationView result = new NotificationView();
-                result.ConvertNotificationIntoNotificationView(notificaion,status);
+                result.ConvertNotificationIntoNotificationView(notificaion);
                 return result;
             }
             catch (Exception)

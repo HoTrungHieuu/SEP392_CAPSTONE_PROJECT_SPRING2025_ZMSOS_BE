@@ -13,7 +13,7 @@ public partial class AnimalImage
 
     public string UrlImage { get; set; }
 
-    public int? StatusId { get; set; }
+    public string Status { get; set; }
 
     public virtual Animal Animal { get; set; }
 }

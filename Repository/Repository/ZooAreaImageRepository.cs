@@ -52,7 +52,7 @@ namespace Repository.Repository
                     {
                         ZooAreaId = zooAreaId,
                         UrlImage = item,
-                        StatusId = null
+                        Status = null
                     };
                     await CreateAsync(zooAreaImage);
                 }

@@ -19,13 +19,11 @@ public partial class Team
 
     public int? MaxQuantity { get; set; }
 
-    public int? StatusId { get; set; }
+    public string Status { get; set; }
 
     public virtual ICollection<LeaderAssign> LeaderAssigns { get; set; } = new List<LeaderAssign>();
 
     public virtual ICollection<MemberAssign> MemberAssigns { get; set; } = new List<MemberAssign>();
-
-    public virtual Status Status { get; set; }
 
     public virtual ZooArea ZooArea { get; set; }
 }

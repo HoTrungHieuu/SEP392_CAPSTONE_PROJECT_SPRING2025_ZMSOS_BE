@@ -8,7 +8,7 @@ namespace DAO.AddModel
 {
     public class LeaderAssignAdd
     {
-        public int TeamId {  get; set; }
-        public int AccountId {  get; set; }
+        public int? TeamId {  get; set; }
+        public int? AccountId {  get; set; }
     }
 }

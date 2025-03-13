@@ -34,14 +34,12 @@ namespace Service.Service
         public IApplicationRepository applicationRepo;
         public IApplicationTypeRepository applicationTypeRepo;
         public IIncompatibleAnimalTypeRepository incompatibleAnimalTypeRepo;
-        public IStatusRepository statusRepo;
         public INewsRepository newsRepo;
         public INotificationRepository notificationRepo;
         public IScheduleRepository scheduleRepo;
         public ITaskEstimateRepository taskEstimateRepo;
         public IAnimalImageRepository animalImageRepo;
         public IZooAreaImageRepository zooAreaImageRepo;
-        public ICategoryRepository categoryRepo;
         public ObjectViewService(IAnimalRepository animalRepo, IAnimalTypeRepository animalTypeRepo, 
             ICageRepository cageRepo, IZooAreaRepository zooAreaRepo,
             ITaskRepository taskRepo, ITaskTypeRepository taskTypeRepo, IAnimalCageRepository animalCageRepo, IAnimalAssignRepository animalAssignRepo, 
@@ -51,13 +49,11 @@ namespace Service.Service
             IReportRepository reportRepo, IReportAttachmentRepository reportAttachmentRepo,
             IApplicationRepository applicationRepo, IApplicationTypeRepository applicationTypeRepo,
             IIncompatibleAnimalTypeRepository incompatibleAnimalTypeRepo,
-            IStatusRepository statusRepo,
             INewsRepository newsRepo,
             INotificationRepository notificationRepo,
             IScheduleRepository scheduleRepo,
             ITaskEstimateRepository taskEstimateRepo,
-            IAnimalImageRepository animalImageRepo, IZooAreaImageRepository zooAreaImageRepo,
-            ICategoryRepository categoryRepo)
+            IAnimalImageRepository animalImageRepo, IZooAreaImageRepository zooAreaImageRepo)
         {
             this.animalRepo = animalRepo;
             this.animalTypeRepo = animalTypeRepo;
@@ -79,14 +75,12 @@ namespace Service.Service
             this.applicationRepo = applicationRepo;
             this.applicationTypeRepo = applicationTypeRepo;
             this.incompatibleAnimalTypeRepo = incompatibleAnimalTypeRepo;
-            this.statusRepo = statusRepo;
             this.newsRepo = newsRepo;
             this.notificationRepo = notificationRepo;
             this.scheduleRepo = scheduleRepo;
             this.taskEstimateRepo = taskEstimateRepo;
             this.animalImageRepo = animalImageRepo;
             this.zooAreaImageRepo = zooAreaImageRepo;
-            this.categoryRepo = categoryRepo;
         }
         public async Task<List<AnimalView>> GetListAnimalView(List<Animal> animals)
         {
@@ -113,36 +107,34 @@ namespace Service.Service
             {
                 cage = null;
             }
-            StatusView status = new StatusView();
-            status = await GetStatusView(statusRepo.GetById((int)animal.StatusId));
             if (animal.Classify == "Flock")
             {
                 FlockView flock = new();
                 flock = await GetFlockView(await flockRepo.GetFlockByAnimalId((int)animal.Id));
-                var result = animalRepo.ConvertAnimalIntoAnimalView(animal, animalType, flock, null, status,cage,urlImages);
+                var result = animalRepo.ConvertAnimalIntoAnimalView(animal, animalType, flock, null,cage,urlImages);
                 return result;
             }
             else if(animal.Classify == "Individual")
             {
                 IndividualView individual = new();
                 individual = await GetIndividualView(await individualRepo.GetIndividualByAnimalId((int)animal.Id));
-                var result = animalRepo.ConvertAnimalIntoAnimalView(animal, animalType, null, individual, status, cage, urlImages);
+                var result = animalRepo.ConvertAnimalIntoAnimalView(animal, animalType, null, individual, cage, urlImages);
                 return result;
             }
             else
             {
-                var result = animalRepo.ConvertAnimalIntoAnimalView(animal, animalType, null, null, status, cage, urlImages);
+                var result = animalRepo.ConvertAnimalIntoAnimalView(animal, animalType, null, null, cage, urlImages);
                 return result;
             }
         }
         public async Task<FlockView> GetFlockView(Flock flock)
         {
-            var result = flockRepo.ConvertFlockIntoFlockView(flock, null);
+            var result = flockRepo.ConvertFlockIntoFlockView(flock);
             return result;
         }
         public async Task<IndividualView> GetIndividualView(Individual individual)
         {
-            var result = individualRepo.ConvertIndividualIntoIndividualView(individual, null);
+            var result = individualRepo.ConvertIndividualIntoIndividualView(individual);
             return result;
         }
         public async Task<List<AnimalTypeView>> GetListAnimalTypeView(List<AnimalType> animalTypes)
@@ -172,9 +164,7 @@ namespace Service.Service
         {
             ZooAreaView zooArea = new();
             zooArea = await GetZooAreaView(zooAreaRepo.GetById((int)cage.ZooAreaId));
-            StatusView status = new StatusView();
-            status = await GetStatusView(statusRepo.GetById((int)cage.StatusId));
-            var result = cageRepo.ConvertCageIntoCageView(cage, zooArea, status);
+            var result = cageRepo.ConvertCageIntoCageView(cage, zooArea);
             return result;
         }
         public async Task<List<ZooAreaView>> GetListZooAreaView(List<ZooArea> zooAreas)
@@ -190,9 +180,7 @@ namespace Service.Service
         {
             List<string> urlImages = new List<string>();
             urlImages = await zooAreaImageRepo.GetListZooAreaImageUrlByZooAreaId(zooArea.Id);
-            StatusView status = new StatusView();
-            status = await GetStatusView(statusRepo.GetById((int)zooArea.StatusId));
-            var result = zooAreaRepo.ConvertZooAreaIntoZooAreaView(zooArea, status, urlImages);
+            var result = zooAreaRepo.ConvertZooAreaIntoZooAreaView(zooArea, urlImages);
             return result;
         }
         public async Task<List<TaskView>> GetListTaskView(List<BO.Models.Task> tasks)
@@ -211,7 +199,7 @@ namespace Service.Service
             var animalAssigns = await animalAssignRepo.GetListAnimalAssignByTaskId(task.Id);
             if(animalAssigns == null)
             {
-                var resultTemp = taskRepo.ConvertTaskIntoTaskView(task, null,taskType, null);
+                var resultTemp = taskRepo.ConvertTaskIntoTaskView(task, null, taskType);
                 return resultTemp;
             }
             List<(AnimalView, CageView)> animalCageViews = new();
@@ -253,7 +241,7 @@ namespace Service.Service
                 }
             }
             animalCageTasks.Add(animalCageTask);
-            var result = taskRepo.ConvertTaskIntoTaskView(task, animalCageTasks, taskType, null);
+            var result = taskRepo.ConvertTaskIntoTaskView(task, animalCageTasks, taskType);
             return result;
         }
         public async Task<List<TaskTypeView>> GetListTaskTypeView(List<TaskType> taskTypes)
@@ -267,7 +255,7 @@ namespace Service.Service
         }
         public async Task<TaskTypeView> GetTaskTypeView(TaskType taskType)
         {
-            var result = taskTypeRepo.ConvertTaskTypeIntoTaskTypeView(taskType, null);
+            var result = taskTypeRepo.ConvertTaskTypeIntoTaskTypeView(taskType);
             return result;
         }
         public async Task<List<AccountView>> GetListAccountView(List<Account> accounts)
@@ -281,7 +269,7 @@ namespace Service.Service
         }
         public async Task<AccountView> GetAccountView(Account account)
         {
-            var result = accountRepo.ConvertAccountIntoAccountView(account,null);
+            var result = accountRepo.ConvertAccountIntoAccountView(account);
             return result;
         }
         public async Task<UserView> GetUserView(User user)
@@ -300,7 +288,7 @@ namespace Service.Service
         }
         public async Task<TeamView> GetTeamView(Team team)
         {
-            var result = teamRepo.ConvertTeamIntoTeamView(team, null);
+            var result = teamRepo.ConvertTeamIntoTeamView(team);
             return result;
         }
         public async Task<LeaderAssignView> GetLeaderAssignView(LeaderAssign leaderAssign)
@@ -309,7 +297,7 @@ namespace Service.Service
             team = await GetTeamView(teamRepo.GetById((int)leaderAssign.TeamId));
             UserView user = new();
             user = await GetUserView(userRepo.GetById((int)leaderAssign.LeaderId));
-            var result = leaderRepo.ConvertLeaderAssignIntoLeaderAssignView(leaderAssign,team,user, null);
+            var result = leaderRepo.ConvertLeaderAssignIntoLeaderAssignView(leaderAssign,team,user);
             return result;
         }
         public async Task<List<MemberAssignView>> GetListMemberAssignView(List<MemberAssign> memberAssigns)
@@ -327,7 +315,7 @@ namespace Service.Service
             team = await GetTeamView(teamRepo.GetById((int)memberAssign.TeamId));
             UserView user = new();
             user = await GetUserView(userRepo.GetById((int)memberAssign.MemberId));
-            var result = memberRepo.ConvertMemberAssignIntoMemberAssignView(memberAssign, team, user, null);
+            var result = memberRepo.ConvertMemberAssignIntoMemberAssignView(memberAssign, team, user);
             return result;
         }
         public async Task<List<ReportView>> GetListReportView(List<Report> reports)
@@ -348,7 +336,7 @@ namespace Service.Service
             var attachs = await reportAttachmentRepo.GetListReportAttachmentByReportId(report.Id);
             List<string> fileUrl = reportAttachmentRepo.ConvertListReportAttachmentIntoListString(attachs);
 
-            var result = reportRepo.ConvertReportIntoReportView(report, sender, reciever, fileUrl, null);
+            var result = reportRepo.ConvertReportIntoReportView(report, sender, reciever, fileUrl);
             return result;
         }
         public async Task<List<ApplicationView>> GetListApplicationView(List<Application> applications)
@@ -369,7 +357,7 @@ namespace Service.Service
             ApplicationTypeView applicationType = new();
             applicationType = await GetApplicationTypeView(applicationTypeRepo.GetById(application.Id));
 
-            var result = applicationRepo.ConvertApplicationIntoApplicationView(application, sender, reciever, applicationType, null);
+            var result = applicationRepo.ConvertApplicationIntoApplicationView(application, sender, reciever, applicationType);
             return result;
         }
         public async Task<List<ApplicationTypeView>> GetListApplicationTypeView(List<ApplicationType> applicationTypes)
@@ -401,21 +389,7 @@ namespace Service.Service
             animalType1 = await GetAnimalTypeView(animalTypeRepo.GetById((int)incompatibleAnimalType.AnimalTypeId1));
             AnimalTypeView animalType2 = new();
             animalType2 = await GetAnimalTypeView(animalTypeRepo.GetById((int)incompatibleAnimalType.AnimalTypeId2));
-            var result = incompatibleAnimalTypeRepo.ConvertIncompatibleAnimalTypeIntoIncompatibleAnimalTypeView(incompatibleAnimalType,animalType1,animalType2, null);
-            return result;
-        }
-        public async Task<List<StatusView>> GetListStatusView(List<Status> statuss)
-        {
-            List<StatusView> result = new List<StatusView>();
-            foreach (var status in statuss)
-            {
-                result.Add(await GetStatusView(status));
-            }
-            return result;
-        }
-        public async Task<StatusView> GetStatusView(Status status)
-        {
-            var result = statusRepo.ConvertStatusIntoStatusView(status);
+            var result = incompatibleAnimalTypeRepo.ConvertIncompatibleAnimalTypeIntoIncompatibleAnimalTypeView(incompatibleAnimalType,animalType1,animalType2);
             return result;
         }
         public async Task<List<NewsView>> GetListNewsView(List<News> newss)
@@ -431,7 +405,7 @@ namespace Service.Service
         {
             UserView user = new();
             user = await GetUserView(await userRepo.GetUserByAccountId((int)news.AccountId));
-            var result = newsRepo.ConvertNewsIntoNewsView(news, user, null);
+            var result = newsRepo.ConvertNewsIntoNewsView(news, user);
             return result;
         }
         public async Task<List<NotificationView>> GetListNotificationView(List<Notification> notifications)
@@ -445,7 +419,7 @@ namespace Service.Service
         }
         public async Task<NotificationView> GetNotificationView(Notification notification)
         {
-            var result = notificationRepo.ConvertNotificationIntoNotificationView(notification, null);
+            var result = notificationRepo.ConvertNotificationIntoNotificationView(notification);
             return result;
         }
         public async Task<List<ScheduleView>> GetListScheduleView(List<Schedule> schedules)
@@ -461,7 +435,7 @@ namespace Service.Service
         {
             UserView user = new();
             user = await GetUserView(await userRepo.GetUserByAccountId((int)schedule.AccountId));
-            var result = scheduleRepo.ConvertScheduleIntoScheduleView(schedule, user, null);
+            var result = scheduleRepo.ConvertScheduleIntoScheduleView(schedule, user);
             return result;
         }
         public async Task<List<TaskEstimateView>> GetListTaskEstimateView(List<TaskEstimate> taskEstimates)
@@ -479,21 +453,7 @@ namespace Service.Service
             taskType = await GetTaskTypeView(taskTypeRepo.GetById((int)taskEstimate.TaskTypeId));
             AnimalTypeView animalType = new();
             animalType = await GetAnimalTypeView(animalTypeRepo.GetById((int)taskEstimate.AnimalTypeId));
-            var result = taskEstimateRepo.ConvertTaskEstimateIntoTaskEstimateView(taskEstimate, taskType,animalType, null);
-            return result;
-        }
-        public async Task<List<CategoryView>> GetListCategoryView(List<Category> categorys)
-        {
-            List<CategoryView> result = new List<CategoryView>();
-            foreach (var category in categorys)
-            {
-                result.Add(await GetCategoryView(category));
-            }
-            return result;
-        }
-        public async Task<CategoryView> GetCategoryView(Category category)
-        {
-            var result = categoryRepo.ConvertCategoryIntoCategoryView(category);
+            var result = taskEstimateRepo.ConvertTaskEstimateIntoTaskEstimateView(taskEstimate, taskType,animalType);
             return result;
         }
     }

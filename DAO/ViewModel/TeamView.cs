@@ -15,15 +15,15 @@ namespace DAO.ViewModel
         public string? Description { get; set; }
         public int? CurrentQuantity {  get; set; }
         public int? MaxQuantity {  get; set; }
-        public StatusView? Status {  get; set; }
-        public void ConvertTeamIntoTeamView(Team key, StatusView? status)
+        public string? Status {  get; set; }
+        public void ConvertTeamIntoTeamView(Team key)
         {
             Id = key.Id;
             Name = key.Name;
             Description = key.Description;
             CurrentQuantity = key.CurrentQuantity;
             MaxQuantity = key.MaxQuantity;
-            Status = status;
+            Status = key.Status;
         }
     }
 }

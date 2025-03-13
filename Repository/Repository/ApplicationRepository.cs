@@ -79,12 +79,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public ApplicationView ConvertApplicationIntoApplicationView(Application application, UserView sender, UserView reciever, ApplicationTypeView applicationType, StatusView? status)
+        public ApplicationView ConvertApplicationIntoApplicationView(Application application, UserView sender, UserView reciever, ApplicationTypeView applicationType)
         {
             try
             {
                 ApplicationView result = new ApplicationView();
-                result.ConvertApplicationIntoApplicationView(application, sender, reciever, applicationType, status);
+                result.ConvertApplicationIntoApplicationView(application, sender, reciever, applicationType);
                 return result;
             }
             catch (Exception)

@@ -15,6 +15,6 @@ namespace DAO.UpdateModel
         public string? Location {  get; set; }
         public string? Size {  get; set; }
         public List<string>? UrlImages { get; set; }
-        public int? StatusId { get; set; }
+        public string? Status { get; set; }
     }
 }

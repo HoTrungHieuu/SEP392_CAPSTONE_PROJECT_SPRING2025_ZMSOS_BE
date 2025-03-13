@@ -15,11 +15,9 @@ public partial class Schedule
 
     public string Note { get; set; }
 
-    public int? StatusId { get; set; }
+    public string Status { get; set; }
 
     public virtual Account Account { get; set; }
-
-    public virtual Status Status { get; set; }
 
     public virtual ICollection<Task> Tasks { get; set; } = new List<Task>();
 }

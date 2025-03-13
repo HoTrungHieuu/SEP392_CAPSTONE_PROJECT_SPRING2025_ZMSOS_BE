@@ -23,13 +23,11 @@ public partial class Application
 
     public DateOnly? Date { get; set; }
 
-    public int? StatusId { get; set; }
+    public string Status { get; set; }
 
     public virtual ApplicationType ApplicationType { get; set; }
 
     public virtual Account Reciever { get; set; }
 
     public virtual Account Sender { get; set; }
-
-    public virtual Status Status { get; set; }
 }

@@ -66,12 +66,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public TaskTypeView ConvertTaskTypeIntoTaskTypeView(TaskType taskType, StatusView? status)
+        public TaskTypeView ConvertTaskTypeIntoTaskTypeView(TaskType taskType)
         {
             try
             {
                 TaskTypeView result = new TaskTypeView();
-                result.ConvertTaskTypeIntoTaskTypeView(taskType,status);
+                result.ConvertTaskTypeIntoTaskTypeView(taskType);
                 return result;
             }
             catch (Exception)

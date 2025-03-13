@@ -14,15 +14,15 @@ namespace DAO.ViewModel
         public UserView User { get; set; }
         public DateOnly? FromDate { get; set; }
         public DateOnly? ToDate { get; set; }
-        public StatusView? Status { get; set; }
-        public void ConvertMemberAssignIntoMemberAssignView(MemberAssign key, TeamView team, UserView user, StatusView? status)
+        public string? Status { get; set; }
+        public void ConvertMemberAssignIntoMemberAssignView(MemberAssign key, TeamView team, UserView user)
         {
             Id = key.Id;
             Team = team;
             User = user;
             FromDate = key.FromDate;
             ToDate = key.ToDate;
-            Status = status;
+            Status = key.Status;
         }
     }
 }

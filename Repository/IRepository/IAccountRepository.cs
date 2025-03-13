@@ -12,6 +12,6 @@ namespace Repository.IRepositoyr
     public interface IAccountRepository : IGenericRepository<Account>
     {
         public Task<Account?> GetAccountManager();
-        public AccountView ConvertAccountIntoAccountView(Account account, StatusView? status);
+        public AccountView ConvertAccountIntoAccountView(Account account);
     }
 }
