@@ -34,6 +34,7 @@ namespace DAO.ViewModel
             Size = key.Size;
             DateCreate = key.DateCreate;
             UrlImage = key.UrlImage;
+            Status = key.Status;
         }
     }
 }

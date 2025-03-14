@@ -20,7 +20,8 @@ namespace Repository.Repository
         {
             try
             {
-                var cages = await GetAllAsync();
+                var cages = (await GetAllAsync()).FindAll(l=>l.Status == "Active");
+                cages.OrderByDescending(l=>l.DateCreate).ToList();
                 return cages;
             }
             catch (Exception)
@@ -32,7 +33,7 @@ namespace Repository.Repository
         {
             try
             {
-                var cages = (await GetAllAsync()).FindAll(l => l.ZooAreaId == zooAreaId);
+                var cages = (await GetListCage()).FindAll(l => l.ZooAreaId == zooAreaId);
                 return cages;
             }
             catch (Exception)
