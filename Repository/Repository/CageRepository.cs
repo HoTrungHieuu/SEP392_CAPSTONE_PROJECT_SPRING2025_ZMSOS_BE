@@ -20,7 +20,7 @@ namespace Repository.Repository
         {
             try
             {
-                var cages = (await GetAllAsync()).FindAll(l=>l.Status == "Active");
+                var cages = (await GetAllAsync());
                 cages.OrderByDescending(l=>l.DateCreate).ToList();
                 return cages;
             }
