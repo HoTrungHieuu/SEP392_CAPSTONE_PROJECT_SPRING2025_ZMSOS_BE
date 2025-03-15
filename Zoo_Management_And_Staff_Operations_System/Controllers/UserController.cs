@@ -1,5 +1,6 @@
 ﻿using DAO.UpdateModel;
 using DAO.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Service.IService;
@@ -15,6 +16,7 @@ namespace AccountManagement.Controllers
         {
             this.service = service;
         }
+        [Authorize(Roles = "Admin,Manager,Leader,Staff")]
         [HttpGet("user/accountId")]
         public async Task<IActionResult> GetUserByAccountId(int accountId)
         {
@@ -22,6 +24,7 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Admin,Manager,Leader,Staff")]
         [HttpPut("user/accountId")]
         public async Task<IActionResult> UpdateUser(UserUpdate key)
         {

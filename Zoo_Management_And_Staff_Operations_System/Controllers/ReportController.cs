@@ -1,6 +1,7 @@
 ﻿using DAO.AddModel;
 using DAO.SearchModel;
 using DAO.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Service.IService;
@@ -16,6 +17,7 @@ namespace AccountManagement.Controllers
         {
             this.service = service;
         }
+        [Authorize(Roles = "Admin,Manager,Leader,Staff")]
         [HttpGet("reports/senderId")]
         public async Task<IActionResult> GetListReportBySenderId(int senderId)
         {
@@ -23,6 +25,7 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Admin,Manager,Leader,Staff")]
         [HttpPost("reports/senderId/search-sort-paging")]
         public async Task<IActionResult> GetListReportBySenderIdSearch(int senderId, ReportSearch<ReportView> key)
         {
@@ -30,6 +33,7 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Admin,Manager,Leader,Staff")]
         [HttpGet("reports/recieverId")]
         public async Task<IActionResult> GetListReportByRecieverId(int recieverId)
         {
@@ -37,6 +41,7 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Admin,Manager,Leader,Staff")]
         [HttpPost("reports/recieverId/search-sort-paging")]
         public async Task<IActionResult> GetListReportByRecieverIdSearch(int recieverId, ReportSearch<ReportView> key)
         {
@@ -44,6 +49,7 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Admin,Manager,Leader,Staff")]
         [HttpGet("report/id")]
         public async Task<IActionResult> GetReportById(int id)
         {
@@ -51,6 +57,7 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Admin,Manager,Leader,Staff")]
         [HttpPost("report")]
         public async Task<IActionResult> AddReport(ReportAdd key)
         {

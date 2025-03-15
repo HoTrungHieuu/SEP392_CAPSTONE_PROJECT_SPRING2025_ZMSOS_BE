@@ -145,6 +145,7 @@ builder.Services.AddScoped<IIncompatibleAnimalTypeRepository, IncompatibleAnimal
 builder.Services.AddScoped<IIncompatibleAnimalTypeService, IncompatibleAnimalTypeService>();
 builder.Services.AddScoped<IAnimalImageRepository, AnimalImageRepository>();
 builder.Services.AddScoped<IZooAreaImageRepository, ZooAreaImageRepository>();
+builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 
 var app = builder.Build();
 

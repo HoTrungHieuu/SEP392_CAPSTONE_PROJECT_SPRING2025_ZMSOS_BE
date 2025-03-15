@@ -3,6 +3,7 @@ using DAO.AddModel;
 using DAO.SearchModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Service.IService;
@@ -18,6 +19,7 @@ namespace AnimalAndCageManagement.Controllers
         {
             this.service = service;
         }
+        [Authorize(Roles = "Manager,Leader,Staff")]
         [HttpGet("animals")]
         public async Task<IActionResult> GetListAnimal()
         {
@@ -25,6 +27,7 @@ namespace AnimalAndCageManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager,Leader,Staff")]
         [HttpPost("animals/search-sort-paging")]
         public async Task<IActionResult> GetListAnimalSearch(AnimalSearch<AnimalView> key)
         {
@@ -32,6 +35,7 @@ namespace AnimalAndCageManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager,Leader,Staff")]
         [HttpGet("animals/animalTypeId")]
         public async Task<IActionResult> GetListAnimalByAnimalTypeId(int animalTypeId)
         {
@@ -39,6 +43,7 @@ namespace AnimalAndCageManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager,Leader,Staff")]
         [HttpGet("animals/cageId")]
         public async Task<IActionResult> GetListAnimalByCageId(int cageId)
         {
@@ -46,6 +51,7 @@ namespace AnimalAndCageManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager,Leader,Staff")]
         [HttpGet("animal/id")]
         public async Task<IActionResult> GetAnimalById(int id)
         {
@@ -53,6 +59,7 @@ namespace AnimalAndCageManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager")]
         [HttpPost("animal")]
         public async Task<IActionResult> AddAnimal(AnimalAdd key)
         {
@@ -60,6 +67,7 @@ namespace AnimalAndCageManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager")]
         [HttpPut("animal")]
         public async Task<IActionResult> UpdateAnimal(AnimalUpdate key)
         {
@@ -67,6 +75,7 @@ namespace AnimalAndCageManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager")]
         [HttpPost("animal/cage/animalIds&&cageId")]
         public async Task<IActionResult> AddAnimalCage(int animalId, int cageId)
         {
@@ -74,6 +83,7 @@ namespace AnimalAndCageManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager")]
         [HttpDelete("animal/cage/animalId&&cageId")]
         public async Task<IActionResult> RemoveAnimalCage(int animalId, int cageId)
         {
@@ -81,6 +91,7 @@ namespace AnimalAndCageManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager")]
         [HttpPost("animal/cage/animalId&&cageId/replace")]
         public async Task<IActionResult> ReplaceAnimalCage(int animalId, int cageId)
         {

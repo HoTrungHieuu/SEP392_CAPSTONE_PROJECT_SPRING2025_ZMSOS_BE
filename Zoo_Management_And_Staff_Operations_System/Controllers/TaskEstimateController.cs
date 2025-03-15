@@ -1,6 +1,7 @@
 ﻿using AccountManagement;
 using DAO.AddModel;
 using DAO.UpdateModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Service.IService;
@@ -16,6 +17,7 @@ namespace Zoo_Management_And_Staff_Operations_System.Controllers
         {
             this.service = service;
         }
+        [Authorize(Roles = "Admin,Manager,Leader,Staff")]
         [HttpGet("taskEstimates")]
         public async Task<IActionResult> GetListTaskEstimate()
         {
@@ -23,6 +25,7 @@ namespace Zoo_Management_And_Staff_Operations_System.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Admin,Manager,Leader,Staff")]
         [HttpGet("taskEstimates/taskTypeId")]
         public async Task<IActionResult> GetListTaskEstimateByTaskTypeId(int taskTypeId)
         {
@@ -30,6 +33,7 @@ namespace Zoo_Management_And_Staff_Operations_System.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Admin,Manager,Leader,Staff")]
         [HttpGet("taskEstimates/animalTypeId")]
         public async Task<IActionResult> GetListTaskEstimateByAnimalTypeId(int animalTypeId)
         {
@@ -37,6 +41,7 @@ namespace Zoo_Management_And_Staff_Operations_System.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Admin,Manager,Leader,Staff")]
         [HttpPost("taskEstimate/id")]
         public async Task<IActionResult> GetTaskEstimateById(int id)
         {
@@ -44,6 +49,7 @@ namespace Zoo_Management_And_Staff_Operations_System.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Admin,Manager,Leader,Staff")]
         [HttpPost("taskEstimate")]
         public async Task<IActionResult> AddTaskEstimate(TaskEstimateAdd key)
         {
@@ -51,6 +57,7 @@ namespace Zoo_Management_And_Staff_Operations_System.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Admin,Manager,Leader,Staff")]
         [HttpPut("taskEstimate")]
         public async Task<IActionResult> UpdateTaskEstimate(TaskEstimateUpdate key)
         {

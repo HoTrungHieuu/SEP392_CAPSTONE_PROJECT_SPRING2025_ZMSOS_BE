@@ -3,12 +3,204 @@
   "WorkspaceRootPath": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\repository\\repository\\zooarearepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|solutionrelative:repository\\repository\\zooarearepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\zoo_management_and_staff_operations_system\\controllers\\zooareacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|solutionrelative:zoo_management_and_staff_operations_system\\controllers\\zooareacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\zoo_management_and_staff_operations_system\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|solutionrelative:zoo_management_and_staff_operations_system\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\zoo_management_and_staff_operations_system\\controllers\\teamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|solutionrelative:zoo_management_and_staff_operations_system\\controllers\\teamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\zoo_management_and_staff_operations_system\\controllers\\tasktypecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|solutionrelative:zoo_management_and_staff_operations_system\\controllers\\tasktypecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\zoo_management_and_staff_operations_system\\controllers\\taskestimatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|solutionrelative:zoo_management_and_staff_operations_system\\controllers\\taskestimatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\zoo_management_and_staff_operations_system\\controllers\\taskcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|solutionrelative:zoo_management_and_staff_operations_system\\controllers\\taskcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\zoo_management_and_staff_operations_system\\controllers\\schedulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|solutionrelative:zoo_management_and_staff_operations_system\\controllers\\schedulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\zoo_management_and_staff_operations_system\\controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|solutionrelative:zoo_management_and_staff_operations_system\\controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\zoo_management_and_staff_operations_system\\controllers\\notificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|solutionrelative:zoo_management_and_staff_operations_system\\controllers\\notificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\zoo_management_and_staff_operations_system\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|solutionrelative:zoo_management_and_staff_operations_system\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\zoo_management_and_staff_operations_system\\controllers\\incompatibleanimaltypecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|solutionrelative:zoo_management_and_staff_operations_system\\controllers\\incompatibleanimaltypecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\zoo_management_and_staff_operations_system\\controllers\\cagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|solutionrelative:zoo_management_and_staff_operations_system\\controllers\\cagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\zoo_management_and_staff_operations_system\\controllers\\animalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|solutionrelative:zoo_management_and_staff_operations_system\\controllers\\animalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\zoo_management_and_staff_operations_system\\controllers\\applicationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|solutionrelative:zoo_management_and_staff_operations_system\\controllers\\applicationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\zoo_management_and_staff_operations_system\\controllers\\animaltypecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|solutionrelative:zoo_management_and_staff_operations_system\\controllers\\animaltypecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\zoo_management_and_staff_operations_system\\controllers\\applicationtypecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|solutionrelative:zoo_management_and_staff_operations_system\\controllers\\applicationtypecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\zoo_management_and_staff_operations_system\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|solutionrelative:zoo_management_and_staff_operations_system\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\service\\iservice\\iaccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|solutionrelative:service\\iservice\\iaccountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\service\\service\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|solutionrelative:service\\service\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\zoo_management_and_staff_operations_system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|solutionrelative:zoo_management_and_staff_operations_system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\service\\service\\objectviewservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|solutionrelative:service\\service\\objectviewservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\repository\\irepository\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|solutionrelative:repository\\irepository\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\repository\\repository\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|solutionrelative:repository\\repository\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\dao\\viewmodel\\accountview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|solutionrelative:dao\\viewmodel\\accountview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\dao\\viewmodel\\animalview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|solutionrelative:dao\\viewmodel\\animalview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\dao\\viewmodel\\animaltypeview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|solutionrelative:dao\\viewmodel\\animaltypeview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\dao\\addmodel\\individualadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|solutionrelative:dao\\addmodel\\individualadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\dao\\addmodel\\incompatibleanimaltypeadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|solutionrelative:dao\\addmodel\\incompatibleanimaltypeadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\dao\\addmodel\\foodadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|solutionrelative:dao\\addmodel\\foodadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\dao\\addmodel\\accountcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|solutionrelative:dao\\addmodel\\accountcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\service\\service\\animalservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|solutionrelative:service\\service\\animalservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\service\\iservice\\iobjectviewservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|solutionrelative:service\\iservice\\iobjectviewservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\repository\\irepository\\irolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|solutionrelative:repository\\irepository\\irolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\repository\\irepository\\ireportrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|solutionrelative:repository\\irepository\\ireportrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\repository\\repository\\rolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|solutionrelative:repository\\repository\\rolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\repository\\repository\\schedulerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|solutionrelative:repository\\repository\\schedulerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\repository\\irepository\\ischedulerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|solutionrelative:repository\\irepository\\ischedulerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\dao\\viewmodel\\roleview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|solutionrelative:dao\\viewmodel\\roleview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\dao\\viewmodel\\scheduleview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|solutionrelative:dao\\viewmodel\\scheduleview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\service\\iservice\\ianimaltypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|solutionrelative:service\\iservice\\ianimaltypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\service\\service\\animaltypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|solutionrelative:service\\service\\animaltypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\service\\service\\zooareaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|solutionrelative:service\\service\\zooareaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\repository\\irepository\\ifoodrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|solutionrelative:repository\\irepository\\ifoodrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\repository\\repository\\foodrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|solutionrelative:repository\\repository\\foodrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\dao\\updatemodel\\foodupdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|solutionrelative:dao\\updatemodel\\foodupdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\dao\\viewmodel\\foodview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|solutionrelative:dao\\viewmodel\\foodview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\dao\\viewmodel\\flockview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|solutionrelative:dao\\viewmodel\\flockview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F007916-66B8-4A3A-9E98-E9F7A6ADAC17}|BO\\BO.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\bo\\models\\zoo_management_and_staff_operations_systemcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F007916-66B8-4A3A-9E98-E9F7A6ADAC17}|BO\\BO.csproj|solutionrelative:bo\\models\\zoo_management_and_staff_operations_systemcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F007916-66B8-4A3A-9E98-E9F7A6ADAC17}|BO\\BO.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\bo\\models\\food.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F007916-66B8-4A3A-9E98-E9F7A6ADAC17}|BO\\BO.csproj|solutionrelative:bo\\models\\food.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\repository\\repository\\zooarearepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|solutionrelative:repository\\repository\\zooarearepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\repository\\repository\\cagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -21,10 +213,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\dao\\addmodel\\cageadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|solutionrelative:dao\\addmodel\\cageadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\zoo_management_and_staff_operations_system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|solutionrelative:zoo_management_and_staff_operations_system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\zoo_management_and_staff_operations_system\\statusresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -59,10 +247,6 @@
       "RelativeMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|solutionrelative:service\\service\\reportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\service\\service\\objectviewservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|solutionrelative:service\\service\\objectviewservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\service\\service\\notificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|solutionrelative:service\\service\\notificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -83,28 +267,12 @@
       "RelativeMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|solutionrelative:service\\service\\applicationtypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\service\\service\\animalservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|solutionrelative:service\\service\\animalservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\service\\service\\animaltypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|solutionrelative:service\\service\\animaltypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\service\\service\\applicationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|solutionrelative:service\\service\\applicationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\service\\service\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|solutionrelative:service\\service\\accountservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\dao\\viewmodel\\zooareaview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|solutionrelative:dao\\viewmodel\\zooareaview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\service\\iservice\\iobjectviewservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|solutionrelative:service\\iservice\\iobjectviewservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\repository\\irepository\\icagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -153,18 +321,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\repository\\repository\\taskestimaterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|solutionrelative:repository\\repository\\taskestimaterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\repository\\repository\\schedulerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|solutionrelative:repository\\repository\\schedulerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\repository\\irepository\\ischedulerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|solutionrelative:repository\\irepository\\ischedulerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\repository\\irepository\\ireportrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|solutionrelative:repository\\irepository\\ireportrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\repository\\repository\\reportrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -271,14 +427,6 @@
       "RelativeMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|solutionrelative:repository\\repository\\animalassignrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\repository\\irepository\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|solutionrelative:repository\\irepository\\iaccountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\repository\\repository\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|solutionrelative:repository\\repository\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\dao\\addmodel\\teamadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|solutionrelative:dao\\addmodel\\teamadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -327,14 +475,6 @@
       "RelativeMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|solutionrelative:dao\\addmodel\\memberassignadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\dao\\addmodel\\individualadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|solutionrelative:dao\\addmodel\\individualadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\dao\\addmodel\\incompatibleanimaltypeadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|solutionrelative:dao\\addmodel\\incompatibleanimaltypeadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\dao\\addmodel\\animaltypeadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|solutionrelative:dao\\addmodel\\animaltypeadd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -355,16 +495,8 @@
       "RelativeMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|solutionrelative:dao\\addmodel\\animaladd.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\dao\\addmodel\\accountcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|solutionrelative:dao\\addmodel\\accountcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\dao\\updatemodel\\zooareaupdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|solutionrelative:dao\\updatemodel\\zooareaupdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\dao\\updatemodel\\userupdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|solutionrelative:dao\\updatemodel\\userupdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\dao\\updatemodel\\teamupdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -435,10 +567,6 @@
       "RelativeMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|solutionrelative:dao\\viewmodel\\taskestimateview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\dao\\viewmodel\\scheduleview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|solutionrelative:dao\\viewmodel\\scheduleview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\dao\\viewmodel\\reportview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|solutionrelative:dao\\viewmodel\\reportview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -467,36 +595,12 @@
       "RelativeMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|solutionrelative:dao\\viewmodel\\incompatibleanimaltypeview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\dao\\viewmodel\\flockview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|solutionrelative:dao\\viewmodel\\flockview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\dao\\viewmodel\\applicationview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|solutionrelative:dao\\viewmodel\\applicationview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\dao\\viewmodel\\applicationtypeview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|solutionrelative:dao\\viewmodel\\applicationtypeview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\dao\\viewmodel\\animalview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|solutionrelative:dao\\viewmodel\\animalview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\dao\\viewmodel\\animaltypeview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|solutionrelative:dao\\viewmodel\\animaltypeview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F007916-66B8-4A3A-9E98-E9F7A6ADAC17}|BO\\BO.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\bo\\models\\zoo_management_and_staff_operations_systemcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F007916-66B8-4A3A-9E98-E9F7A6ADAC17}|BO\\BO.csproj|solutionrelative:bo\\models\\zoo_management_and_staff_operations_systemcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\zoo_management_and_staff_operations_system\\controllers\\zooareacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|solutionrelative:zoo_management_and_staff_operations_system\\controllers\\zooareacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\zoo_management_and_staff_operations_system\\controllers\\cagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|solutionrelative:zoo_management_and_staff_operations_system\\controllers\\cagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\service\\iservice\\icageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -511,20 +615,12 @@
       "RelativeMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|solutionrelative:dao\\searchmodel\\animalsearch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\zoo_management_and_staff_operations_system\\controllers\\schedulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|solutionrelative:zoo_management_and_staff_operations_system\\controllers\\schedulecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\service\\iservice\\ischeduleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|solutionrelative:service\\iservice\\ischeduleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\repository\\irepository\\izooareaimagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|solutionrelative:repository\\irepository\\izooareaimagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\zoo_management_and_staff_operations_system\\controllers\\animalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|solutionrelative:zoo_management_and_staff_operations_system\\controllers\\animalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\repository\\irepository\\ianimalcagerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -551,18 +647,6 @@
       "RelativeMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|solutionrelative:zoo_management_and_staff_operations_system\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\zoo_management_and_staff_operations_system\\controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|solutionrelative:zoo_management_and_staff_operations_system\\controllers\\reportcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\zoo_management_and_staff_operations_system\\controllers\\applicationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|solutionrelative:zoo_management_and_staff_operations_system\\controllers\\applicationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\zoo_management_and_staff_operations_system\\controllers\\applicationtypecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|solutionrelative:zoo_management_and_staff_operations_system\\controllers\\applicationtypecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\service\\iservice\\ireportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|solutionrelative:service\\iservice\\ireportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -583,20 +667,12 @@
       "RelativeMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|solutionrelative:dao\\searchmodel\\animaltypesearch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\zoo_management_and_staff_operations_system\\controllers\\animaltypecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|solutionrelative:zoo_management_and_staff_operations_system\\controllers\\animaltypecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\dao\\searchmodel\\cagesearch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|solutionrelative:dao\\searchmodel\\cagesearch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\dao\\searchmodel\\zooareasearch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|solutionrelative:dao\\searchmodel\\zooareasearch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\service\\iservice\\ianimaltypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|solutionrelative:service\\iservice\\ianimaltypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{41412535-B44E-4494-A6E2-C9F2EAFE7ACD}|DAO\\DAO.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\dao\\othermodel\\paging.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -615,40 +691,12 @@
       "RelativeMoniker": "D:0:0:{4F007916-66B8-4A3A-9E98-E9F7A6ADAC17}|BO\\BO.csproj|solutionrelative:bo\\models\\incompatibleanimaltype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\zoo_management_and_staff_operations_system\\controllers\\teamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|solutionrelative:zoo_management_and_staff_operations_system\\controllers\\teamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\zoo_management_and_staff_operations_system\\controllers\\taskestimatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|solutionrelative:zoo_management_and_staff_operations_system\\controllers\\taskestimatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\zoo_management_and_staff_operations_system\\controllers\\taskcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|solutionrelative:zoo_management_and_staff_operations_system\\controllers\\taskcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\service\\iservice\\itaskestimateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|solutionrelative:service\\iservice\\itaskestimateservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\zoo_management_and_staff_operations_system\\controllers\\tasktypecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|solutionrelative:zoo_management_and_staff_operations_system\\controllers\\tasktypecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\service\\iservice\\itasktypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|solutionrelative:service\\iservice\\itasktypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\zoo_management_and_staff_operations_system\\controllers\\notificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|solutionrelative:zoo_management_and_staff_operations_system\\controllers\\notificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\zoo_management_and_staff_operations_system\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|solutionrelative:zoo_management_and_staff_operations_system\\controllers\\newscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\zoo_management_and_staff_operations_system\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|solutionrelative:zoo_management_and_staff_operations_system\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\service\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -674,7 +722,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 316,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -682,81 +730,553 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ScheduleController.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\ScheduleController.cs",
+              "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\Controllers\\ScheduleController.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\ScheduleController.cs",
+              "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\ScheduleController.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAkwDMAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-14T14:09:25.566Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TaskController.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\TaskController.cs",
+              "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\Controllers\\TaskController.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\TaskController.cs",
+              "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\TaskController.cs",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAQwCIAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-14T14:09:24.953Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TaskEstimateController.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\TaskEstimateController.cs",
+              "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\Controllers\\TaskEstimateController.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\TaskEstimateController.cs",
+              "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\TaskEstimateController.cs",
+              "ViewState": "AgIAADoAAAAAAAAAAAAkwDsAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T15:02:55.8Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TaskTypeController.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\TaskTypeController.cs",
+              "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\Controllers\\TaskTypeController.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\TaskTypeController.cs",
+              "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\TaskTypeController.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAqwCsAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T14:07:14.162Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TeamController.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\TeamController.cs",
+              "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\Controllers\\TeamController.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\TeamController.cs",
+              "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\TeamController.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAFsAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-14T14:09:19.313Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\Controllers\\UserController.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAAABoAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-14T14:09:18.619Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ZooAreaController.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\ZooAreaController.cs",
+              "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\Controllers\\ZooAreaController.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\ZooAreaController.cs",
+              "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\ZooAreaController.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAowD0AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-14T14:09:11.055Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ReportController.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\ReportController.cs",
+              "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\Controllers\\ReportController.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\ReportController.cs",
+              "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\ReportController.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAAADsAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-14T14:09:24.299Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "NotificationController.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\NotificationController.cs",
+              "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\Controllers\\NotificationController.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\NotificationController.cs",
+              "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\NotificationController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAzwBIAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-14T14:09:23.789Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "NewsController.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\NewsController.cs",
+              "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\Controllers\\NewsController.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\NewsController.cs",
+              "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\NewsController.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAACoAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-14T14:09:23.329Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "IncompatibleAnimalTypeController.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\IncompatibleAnimalTypeController.cs",
+              "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\Controllers\\IncompatibleAnimalTypeController.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\IncompatibleAnimalTypeController.cs",
+              "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\IncompatibleAnimalTypeController.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAACMAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T16:36:40.257Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AnimalController.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\AnimalController.cs",
+              "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\Controllers\\AnimalController.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\AnimalController.cs",
+              "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\AnimalController.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAABUAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T15:20:33.291Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ApplicationController.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\ApplicationController.cs",
+              "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\Controllers\\ApplicationController.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\ApplicationController.cs",
+              "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\ApplicationController.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAAADsAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-07T13:25:19.659Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AnimalTypeController.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\AnimalTypeController.cs",
+              "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\Controllers\\AnimalTypeController.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\AnimalTypeController.cs",
+              "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\AnimalTypeController.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAswD4AAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T13:51:30.285Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ApplicationTypeController.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\ApplicationTypeController.cs",
+              "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\Controllers\\ApplicationTypeController.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\ApplicationTypeController.cs",
+              "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\ApplicationTypeController.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAAACEAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-07T13:25:30.828Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\Controllers\\AccountController.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAAADUAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T14:59:50.024Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "AccountView.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\AccountView.cs",
+              "RelativeDocumentMoniker": "DAO\\ViewModel\\AccountView.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\AccountView.cs",
+              "RelativeToolTip": "DAO\\ViewModel\\AccountView.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAACAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T15:22:20.202Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "CageController.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\CageController.cs",
+              "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\Controllers\\CageController.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\CageController.cs",
+              "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\CageController.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAAEUAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T16:31:30.34Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Program.cs",
+              "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\Program.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Program.cs",
+              "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Program.cs",
+              "ViewState": "AgIAAIoAAAAAAAAAAAAAAJMAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T10:03:49.937Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "AccountService.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\AccountService.cs",
+              "RelativeDocumentMoniker": "Service\\Service\\AccountService.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\AccountService.cs",
+              "RelativeToolTip": "Service\\Service\\AccountService.cs",
+              "ViewState": "AgIAAK4AAAAAAAAAAAAAALAAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T10:59:53.299Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ObjectViewService.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\ObjectViewService.cs",
+              "RelativeDocumentMoniker": "Service\\Service\\ObjectViewService.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\ObjectViewService.cs",
+              "RelativeToolTip": "Service\\Service\\ObjectViewService.cs",
+              "ViewState": "AgIAAAwBAAAAAAAAAAAAABQBAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T13:34:27.051Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "IAccountRepository.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\IRepository\\IAccountRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\IRepository\\IAccountRepository.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\IRepository\\IAccountRepository.cs",
+              "RelativeToolTip": "Repository\\IRepository\\IAccountRepository.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAA4AAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T10:44:03.358Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "AccountRepository.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\AccountRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\Repository\\AccountRepository.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\AccountRepository.cs",
+              "RelativeToolTip": "Repository\\Repository\\AccountRepository.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABUAAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T13:08:29.411Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "IAccountService.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\IService\\IAccountService.cs",
+              "RelativeDocumentMoniker": "Service\\IService\\IAccountService.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\IService\\IAccountService.cs",
+              "RelativeToolTip": "Service\\IService\\IAccountService.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAABAAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T15:51:53.765Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "AnimalView.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\AnimalView.cs",
+              "RelativeDocumentMoniker": "DAO\\ViewModel\\AnimalView.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\AnimalView.cs",
+              "RelativeToolTip": "DAO\\ViewModel\\AnimalView.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABIAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T10:36:00.309Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "AnimalTypeView.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\AnimalTypeView.cs",
+              "RelativeDocumentMoniker": "DAO\\ViewModel\\AnimalTypeView.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\AnimalTypeView.cs",
+              "RelativeToolTip": "DAO\\ViewModel\\AnimalTypeView.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T10:35:57.167Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "IndividualAdd.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\IndividualAdd.cs",
+              "RelativeDocumentMoniker": "DAO\\AddModel\\IndividualAdd.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\IndividualAdd.cs",
+              "RelativeToolTip": "DAO\\AddModel\\IndividualAdd.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAuwBIAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T08:30:48.553Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "IncompatibleAnimalTypeAdd.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\IncompatibleAnimalTypeAdd.cs",
+              "RelativeDocumentMoniker": "DAO\\AddModel\\IncompatibleAnimalTypeAdd.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\IncompatibleAnimalTypeAdd.cs",
+              "RelativeToolTip": "DAO\\AddModel\\IncompatibleAnimalTypeAdd.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAAAwAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T12:58:51.192Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "FoodAdd.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\FoodAdd.cs",
+              "RelativeDocumentMoniker": "DAO\\AddModel\\FoodAdd.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\FoodAdd.cs",
+              "RelativeToolTip": "DAO\\AddModel\\FoodAdd.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAAAwAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T14:33:53.037Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "AccountCreate.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\AccountCreate.cs",
+              "RelativeDocumentMoniker": "DAO\\AddModel\\AccountCreate.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\AccountCreate.cs",
+              "RelativeToolTip": "DAO\\AddModel\\AccountCreate.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T15:39:31.084Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "AnimalService.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\AnimalService.cs",
+              "RelativeDocumentMoniker": "Service\\Service\\AnimalService.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\AnimalService.cs",
+              "RelativeToolTip": "Service\\Service\\AnimalService.cs",
+              "ViewState": "AgIAAB8BAAAAAAAAAAAAAFoBAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-09T10:07:17.751Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "IObjectViewService.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\IService\\IObjectViewService.cs",
+              "RelativeDocumentMoniker": "Service\\IService\\IObjectViewService.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\IService\\IObjectViewService.cs",
+              "RelativeToolTip": "Service\\IService\\IObjectViewService.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAADMAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T09:08:32.478Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "IRoleRepository.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\IRepository\\IRoleRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\IRepository\\IRoleRepository.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\IRepository\\IRoleRepository.cs",
+              "RelativeToolTip": "Repository\\IRepository\\IRoleRepository.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAAAwAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T15:25:32.247Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "IReportRepository.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\IRepository\\IReportRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\IRepository\\IReportRepository.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\IRepository\\IReportRepository.cs",
+              "RelativeToolTip": "Repository\\IRepository\\IReportRepository.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABEAAAB9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T10:52:19.923Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "RoleRepository.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\RoleRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\Repository\\RoleRepository.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\RoleRepository.cs",
+              "RelativeToolTip": "Repository\\Repository\\RoleRepository.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAAAB0AAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T15:25:41.861Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "ScheduleRepository.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\ScheduleRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\Repository\\ScheduleRepository.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\ScheduleRepository.cs",
+              "RelativeToolTip": "Repository\\Repository\\ScheduleRepository.cs",
+              "ViewState": "AgIAAGEAAAAAAAAAAAAAAGkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T09:58:51.912Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "IScheduleRepository.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\IRepository\\IScheduleRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\IRepository\\IScheduleRepository.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\IRepository\\IScheduleRepository.cs",
+              "RelativeToolTip": "Repository\\IRepository\\IScheduleRepository.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-13T08:50:06.406Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "RoleView.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\RoleView.cs",
+              "RelativeDocumentMoniker": "DAO\\ViewModel\\RoleView.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\RoleView.cs",
+              "RelativeToolTip": "DAO\\ViewModel\\RoleView.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAABEAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T15:23:16.783Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "IAnimalTypeService.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\IService\\IAnimalTypeService.cs",
+              "RelativeDocumentMoniker": "Service\\IService\\IAnimalTypeService.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\IService\\IAnimalTypeService.cs",
+              "RelativeToolTip": "Service\\IService\\IAnimalTypeService.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAABQAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-28T15:20:09.334Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "AnimalTypeService.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\AnimalTypeService.cs",
+              "RelativeDocumentMoniker": "Service\\Service\\AnimalTypeService.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\AnimalTypeService.cs",
+              "RelativeToolTip": "Service\\Service\\AnimalTypeService.cs",
+              "ViewState": "AgIAAOMAAAAAAAAAAAAAAOcAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-07T13:18:03.235Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "ScheduleView.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\ScheduleView.cs",
+              "RelativeDocumentMoniker": "DAO\\ViewModel\\ScheduleView.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\ScheduleView.cs",
+              "RelativeToolTip": "DAO\\ViewModel\\ScheduleView.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAAABkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T14:19:43.346Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
               "Title": "ZooAreaService.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\ZooAreaService.cs",
               "RelativeDocumentMoniker": "Service\\Service\\ZooAreaService.cs",
               "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\ZooAreaService.cs",
               "RelativeToolTip": "Service\\Service\\ZooAreaService.cs",
-              "ViewState": "AgIAAOUAAAAAAAAAAAAAANMAAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAANUAAAAAAAAAAAAuwOEAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-28T16:29:26.904Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "StatusResult.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\StatusResult.cs",
-              "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\StatusResult.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\StatusResult.cs",
-              "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\StatusResult.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T12:36:38.876Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Program.cs",
-              "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\Program.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Program.cs",
-              "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Program.cs",
-              "ViewState": "AgIAAIoAAAAAAAAAAAAAAJUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T10:03:49.937Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CageAdd.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\CageAdd.cs",
-              "RelativeDocumentMoniker": "DAO\\AddModel\\CageAdd.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\CageAdd.cs",
-              "RelativeToolTip": "DAO\\AddModel\\CageAdd.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAABEAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T13:47:39.982Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CageRepository.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\CageRepository.cs",
-              "RelativeDocumentMoniker": "Repository\\Repository\\CageRepository.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\CageRepository.cs",
-              "RelativeToolTip": "Repository\\Repository\\CageRepository.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAAABYAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T10:46:36.507Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "TaskEstimateService.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\TaskEstimateService.cs",
-              "RelativeDocumentMoniker": "Service\\Service\\TaskEstimateService.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\TaskEstimateService.cs",
-              "RelativeToolTip": "Service\\Service\\TaskEstimateService.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAswDkAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T14:16:30.743Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 51,
               "Title": "CageView.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\CageView.cs",
               "RelativeDocumentMoniker": "DAO\\ViewModel\\CageView.cs",
@@ -768,7 +1288,71 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 58,
+              "Title": "TaskEstimateService.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\TaskEstimateService.cs",
+              "RelativeDocumentMoniker": "Service\\Service\\TaskEstimateService.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\TaskEstimateService.cs",
+              "RelativeToolTip": "Service\\Service\\TaskEstimateService.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAswDkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T14:16:30.743Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "FoodView.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\FoodView.cs",
+              "RelativeDocumentMoniker": "DAO\\ViewModel\\FoodView.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\FoodView.cs",
+              "RelativeToolTip": "DAO\\ViewModel\\FoodView.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAAA4AAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T14:28:08.966Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "Food.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\BO\\Models\\Food.cs",
+              "RelativeDocumentMoniker": "BO\\Models\\Food.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\BO\\Models\\Food.cs",
+              "RelativeToolTip": "BO\\Models\\Food.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T14:30:50.848Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "FoodUpdate.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\UpdateModel\\FoodUpdate.cs",
+              "RelativeDocumentMoniker": "DAO\\UpdateModel\\FoodUpdate.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\UpdateModel\\FoodUpdate.cs",
+              "RelativeToolTip": "DAO\\UpdateModel\\FoodUpdate.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAA0AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T14:35:18.323Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "IFoodRepository.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\IRepository\\IFoodRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\IRepository\\IFoodRepository.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\IRepository\\IFoodRepository.cs",
+              "RelativeToolTip": "Repository\\IRepository\\IFoodRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T14:36:01.056Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
               "Title": "ZooAreaRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\ZooAreaRepository.cs",
               "RelativeDocumentMoniker": "Repository\\Repository\\ZooAreaRepository.cs",
@@ -781,7 +1365,82 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 47,
+              "Title": "Zoo_Management_And_Staff_Operations_SystemContext.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\BO\\Models\\Zoo_Management_And_Staff_Operations_SystemContext.cs",
+              "RelativeDocumentMoniker": "BO\\Models\\Zoo_Management_And_Staff_Operations_SystemContext.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\BO\\Models\\Zoo_Management_And_Staff_Operations_SystemContext.cs",
+              "RelativeToolTip": "BO\\Models\\Zoo_Management_And_Staff_Operations_SystemContext.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAqwBQAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T09:47:39.756Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "FoodRepository.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\FoodRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\Repository\\FoodRepository.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\FoodRepository.cs",
+              "RelativeToolTip": "Repository\\Repository\\FoodRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T14:35:48.86Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "FlockView.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\FlockView.cs",
+              "RelativeDocumentMoniker": "DAO\\ViewModel\\FlockView.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\FlockView.cs",
+              "RelativeToolTip": "DAO\\ViewModel\\FlockView.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAABUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-26T12:59:05.9Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "CageRepository.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\CageRepository.cs",
+              "RelativeDocumentMoniker": "Repository\\Repository\\CageRepository.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\CageRepository.cs",
+              "RelativeToolTip": "Repository\\Repository\\CageRepository.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAAABYAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T10:46:36.507Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "CageAdd.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\CageAdd.cs",
+              "RelativeDocumentMoniker": "DAO\\AddModel\\CageAdd.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\CageAdd.cs",
+              "RelativeToolTip": "DAO\\AddModel\\CageAdd.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABEAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-06T13:47:39.982Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "StatusResult.cs",
+              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\StatusResult.cs",
+              "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\StatusResult.cs",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\StatusResult.cs",
+              "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\StatusResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T12:36:38.876Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
               "Title": "UserService.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\UserService.cs",
               "RelativeDocumentMoniker": "Service\\Service\\UserService.cs",
@@ -793,7 +1452,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 55,
               "Title": "TeamService.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\TeamService.cs",
               "RelativeDocumentMoniker": "Service\\Service\\TeamService.cs",
@@ -805,7 +1464,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 56,
               "Title": "TaskTypeService.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\TaskTypeService.cs",
               "RelativeDocumentMoniker": "Service\\Service\\TaskTypeService.cs",
@@ -817,7 +1476,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 57,
               "Title": "TaskService.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\TaskService.cs",
               "RelativeDocumentMoniker": "Service\\Service\\TaskService.cs",
@@ -829,7 +1488,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 59,
               "Title": "ScheduleService.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\ScheduleService.cs",
               "RelativeDocumentMoniker": "Service\\Service\\ScheduleService.cs",
@@ -841,7 +1500,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 60,
               "Title": "ReportService.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\ReportService.cs",
               "RelativeDocumentMoniker": "Service\\Service\\ReportService.cs",
@@ -853,19 +1512,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "ObjectViewService.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\ObjectViewService.cs",
-              "RelativeDocumentMoniker": "Service\\Service\\ObjectViewService.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\ObjectViewService.cs",
-              "RelativeToolTip": "Service\\Service\\ObjectViewService.cs",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAAAMkBAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-26T13:34:27.051Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 61,
               "Title": "NotificationService.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\NotificationService.cs",
               "RelativeDocumentMoniker": "Service\\Service\\NotificationService.cs",
@@ -877,7 +1524,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 62,
               "Title": "NewsService.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\NewsService.cs",
               "RelativeDocumentMoniker": "Service\\Service\\NewsService.cs",
@@ -889,7 +1536,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 63,
               "Title": "IncompatibleAnimalTypeService.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\IncompatibleAnimalTypeService.cs",
               "RelativeDocumentMoniker": "Service\\Service\\IncompatibleAnimalTypeService.cs",
@@ -901,7 +1548,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 64,
               "Title": "CageService.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\CageService.cs",
               "RelativeDocumentMoniker": "Service\\Service\\CageService.cs",
@@ -913,7 +1560,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 65,
               "Title": "ApplicationTypeService.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\ApplicationTypeService.cs",
               "RelativeDocumentMoniker": "Service\\Service\\ApplicationTypeService.cs",
@@ -925,31 +1572,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "AnimalService.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\AnimalService.cs",
-              "RelativeDocumentMoniker": "Service\\Service\\AnimalService.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\AnimalService.cs",
-              "RelativeToolTip": "Service\\Service\\AnimalService.cs",
-              "ViewState": "AgIAADsBAAAAAAAAAAAAAFoBAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T10:07:17.751Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "AnimalTypeService.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\AnimalTypeService.cs",
-              "RelativeDocumentMoniker": "Service\\Service\\AnimalTypeService.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\AnimalTypeService.cs",
-              "RelativeToolTip": "Service\\Service\\AnimalTypeService.cs",
-              "ViewState": "AgIAAMkAAAAAAAAAAAAuwNYAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T13:18:03.235Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 66,
               "Title": "ApplicationService.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\ApplicationService.cs",
               "RelativeDocumentMoniker": "Service\\Service\\ApplicationService.cs",
@@ -961,19 +1584,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "AccountService.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\AccountService.cs",
-              "RelativeDocumentMoniker": "Service\\Service\\AccountService.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\AccountService.cs",
-              "RelativeToolTip": "Service\\Service\\AccountService.cs",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAAAE0AAABEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T10:59:53.299Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 67,
               "Title": "ZooAreaView.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\ZooAreaView.cs",
               "RelativeDocumentMoniker": "DAO\\ViewModel\\ZooAreaView.cs",
@@ -985,19 +1596,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "IObjectViewService.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\IService\\IObjectViewService.cs",
-              "RelativeDocumentMoniker": "Service\\IService\\IObjectViewService.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\IService\\IObjectViewService.cs",
-              "RelativeToolTip": "Service\\IService\\IObjectViewService.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAAADEAAABVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T09:08:32.478Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 68,
               "Title": "ICageRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\IRepository\\ICageRepository.cs",
               "RelativeDocumentMoniker": "Repository\\IRepository\\ICageRepository.cs",
@@ -1009,7 +1608,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 69,
               "Title": "IFlockRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\IRepository\\IFlockRepository.cs",
               "RelativeDocumentMoniker": "Repository\\IRepository\\IFlockRepository.cs",
@@ -1021,7 +1620,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 70,
               "Title": "IZooAreaRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\IRepository\\IZooAreaRepository.cs",
               "RelativeDocumentMoniker": "Repository\\IRepository\\IZooAreaRepository.cs",
@@ -1033,7 +1632,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 71,
               "Title": "ZooAreaImageRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\ZooAreaImageRepository.cs",
               "RelativeDocumentMoniker": "Repository\\Repository\\ZooAreaImageRepository.cs",
@@ -1045,7 +1644,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 72,
               "Title": "UserRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\UserRepository.cs",
               "RelativeDocumentMoniker": "Repository\\Repository\\UserRepository.cs",
@@ -1057,7 +1656,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 73,
               "Title": "TeamRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\TeamRepository.cs",
               "RelativeDocumentMoniker": "Repository\\Repository\\TeamRepository.cs",
@@ -1069,7 +1668,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 74,
               "Title": "ITeamRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\IRepository\\ITeamRepository.cs",
               "RelativeDocumentMoniker": "Repository\\IRepository\\ITeamRepository.cs",
@@ -1081,7 +1680,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 75,
               "Title": "TaskTypeRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\TaskTypeRepository.cs",
               "RelativeDocumentMoniker": "Repository\\Repository\\TaskTypeRepository.cs",
@@ -1093,7 +1692,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 76,
               "Title": "ITaskTypeRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\IRepository\\ITaskTypeRepository.cs",
               "RelativeDocumentMoniker": "Repository\\IRepository\\ITaskTypeRepository.cs",
@@ -1105,7 +1704,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 77,
               "Title": "ITaskRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\IRepository\\ITaskRepository.cs",
               "RelativeDocumentMoniker": "Repository\\IRepository\\ITaskRepository.cs",
@@ -1117,7 +1716,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 78,
               "Title": "ITaskEstimateRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\IRepository\\ITaskEstimateRepository.cs",
               "RelativeDocumentMoniker": "Repository\\IRepository\\ITaskEstimateRepository.cs",
@@ -1129,7 +1728,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 79,
               "Title": "TaskEstimateRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\TaskEstimateRepository.cs",
               "RelativeDocumentMoniker": "Repository\\Repository\\TaskEstimateRepository.cs",
@@ -1141,31 +1740,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "ScheduleRepository.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\ScheduleRepository.cs",
-              "RelativeDocumentMoniker": "Repository\\Repository\\ScheduleRepository.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\ScheduleRepository.cs",
-              "RelativeToolTip": "Repository\\Repository\\ScheduleRepository.cs",
-              "ViewState": "AgIAAFoAAAAAAAAAAAAAAGIAAABFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T09:58:51.912Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "IScheduleRepository.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\IRepository\\IScheduleRepository.cs",
-              "RelativeDocumentMoniker": "Repository\\IRepository\\IScheduleRepository.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\IRepository\\IScheduleRepository.cs",
-              "RelativeToolTip": "Repository\\IRepository\\IScheduleRepository.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAAABMAAABcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T08:50:06.406Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 80,
               "Title": "ReportRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\ReportRepository.cs",
               "RelativeDocumentMoniker": "Repository\\Repository\\ReportRepository.cs",
@@ -1177,7 +1752,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 81,
               "Title": "ReportAttachmentReporitory.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\ReportAttachmentReporitory.cs",
               "RelativeDocumentMoniker": "Repository\\Repository\\ReportAttachmentReporitory.cs",
@@ -1189,7 +1764,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 82,
               "Title": "INotificationRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\IRepository\\INotificationRepository.cs",
               "RelativeDocumentMoniker": "Repository\\IRepository\\INotificationRepository.cs",
@@ -1201,7 +1776,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 83,
               "Title": "NotificationRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\NotificationRepository.cs",
               "RelativeDocumentMoniker": "Repository\\Repository\\NotificationRepository.cs",
@@ -1213,7 +1788,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 84,
               "Title": "INewsRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\IRepository\\INewsRepository.cs",
               "RelativeDocumentMoniker": "Repository\\IRepository\\INewsRepository.cs",
@@ -1225,19 +1800,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
-              "Title": "IReportRepository.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\IRepository\\IReportRepository.cs",
-              "RelativeDocumentMoniker": "Repository\\IRepository\\IReportRepository.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\IRepository\\IReportRepository.cs",
-              "RelativeToolTip": "Repository\\IRepository\\IReportRepository.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABEAAAB9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T10:52:19.923Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 46,
+              "DocumentIndex": 85,
               "Title": "NewsRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\NewsRepository.cs",
               "RelativeDocumentMoniker": "Repository\\Repository\\NewsRepository.cs",
@@ -1249,7 +1812,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 47,
+              "DocumentIndex": 86,
               "Title": "IMemberAssignRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\IRepository\\IMemberAssignRepository.cs",
               "RelativeDocumentMoniker": "Repository\\IRepository\\IMemberAssignRepository.cs",
@@ -1261,7 +1824,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 48,
+              "DocumentIndex": 87,
               "Title": "MemberAssignRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\MemberAssignRepository.cs",
               "RelativeDocumentMoniker": "Repository\\Repository\\MemberAssignRepository.cs",
@@ -1273,7 +1836,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 49,
+              "DocumentIndex": 88,
               "Title": "ILeaderAssignRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\IRepository\\ILeaderAssignRepository.cs",
               "RelativeDocumentMoniker": "Repository\\IRepository\\ILeaderAssignRepository.cs",
@@ -1285,7 +1848,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 50,
+              "DocumentIndex": 89,
               "Title": "LeaderAssignRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\LeaderAssignRepository.cs",
               "RelativeDocumentMoniker": "Repository\\Repository\\LeaderAssignRepository.cs",
@@ -1297,7 +1860,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 51,
+              "DocumentIndex": 90,
               "Title": "IIndividualRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\IRepository\\IIndividualRepository.cs",
               "RelativeDocumentMoniker": "Repository\\IRepository\\IIndividualRepository.cs",
@@ -1309,7 +1872,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 52,
+              "DocumentIndex": 91,
               "Title": "IndividualRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\IndividualRepository.cs",
               "RelativeDocumentMoniker": "Repository\\Repository\\IndividualRepository.cs",
@@ -1321,7 +1884,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 53,
+              "DocumentIndex": 92,
               "Title": "IIncompatibleAnimalTypeRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\IRepository\\IIncompatibleAnimalTypeRepository.cs",
               "RelativeDocumentMoniker": "Repository\\IRepository\\IIncompatibleAnimalTypeRepository.cs",
@@ -1333,7 +1896,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 54,
+              "DocumentIndex": 93,
               "Title": "IncompatibleAnimalTypeRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\IncompatibleAnimalTypeRepository.cs",
               "RelativeDocumentMoniker": "Repository\\Repository\\IncompatibleAnimalTypeRepository.cs",
@@ -1345,7 +1908,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 55,
+              "DocumentIndex": 94,
               "Title": "IGenericRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\IRepository\\IGenericRepository.cs",
               "RelativeDocumentMoniker": "Repository\\IRepository\\IGenericRepository.cs",
@@ -1357,7 +1920,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 56,
+              "DocumentIndex": 95,
               "Title": "FlockRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\FlockRepository.cs",
               "RelativeDocumentMoniker": "Repository\\Repository\\FlockRepository.cs",
@@ -1369,7 +1932,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 57,
+              "DocumentIndex": 96,
               "Title": "ApplicationTypeRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\ApplicationTypeRepository.cs",
               "RelativeDocumentMoniker": "Repository\\Repository\\ApplicationTypeRepository.cs",
@@ -1381,7 +1944,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 58,
+              "DocumentIndex": 97,
               "Title": "IApplicationTypeRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\IRepository\\IApplicationTypeRepository.cs",
               "RelativeDocumentMoniker": "Repository\\IRepository\\IApplicationTypeRepository.cs",
@@ -1393,7 +1956,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 61,
+              "DocumentIndex": 100,
               "Title": "AnimalTypeRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\AnimalTypeRepository.cs",
               "RelativeDocumentMoniker": "Repository\\Repository\\AnimalTypeRepository.cs",
@@ -1405,7 +1968,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 62,
+              "DocumentIndex": 101,
               "Title": "AnimalRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\AnimalRepository.cs",
               "RelativeDocumentMoniker": "Repository\\Repository\\AnimalRepository.cs",
@@ -1417,7 +1980,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 63,
+              "DocumentIndex": 102,
               "Title": "IAnimalRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\IRepository\\IAnimalRepository.cs",
               "RelativeDocumentMoniker": "Repository\\IRepository\\IAnimalRepository.cs",
@@ -1429,7 +1992,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 64,
+              "DocumentIndex": 103,
               "Title": "AnimalImageRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\AnimalImageRepository.cs",
               "RelativeDocumentMoniker": "Repository\\Repository\\AnimalImageRepository.cs",
@@ -1441,7 +2004,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 60,
+              "DocumentIndex": 99,
               "Title": "ApplicationRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\ApplicationRepository.cs",
               "RelativeDocumentMoniker": "Repository\\Repository\\ApplicationRepository.cs",
@@ -1453,7 +2016,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 59,
+              "DocumentIndex": 98,
               "Title": "IApplicationRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\IRepository\\IApplicationRepository.cs",
               "RelativeDocumentMoniker": "Repository\\IRepository\\IApplicationRepository.cs",
@@ -1465,7 +2028,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 65,
+              "DocumentIndex": 104,
               "Title": "AnimalCageRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\AnimalCageRepository.cs",
               "RelativeDocumentMoniker": "Repository\\Repository\\AnimalCageRepository.cs",
@@ -1477,7 +2040,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 66,
+              "DocumentIndex": 105,
               "Title": "AnimalAssignRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\AnimalAssignRepository.cs",
               "RelativeDocumentMoniker": "Repository\\Repository\\AnimalAssignRepository.cs",
@@ -1489,31 +2052,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 67,
-              "Title": "IAccountRepository.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\IRepository\\IAccountRepository.cs",
-              "RelativeDocumentMoniker": "Repository\\IRepository\\IAccountRepository.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\IRepository\\IAccountRepository.cs",
-              "RelativeToolTip": "Repository\\IRepository\\IAccountRepository.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAA4AAABIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T10:44:03.358Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 68,
-              "Title": "AccountRepository.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\AccountRepository.cs",
-              "RelativeDocumentMoniker": "Repository\\Repository\\AccountRepository.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\AccountRepository.cs",
-              "RelativeToolTip": "Repository\\Repository\\AccountRepository.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABoAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-26T13:08:29.411Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 69,
+              "DocumentIndex": 106,
               "Title": "TeamAdd.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\TeamAdd.cs",
               "RelativeDocumentMoniker": "DAO\\AddModel\\TeamAdd.cs",
@@ -1525,7 +2064,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 70,
+              "DocumentIndex": 107,
               "Title": "TaskTypeAdd.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\TaskTypeAdd.cs",
               "RelativeDocumentMoniker": "DAO\\AddModel\\TaskTypeAdd.cs",
@@ -1537,7 +2076,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 71,
+              "DocumentIndex": 108,
               "Title": "ZooAreaAdd.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\ZooAreaAdd.cs",
               "RelativeDocumentMoniker": "DAO\\AddModel\\ZooAreaAdd.cs",
@@ -1549,7 +2088,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 72,
+              "DocumentIndex": 109,
               "Title": "TaskEstimateAdd.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\TaskEstimateAdd.cs",
               "RelativeDocumentMoniker": "DAO\\AddModel\\TaskEstimateAdd.cs",
@@ -1561,7 +2100,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 73,
+              "DocumentIndex": 110,
               "Title": "TaskAdd.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\TaskAdd.cs",
               "RelativeDocumentMoniker": "DAO\\AddModel\\TaskAdd.cs",
@@ -1573,7 +2112,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 74,
+              "DocumentIndex": 111,
               "Title": "ScheduleAutoAdd.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\ScheduleAutoAdd.cs",
               "RelativeDocumentMoniker": "DAO\\AddModel\\ScheduleAutoAdd.cs",
@@ -1585,7 +2124,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 75,
+              "DocumentIndex": 112,
               "Title": "ScheduleAdd.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\ScheduleAdd.cs",
               "RelativeDocumentMoniker": "DAO\\AddModel\\ScheduleAdd.cs",
@@ -1597,7 +2136,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 76,
+              "DocumentIndex": 113,
               "Title": "ReportAdd.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\ReportAdd.cs",
               "RelativeDocumentMoniker": "DAO\\AddModel\\ReportAdd.cs",
@@ -1609,7 +2148,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 77,
+              "DocumentIndex": 114,
               "Title": "NotificationAdd.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\NotificationAdd.cs",
               "RelativeDocumentMoniker": "DAO\\AddModel\\NotificationAdd.cs",
@@ -1621,7 +2160,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 78,
+              "DocumentIndex": 115,
               "Title": "NewsAdd.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\NewsAdd.cs",
               "RelativeDocumentMoniker": "DAO\\AddModel\\NewsAdd.cs",
@@ -1633,7 +2172,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 83,
+              "DocumentIndex": 118,
               "Title": "AnimalTypeAdd.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\AnimalTypeAdd.cs",
               "RelativeDocumentMoniker": "DAO\\AddModel\\AnimalTypeAdd.cs",
@@ -1645,7 +2184,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 84,
+              "DocumentIndex": 119,
               "Title": "ApplicationAdd.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\ApplicationAdd.cs",
               "RelativeDocumentMoniker": "DAO\\AddModel\\ApplicationAdd.cs",
@@ -1657,31 +2196,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 82,
-              "Title": "IncompatibleAnimalTypeAdd.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\IncompatibleAnimalTypeAdd.cs",
-              "RelativeDocumentMoniker": "DAO\\AddModel\\IncompatibleAnimalTypeAdd.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\IncompatibleAnimalTypeAdd.cs",
-              "RelativeToolTip": "DAO\\AddModel\\IncompatibleAnimalTypeAdd.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAAAAwAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-26T12:58:51.192Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 81,
-              "Title": "IndividualAdd.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\IndividualAdd.cs",
-              "RelativeDocumentMoniker": "DAO\\AddModel\\IndividualAdd.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\IndividualAdd.cs",
-              "RelativeToolTip": "DAO\\AddModel\\IndividualAdd.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABIAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T08:30:48.553Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 80,
+              "DocumentIndex": 117,
               "Title": "MemberAssignAdd.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\MemberAssignAdd.cs",
               "RelativeDocumentMoniker": "DAO\\AddModel\\MemberAssignAdd.cs",
@@ -1693,7 +2208,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 79,
+              "DocumentIndex": 116,
               "Title": "LeaderAssignAdd.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\LeaderAssignAdd.cs",
               "RelativeDocumentMoniker": "DAO\\AddModel\\LeaderAssignAdd.cs",
@@ -1705,7 +2220,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 85,
+              "DocumentIndex": 120,
               "Title": "ApplicationTypeAdd.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\ApplicationTypeAdd.cs",
               "RelativeDocumentMoniker": "DAO\\AddModel\\ApplicationTypeAdd.cs",
@@ -1717,7 +2232,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 86,
+              "DocumentIndex": 121,
               "Title": "FlockAdd.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\FlockAdd.cs",
               "RelativeDocumentMoniker": "DAO\\AddModel\\FlockAdd.cs",
@@ -1729,31 +2244,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 88,
-              "Title": "AccountCreate.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\AccountCreate.cs",
-              "RelativeDocumentMoniker": "DAO\\AddModel\\AccountCreate.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\AccountCreate.cs",
-              "RelativeToolTip": "DAO\\AddModel\\AccountCreate.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAIwBAAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T08:28:38.361Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 90,
-              "Title": "UserUpdate.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\UpdateModel\\UserUpdate.cs",
-              "RelativeDocumentMoniker": "DAO\\UpdateModel\\UserUpdate.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\UpdateModel\\UserUpdate.cs",
-              "RelativeToolTip": "DAO\\UpdateModel\\UserUpdate.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABAAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-13T08:27:13.22Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 92,
+              "DocumentIndex": 125,
               "Title": "TaskUpdate.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\UpdateModel\\TaskUpdate.cs",
               "RelativeDocumentMoniker": "DAO\\UpdateModel\\TaskUpdate.cs",
@@ -1765,7 +2256,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 95,
+              "DocumentIndex": 128,
               "Title": "ScheduleUpdate.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\UpdateModel\\ScheduleUpdate.cs",
               "RelativeDocumentMoniker": "DAO\\UpdateModel\\ScheduleUpdate.cs",
@@ -1777,7 +2268,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 96,
+              "DocumentIndex": 129,
               "Title": "IndividualUpdate.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\UpdateModel\\IndividualUpdate.cs",
               "RelativeDocumentMoniker": "DAO\\UpdateModel\\IndividualUpdate.cs",
@@ -1789,7 +2280,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 94,
+              "DocumentIndex": 127,
               "Title": "TaskEstimateUpdate.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\UpdateModel\\TaskEstimateUpdate.cs",
               "RelativeDocumentMoniker": "DAO\\UpdateModel\\TaskEstimateUpdate.cs",
@@ -1801,7 +2292,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 91,
+              "DocumentIndex": 124,
               "Title": "TeamUpdate.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\UpdateModel\\TeamUpdate.cs",
               "RelativeDocumentMoniker": "DAO\\UpdateModel\\TeamUpdate.cs",
@@ -1813,7 +2304,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 87,
+              "DocumentIndex": 122,
               "Title": "AnimalAdd.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\AnimalAdd.cs",
               "RelativeDocumentMoniker": "DAO\\AddModel\\AnimalAdd.cs",
@@ -1825,7 +2316,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 89,
+              "DocumentIndex": 123,
               "Title": "ZooAreaUpdate.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\UpdateModel\\ZooAreaUpdate.cs",
               "RelativeDocumentMoniker": "DAO\\UpdateModel\\ZooAreaUpdate.cs",
@@ -1837,7 +2328,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 97,
+              "DocumentIndex": 130,
               "Title": "NewsUpdate.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\UpdateModel\\NewsUpdate.cs",
               "RelativeDocumentMoniker": "DAO\\UpdateModel\\NewsUpdate.cs",
@@ -1849,7 +2340,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 98,
+              "DocumentIndex": 131,
               "Title": "FlockUpdate.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\UpdateModel\\FlockUpdate.cs",
               "RelativeDocumentMoniker": "DAO\\UpdateModel\\FlockUpdate.cs",
@@ -1861,7 +2352,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 100,
+              "DocumentIndex": 133,
               "Title": "ApplicationUpdate.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\UpdateModel\\ApplicationUpdate.cs",
               "RelativeDocumentMoniker": "DAO\\UpdateModel\\ApplicationUpdate.cs",
@@ -1873,7 +2364,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 93,
+              "DocumentIndex": 126,
               "Title": "TaskTypeUpdate.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\UpdateModel\\TaskTypeUpdate.cs",
               "RelativeDocumentMoniker": "DAO\\UpdateModel\\TaskTypeUpdate.cs",
@@ -1885,7 +2376,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 102,
+              "DocumentIndex": 135,
               "Title": "AnimalTypeUpdate.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\UpdateModel\\AnimalTypeUpdate.cs",
               "RelativeDocumentMoniker": "DAO\\UpdateModel\\AnimalTypeUpdate.cs",
@@ -1897,7 +2388,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 104,
+              "DocumentIndex": 137,
               "Title": "TeamView.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\TeamView.cs",
               "RelativeDocumentMoniker": "DAO\\ViewModel\\TeamView.cs",
@@ -1909,7 +2400,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 105,
+              "DocumentIndex": 138,
               "Title": "TaskView.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\TaskView.cs",
               "RelativeDocumentMoniker": "DAO\\ViewModel\\TaskView.cs",
@@ -1921,7 +2412,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 103,
+              "DocumentIndex": 136,
               "Title": "UserView.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\UserView.cs",
               "RelativeDocumentMoniker": "DAO\\ViewModel\\UserView.cs",
@@ -1933,7 +2424,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 106,
+              "DocumentIndex": 139,
               "Title": "TaskTypeView.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\TaskTypeView.cs",
               "RelativeDocumentMoniker": "DAO\\ViewModel\\TaskTypeView.cs",
@@ -1945,7 +2436,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 99,
+              "DocumentIndex": 132,
               "Title": "CageUpdate.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\UpdateModel\\CageUpdate.cs",
               "RelativeDocumentMoniker": "DAO\\UpdateModel\\CageUpdate.cs",
@@ -1957,7 +2448,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 107,
+              "DocumentIndex": 140,
               "Title": "TaskEstimateView.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\TaskEstimateView.cs",
               "RelativeDocumentMoniker": "DAO\\ViewModel\\TaskEstimateView.cs",
@@ -1969,19 +2460,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 108,
-              "Title": "ScheduleView.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\ScheduleView.cs",
-              "RelativeDocumentMoniker": "DAO\\ViewModel\\ScheduleView.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\ScheduleView.cs",
-              "RelativeToolTip": "DAO\\ViewModel\\ScheduleView.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAABgAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T14:19:43.346Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 101,
+              "DocumentIndex": 134,
               "Title": "AnimalUpdate.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\UpdateModel\\AnimalUpdate.cs",
               "RelativeDocumentMoniker": "DAO\\UpdateModel\\AnimalUpdate.cs",
@@ -1993,7 +2472,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 109,
+              "DocumentIndex": 141,
               "Title": "ReportView.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\ReportView.cs",
               "RelativeDocumentMoniker": "DAO\\ViewModel\\ReportView.cs",
@@ -2005,7 +2484,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 110,
+              "DocumentIndex": 142,
               "Title": "NotificationView.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\NotificationView.cs",
               "RelativeDocumentMoniker": "DAO\\ViewModel\\NotificationView.cs",
@@ -2017,7 +2496,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 111,
+              "DocumentIndex": 143,
               "Title": "NewsView.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\NewsView.cs",
               "RelativeDocumentMoniker": "DAO\\ViewModel\\NewsView.cs",
@@ -2029,7 +2508,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 112,
+              "DocumentIndex": 144,
               "Title": "MemberAssignView.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\MemberAssignView.cs",
               "RelativeDocumentMoniker": "DAO\\ViewModel\\MemberAssignView.cs",
@@ -2041,7 +2520,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 113,
+              "DocumentIndex": 145,
               "Title": "LeaderAssignView.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\LeaderAssignView.cs",
               "RelativeDocumentMoniker": "DAO\\ViewModel\\LeaderAssignView.cs",
@@ -2053,7 +2532,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 114,
+              "DocumentIndex": 146,
               "Title": "IndividualView.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\IndividualView.cs",
               "RelativeDocumentMoniker": "DAO\\ViewModel\\IndividualView.cs",
@@ -2065,7 +2544,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 115,
+              "DocumentIndex": 147,
               "Title": "IncompatibleAnimalTypeView.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\IncompatibleAnimalTypeView.cs",
               "RelativeDocumentMoniker": "DAO\\ViewModel\\IncompatibleAnimalTypeView.cs",
@@ -2077,19 +2556,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 116,
-              "Title": "FlockView.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\FlockView.cs",
-              "RelativeDocumentMoniker": "DAO\\ViewModel\\FlockView.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\FlockView.cs",
-              "RelativeToolTip": "DAO\\ViewModel\\FlockView.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABQAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-26T12:59:05.9Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 117,
+              "DocumentIndex": 148,
               "Title": "ApplicationView.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\ApplicationView.cs",
               "RelativeDocumentMoniker": "DAO\\ViewModel\\ApplicationView.cs",
@@ -2101,7 +2568,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 118,
+              "DocumentIndex": 149,
               "Title": "ApplicationTypeView.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\ApplicationTypeView.cs",
               "RelativeDocumentMoniker": "DAO\\ViewModel\\ApplicationTypeView.cs",
@@ -2113,67 +2580,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 119,
-              "Title": "AnimalView.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\AnimalView.cs",
-              "RelativeDocumentMoniker": "DAO\\ViewModel\\AnimalView.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\AnimalView.cs",
-              "RelativeToolTip": "DAO\\ViewModel\\AnimalView.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAAACMAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T10:36:00.309Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 120,
-              "Title": "AnimalTypeView.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\AnimalTypeView.cs",
-              "RelativeDocumentMoniker": "DAO\\ViewModel\\AnimalTypeView.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\ViewModel\\AnimalTypeView.cs",
-              "RelativeToolTip": "DAO\\ViewModel\\AnimalTypeView.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T10:35:57.167Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 121,
-              "Title": "Zoo_Management_And_Staff_Operations_SystemContext.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\BO\\Models\\Zoo_Management_And_Staff_Operations_SystemContext.cs",
-              "RelativeDocumentMoniker": "BO\\Models\\Zoo_Management_And_Staff_Operations_SystemContext.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\BO\\Models\\Zoo_Management_And_Staff_Operations_SystemContext.cs",
-              "RelativeToolTip": "BO\\Models\\Zoo_Management_And_Staff_Operations_SystemContext.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAiwBQAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T09:47:39.756Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 122,
-              "Title": "ZooAreaController.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\ZooAreaController.cs",
-              "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\Controllers\\ZooAreaController.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\ZooAreaController.cs",
-              "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\ZooAreaController.cs",
-              "ViewState": "AgIAADQAAAAAAAAAAAAAADoAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T14:09:11.055Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 123,
-              "Title": "CageController.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\CageController.cs",
-              "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\Controllers\\CageController.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\CageController.cs",
-              "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\CageController.cs",
-              "ViewState": "AgIAADsAAAAAAAAAAAAAAEQAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-28T16:31:30.34Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 124,
+              "DocumentIndex": 150,
               "Title": "ICageService.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\IService\\ICageService.cs",
               "RelativeDocumentMoniker": "Service\\IService\\ICageService.cs",
@@ -2185,7 +2592,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 125,
+              "DocumentIndex": 151,
               "Title": "IZooAreaService.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\IService\\IZooAreaService.cs",
               "RelativeDocumentMoniker": "Service\\IService\\IZooAreaService.cs",
@@ -2197,7 +2604,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 126,
+              "DocumentIndex": 152,
               "Title": "AnimalSearch.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\SearchModel\\AnimalSearch.cs",
               "RelativeDocumentMoniker": "DAO\\SearchModel\\AnimalSearch.cs",
@@ -2209,19 +2616,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 127,
-              "Title": "ScheduleController.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\ScheduleController.cs",
-              "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\Controllers\\ScheduleController.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\ScheduleController.cs",
-              "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\ScheduleController.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABcAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T14:09:25.566Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 128,
+              "DocumentIndex": 153,
               "Title": "IScheduleService.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\IService\\IScheduleService.cs",
               "RelativeDocumentMoniker": "Service\\IService\\IScheduleService.cs",
@@ -2233,7 +2628,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 129,
+              "DocumentIndex": 154,
               "Title": "IZooAreaImageRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\IRepository\\IZooAreaImageRepository.cs",
               "RelativeDocumentMoniker": "Repository\\IRepository\\IZooAreaImageRepository.cs",
@@ -2245,19 +2640,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 130,
-              "Title": "AnimalController.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\AnimalController.cs",
-              "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\Controllers\\AnimalController.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\AnimalController.cs",
-              "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\AnimalController.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABcAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-28T15:20:33.291Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 131,
+              "DocumentIndex": 155,
               "Title": "IAnimalCageRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\IRepository\\IAnimalCageRepository.cs",
               "RelativeDocumentMoniker": "Repository\\IRepository\\IAnimalCageRepository.cs",
@@ -2269,7 +2652,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 132,
+              "DocumentIndex": 156,
               "Title": "IAnimalImageRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\IRepository\\IAnimalImageRepository.cs",
               "RelativeDocumentMoniker": "Repository\\IRepository\\IAnimalImageRepository.cs",
@@ -2281,7 +2664,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 133,
+              "DocumentIndex": 157,
               "Title": "IAnimalService.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\IService\\IAnimalService.cs",
               "RelativeDocumentMoniker": "Service\\IService\\IAnimalService.cs",
@@ -2293,7 +2676,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 134,
+              "DocumentIndex": 158,
               "Title": "AnimalImage.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\BO\\Models\\AnimalImage.cs",
               "RelativeDocumentMoniker": "BO\\Models\\AnimalImage.cs",
@@ -2305,7 +2688,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 135,
+              "DocumentIndex": 159,
               "Title": "Animal.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\BO\\Models\\Animal.cs",
               "RelativeDocumentMoniker": "BO\\Models\\Animal.cs",
@@ -2317,7 +2700,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 136,
+              "DocumentIndex": 160,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\appsettings.json",
               "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\appsettings.json",
@@ -2329,31 +2712,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 137,
-              "Title": "ReportController.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\ReportController.cs",
-              "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\Controllers\\ReportController.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\ReportController.cs",
-              "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\ReportController.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAqwCoAAABRAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T14:09:24.299Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 138,
-              "Title": "ApplicationController.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\ApplicationController.cs",
-              "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\Controllers\\ApplicationController.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\ApplicationController.cs",
-              "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\ApplicationController.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAAB8AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T13:25:19.659Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 140,
+              "DocumentIndex": 161,
               "Title": "IReportService.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\IService\\IReportService.cs",
               "RelativeDocumentMoniker": "Service\\IService\\IReportService.cs",
@@ -2365,19 +2724,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 139,
-              "Title": "ApplicationTypeController.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\ApplicationTypeController.cs",
-              "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\Controllers\\ApplicationTypeController.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\ApplicationTypeController.cs",
-              "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\ApplicationTypeController.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T13:25:30.828Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 141,
+              "DocumentIndex": 162,
               "Title": "IApplicationService.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\IService\\IApplicationService.cs",
               "RelativeDocumentMoniker": "Service\\IService\\IApplicationService.cs",
@@ -2389,7 +2736,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 142,
+              "DocumentIndex": 163,
               "Title": "ReportSearch.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\SearchModel\\ReportSearch.cs",
               "RelativeDocumentMoniker": "DAO\\SearchModel\\ReportSearch.cs",
@@ -2401,7 +2748,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 143,
+              "DocumentIndex": 164,
               "Title": "ApplicationSearch.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\SearchModel\\ApplicationSearch.cs",
               "RelativeDocumentMoniker": "DAO\\SearchModel\\ApplicationSearch.cs",
@@ -2413,7 +2760,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 144,
+              "DocumentIndex": 165,
               "Title": "AnimalTypeSearch.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\SearchModel\\AnimalTypeSearch.cs",
               "RelativeDocumentMoniker": "DAO\\SearchModel\\AnimalTypeSearch.cs",
@@ -2425,19 +2772,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 145,
-              "Title": "AnimalTypeController.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\AnimalTypeController.cs",
-              "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\Controllers\\AnimalTypeController.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\AnimalTypeController.cs",
-              "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\AnimalTypeController.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAuwCEAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-26T13:51:30.285Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 146,
+              "DocumentIndex": 166,
               "Title": "CageSearch.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\SearchModel\\CageSearch.cs",
               "RelativeDocumentMoniker": "DAO\\SearchModel\\CageSearch.cs",
@@ -2449,7 +2784,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 147,
+              "DocumentIndex": 167,
               "Title": "ZooAreaSearch.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\SearchModel\\ZooAreaSearch.cs",
               "RelativeDocumentMoniker": "DAO\\SearchModel\\ZooAreaSearch.cs",
@@ -2461,19 +2796,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 148,
-              "Title": "IAnimalTypeService.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\IService\\IAnimalTypeService.cs",
-              "RelativeDocumentMoniker": "Service\\IService\\IAnimalTypeService.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\IService\\IAnimalTypeService.cs",
-              "RelativeToolTip": "Service\\IService\\IAnimalTypeService.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAA+wBAAAABkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-28T15:20:09.334Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 149,
+              "DocumentIndex": 168,
               "Title": "Paging.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\OtherModel\\Paging.cs",
               "RelativeDocumentMoniker": "DAO\\OtherModel\\Paging.cs",
@@ -2485,7 +2808,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 151,
+              "DocumentIndex": 170,
               "Title": "INewsService.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\IService\\INewsService.cs",
               "RelativeDocumentMoniker": "Service\\IService\\INewsService.cs",
@@ -2497,7 +2820,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 150,
+              "DocumentIndex": 169,
               "Title": "IIncompatibleAnimalTypeService.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\IService\\IIncompatibleAnimalTypeService.cs",
               "RelativeDocumentMoniker": "Service\\IService\\IIncompatibleAnimalTypeService.cs",
@@ -2509,7 +2832,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 152,
+              "DocumentIndex": 171,
               "Title": "IncompatibleAnimalType.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\BO\\Models\\IncompatibleAnimalType.cs",
               "RelativeDocumentMoniker": "BO\\Models\\IncompatibleAnimalType.cs",
@@ -2521,43 +2844,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 154,
-              "Title": "TaskEstimateController.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\TaskEstimateController.cs",
-              "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\Controllers\\TaskEstimateController.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\TaskEstimateController.cs",
-              "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\TaskEstimateController.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAuwDgAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T15:02:55.8Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 155,
-              "Title": "TaskController.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\TaskController.cs",
-              "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\Controllers\\TaskController.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\TaskController.cs",
-              "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\TaskController.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAEBdwCwAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T14:09:24.953Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 153,
-              "Title": "TeamController.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\TeamController.cs",
-              "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\Controllers\\TeamController.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\TeamController.cs",
-              "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\TeamController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T14:09:19.313Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 156,
+              "DocumentIndex": 172,
               "Title": "ITaskEstimateService.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\IService\\ITaskEstimateService.cs",
               "RelativeDocumentMoniker": "Service\\IService\\ITaskEstimateService.cs",
@@ -2569,19 +2856,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 157,
-              "Title": "TaskTypeController.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\TaskTypeController.cs",
-              "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\Controllers\\TaskTypeController.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\TaskTypeController.cs",
-              "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\TaskTypeController.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAuwC0AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T14:07:14.162Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 158,
+              "DocumentIndex": 173,
               "Title": "ITaskTypeService.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\IService\\ITaskTypeService.cs",
               "RelativeDocumentMoniker": "Service\\IService\\ITaskTypeService.cs",
@@ -2593,43 +2868,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 159,
-              "Title": "NotificationController.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\NotificationController.cs",
-              "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\Controllers\\NotificationController.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\NotificationController.cs",
-              "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\NotificationController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T14:09:23.789Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 160,
-              "Title": "NewsController.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\NewsController.cs",
-              "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\Controllers\\NewsController.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\NewsController.cs",
-              "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\NewsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T14:09:23.329Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 161,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "Zoo_Management_And_Staff_Operations_System\\Controllers\\UserController.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Controllers\\UserController.cs",
-              "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T14:09:18.619Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 162,
+              "DocumentIndex": 174,
               "Title": "Class1.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Class1.cs",
               "RelativeDocumentMoniker": "Service\\Class1.cs",
@@ -2641,7 +2880,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 163,
+              "DocumentIndex": 175,
               "Title": "Class1.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Class1.cs",
               "RelativeDocumentMoniker": "Repository\\Class1.cs",
@@ -2653,7 +2892,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 164,
+              "DocumentIndex": 176,
               "Title": "Class1.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\Class1.cs",
               "RelativeDocumentMoniker": "DAO\\Class1.cs",
@@ -2665,7 +2904,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 165,
+              "DocumentIndex": 177,
               "Title": "Class1.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\BO\\Class1.cs",
               "RelativeDocumentMoniker": "BO\\Class1.cs",

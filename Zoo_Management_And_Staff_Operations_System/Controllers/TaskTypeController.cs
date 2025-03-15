@@ -1,6 +1,7 @@
 ﻿using AccountManagement;
 using DAO.AddModel;
 using DAO.UpdateModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Service.IService;
@@ -16,6 +17,7 @@ namespace Zoo_Management_And_Staff_Operations_System.Controllers
         {
             this.service = service;
         }
+        [Authorize(Roles = "Manager,Leader")]
         [HttpGet("taskTypes")]
         public async Task<IActionResult> GetListTaskType()
         {
@@ -23,6 +25,7 @@ namespace Zoo_Management_And_Staff_Operations_System.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager,Leader")]
         [HttpGet("taskType/id")]
         public async Task<IActionResult> GetTaskTypeById(int id)
         {
@@ -30,6 +33,7 @@ namespace Zoo_Management_And_Staff_Operations_System.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager")]
         [HttpPost("taskType")]
         public async Task<IActionResult> AddTaskType(TaskTypeAdd key)
         {
@@ -37,6 +41,7 @@ namespace Zoo_Management_And_Staff_Operations_System.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager")]
         [HttpPut("taskType")]
         public async Task<IActionResult> UpdateTask(TaskTypeUpdate key)
         {

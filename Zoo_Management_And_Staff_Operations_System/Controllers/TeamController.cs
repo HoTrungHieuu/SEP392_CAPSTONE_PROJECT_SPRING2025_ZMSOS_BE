@@ -1,6 +1,7 @@
 ﻿using AccountManagement;
 using DAO.AddModel;
 using DAO.UpdateModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Service.IService;
@@ -16,6 +17,7 @@ namespace TeamManagement.Controllers
         {
             this.service = service;
         }
+        [Authorize(Roles = "Manager")]
         [HttpGet("teams")]
         public async Task<IActionResult> GetListTeam()
         {
@@ -23,6 +25,7 @@ namespace TeamManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager,Leader,Staff")]
         [HttpGet("team/id")]
         public async Task<IActionResult> GetTeamById(int id)
         {
@@ -30,6 +33,7 @@ namespace TeamManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager")]
         [HttpPost("team")]
         public async Task<IActionResult> AddTeam(TeamAdd key)
         {
@@ -37,6 +41,7 @@ namespace TeamManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager")]
         [HttpPut("team")]
         public async Task<IActionResult> UpdateTeam(TeamUpdate key)
         {
@@ -44,6 +49,7 @@ namespace TeamManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager,Leader,Staff")]
         [HttpGet("team/leader/teamId")]
         public async Task<IActionResult> GetLeaderByTeamId(int teamId)
         {
@@ -51,6 +57,7 @@ namespace TeamManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager")]
         [HttpPost("team/leader")]
         public async Task<IActionResult> AddLeader(LeaderAssignAdd key)
         {
@@ -58,6 +65,7 @@ namespace TeamManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager")]
         [HttpDelete("team/leader")]
         public async Task<IActionResult> RemoveLeader(int accountId, int teamId)
         {
@@ -65,6 +73,7 @@ namespace TeamManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager,Leader")]
         [HttpGet("team/members/teamId")]
         public async Task<IActionResult> GetListMemberByTeamId(int teamId)
         {
@@ -72,6 +81,7 @@ namespace TeamManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager")]
         [HttpPost("team/member")]
         public async Task<IActionResult> AddMember(MemberAssignAdd key)
         {
@@ -79,6 +89,7 @@ namespace TeamManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager")]
         [HttpDelete("team/member")]
         public async Task<IActionResult> RemoveMember(int accountId, int teamId)
         {

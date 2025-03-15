@@ -229,5 +229,34 @@ namespace Service.Service
                 };
             }
         }
+        public async Task<ServiceResult> DeleteAnimalType(int id)
+        {
+            try
+            {
+                var animalType = repo.GetById(id);
+                if (animalType == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Not Found"
+                    };
+                }
+                await repo.RemoveAsync(animalType);
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "Delete Success",
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
     }
 }

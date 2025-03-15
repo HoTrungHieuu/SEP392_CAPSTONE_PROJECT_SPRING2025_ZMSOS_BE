@@ -1,5 +1,6 @@
 ﻿using DAO.AddModel;
 using DAO.UpdateModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Service.IService;
@@ -15,6 +16,7 @@ namespace AccountManagement.Controllers
         {
             this.service = service;
         }
+        [Authorize(Roles = "Admin,Manager,Leader,Staff")]
         [HttpGet("schedules/accountId")]
         public async Task<IActionResult> GetListScheduleByAccountId(int accountId)
         {
@@ -22,6 +24,7 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Admin,Manager,Leader,Staff")]
         [HttpGet("schedule/id")]
         public async Task<IActionResult> GetScheduleById(int id)
         {
@@ -29,6 +32,7 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Admin,Manager,Leader")]
         [HttpPost("schedule")]
         public async Task<IActionResult> AddSchedule(ScheduleAdd key)
         {
@@ -36,6 +40,7 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Admin,Manager,Leader")]
         [HttpPost("schedule/auto")]
         public async Task<IActionResult> AddScheduleAuto(ScheduleAutoAdd key)
         {
@@ -43,6 +48,7 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Admin,Manager,Leader")]
         [HttpPut("schedule")]
         public async Task<IActionResult> UpdateSchedule(ScheduleUpdate key)
         {

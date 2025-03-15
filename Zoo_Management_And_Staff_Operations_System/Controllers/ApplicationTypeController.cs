@@ -1,4 +1,5 @@
 ﻿using DAO.AddModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Service.IService;
@@ -14,6 +15,7 @@ namespace AccountManagement.Controllers
         {
             this.service = service;
         }
+        [Authorize(Roles = "Admin")]
         [HttpGet("applicationTypes")]
         public async Task<IActionResult> GetListApplicationType()
         {
@@ -21,6 +23,7 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Admin")]
         [HttpGet("applicationType")]
         public async Task<IActionResult> GetApplicationTypeoById(int id)
         {
@@ -28,6 +31,7 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Admin")]
         [HttpPost("applicationType")]
         public async Task<IActionResult> AddApplicationTypeo(ApplicationTypeAdd key)
         {

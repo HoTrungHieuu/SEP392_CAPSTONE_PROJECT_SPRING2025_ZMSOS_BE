@@ -1,8 +1,11 @@
 ﻿using DAO.AddModel;
+using DAO.UpdateModel;
 using DAO.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using Nest;
 using Service.IService;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -21,6 +24,20 @@ namespace AccountManagement.Controllers
             this.service = service;
             _configuration = configuration;
         }
+        [HttpGet("accounts")]
+        public async Task<IActionResult> GetListAccount()
+        {
+            var result = await service.GetListAccount();
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
+        [HttpGet("roles")]
+        public async Task<IActionResult> GetListRole()
+        {
+            var result = await service.GetListRole();
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
         [HttpPost("account/login")]
         public async Task<IActionResult> Login(string accountName, string password)
         {
@@ -28,12 +45,13 @@ namespace AccountManagement.Controllers
             if (result.Status == 200)
             {
                 var account = (AccountView)result.Data;
-                var token = GenerateJwtToken(account.AccountName, account.Role);
+                var token = GenerateJwtToken(account.Id, account.AccountName, account.Role.RoleName);
                 account.JwtToken = token;
             }
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Admin")]
         [HttpPost("account/create")]
         public async Task<IActionResult> CreateAccount(AccountCreate key)
         {
@@ -41,7 +59,7 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
-        private string GenerateJwtToken(string email, string role)
+        private string GenerateJwtToken(int id, string email, string role)
         {
             var key = _configuration["JwtSettings:Key"];
             var issuer = _configuration["JwtSettings:Issuer"];
@@ -52,6 +70,7 @@ namespace AccountManagement.Controllers
 
             var claims = new[]
             {
+                new Claim("id", id.ToString()),
                 new Claim(JwtRegisteredClaimNames.Email, email),
                 new Claim(ClaimTypes.Role, role),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
@@ -62,8 +81,15 @@ namespace AccountManagement.Controllers
                 claims: claims,
                 expires: DateTime.Now.AddMinutes(30),
                 signingCredentials: credentials);
-
             return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+        [Authorize(Roles = "Admin")]
+        [HttpPut("account")]
+        public async Task<IActionResult> UpdateAccount(AccountUpdate key)
+        {
+            var result = await service.UpdateAccount(key);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
         }
     }
 }

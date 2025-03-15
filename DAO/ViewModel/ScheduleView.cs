@@ -14,7 +14,7 @@ namespace DAO.ViewModel
         public int Id { get; set; }
         public UserView User { get; set; }
         public DateOnly? Date { get; set; }
-        public string Note { get; set; }
+        public string? Note { get; set; }
         public string? Status { get; set; }
         public void ConvertSchedualIntoSchedualView(Schedule key, UserView user)
         {

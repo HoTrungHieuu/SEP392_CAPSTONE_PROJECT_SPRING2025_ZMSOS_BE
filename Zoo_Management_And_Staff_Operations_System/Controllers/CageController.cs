@@ -3,6 +3,7 @@ using DAO.AddModel;
 using DAO.SearchModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Service.IService;
@@ -18,6 +19,7 @@ namespace AnimalAndCageManagement.Controllers
         {
             this.service = service;
         }
+        [Authorize(Roles = "Manager,Leader,Staff")]
         [HttpGet("cages")]
         public async Task<IActionResult> GetListCage()
         {
@@ -25,6 +27,7 @@ namespace AnimalAndCageManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager,Leader,Staff")]
         [HttpPost("cages/search-sort-paging")]
         public async Task<IActionResult> GetListCageSearch(CageSearch<CageView> key)
         {
@@ -32,6 +35,7 @@ namespace AnimalAndCageManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager,Leader,Staff")]
         [HttpGet("cages/zooAreaId")]
         public async Task<IActionResult> GetListCageByZooAreaId(int zooAreaId)
         {
@@ -39,6 +43,7 @@ namespace AnimalAndCageManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager,Leader,Staff")]
         [HttpGet("cage/id")]
         public async Task<IActionResult> GetCageById(int id)
         {
@@ -46,6 +51,7 @@ namespace AnimalAndCageManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager")]
         [HttpPost("cage")]
         public async Task<IActionResult> AddCage(CageAdd key)
         {
@@ -53,6 +59,7 @@ namespace AnimalAndCageManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager")]
         [HttpPut("cage")]
         public async Task<IActionResult> UpdateCage(CageUpdate key)
         {
@@ -60,6 +67,7 @@ namespace AnimalAndCageManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager")]
         [HttpDelete("cage/id")]
         public async Task<IActionResult> DeleteCage(int id)
         {

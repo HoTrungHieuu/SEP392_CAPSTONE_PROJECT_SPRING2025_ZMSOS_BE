@@ -1,5 +1,6 @@
 ﻿using DAO.AddModel;
 using DAO.UpdateModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Service.IService;
@@ -15,6 +16,7 @@ namespace AccountManagement.Controllers
         {
             this.service = service;
         }
+        [Authorize(Roles = "Admin,Manager,Leader,Staff")]
         [HttpGet("notifications/accountId")]
         public async Task<IActionResult> GetListNotificationByAccountId(int accountId)
         {

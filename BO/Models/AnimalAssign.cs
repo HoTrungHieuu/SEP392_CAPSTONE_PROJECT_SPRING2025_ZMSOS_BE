@@ -18,4 +18,6 @@ public partial class AnimalAssign
     public virtual AnimalCage AnimalCage { get; set; }
 
     public virtual Task Task { get; set; }
+
+    public virtual ICollection<TaskMeal> TaskMeals { get; set; } = new List<TaskMeal>();
 }

@@ -1,6 +1,22 @@
 [
   {
     "ContainingType": "AccountManagement.Controllers.AccountController",
+    "Method": "UpdateAccount",
+    "RelativePath": "api/Account/account",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.UpdateModel.AccountUpdate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.AccountController",
     "Method": "CreateAccount",
     "RelativePath": "api/Account/account/create",
     "HttpMethod": "POST",
@@ -34,6 +50,26 @@
         "IsRequired": false
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.AccountController",
+    "Method": "GetListAccount",
+    "RelativePath": "api/Account/accounts",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.AccountController",
+    "Method": "GetListRole",
+    "RelativePath": "api/Account/roles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -233,6 +269,22 @@
         "Name": "key",
         "Type": "DAO.UpdateModel.AnimalTypeUpdate",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.AnimalTypeController",
+    "Method": "DeleteAnimalType",
+    "RelativePath": "api/AnimalType/animalType",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

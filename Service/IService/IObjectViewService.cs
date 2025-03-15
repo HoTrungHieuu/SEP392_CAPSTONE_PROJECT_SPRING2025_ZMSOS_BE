@@ -48,5 +48,7 @@ namespace Service.IService
         public Task<ScheduleView> GetScheduleView(Schedule schedule);
         public Task<List<TaskEstimateView>> GetListTaskEstimateView(List<TaskEstimate> taskEstimates);
         public Task<TaskEstimateView> GetTaskEstimateView(TaskEstimate taskEstimate);
+        public Task<List<RoleView>> GetListRoleView(List<Role> roles);
+        public Task<RoleView> GetRoleView(Role role);
     }
 }

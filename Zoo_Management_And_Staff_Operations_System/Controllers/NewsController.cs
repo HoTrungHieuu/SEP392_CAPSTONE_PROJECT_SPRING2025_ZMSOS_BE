@@ -1,5 +1,6 @@
 ﻿using DAO.AddModel;
 using DAO.UpdateModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Service.IService;
@@ -15,6 +16,7 @@ namespace AccountManagement.Controllers
         {
             this.service = service;
         }
+        [Authorize(Roles = "Admin,Manager,Leader,Staff")]
         [HttpGet("newss")]
         public async Task<IActionResult> GetListNews()
         {
@@ -22,6 +24,7 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Admin,Manager,Leader,Staff")]
         [HttpGet("news/id")]
         public async Task<IActionResult> GetNewsById(int id)
         {
@@ -29,6 +32,7 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager")]
         [HttpPost("news")]
         public async Task<IActionResult> AddNews(NewsAdd key)
         {
@@ -36,6 +40,7 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager")]
         [HttpPut("news")]
         public async Task<IActionResult> UpdateNews(NewsUpdate key)
         {

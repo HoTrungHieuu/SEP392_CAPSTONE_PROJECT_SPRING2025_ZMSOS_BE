@@ -3,6 +3,7 @@ using DAO.AddModel;
 using DAO.SearchModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Service.IService;
@@ -18,6 +19,7 @@ namespace AnimalAndCageManagement.Controllers
         {
             this.service = service;
         }
+        [Authorize(Roles = "Manager")]
         [HttpGet("zooAreas")]
         public async Task<IActionResult> GetListZooArea()
         {
@@ -25,6 +27,7 @@ namespace AnimalAndCageManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager")]
         [HttpPost("zooAreas/search-sort-paging")]
         public async Task<IActionResult> GetListZooAreaSearch(ZooAreaSearch<ZooAreaView> key)
         {
@@ -32,6 +35,7 @@ namespace AnimalAndCageManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Admin,Manager,Leader,Staff")]
         [HttpGet("zooArea/id")]
         public async Task<IActionResult> GetZooAreaById(int id)
         {
@@ -39,6 +43,7 @@ namespace AnimalAndCageManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager")]
         [HttpPost("zooArea")]
         public async Task<IActionResult> AddZooArea(ZooAreaAdd key)
         {
@@ -46,6 +51,7 @@ namespace AnimalAndCageManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager")]
         [HttpPut("zooArea")]
         public async Task<IActionResult> UpdateZooArea(ZooAreaUpdate key)
         {
@@ -53,6 +59,7 @@ namespace AnimalAndCageManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager")]
         [HttpDelete("zooArea/id")]
         public async Task<IActionResult> DeleteZooArea(int id)
         {

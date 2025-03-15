@@ -18,5 +18,6 @@ namespace Service.IService
         public Task<ServiceResult> GetAnimalTypeById(int id);
         public Task<ServiceResult> AddAnimalType(AnimalTypeAdd key);
         public Task<ServiceResult> UpdateAnimalType(AnimalTypeUpdate key);
+        public Task<ServiceResult> DeleteAnimalType(int id);
     }
 }

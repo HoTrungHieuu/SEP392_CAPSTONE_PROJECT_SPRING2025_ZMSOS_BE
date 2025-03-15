@@ -1,5 +1,6 @@
 ﻿using DAO.AddModel;
 using DAO.UpdateModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Service.IService;
@@ -15,6 +16,7 @@ namespace AccountManagement.Controllers
         {
             this.service = service;
         }
+        [Authorize(Roles = "Admin,Manager,Leader,Staff")]
         [HttpGet("tasks/scheduleId")]
         public async Task<IActionResult> GetListTaskByScheduleId(int scheduleId)
         {
@@ -22,6 +24,7 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Admin,Manager,Leader,Staff")]
         [HttpGet("task/id")]
         public async Task<IActionResult> GetTaskById(int id)
         {
@@ -29,6 +32,7 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Admin,Manager,Leader")]
         [HttpPost("task")]
         public async Task<IActionResult> AddTask(TaskAdd key)
         {
@@ -36,6 +40,7 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Admin,Manager,Leader,Staff")]
         [HttpPut("task")]
         public async Task<IActionResult> UpdateTask(TaskUpdate key)
         {

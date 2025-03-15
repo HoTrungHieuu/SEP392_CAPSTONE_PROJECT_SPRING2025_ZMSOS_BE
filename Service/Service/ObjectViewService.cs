@@ -40,9 +40,10 @@ namespace Service.Service
         public ITaskEstimateRepository taskEstimateRepo;
         public IAnimalImageRepository animalImageRepo;
         public IZooAreaImageRepository zooAreaImageRepo;
+        public IRoleRepository roleRepo;
         public ObjectViewService(IAnimalRepository animalRepo, IAnimalTypeRepository animalTypeRepo, 
             ICageRepository cageRepo, IZooAreaRepository zooAreaRepo,
-            ITaskRepository taskRepo, ITaskTypeRepository taskTypeRepo, IAnimalCageRepository animalCageRepo, IAnimalAssignRepository animalAssignRepo, 
+            ITaskRepository taskRepo, ITaskTypeRepository taskTypeRepo, IAnimalCageRepository animalCageRepo, IAnimalAssignRepository animalAssignRepo,
             IFlockRepository flockRepo, IIndividualRepository individualRepo,
             IAccountRepository accountRepo, IUserRepository userRepo,
             ITeamRepository teamRepo, ILeaderAssignRepository leaderRepo, IMemberAssignRepository memberRepo,
@@ -53,7 +54,8 @@ namespace Service.Service
             INotificationRepository notificationRepo,
             IScheduleRepository scheduleRepo,
             ITaskEstimateRepository taskEstimateRepo,
-            IAnimalImageRepository animalImageRepo, IZooAreaImageRepository zooAreaImageRepo)
+            IAnimalImageRepository animalImageRepo, IZooAreaImageRepository zooAreaImageRepo,
+            IRoleRepository roleRepo)
         {
             this.animalRepo = animalRepo;
             this.animalTypeRepo = animalTypeRepo;
@@ -81,6 +83,7 @@ namespace Service.Service
             this.taskEstimateRepo = taskEstimateRepo;
             this.animalImageRepo = animalImageRepo;
             this.zooAreaImageRepo = zooAreaImageRepo;
+            this.roleRepo = roleRepo;
         }
         public async Task<List<AnimalView>> GetListAnimalView(List<Animal> animals)
         {
@@ -269,7 +272,9 @@ namespace Service.Service
         }
         public async Task<AccountView> GetAccountView(Account account)
         {
-            var result = accountRepo.ConvertAccountIntoAccountView(account);
+            RoleView role = new RoleView();
+            role = await GetRoleView(roleRepo.GetById(account.RoleId));
+            var result = accountRepo.ConvertAccountIntoAccountView(account, role);
             return result;
         }
         public async Task<UserView> GetUserView(User user)
@@ -454,6 +459,20 @@ namespace Service.Service
             AnimalTypeView animalType = new();
             animalType = await GetAnimalTypeView(animalTypeRepo.GetById((int)taskEstimate.AnimalTypeId));
             var result = taskEstimateRepo.ConvertTaskEstimateIntoTaskEstimateView(taskEstimate, taskType,animalType);
+            return result;
+        }
+        public async Task<List<RoleView>> GetListRoleView(List<Role> roles)
+        {
+            List<RoleView> result = new List<RoleView>();
+            foreach (var role in roles)
+            {
+                result.Add(await GetRoleView(role));
+            }
+            return result;
+        }
+        public async Task<RoleView> GetRoleView(Role role)
+        {
+            var result = roleRepo.ConvertRoleIntoRoleView(role);
             return result;
         }
     }
