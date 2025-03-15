@@ -37,7 +37,8 @@ pipeline {
                 script {
                     def dateTag = new Date().format('ddMMyy')
                     def buildCount = sh(script: """
-                    ssh -o StrictHostKeyChecking=no ${env.DEPLOY_USER}@${env.DEPLOY_SERVER} docker images --format "{{.Tag}}" ${env.IMAGE_NAME} | grep ${dateTag} | awk '{print substr($1, 7)}' | sort -rn | head -n 1
+                    ssh -o StrictHostKeyChecking=no ${env.DEPLOY_USER}@${env.DEPLOY_SERVER} \\
+			"docker images --format '{{.Tag}}' ${env.IMAGE_NAME} | grep ${dateTag} | awk '{print substr(\\$1, 7)}' | sort -rn | head -n 1"
                     """, returnStdout: true).trim()
 	                echo "Old build: ${buildCount}"
                     def buildNumber = buildCount.isInteger() ? buildCount.toInteger() + 1 : 1
