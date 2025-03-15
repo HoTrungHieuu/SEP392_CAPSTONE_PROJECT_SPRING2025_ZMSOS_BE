@@ -36,8 +36,11 @@ pipeline {
             steps {
                 script {
                     def dateTag = new Date().format('ddMMyy')
-                    def buildCount = sh(script: "docker images | grep ${env.IMAGE_NAME} | grep ${dateTag} | wc -l", returnStdout: true).trim()
-                    def buildNumber = buildCount ? buildCount.toInteger() + 1 : 1
+                    def buildCount = sh(script: """
+                        ssh -o StrictHostKeyChecking=no ${env.DEPLOY_USER}@${env.DEPLOY_SERVER} \\
+                        "docker images | grep ${env.IMAGE_NAME} | awk '{print \$2}' | grep '^${dateTag}' | wc -l"
+                        """, returnStdout: true).trim()
+                    def buildNumber = buildCount.isInteger() ? buildCount.toInteger() + 1 : 1
                     env.DOCKER_TAG = "${dateTag}${String.format('%02d', buildNumber)}"
                     env.FULL_IMAGE_TAG = "${env.IMAGE_NAME}:${env.DOCKER_TAG}"
                     echo "Generated Docker Tag: ${env.FULL_IMAGE_TAG}"
