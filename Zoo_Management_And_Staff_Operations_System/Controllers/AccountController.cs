@@ -51,7 +51,6 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
-        [Authorize(Roles = "Admin")]
         [HttpPost("account/create")]
         public async Task<IActionResult> CreateAccount(AccountCreate key)
         {
