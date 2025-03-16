@@ -39,9 +39,9 @@ namespace AccountManagement.Controllers
             return statusResult.Result(result);
         }
         [HttpPost("account/login")]
-        public async Task<IActionResult> Login(string accountName, string password)
+        public async Task<IActionResult> Login(AccountLogin key)
         {
-            var result = await service.Login(accountName, password);
+            var result = await service.Login(key.AccountName, key.Password);
             if (result.Status == 200)
             {
                 var account = (AccountView)result.Data;

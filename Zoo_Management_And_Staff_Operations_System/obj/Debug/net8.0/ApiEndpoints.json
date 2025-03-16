@@ -40,14 +40,9 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "accountName",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "password",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "key",
+        "Type": "DAO.AddModel.AccountLogin",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
