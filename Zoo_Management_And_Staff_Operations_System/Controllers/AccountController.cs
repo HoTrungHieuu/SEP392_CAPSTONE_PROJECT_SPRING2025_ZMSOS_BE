@@ -45,7 +45,7 @@ namespace AccountManagement.Controllers
             if (result.Status == 200)
             {
                 var account = (AccountView)result.Data;
-                var token = GenerateJwtToken(account.Id, account.AccountName, account.Role.RoleName);
+                var token = GenerateJwtToken(account.Id, account.Role.RoleName);
                 account.JwtToken = token;
             }
             StatusResult statusResult = new StatusResult();
@@ -58,7 +58,7 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
-        private string GenerateJwtToken(int id, string email, string role)
+        private string GenerateJwtToken(int id, string role)
         {
             var key = _configuration["JwtSettings:Key"];
             var issuer = _configuration["JwtSettings:Issuer"];
@@ -70,8 +70,7 @@ namespace AccountManagement.Controllers
             var claims = new[]
             {
                 new Claim("id", id.ToString()),
-                new Claim(JwtRegisteredClaimNames.Email, email),
-                new Claim(ClaimTypes.Role, role),
+                new Claim("role", role),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
             var token = new JwtSecurityToken(
