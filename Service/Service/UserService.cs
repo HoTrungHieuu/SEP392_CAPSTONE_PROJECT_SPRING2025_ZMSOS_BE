@@ -64,7 +64,6 @@ namespace Service.Service
                         Message = "Not Found!",
                     };
                 }
-                user.Email = key.Email;
                 user.Address = key.Address;
                 user.PhoneNumber = key.PhoneNumber;
                 user.Gender = key.Gender;

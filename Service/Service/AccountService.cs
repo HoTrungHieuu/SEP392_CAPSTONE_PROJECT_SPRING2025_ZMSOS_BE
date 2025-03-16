@@ -56,11 +56,11 @@ namespace Service.Service
                 };
             }
         }
-        public async Task<ServiceResult> Login(string accountName, string password)
+        public async Task<ServiceResult> Login(string email, string password)
         {
             try
             {
-                var account = (await repo.GetAllAsync()).FirstOrDefault(l => l.AccountName == accountName && l.Password == password);
+                var account = (await repo.GetAllAsync()).FirstOrDefault(l => l.Email == email && l.Password == password);
                 if (account == null)
                 {
                     return new ServiceResult
@@ -91,7 +91,7 @@ namespace Service.Service
         {
             try
             {
-                var account = (await repo.GetAllAsync()).FirstOrDefault(l => l.AccountName == key.AccountName);
+                var account = (await repo.GetAllAsync()).FirstOrDefault(l => l.Email == key.Email);
                 if(account !=null)
                 {
                     return new ServiceResult
@@ -102,7 +102,7 @@ namespace Service.Service
                 }
                 account = new Account()
                 {
-                    AccountName = key.AccountName,
+                    Email = key.Email,
                     Password = key.Password,
                     CreatedDate = DateOnly.FromDateTime(DateTime.Now),
                     RoleId = key.RoleId,
@@ -116,7 +116,6 @@ namespace Service.Service
                 User user = new User()
                 {
                     AccountId = accountView.Id,
-                    Email = key.Email,
                     Address = key.Address,
                     PhoneNumber = key.PhoneNumber,
                     Gender = key.Gender,

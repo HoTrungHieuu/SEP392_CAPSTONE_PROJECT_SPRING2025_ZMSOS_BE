@@ -14,7 +14,7 @@ namespace DAO.ViewModel
     {
         public int Id { get; set; }
         public RoleView? Role {  get; set; }
-        public string? AccountName { get; set; }
+        public string? Email { get; set; }
         public DateOnly? DateCreated { get; set; }
         public DateOnly? DateUpdated { get; set; }
         public string? Status {  get; set; }
@@ -23,7 +23,7 @@ namespace DAO.ViewModel
         public void ConvertAccountIntoAccountView(Account key, RoleView role)
         {
             Id = key.Id;
-            AccountName = key.AccountName;
+            Email = key.Email;
             DateCreated = key.CreatedDate;
             DateUpdated = key.UpdatedDate;
             Status = key.Status;

@@ -41,7 +41,7 @@ namespace AccountManagement.Controllers
         [HttpPost("account/login")]
         public async Task<IActionResult> Login(AccountLogin key)
         {
-            var result = await service.Login(key.AccountName, key.Password);
+            var result = await service.Login(key.Email, key.Password);
             if (result.Status == 200)
             {
                 var account = (AccountView)result.Data;
@@ -77,7 +77,7 @@ namespace AccountManagement.Controllers
                 issuer: issuer,
                 audience: audience,
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(30),
+                expires: DateTime.Now.AddDays(30),
                 signingCredentials: credentials);
             return new JwtSecurityTokenHandler().WriteToken(token);
         }

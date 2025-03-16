@@ -3099,24 +3099,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\PC\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Nguyen Hien\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\DAO.csproj",
+      "projectUniqueName": "D:\\Capstone_Project_2025\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\DAO.csproj",
       "projectName": "DAO",
-      "projectPath": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\DAO.csproj",
-      "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-      "outputPath": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\obj\\",
+      "projectPath": "D:\\Capstone_Project_2025\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\DAO.csproj",
+      "packagesPath": "C:\\Users\\Nguyen Hien\\.nuget\\packages\\",
+      "outputPath": "D:\\Capstone_Project_2025\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Nguyen Hien\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3131,8 +3126,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\BO\\BO.csproj": {
-              "projectPath": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\BO\\BO.csproj"
+            "D:\\Capstone_Project_2025\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\BO\\BO.csproj": {
+              "projectPath": "D:\\Capstone_Project_2025\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\BO\\BO.csproj"
             }
           }
         }
@@ -3167,7 +3162,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
