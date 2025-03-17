@@ -9,7 +9,6 @@ namespace DAO.UpdateModel
     public class IndividualUpdate
     {
         public DateOnly? BirthDate { get; set; }
-        public string? Name { get; set; }
         public string? Age { get; set; }
         public string? Gender { get; set; }
         public string? Weight { get; set; }

@@ -1,0 +1,15 @@
+﻿using DAO.ViewModel;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DAO.OtherModel
+{
+    public class AnimalTaskMeal
+    {
+        public AnimalView? Animal {  get; set; } 
+        public MealDayView? MealDay { get; set; }
+    }
+}

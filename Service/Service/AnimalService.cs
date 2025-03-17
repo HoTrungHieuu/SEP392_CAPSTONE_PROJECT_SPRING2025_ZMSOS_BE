@@ -97,19 +97,7 @@ namespace Service.Service
                 else if (key.Classify == "Individual")
                 {
                     result = result.FindAll(l => l.Classify == key.Classify);
-                    result = result.FindAll(l => l.Individual.Name.Contains(key.Individual.Name));
-                    if (key.Sorting?.PropertySort == "Name")
-                    {
-                        if (key.Sorting.IsAsc)
-                        {
-                            result.OrderBy(l => l.Individual?.Name);
-                        }
-                        else
-                        {
-                            result.OrderByDescending(l => l.Individual?.Name);
-                        }
-                    }
-                    else if (key.Sorting?.PropertySort == "Age")
+                    if (key.Sorting?.PropertySort == "Age")
                     {
                         if (key.Sorting.IsAsc)
                         {

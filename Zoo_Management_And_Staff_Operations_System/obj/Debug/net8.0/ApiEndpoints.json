@@ -581,6 +581,64 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.FoodController",
+    "Method": "AddFood",
+    "RelativePath": "api/Food/food",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.AddModel.FoodAdd",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.FoodController",
+    "Method": "UpdateFood",
+    "RelativePath": "api/Food/food",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.UpdateModel.FoodUpdate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.FoodController",
+    "Method": "GetFoodById",
+    "RelativePath": "api/Food/food/id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.FoodController",
+    "Method": "GetListFood",
+    "RelativePath": "api/Food/foods",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.IncompatibleAnimalTypeController",
     "Method": "AddIncompatibleAnimalType",
     "RelativePath": "api/IncompatibleAnimalType/incompatibleAnimalType",
@@ -616,6 +674,80 @@
     "Parameters": [
       {
         "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.MealDayController",
+    "Method": "AddMealDay",
+    "RelativePath": "api/MealDay/mealDay",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.AddModel.MealDayAdd",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.MealDayController",
+    "Method": "UpdateMealDay",
+    "RelativePath": "api/MealDay/mealDay",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.UpdateModel.MealDayUpdate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.MealDayController",
+    "Method": "GetMealDayById",
+    "RelativePath": "api/MealDay/mealDay/id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.MealDayController",
+    "Method": "GetListMealDay",
+    "RelativePath": "api/MealDay/mealDays",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.MealDayController",
+    "Method": "GetListMealDayByAnimalTypeId",
+    "RelativePath": "api/MealDay/mealDays/animalTypeId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "animalTypeId",
         "Type": "System.Int32",
         "IsRequired": false
       }

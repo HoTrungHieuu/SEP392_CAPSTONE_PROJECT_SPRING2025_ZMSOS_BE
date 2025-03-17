@@ -75,6 +75,10 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[Food]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[IncompatibleAnimalType]",
          "ObjectType": 0
       },
@@ -84,6 +88,14 @@
       },
       {
          "Name": "[dbo].[LeaderAssign]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MealDay]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[MealFood]",
          "ObjectType": 0
       },
       {
@@ -120,6 +132,10 @@
       },
       {
          "Name": "[dbo].[TaskEstimate]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TaskMeal]",
          "ObjectType": 0
       },
       {

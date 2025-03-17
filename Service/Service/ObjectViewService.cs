@@ -41,6 +41,10 @@ namespace Service.Service
         public IAnimalImageRepository animalImageRepo;
         public IZooAreaImageRepository zooAreaImageRepo;
         public IRoleRepository roleRepo;
+        public IFoodRepository foodRepo;
+        public IMealDayRepository mealDayRepo;
+        public IMealFoodRepository mealFoodRepo;
+        public ITaskMealRepository taskMealRepo;
         public ObjectViewService(IAnimalRepository animalRepo, IAnimalTypeRepository animalTypeRepo, 
             ICageRepository cageRepo, IZooAreaRepository zooAreaRepo,
             ITaskRepository taskRepo, ITaskTypeRepository taskTypeRepo, IAnimalCageRepository animalCageRepo, IAnimalAssignRepository animalAssignRepo,
@@ -55,7 +59,8 @@ namespace Service.Service
             IScheduleRepository scheduleRepo,
             ITaskEstimateRepository taskEstimateRepo,
             IAnimalImageRepository animalImageRepo, IZooAreaImageRepository zooAreaImageRepo,
-            IRoleRepository roleRepo)
+            IRoleRepository roleRepo,
+            IFoodRepository foodRepo, IMealDayRepository mealDayRepo, IMealFoodRepository mealFoodRepo, ITaskMealRepository taskMealRepo)
         {
             this.animalRepo = animalRepo;
             this.animalTypeRepo = animalTypeRepo;
@@ -84,6 +89,10 @@ namespace Service.Service
             this.animalImageRepo = animalImageRepo;
             this.zooAreaImageRepo = zooAreaImageRepo;
             this.roleRepo = roleRepo;
+            this.foodRepo = foodRepo;
+            this.mealDayRepo = mealDayRepo;
+            this.mealFoodRepo = mealFoodRepo;
+            this.taskMealRepo = taskMealRepo;
         }
         public async Task<List<AnimalView>> GetListAnimalView(List<Animal> animals)
         {
@@ -205,12 +214,12 @@ namespace Service.Service
                 var resultTemp = taskRepo.ConvertTaskIntoTaskView(task, null, taskType);
                 return resultTemp;
             }
-            List<(AnimalView, CageView)> animalCageViews = new();
+            List<(AnimalView, CageView, AnimalAssign)> animalCageViews = new();
             List<AnimalCageTask> animalCageTasks = new();
             foreach (var animalAssign in animalAssigns)
             {
                 var animalCage = animalCageRepo.GetById(animalAssign.AnimalCageId);
-                animalCageViews.Add((await GetAnimalView(animalRepo.GetById(animalCage.AnimalId)), await GetCageView(cageRepo.GetById(animalCage.CageId))));
+                animalCageViews.Add((await GetAnimalView(animalRepo.GetById(animalCage.AnimalId)), await GetCageView(cageRepo.GetById(animalCage.CageId)), animalAssign));
             }
             animalCageViews.OrderBy(l => l.Item2);
             AnimalCageTask animalCageTask = new();
@@ -220,7 +229,11 @@ namespace Service.Service
                 {
                     if (animalCageViews[i].Item2.Id == animalCageViews[i - 1].Item2.Id)
                     {
-                        animalCageTask.Animals.Add(animalCageViews[i].Item1);
+                        animalCageTask.Animals.Add(new AnimalTaskMeal()
+                        {
+                            Animal = animalCageViews[i].Item1,
+                            MealDay = await GetMealDayView(mealDayRepo.GetById((await taskMealRepo.GetTaskMealByAnimalAssignId(animalCageViews[i].Item3.Id)).MealDayId))
+                        });
                     }
                     else
                     {
@@ -230,7 +243,11 @@ namespace Service.Service
                             Cage = animalCageViews[i].Item2,
                             Animals = new()
                         };
-                        animalCageTask.Animals.Add(animalCageViews[i].Item1);
+                        animalCageTask.Animals.Add(new AnimalTaskMeal()
+                        {
+                            Animal = animalCageViews[i].Item1,
+                            MealDay = await GetMealDayView(mealDayRepo.GetById((await taskMealRepo.GetTaskMealByAnimalAssignId(animalCageViews[i].Item3.Id)).MealDayId))
+                        });
                     }
                 }
                 else
@@ -240,7 +257,11 @@ namespace Service.Service
                         Cage = animalCageViews[i].Item2,
                         Animals = new()
                     };
-                    animalCageTask.Animals.Add(animalCageViews[i].Item1);
+                    animalCageTask.Animals.Add(new AnimalTaskMeal()
+                    {
+                        Animal = animalCageViews[i].Item1,
+                        MealDay = await GetMealDayView(mealDayRepo.GetById((await taskMealRepo.GetTaskMealByAnimalAssignId(animalCageViews[i].Item3.Id)).MealDayId))
+                    });
                 }
             }
             animalCageTasks.Add(animalCageTask);
@@ -473,6 +494,47 @@ namespace Service.Service
         public async Task<RoleView> GetRoleView(Role role)
         {
             var result = roleRepo.ConvertRoleIntoRoleView(role);
+            return result;
+        }
+        public async Task<List<FoodView>> GetListFoodView(List<Food> foods)
+        {
+            List<FoodView> result = new List<FoodView>();
+            foreach (var food in foods)
+            {
+                result.Add(await GetFoodView(food));
+            }
+            return result;
+        }
+        public async Task<FoodView> GetFoodView(Food food)
+        {
+            var result = foodRepo.ConvertFoodIntoFoodView(food);
+            return result;
+        }
+        public async Task<List<MealDayView>> GetListMealDayView(List<MealDay> mealDays)
+        {
+            List<MealDayView> result = new List<MealDayView>();
+            foreach (var mealDay in mealDays)
+            {
+                result.Add(await GetMealDayView(mealDay));
+            }
+            return result;
+        }
+        public async Task<MealDayView> GetMealDayView(MealDay mealDay)
+        {
+            AnimalTypeView animalType = new();
+            animalType = await GetAnimalTypeView(animalTypeRepo.GetById(mealDay.AnimalTypeId));
+            List<MealFoodView> foods = new();
+            foreach(var food in (await mealFoodRepo.GetListMealFoodByMealDayId(mealDay.Id)))
+            {
+                FoodView fo = new();
+                fo = await GetFoodView(foodRepo.GetById(food.FoodId));
+                foods.Add(new MealFoodView()
+                {
+                    Food = fo,
+                    Quantitative = food.Quantitative
+                });
+            }
+            var result = mealDayRepo.ConvertMealDayIntoMealDayView(mealDay, animalType,foods);
             return result;
         }
     }

@@ -36,7 +36,6 @@ namespace Repository.Repository
                 {
                     AnimalId = animalId,
                     BirthDate = key.BirthDate,
-                    Name = key.Name,
                     Age = key.Age,
                     Gender = key.Gender,
                     Weight = key.Weight,
@@ -60,7 +59,6 @@ namespace Repository.Repository
                 var individual = await GetIndividualByAnimalId(animalId);
                 if (individual == null) return null;
                 individual.BirthDate = key.BirthDate;
-                individual.Name = key.Name;
                 individual.Age = key.Age;
                 individual.Gender = key.Gender;
                 individual.Weight = key.Weight;

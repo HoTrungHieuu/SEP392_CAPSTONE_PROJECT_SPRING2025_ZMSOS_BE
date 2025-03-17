@@ -12,11 +12,11 @@ namespace DAO.ViewModel
     public class TaskView
     {
         public int Id { get; set; }
-        public string TaskName { get; set; }
-        public string Description { get; set; }
-        public string Note { get; set; }
-        public List<AnimalCageTask> AnimalCageTask {  get; set; }
-        public TaskTypeView TaskType { get;set; }
+        public string? TaskName { get; set; }
+        public string? Description { get; set; }
+        public string? Note { get; set; }
+        public List<AnimalCageTask>? AnimalCageTask {  get; set; }
+        public TaskTypeView? TaskType { get;set; }
         public TimeOnly? TimeStart { get; set; }
         public TimeOnly? TimeEnd { get; set; }
         public string? Status {  get; set; }

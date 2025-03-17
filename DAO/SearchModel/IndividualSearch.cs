@@ -8,6 +8,5 @@ namespace DAO.SearchModel
 {
     public class IndividualSearch
     {
-        public string? Name {  get; set; }
     }
 }

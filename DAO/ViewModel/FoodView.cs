@@ -13,12 +13,12 @@ namespace DAO.ViewModel
         public string? Name { get; set; }
         public string? Description { get; set; }
         public float? CaloPerGram {  get; set; }
-        /*public void ConvertFoodIntoFoodView(Food key)
+        public void ConvertFoodIntoFoodView(Food key)
         {
             Id = key.Id;
             Name = key.Name;
             Description = key.Decription;
             CaloPerGram = (float)key.CaloPerGram;
-        }*/
+        }
     }
 }

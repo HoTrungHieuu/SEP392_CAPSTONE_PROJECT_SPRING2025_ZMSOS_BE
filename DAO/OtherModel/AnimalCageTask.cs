@@ -9,7 +9,7 @@ namespace DAO.OtherModel
 {
     public class AnimalCageTask
     {
-        public CageView Cage { get; set; }
-        public List<AnimalView> Animals { get; set; }
+        public CageView? Cage { get; set; }
+        public List<AnimalTaskMeal>? Animals { get; set; }
     }
 }

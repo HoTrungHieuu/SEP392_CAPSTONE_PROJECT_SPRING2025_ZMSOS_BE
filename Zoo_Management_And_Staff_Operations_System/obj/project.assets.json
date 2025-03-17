@@ -3491,19 +3491,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Nguyen Hien\\.nuget\\packages\\": {}
+    "C:\\Users\\PC\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Capstone_Project_2025\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj",
+      "projectUniqueName": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj",
       "projectName": "Zoo_Management_And_Staff_Operations_System",
-      "projectPath": "D:\\Capstone_Project_2025\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj",
-      "packagesPath": "C:\\Users\\Nguyen Hien\\.nuget\\packages\\",
-      "outputPath": "D:\\Capstone_Project_2025\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\obj\\",
+      "projectPath": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj",
+      "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+      "outputPath": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Zoo_Management_And_Staff_Operations_System\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Nguyen Hien\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3518,17 +3523,17 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\Capstone_Project_2025\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\BO\\BO.csproj": {
-              "projectPath": "D:\\Capstone_Project_2025\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\BO\\BO.csproj"
+            "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\BO\\BO.csproj": {
+              "projectPath": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\BO\\BO.csproj"
             },
-            "D:\\Capstone_Project_2025\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\DAO.csproj": {
-              "projectPath": "D:\\Capstone_Project_2025\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\DAO.csproj"
+            "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\DAO.csproj": {
+              "projectPath": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\DAO.csproj"
             },
-            "D:\\Capstone_Project_2025\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository.csproj": {
-              "projectPath": "D:\\Capstone_Project_2025\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository.csproj"
+            "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository.csproj": {
+              "projectPath": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository.csproj"
             },
-            "D:\\Capstone_Project_2025\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service.csproj": {
-              "projectPath": "D:\\Capstone_Project_2025\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service.csproj"
+            "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service.csproj": {
+              "projectPath": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service.csproj"
             }
           }
         }
@@ -3576,7 +3581,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -146,6 +146,12 @@ builder.Services.AddScoped<IIncompatibleAnimalTypeService, IncompatibleAnimalTyp
 builder.Services.AddScoped<IAnimalImageRepository, AnimalImageRepository>();
 builder.Services.AddScoped<IZooAreaImageRepository, ZooAreaImageRepository>();
 builder.Services.AddScoped<IRoleRepository, RoleRepository>();
+builder.Services.AddScoped<IFoodRepository, FoodRepository>();
+builder.Services.AddScoped<IFoodService, FoodService>();
+builder.Services.AddScoped<IMealDayRepository, MealDayRepository>();
+builder.Services.AddScoped<IMealDayService, MealDayService>();
+builder.Services.AddScoped<IMealFoodRepository, MealFoodRepository>();
+builder.Services.AddScoped<ITaskMealRepository, TaskMealRepository>();
 
 var app = builder.Build();
 

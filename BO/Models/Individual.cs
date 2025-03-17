@@ -13,8 +13,6 @@ public partial class Individual
 
     public DateOnly? BirthDate { get; set; }
 
-    public string Name { get; set; }
-
     public string Age { get; set; }
 
     public string Gender { get; set; }
