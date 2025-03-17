@@ -26,7 +26,7 @@ namespace Zoo_Management_And_Staff_Operations_System.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Manager,Leader")]
-        [HttpGet("taskType/id")]
+        [HttpGet("taskType/{id}")]
         public async Task<IActionResult> GetTaskTypeById(int id)
         {
             var result = await service.GetTaskTypeById(id);

@@ -103,8 +103,8 @@ namespace Service.Service
                 if (key.Paging != null)
                 {
                     Paging<CageView> paging = new();
-                    result = paging.PagingList(result, key.Paging.PageSize, key.Paging.PageNumber);
                     totalNumberPaging = paging.MaxPageNumber(result, key.Paging.PageSize);
+                    result = paging.PagingList(result, key.Paging.PageSize, key.Paging.PageNumber);   
                 }
                 if (totalNumberPaging == null) totalNumberPaging = 1;
 

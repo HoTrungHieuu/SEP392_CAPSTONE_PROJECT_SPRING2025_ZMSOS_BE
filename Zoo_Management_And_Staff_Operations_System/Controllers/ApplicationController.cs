@@ -18,7 +18,7 @@ namespace AccountManagement.Controllers
             this.service = service;
         }
         [Authorize(Roles = "Leader,Staff")]
-        [HttpGet("applications/senderId")]
+        [HttpGet("applications/by-sender/{senderId}")]
         public async Task<IActionResult> GetListApplicationBySenderId(int senderId)
         {
             var result = await service.GetListApplicationBySenderId(senderId);
@@ -26,7 +26,7 @@ namespace AccountManagement.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Leader,Staff")]
-        [HttpPost("applications/senderId/search-sort-paging")]
+        [HttpPost("applications/by-sender/search-sort-paging")]
         public async Task<IActionResult> GetListApplicationBySenderIdSearch(int senderId,ApplicationSearch<ApplicationView> key)
         {
             var result = await service.GetListApplicationBySenderIdSearch(senderId, key);
@@ -34,7 +34,7 @@ namespace AccountManagement.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Manager,Leader")]
-        [HttpGet("applications/recieverId")]
+        [HttpGet("applications/by-reciever/{recieverId}")]
         public async Task<IActionResult> GetListApplicationByRecieverId(int recieverId)
         {
             var result = await service.GetListApplicationByRecieverId(recieverId);
@@ -42,7 +42,7 @@ namespace AccountManagement.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Manager,Leader")]
-        [HttpPost("applications/recieverId/search-sort-paging")]
+        [HttpPost("applications/by-reciever/search-sort-paging")]
         public async Task<IActionResult> GetListApplicationByRecieverIdSearch(int recieverId, ApplicationSearch<ApplicationView> key)
         {
             var result = await service.GetListApplicationByRecieverIdSearch(recieverId, key);
@@ -50,7 +50,7 @@ namespace AccountManagement.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Manager,Leader,Staff")]
-        [HttpGet("application/id")]
+        [HttpGet("application/{id}")]
         public async Task<IActionResult> GetApplicationById(int id)
         {
             var result = await service.GetApplicationById(id);

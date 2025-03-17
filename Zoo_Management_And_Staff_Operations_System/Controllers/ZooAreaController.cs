@@ -36,7 +36,7 @@ namespace AnimalAndCageManagement.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Admin,Manager,Leader,Staff")]
-        [HttpGet("zooArea/id")]
+        [HttpGet("zooArea/{id}")]
         public async Task<IActionResult> GetZooAreaById(int id)
         {
             var result = await service.GetZooAreaById(id);
@@ -60,7 +60,7 @@ namespace AnimalAndCageManagement.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Manager")]
-        [HttpDelete("zooArea/id")]
+        [HttpDelete("zooArea/{id}")]
         public async Task<IActionResult> DeleteZooArea(int id)
         {
             var result = await service.DeleteZooArea(id);

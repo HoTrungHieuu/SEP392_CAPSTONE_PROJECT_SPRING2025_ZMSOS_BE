@@ -36,7 +36,7 @@ namespace AnimalAndCageManagement.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Manager,Leader,Staff")]
-        [HttpGet("animalType/id")]
+        [HttpGet("animalType/{id}")]
         public async Task<IActionResult> GetAnimalTypeById(int id)
         {
             var result = await service.GetAnimalTypeById(id);

@@ -17,7 +17,7 @@ namespace AccountManagement.Controllers
             this.service = service;
         }
         [Authorize(Roles = "Admin,Manager,Leader,Staff")]
-        [HttpGet("user/accountId")]
+        [HttpGet("user/by-account/{accountId}")]
         public async Task<IActionResult> GetUserByAccountId(int accountId)
         {
             var result = await service.GetUserByAccountId(accountId);
@@ -25,7 +25,7 @@ namespace AccountManagement.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Admin,Manager,Leader,Staff")]
-        [HttpPut("user/accountId")]
+        [HttpPut("user/by-account/{accountId}")]
         public async Task<IActionResult> UpdateUser(UserUpdate key)
         {
             var result = await service.UpdateUser(key);

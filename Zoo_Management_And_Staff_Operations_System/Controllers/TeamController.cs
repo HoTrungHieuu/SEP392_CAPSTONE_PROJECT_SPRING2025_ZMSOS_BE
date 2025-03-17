@@ -26,7 +26,7 @@ namespace TeamManagement.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Manager,Leader,Staff")]
-        [HttpGet("team/id")]
+        [HttpGet("team/{id}")]
         public async Task<IActionResult> GetTeamById(int id)
         {
             var result = await service.GetTeamById(id);
@@ -50,7 +50,7 @@ namespace TeamManagement.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Manager,Leader,Staff")]
-        [HttpGet("team/leader/teamId")]
+        [HttpGet("team/leader/by-team/{teamId}")]
         public async Task<IActionResult> GetLeaderByTeamId(int teamId)
         {
             var result = await service.GetLeaderByTeamId(teamId);
@@ -74,7 +74,7 @@ namespace TeamManagement.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Manager,Leader")]
-        [HttpGet("team/members/teamId")]
+        [HttpGet("team/members/by-team/{teamId}")]
         public async Task<IActionResult> GetListMemberByTeamId(int teamId)
         {
             var result = await service.GetListMemberByTeamId(teamId);

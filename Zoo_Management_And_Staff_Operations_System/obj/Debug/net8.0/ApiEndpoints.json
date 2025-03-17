@@ -101,8 +101,45 @@
   },
   {
     "ContainingType": "AnimalAndCageManagement.Controllers.AnimalController",
+    "Method": "GetAnimalById",
+    "RelativePath": "api/Animal/animal/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.AnimalController",
+    "Method": "AddAnimalCage",
+    "RelativePath": "api/Animal/animal/cage/{animalId}/{cageId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "animalId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "cageId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.AnimalController",
     "Method": "RemoveAnimalCage",
-    "RelativePath": "api/Animal/animal/cage/animalId\u0026\u0026cageId",
+    "RelativePath": "api/Animal/animal/cage/{animalId}/{cageId}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -110,12 +147,12 @@
       {
         "Name": "animalId",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       },
       {
         "Name": "cageId",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -143,43 +180,6 @@
   },
   {
     "ContainingType": "AnimalAndCageManagement.Controllers.AnimalController",
-    "Method": "AddAnimalCage",
-    "RelativePath": "api/Animal/animal/cage/animalIds\u0026\u0026cageId",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "animalId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "cageId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "AnimalAndCageManagement.Controllers.AnimalController",
-    "Method": "GetAnimalById",
-    "RelativePath": "api/Animal/animal/id",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "AnimalAndCageManagement.Controllers.AnimalController",
     "Method": "GetListAnimal",
     "RelativePath": "api/Animal/animals",
     "HttpMethod": "GET",
@@ -191,7 +191,7 @@
   {
     "ContainingType": "AnimalAndCageManagement.Controllers.AnimalController",
     "Method": "GetListAnimalByAnimalTypeId",
-    "RelativePath": "api/Animal/animals/animalTypeId",
+    "RelativePath": "api/Animal/animals/by-animalType/{animalTypeId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -199,7 +199,7 @@
       {
         "Name": "animalTypeId",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -207,7 +207,7 @@
   {
     "ContainingType": "AnimalAndCageManagement.Controllers.AnimalController",
     "Method": "GetListAnimalByCageId",
-    "RelativePath": "api/Animal/animals/cageId",
+    "RelativePath": "api/Animal/animals/by-cage/{cageId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -215,7 +215,7 @@
       {
         "Name": "cageId",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -287,7 +287,7 @@
   {
     "ContainingType": "AnimalAndCageManagement.Controllers.AnimalTypeController",
     "Method": "GetAnimalTypeById",
-    "RelativePath": "api/AnimalType/animalType/id",
+    "RelativePath": "api/AnimalType/animalType/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -295,7 +295,7 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -345,7 +345,7 @@
   {
     "ContainingType": "AccountManagement.Controllers.ApplicationController",
     "Method": "GetApplicationById",
-    "RelativePath": "api/Application/application/id",
+    "RelativePath": "api/Application/application/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -353,7 +353,7 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -361,7 +361,7 @@
   {
     "ContainingType": "AccountManagement.Controllers.ApplicationController",
     "Method": "GetListApplicationByRecieverId",
-    "RelativePath": "api/Application/applications/recieverId",
+    "RelativePath": "api/Application/applications/by-reciever/{recieverId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -369,7 +369,7 @@
       {
         "Name": "recieverId",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -377,7 +377,7 @@
   {
     "ContainingType": "AccountManagement.Controllers.ApplicationController",
     "Method": "GetListApplicationByRecieverIdSearch",
-    "RelativePath": "api/Application/applications/recieverId/search-sort-paging",
+    "RelativePath": "api/Application/applications/by-reciever/search-sort-paging",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -398,7 +398,7 @@
   {
     "ContainingType": "AccountManagement.Controllers.ApplicationController",
     "Method": "GetListApplicationBySenderId",
-    "RelativePath": "api/Application/applications/senderId",
+    "RelativePath": "api/Application/applications/by-sender/{senderId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -406,7 +406,7 @@
       {
         "Name": "senderId",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -414,7 +414,7 @@
   {
     "ContainingType": "AccountManagement.Controllers.ApplicationController",
     "Method": "GetListApplicationBySenderIdSearch",
-    "RelativePath": "api/Application/applications/senderId/search-sort-paging",
+    "RelativePath": "api/Application/applications/by-sender/search-sort-paging",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -509,7 +509,7 @@
   {
     "ContainingType": "AnimalAndCageManagement.Controllers.CageController",
     "Method": "GetCageById",
-    "RelativePath": "api/Cage/cage/id",
+    "RelativePath": "api/Cage/cage/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -517,7 +517,7 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -525,7 +525,7 @@
   {
     "ContainingType": "AnimalAndCageManagement.Controllers.CageController",
     "Method": "DeleteCage",
-    "RelativePath": "api/Cage/cage/id",
+    "RelativePath": "api/Cage/cage/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -533,7 +533,7 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -550,6 +550,22 @@
   },
   {
     "ContainingType": "AnimalAndCageManagement.Controllers.CageController",
+    "Method": "GetListCageByZooAreaId",
+    "RelativePath": "api/Cage/cages/by-zooArea/{zooAreaId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "zooAreaId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.CageController",
     "Method": "GetListCageSearch",
     "RelativePath": "api/Cage/cages/search-sort-paging",
     "HttpMethod": "POST",
@@ -560,22 +576,6 @@
         "Name": "key",
         "Type": "DAO.SearchModel.CageSearch\u00601[[DAO.ViewModel.CageView, DAO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "AnimalAndCageManagement.Controllers.CageController",
-    "Method": "GetListCageByZooAreaId",
-    "RelativePath": "api/Cage/cages/zooAreaId",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "zooAreaId",
-        "Type": "System.Int32",
-        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -615,7 +615,7 @@
   {
     "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.FoodController",
     "Method": "GetFoodById",
-    "RelativePath": "api/Food/food/id",
+    "RelativePath": "api/Food/food/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -623,7 +623,7 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -667,7 +667,7 @@
   {
     "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.IncompatibleAnimalTypeController",
     "Method": "GetIncompatibleAnimalTypeById",
-    "RelativePath": "api/IncompatibleAnimalType/ncompatibleAnimalType/id",
+    "RelativePath": "api/IncompatibleAnimalType/ncompatibleAnimalType/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -675,7 +675,7 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -715,7 +715,7 @@
   {
     "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.MealDayController",
     "Method": "GetMealDayById",
-    "RelativePath": "api/MealDay/mealDay/id",
+    "RelativePath": "api/MealDay/mealDay/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -723,7 +723,7 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -741,7 +741,7 @@
   {
     "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.MealDayController",
     "Method": "GetListMealDayByAnimalTypeId",
-    "RelativePath": "api/MealDay/mealDays/animalTypeId",
+    "RelativePath": "api/MealDay/mealDays/by-animalType/{animalTypeId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -749,7 +749,7 @@
       {
         "Name": "animalTypeId",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -789,7 +789,7 @@
   {
     "ContainingType": "AccountManagement.Controllers.NewsController",
     "Method": "GetNewsById",
-    "RelativePath": "api/News/news/id",
+    "RelativePath": "api/News/news/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -797,7 +797,7 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -831,7 +831,7 @@
   {
     "ContainingType": "AccountManagement.Controllers.NotificationController",
     "Method": "GetListNotificationByAccountId",
-    "RelativePath": "api/Notification/notifications/accountId",
+    "RelativePath": "api/Notification/notifications/by-account/{accountId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -839,7 +839,7 @@
       {
         "Name": "accountId",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -863,7 +863,7 @@
   {
     "ContainingType": "AccountManagement.Controllers.ReportController",
     "Method": "GetReportById",
-    "RelativePath": "api/Report/report/id",
+    "RelativePath": "api/Report/report/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -871,7 +871,7 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -879,7 +879,7 @@
   {
     "ContainingType": "AccountManagement.Controllers.ReportController",
     "Method": "GetListReportByRecieverId",
-    "RelativePath": "api/Report/reports/recieverId",
+    "RelativePath": "api/Report/reports/by-reciever/{recieverId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -887,7 +887,7 @@
       {
         "Name": "recieverId",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -895,7 +895,7 @@
   {
     "ContainingType": "AccountManagement.Controllers.ReportController",
     "Method": "GetListReportByRecieverIdSearch",
-    "RelativePath": "api/Report/reports/recieverId/search-sort-paging",
+    "RelativePath": "api/Report/reports/by-reciever/search-sort-paging",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -916,7 +916,7 @@
   {
     "ContainingType": "AccountManagement.Controllers.ReportController",
     "Method": "GetListReportBySenderId",
-    "RelativePath": "api/Report/reports/senderId",
+    "RelativePath": "api/Report/reports/by-sender/{senderId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -924,7 +924,7 @@
       {
         "Name": "senderId",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -932,7 +932,7 @@
   {
     "ContainingType": "AccountManagement.Controllers.ReportController",
     "Method": "GetListReportBySenderIdSearch",
-    "RelativePath": "api/Report/reports/senderId/search-sort-paging",
+    "RelativePath": "api/Report/reports/by-sender/search-sort-paging",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -984,6 +984,22 @@
   },
   {
     "ContainingType": "AccountManagement.Controllers.ScheduleController",
+    "Method": "GetScheduleById",
+    "RelativePath": "api/Schedule/schedule/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.ScheduleController",
     "Method": "AddScheduleAuto",
     "RelativePath": "api/Schedule/schedule/auto",
     "HttpMethod": "POST",
@@ -1000,24 +1016,8 @@
   },
   {
     "ContainingType": "AccountManagement.Controllers.ScheduleController",
-    "Method": "GetScheduleById",
-    "RelativePath": "api/Schedule/schedule/id",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "AccountManagement.Controllers.ScheduleController",
     "Method": "GetListScheduleByAccountId",
-    "RelativePath": "api/Schedule/schedules/accountId",
+    "RelativePath": "api/Schedule/schedules/by-account/{accountId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1025,7 +1025,7 @@
       {
         "Name": "accountId",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -1065,7 +1065,7 @@
   {
     "ContainingType": "AccountManagement.Controllers.TaskController",
     "Method": "GetTaskById",
-    "RelativePath": "api/Task/task/id",
+    "RelativePath": "api/Task/task/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1073,7 +1073,7 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -1081,7 +1081,7 @@
   {
     "ContainingType": "AccountManagement.Controllers.TaskController",
     "Method": "GetListTaskByScheduleId",
-    "RelativePath": "api/Task/tasks/scheduleId",
+    "RelativePath": "api/Task/tasks/by-schedule/{scheduleId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1089,7 +1089,7 @@
       {
         "Name": "scheduleId",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -1129,7 +1129,7 @@
   {
     "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.TaskEstimateController",
     "Method": "GetTaskEstimateById",
-    "RelativePath": "api/TaskEstimate/taskEstimate/id",
+    "RelativePath": "api/TaskEstimate/taskEstimate/{id}",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -1137,7 +1137,7 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -1155,7 +1155,7 @@
   {
     "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.TaskEstimateController",
     "Method": "GetListTaskEstimateByAnimalTypeId",
-    "RelativePath": "api/TaskEstimate/taskEstimates/animalTypeId",
+    "RelativePath": "api/TaskEstimate/taskEstimates/by-adnimalType/{animalTypeId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1163,7 +1163,7 @@
       {
         "Name": "animalTypeId",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -1171,7 +1171,7 @@
   {
     "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.TaskEstimateController",
     "Method": "GetListTaskEstimateByTaskTypeId",
-    "RelativePath": "api/TaskEstimate/taskEstimates/taskTypeId",
+    "RelativePath": "api/TaskEstimate/taskEstimates/by-taskType/{taskTypeId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1179,7 +1179,7 @@
       {
         "Name": "taskTypeId",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -1219,7 +1219,7 @@
   {
     "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.TaskTypeController",
     "Method": "GetTaskTypeById",
-    "RelativePath": "api/TaskType/taskType/id",
+    "RelativePath": "api/TaskType/taskType/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1227,7 +1227,7 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -1277,7 +1277,7 @@
   {
     "ContainingType": "TeamManagement.Controllers.TeamController",
     "Method": "GetTeamById",
-    "RelativePath": "api/Team/team/id",
+    "RelativePath": "api/Team/team/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1285,7 +1285,7 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -1330,7 +1330,7 @@
   {
     "ContainingType": "TeamManagement.Controllers.TeamController",
     "Method": "GetLeaderByTeamId",
-    "RelativePath": "api/Team/team/leader/teamId",
+    "RelativePath": "api/Team/team/leader/by-team/{teamId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1338,7 +1338,7 @@
       {
         "Name": "teamId",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -1383,7 +1383,7 @@
   {
     "ContainingType": "TeamManagement.Controllers.TeamController",
     "Method": "GetListMemberByTeamId",
-    "RelativePath": "api/Team/team/members/teamId",
+    "RelativePath": "api/Team/team/members/by-team/{teamId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1391,7 +1391,7 @@
       {
         "Name": "teamId",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -1409,7 +1409,7 @@
   {
     "ContainingType": "AccountManagement.Controllers.UserController",
     "Method": "GetUserByAccountId",
-    "RelativePath": "api/User/user/accountId",
+    "RelativePath": "api/User/user/by-account/{accountId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1417,7 +1417,7 @@
       {
         "Name": "accountId",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -1425,7 +1425,7 @@
   {
     "ContainingType": "AccountManagement.Controllers.UserController",
     "Method": "UpdateUser",
-    "RelativePath": "api/User/user/accountId",
+    "RelativePath": "api/User/user/by-account/{accountId}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -1433,6 +1433,11 @@
       {
         "Name": "key",
         "Type": "DAO.UpdateModel.UserUpdate",
+        "IsRequired": true
+      },
+      {
+        "Name": "accountId",
+        "Type": "",
         "IsRequired": true
       }
     ],
@@ -1473,7 +1478,7 @@
   {
     "ContainingType": "AnimalAndCageManagement.Controllers.ZooAreaController",
     "Method": "GetZooAreaById",
-    "RelativePath": "api/ZooArea/zooArea/id",
+    "RelativePath": "api/ZooArea/zooArea/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1481,7 +1486,7 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -1489,7 +1494,7 @@
   {
     "ContainingType": "AnimalAndCageManagement.Controllers.ZooAreaController",
     "Method": "DeleteZooArea",
-    "RelativePath": "api/ZooArea/zooArea/id",
+    "RelativePath": "api/ZooArea/zooArea/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -1497,7 +1502,7 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": false
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

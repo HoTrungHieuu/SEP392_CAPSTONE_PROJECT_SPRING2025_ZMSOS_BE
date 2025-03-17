@@ -17,7 +17,7 @@ namespace AccountManagement.Controllers
             this.service = service;
         }
         [Authorize(Roles = "Admin,Manager,Leader,Staff")]
-        [HttpGet("notifications/accountId")]
+        [HttpGet("notifications/by-account/{accountId}")]
         public async Task<IActionResult> GetListNotificationByAccountId(int accountId)
         {
             var result = await service.GetListNotification(accountId);

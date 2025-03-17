@@ -25,7 +25,7 @@ namespace Zoo_Management_And_Staff_Operations_System.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
-        [HttpGet("mealDays/animalTypeId")]
+        [HttpGet("mealDays/by-animalType/{animalTypeId}")]
         public async Task<IActionResult> GetListMealDayByAnimalTypeId(int animalTypeId)
         {
             var result = await service.GetListMealDayByAnimalTypeId(animalTypeId);
@@ -33,7 +33,7 @@ namespace Zoo_Management_And_Staff_Operations_System.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Admin,Manager,Leader,Staff")]
-        [HttpGet("mealDay/id")]
+        [HttpGet("mealDay/{id}")]
         public async Task<IActionResult> GetMealDayById(int id)
         {
             var result = await service.GeMealDayById(id);

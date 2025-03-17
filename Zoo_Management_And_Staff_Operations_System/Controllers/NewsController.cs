@@ -25,7 +25,7 @@ namespace AccountManagement.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Admin,Manager,Leader,Staff")]
-        [HttpGet("news/id")]
+        [HttpGet("news/{id}")]
         public async Task<IActionResult> GetNewsById(int id)
         {
             var result = await service.GetNewsById(id);

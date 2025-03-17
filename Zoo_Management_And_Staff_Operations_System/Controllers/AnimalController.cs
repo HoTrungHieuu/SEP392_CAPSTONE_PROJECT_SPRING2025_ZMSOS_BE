@@ -36,7 +36,7 @@ namespace AnimalAndCageManagement.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Manager,Leader,Staff")]
-        [HttpGet("animals/animalTypeId")]
+        [HttpGet("animals/by-animalType/{animalTypeId}")]
         public async Task<IActionResult> GetListAnimalByAnimalTypeId(int animalTypeId)
         {
             var result = await service.GetListAnimalByAnimalTypeId(animalTypeId);
@@ -44,7 +44,7 @@ namespace AnimalAndCageManagement.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Manager,Leader,Staff")]
-        [HttpGet("animals/cageId")]
+        [HttpGet("animals/by-cage/{cageId}")]
         public async Task<IActionResult> GetListAnimalByCageId(int cageId)
         {
             var result = await service.GetListAnimalByCageId(cageId);
@@ -52,7 +52,7 @@ namespace AnimalAndCageManagement.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Manager,Leader,Staff")]
-        [HttpGet("animal/id")]
+        [HttpGet("animal/{id}")]
         public async Task<IActionResult> GetAnimalById(int id)
         {
             var result = await service.GetAnimalById(id);
@@ -76,7 +76,7 @@ namespace AnimalAndCageManagement.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Manager")]
-        [HttpPost("animal/cage/animalIds&&cageId")]
+        [HttpPost("animal/cage/{animalId}/{cageId}")]
         public async Task<IActionResult> AddAnimalCage(int animalId, int cageId)
         {
             var result = await service.AddAnimalCage(animalId, cageId);
@@ -84,7 +84,7 @@ namespace AnimalAndCageManagement.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Manager")]
-        [HttpDelete("animal/cage/animalId&&cageId")]
+        [HttpDelete("animal/cage/{animalId}/{cageId}")]
         public async Task<IActionResult> RemoveAnimalCage(int animalId, int cageId)
         {
             var result = await service.RemoveAnimalCage(animalId, cageId);

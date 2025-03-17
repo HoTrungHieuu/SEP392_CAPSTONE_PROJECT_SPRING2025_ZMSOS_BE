@@ -28,7 +28,7 @@ namespace Zoo_Management_And_Staff_Operations_System.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Admin,Manager,Leader,Staff")]
-        [HttpGet("food/id")]
+        [HttpGet("food/{id}")]
         public async Task<IActionResult> GetFoodById(int id)
         {
             var result = await service.GeFoodById(id);

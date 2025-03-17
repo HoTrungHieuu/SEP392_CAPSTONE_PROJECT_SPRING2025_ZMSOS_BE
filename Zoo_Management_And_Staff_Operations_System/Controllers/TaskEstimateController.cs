@@ -26,7 +26,7 @@ namespace Zoo_Management_And_Staff_Operations_System.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Admin,Manager,Leader,Staff")]
-        [HttpGet("taskEstimates/taskTypeId")]
+        [HttpGet("taskEstimates/by-taskType/{taskTypeId}")]
         public async Task<IActionResult> GetListTaskEstimateByTaskTypeId(int taskTypeId)
         {
             var result = await service.GetListTaskEstimateByTaskTypeId(taskTypeId);
@@ -34,7 +34,7 @@ namespace Zoo_Management_And_Staff_Operations_System.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Admin,Manager,Leader,Staff")]
-        [HttpGet("taskEstimates/animalTypeId")]
+        [HttpGet("taskEstimates/by-adnimalType/{animalTypeId}")]
         public async Task<IActionResult> GetListTaskEstimateByAnimalTypeId(int animalTypeId)
         {
             var result = await service.GetListTaskEstimateByAnimalTypeId(animalTypeId);
@@ -42,7 +42,7 @@ namespace Zoo_Management_And_Staff_Operations_System.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Admin,Manager,Leader,Staff")]
-        [HttpPost("taskEstimate/id")]
+        [HttpPost("taskEstimate/{id}")]
         public async Task<IActionResult> GetTaskEstimateById(int id)
         {
             var result = await service.GetTaskEstimateById(id);

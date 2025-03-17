@@ -17,7 +17,7 @@ namespace AccountManagement.Controllers
             this.service = service;
         }
         [Authorize(Roles = "Admin,Manager,Leader,Staff")]
-        [HttpGet("schedules/accountId")]
+        [HttpGet("schedules/by-account/{accountId}")]
         public async Task<IActionResult> GetListScheduleByAccountId(int accountId)
         {
             var result = await service.GetListScheduleByAccountId(accountId);
@@ -25,7 +25,7 @@ namespace AccountManagement.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Admin,Manager,Leader,Staff")]
-        [HttpGet("schedule/id")]
+        [HttpGet("schedule/{id}")]
         public async Task<IActionResult> GetScheduleById(int id)
         {
             var result = await service.GetScheduleById(id);

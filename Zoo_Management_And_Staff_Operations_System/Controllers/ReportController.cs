@@ -18,7 +18,7 @@ namespace AccountManagement.Controllers
             this.service = service;
         }
         [Authorize(Roles = "Admin,Manager,Leader,Staff")]
-        [HttpGet("reports/senderId")]
+        [HttpGet("reports/by-sender/{senderId}")]
         public async Task<IActionResult> GetListReportBySenderId(int senderId)
         {
             var result = await service.GetListReportBySenderId(senderId);
@@ -26,7 +26,7 @@ namespace AccountManagement.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Admin,Manager,Leader,Staff")]
-        [HttpPost("reports/senderId/search-sort-paging")]
+        [HttpPost("reports/by-sender/search-sort-paging")]
         public async Task<IActionResult> GetListReportBySenderIdSearch(int senderId, ReportSearch<ReportView> key)
         {
             var result = await service.GetListReportBySenderIdSearch(senderId, key);
@@ -34,7 +34,7 @@ namespace AccountManagement.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Admin,Manager,Leader,Staff")]
-        [HttpGet("reports/recieverId")]
+        [HttpGet("reports/by-reciever/{recieverId}")]
         public async Task<IActionResult> GetListReportByRecieverId(int recieverId)
         {
             var result = await service.GetListReportByRecieverId(recieverId);
@@ -42,7 +42,7 @@ namespace AccountManagement.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Admin,Manager,Leader,Staff")]
-        [HttpPost("reports/recieverId/search-sort-paging")]
+        [HttpPost("reports/by-reciever/search-sort-paging")]
         public async Task<IActionResult> GetListReportByRecieverIdSearch(int recieverId, ReportSearch<ReportView> key)
         {
             var result = await service.GetListReportByRecieverIdSearch(recieverId, key);
@@ -50,7 +50,7 @@ namespace AccountManagement.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Admin,Manager,Leader,Staff")]
-        [HttpGet("report/id")]
+        [HttpGet("report/{id}")]
         public async Task<IActionResult> GetReportById(int id)
         {
             var result = await service.GetReportById(id);
