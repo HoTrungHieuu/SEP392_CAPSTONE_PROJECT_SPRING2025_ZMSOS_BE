@@ -15,7 +15,6 @@ namespace DAO.ViewModel
         public string? Gender { get; set; }  
         public string? Weight {  get; set; }
         public string? Height {  get; set; }
-        public DateOnly? ArrivalDate {  get; set; }
         public string? Note {  get; set; }
         public string? Status {  get; set; }
         public void ConvertIndividualIntoIndividualView(Individual key)
@@ -26,7 +25,6 @@ namespace DAO.ViewModel
             Gender = key.Gender;
             Weight = key.Weight;
             Height = key.Height;
-            ArrivalDate = key.ArrivalDate;
             Note = key.Notes;
             Status = key.Status;
         }

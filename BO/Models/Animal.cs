@@ -15,6 +15,8 @@ public partial class Animal
 
     public string Description { get; set; }
 
+    public DateOnly? ArrivalDate { get; set; }
+
     public string Classify { get; set; }
 
     public string Status { get; set; }

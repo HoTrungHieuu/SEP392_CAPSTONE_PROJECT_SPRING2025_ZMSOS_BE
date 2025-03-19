@@ -18,7 +18,7 @@ namespace DAO.ViewModel
 
         public double? TotalCalo { get; set; }
 
-        public DateTime? PeriodOfTime { get; set; }
+        public TimeSpan? PeriodOfTime { get; set; }
 
         public TimeOnly? TimeStartInDay { get; set; }
 
@@ -31,7 +31,7 @@ namespace DAO.ViewModel
             Id = key.Id;
             Name = key.Name;
             TotalCalo = key.TotalCalo;
-            PeriodOfTime = key.PeriodOfTime;
+            PeriodOfTime = (key.PeriodOfTime != null) ? TimeSpan.Parse(key.PeriodOfTime):null;
             TimeStartInDay = key.TimeStartInDay;
             TimeEndInDay = key.TimeEndInDay;
             Status = key.Status;

@@ -1,4 +1,6 @@
-﻿using DAO.AddModel;
+﻿using BO.Models;
+using DAO.AddModel;
+using DAO.OtherModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
 using Repository.IRepository;
@@ -17,13 +19,15 @@ namespace Service.Service
         public ITaskRepository repo;
         public IAnimalCageRepository animalCageRepo;
         public IAnimalAssignRepository animalAssignRepo;
+        public ITaskMealRepository taskMealRepo;
         public IObjectViewService objectViewService;
-        public TaskService(ITaskRepository repo, IAnimalCageRepository animalCageRepo, IAnimalAssignRepository animalAssignRepo, IObjectViewService objectViewService)
+        public TaskService(ITaskRepository repo, IAnimalCageRepository animalCageRepo, IAnimalAssignRepository animalAssignRepo, IObjectViewService objectViewService, ITaskMealRepository taskMealRepo)
         {
             this.repo = repo;
             this.animalCageRepo = animalCageRepo;
             this.animalAssignRepo = animalAssignRepo;
             this.objectViewService = objectViewService;
+            this.taskMealRepo = taskMealRepo;
         }
         public async Task<ServiceResult> GetListTaskByScheduleId(int scheduleId)
         {
@@ -93,29 +97,21 @@ namespace Service.Service
                 var task = await repo.AddTask(key);
                 foreach (var item1 in key.AnimalTasksId)
                 {
-                    List<int?> animalCageIds = new();
-                    if(item1.AnimalIds.Count == 0)
+                    List<(int?,TaskMealAdd?)> animalCageIds = new();
+                    foreach (var item2 in item1.AnimalMealIds)
                     {
-                        animalCageIds = await animalCageRepo.GetListAnimalCageIdByCageId(item1.CageId);
-                    }
-                    else
-                    {
-                        foreach (var item2 in item1.AnimalIds)
-                        {
-                            animalCageIds.Add(await animalCageRepo.GetAnimalCageIdByCageIdAndAnimalId(item1.CageId, item2));
-                        }
+                        animalCageIds.Add((await animalCageRepo.GetAnimalCageIdByCageIdAndAnimalId(item1.CageId, item2.AnimalId), item2.TaskMeal));
                     }
 
                     foreach (var item3 in animalCageIds)
                     {
-                        if (item3 != null)
+                        if (item3.Item1 != null)
                         {
-                            await animalAssignRepo.AddAnimalAssign(task.Id, (int)item3);
+                            var animalAssign = await animalAssignRepo.AddAnimalAssign(task.Id, (int)item3.Item1);
+                            await taskMealRepo.AddTaskMeal(animalAssign.Id, item3.Item2);
                         }
                     }
                 }
-
-
                 return new ServiceResult
                 {
                     Status = 200,
@@ -158,6 +154,60 @@ namespace Service.Service
                     Message = ex.ToString(),
                 };
             }
+        }
+        public async Task<ServiceResult> AddTaskAutomatic(AnimalTaskMealSchdule key)
+        {
+            try
+            {
+                List<List<System.Threading.Tasks.Task>> tt = new();
+                foreach(var item1 in key.AnimalTasksId)
+                {
+                    List<System.Threading.Tasks.Task> t = new();
+
+                }
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "Add Success",
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
+        private List<DateTime> GetListDateTimeDayMeal(DateOnly fromDate, DateOnly toDate, MealDay key)
+        {
+            List<DateTime> result = new List<DateTime>();
+            TimeSpan periodOfTime = TimeSpan.Parse(key.PeriodOfTime);
+            TimeOnly timeStart = (TimeOnly)key.TimeStartInDay;
+            int count = 0;
+            for (DateOnly date = fromDate; date <= toDate; date = date.AddDays(1 + count+periodOfTime.Days))
+            {
+                while(timeStart <= (TimeOnly)key.TimeEndInDay)
+                {
+                    result.Add(date.ToDateTime(timeStart));
+                    timeStart = TimeOnly.FromTimeSpan(timeStart.ToTimeSpan() + new TimeSpan(hours: periodOfTime.Hours, 0 , 0));
+                    if (periodOfTime.Days > 0)
+                    {
+                        break;
+                    }
+                }
+                if(timeStart > (TimeOnly)key.TimeEndInDay)
+                {
+                    timeStart = (TimeOnly)key.TimeStartInDay;
+                    count = 0;
+                }
+                else
+                {
+                    count = -1;
+                }
+            }
+            return result;
         }
     }
 }

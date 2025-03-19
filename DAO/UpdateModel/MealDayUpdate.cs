@@ -14,7 +14,7 @@ namespace DAO.UpdateModel
 
         public string? Name { get; set; }
 
-        public DateTime? PeriodOfTime { get; set; }
+        public TimeSpan? PeriodOfTime { get; set; }
 
         public TimeOnly? TimeStartInDay { get; set; }
 

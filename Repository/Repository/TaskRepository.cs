@@ -39,7 +39,7 @@ namespace Repository.Repository
                     Description = key.Description,
                     Note = key.Note,
                     TimeStart = key.TimeStart,
-                    TimeEnd = key.TimeEnd,
+                    TimeFinish = null,
                     Status = null
                 };
                 await CreateAsync(task);
@@ -63,7 +63,7 @@ namespace Repository.Repository
                 task.Description = key.Description;
                 task.Note = key.Note;
                 task.TimeStart = key.TimeStart;
-                task.TimeEnd = key.TimeEnd;
+                task.TimeFinish = TimeOnly.FromDateTime(DateTime.Now);
                 await UpdateAsync(task);
                 return task;
             }

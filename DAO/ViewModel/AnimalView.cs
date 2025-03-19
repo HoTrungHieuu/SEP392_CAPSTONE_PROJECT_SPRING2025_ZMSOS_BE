@@ -20,6 +20,7 @@ namespace DAO.ViewModel
         public FlockView? Flock { get; set; }
         public string? Name {  get; set; }
         public string? Description { get; set; }
+        public DateOnly? ArrivalDate { get; set; }
         public string? Classify {  get; set; }
         public CageView? Cage { get; set; }
         public string? Status {  get; set; }
@@ -29,6 +30,7 @@ namespace DAO.ViewModel
             Id = key.Id;
             Description = key.Description;
             Classify = key.Classify;
+            ArrivalDate = key.ArrivalDate;
             AnimalType = animalType;
             Individual = individual;
             Flock = flock;

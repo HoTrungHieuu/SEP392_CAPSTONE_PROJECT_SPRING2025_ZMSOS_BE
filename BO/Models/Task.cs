@@ -23,7 +23,7 @@ public partial class Task
 
     public TimeOnly? TimeStart { get; set; }
 
-    public TimeOnly? TimeEnd { get; set; }
+    public TimeOnly? TimeFinish { get; set; }
 
     public string Status { get; set; }
 

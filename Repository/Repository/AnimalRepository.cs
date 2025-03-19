@@ -49,6 +49,7 @@ namespace Repository.Repository
                     AnimalTypeId = key.AnimalTypeId,
                     Name = key.Name,
                     Description = key.Description,
+                    ArrivalDate = key.ArrivalDate,
                     Classify = key.Classify,
                     Status = key.Status
                 };

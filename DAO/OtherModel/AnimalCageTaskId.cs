@@ -10,6 +10,6 @@ namespace DAO.OtherModel
     public class AnimalCageTaskId
     {
         public int CageId { get; set; }
-        public List<int> AnimalIds { get; set; }
+        public List<AnimalMealId>? AnimalMealIds { get; set; }
     }
 }

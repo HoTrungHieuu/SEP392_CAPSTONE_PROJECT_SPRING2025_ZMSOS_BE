@@ -15,7 +15,7 @@ public partial class MealDay
 
     public double? TotalCalo { get; set; }
 
-    public DateTime? PeriodOfTime { get; set; }
+    public string PeriodOfTime { get; set; }
 
     public TimeOnly? TimeStartInDay { get; set; }
 

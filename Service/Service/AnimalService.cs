@@ -108,17 +108,6 @@ namespace Service.Service
                             result.OrderByDescending(l => l.Individual?.Age);
                         }
                     }
-                    else if (key.Sorting?.PropertySort == "ArrivalDate")
-                    {
-                        if (key.Sorting.IsAsc)
-                        {
-                            result.OrderBy(l => l.Individual?.ArrivalDate);
-                        }
-                        else
-                        {
-                            result.OrderByDescending(l => l.Individual?.ArrivalDate);
-                        }
-                    }
                 }
                 if(key.Sorting?.PropertySort == "Id")
                 {

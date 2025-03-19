@@ -40,7 +40,6 @@ namespace Repository.Repository
                     Gender = key.Gender,
                     Weight = key.Weight,
                     Height = key.Height,
-                    ArrivalDate = key.ArrivalDate,
                     Notes = key.Note,
                     Status = null,
                 };
@@ -63,7 +62,6 @@ namespace Repository.Repository
                 individual.Gender = key.Gender;
                 individual.Weight = key.Weight;
                 individual.Height = key.Height;
-                individual.ArrivalDate = key.ArrivalDate;
                 individual.Notes = key.Note;
                 await UpdateAsync(individual);
                 return individual;

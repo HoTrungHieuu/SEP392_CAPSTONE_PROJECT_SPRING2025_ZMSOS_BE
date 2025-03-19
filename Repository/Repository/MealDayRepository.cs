@@ -38,7 +38,7 @@ namespace Repository.Repository
                 {
                     AnimalTypeId = key.AnimalTypeId,
                     Name = key.Name,
-                    PeriodOfTime = key.PeriodOfTime,
+                    PeriodOfTime = key.PeriodOfTime.ToString(),
                     TimeStartInDay = key.TimeStartInDay,
                     TimeEndInDay = key.TimeEndInDay,
                     Status = "Active"
@@ -61,7 +61,7 @@ namespace Repository.Repository
                     return null;
                 }
                 mealDay.Name = key.Name;
-                mealDay.PeriodOfTime = key.PeriodOfTime;
+                mealDay.PeriodOfTime = key.PeriodOfTime.ToString();
                 mealDay.TimeStartInDay = key.TimeStartInDay;
                 mealDay.TimeEndInDay = key.TimeEndInDay;
                 await UpdateAsync(mealDay);
