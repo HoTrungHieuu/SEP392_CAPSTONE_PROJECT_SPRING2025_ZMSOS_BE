@@ -51,5 +51,12 @@ namespace Zoo_Management_And_Staff_Operations_System.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [HttpDelete("food/id/{foodId}")]
+        public async Task<IActionResult> DeleteFood(int foodId)
+        {
+            var result = await service.DeleteFood(foodId);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
     }
 }

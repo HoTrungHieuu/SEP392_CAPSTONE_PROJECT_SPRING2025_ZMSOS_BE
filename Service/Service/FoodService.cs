@@ -133,5 +133,34 @@ namespace Service.Service
                 };
             }
         }
+        public async Task<ServiceResult> DeleteFood(int foodId)
+        {
+            try
+            {
+                var food = repo.GetById(foodId);
+                if (food == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Not Found"
+                    };
+                }
+                await repo.RemoveAsync(food);
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "Delete Success",
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
     }
 }

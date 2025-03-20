@@ -16,6 +16,5 @@ namespace DAO.AddModel
         public FlockAdd? Flock { get; set; }
         public IndividualAdd? Individual { get; set; }
         public List<string>? UrlImages {  get; set; }
-        public string? Status { get; set; }
     }
 }

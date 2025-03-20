@@ -14,5 +14,7 @@ namespace Service.IService
         public Task<ServiceResult> GeFoodById(int id);
         public Task<ServiceResult> AddFood(FoodAdd key);
         public Task<ServiceResult> UpdateFood(FoodUpdate key);
+        public Task<ServiceResult> DeleteFood(int foodId);
+
     }
 }

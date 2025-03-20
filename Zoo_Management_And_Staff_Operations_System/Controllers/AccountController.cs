@@ -89,5 +89,12 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [HttpDelete("account/id/{accountId}")]
+        public async Task<IActionResult> DeleteAccount(int accountId)
+        {
+            var result = await service.DeleteAccount(accountId);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
     }
 }

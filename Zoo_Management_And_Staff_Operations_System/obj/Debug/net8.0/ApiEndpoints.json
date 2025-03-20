@@ -33,6 +33,22 @@
   },
   {
     "ContainingType": "AccountManagement.Controllers.AccountController",
+    "Method": "DeleteAccount",
+    "RelativePath": "api/Account/account/id/{accountId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "accountId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.AccountController",
     "Method": "Login",
     "RelativePath": "api/Account/account/login",
     "HttpMethod": "POST",
@@ -174,6 +190,22 @@
         "Name": "cageId",
         "Type": "System.Int32",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.AnimalController",
+    "Method": "DeleteAnimal",
+    "RelativePath": "api/Animal/animal/id/{animalId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "animalId",
+        "Type": "System.Int32",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -622,6 +654,22 @@
     "Parameters": [
       {
         "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.FoodController",
+    "Method": "DeleteFood",
+    "RelativePath": "api/Food/food/id/{foodId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "foodId",
         "Type": "System.Int32",
         "IsRequired": true
       }

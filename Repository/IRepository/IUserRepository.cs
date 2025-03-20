@@ -13,5 +13,6 @@ namespace Repository.IRepositoyr
     {
         public UserView ConvertUserIntoUserView(User user);
         public Task<User?> GetUserByAccountId(int accountId);
+        public System.Threading.Tasks.Task DeleteUserByAccountId(int accountId);
     }
 }

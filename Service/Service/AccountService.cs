@@ -116,6 +116,7 @@ namespace Service.Service
                 User user = new User()
                 {
                     AccountId = accountView.Id,
+                    FullName = key.FullName,
                     Address = key.Address,
                     PhoneNumber = key.PhoneNumber,
                     Gender = key.Gender,
@@ -162,6 +163,38 @@ namespace Service.Service
                     Status = 200,
                     Message = "Update Success",
                     Data = accountView
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
+        public async Task<ServiceResult> DeleteAccount(int accountId)
+        {
+            try
+            {
+                var account = repo.GetById(accountId);
+                if (account == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Account Not Found!",
+                    };
+                }
+
+                await userRepo.DeleteUserByAccountId(accountId);
+                await repo.RemoveAsync(account);
+
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "Delete Success",
                 };
             }
             catch (Exception ex)

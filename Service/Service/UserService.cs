@@ -64,8 +64,10 @@ namespace Service.Service
                         Message = "Not Found!",
                     };
                 }
+                user.FullName = key.FullName;
                 user.Address = key.Address;
                 user.PhoneNumber = key.PhoneNumber;
+                user.Experience = key.Experience;
                 user.Gender = key.Gender;
                 user.AvartarUrl = key.AvartarUrl;
                 await repo.UpdateAsync(user);

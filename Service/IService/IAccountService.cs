@@ -14,6 +14,7 @@ namespace Service.IService
         public Task<ServiceResult> Login(string email, string password);
         public Task<ServiceResult> CreateAccount(AccountCreate key);
         public Task<ServiceResult> UpdateAccount(AccountUpdate key);
+        public Task<ServiceResult> DeleteAccount(int accountId);
         public Task<ServiceResult> GetListRole();
     }
 }

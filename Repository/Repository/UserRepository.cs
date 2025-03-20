@@ -39,5 +39,18 @@ namespace Repository.Repository
                 throw;
             }
         }
+        public async System.Threading.Tasks.Task DeleteUserByAccountId(int accountId)
+        {
+            try
+            {
+                var user = (await GetAllAsync()).FirstOrDefault(l => l.AccountId == accountId);
+                if (user == null) return;
+                await RemoveAsync(user);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
