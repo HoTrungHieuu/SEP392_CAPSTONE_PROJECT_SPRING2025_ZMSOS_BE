@@ -19,12 +19,12 @@ namespace Repository.Repository
             var account = (await GetAllAsync()).FirstOrDefault(l => l.RoleId == 2);
             return account;
         }
-        public AccountView ConvertAccountIntoAccountView(Account account, RoleView role)
+        public AccountView ConvertAccountIntoAccountView(Account account, RoleView role, UserView user)
         {
             try
             {
                 AccountView result = new AccountView();
-                result.ConvertAccountIntoAccountView(account, role);
+                result.ConvertAccountIntoAccountView(account, role, user);
                 return result;
             }
             catch (Exception)

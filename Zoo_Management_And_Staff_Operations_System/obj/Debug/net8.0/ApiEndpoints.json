@@ -1361,6 +1361,16 @@
   },
   {
     "ContainingType": "TeamManagement.Controllers.TeamController",
+    "Method": "GetUnassignedLeaderAccounts",
+    "RelativePath": "api/Team/team/leaders-unassign",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeamManagement.Controllers.TeamController",
     "Method": "AddMember",
     "RelativePath": "api/Team/team/member",
     "HttpMethod": "POST",
@@ -1410,6 +1420,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeamManagement.Controllers.TeamController",
+    "Method": "GetUnassignedStaffAccounts",
+    "RelativePath": "api/Team/team/staffs-unassign",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {

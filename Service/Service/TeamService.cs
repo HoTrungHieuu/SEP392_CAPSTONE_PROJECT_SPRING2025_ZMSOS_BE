@@ -1,4 +1,5 @@
-﻿using DAO.AddModel;
+﻿using BO.Models;
+using DAO.AddModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
 using Repository.IRepository;
@@ -19,13 +20,15 @@ namespace Service.Service
         public ITeamRepository repo;
         public ILeaderAssignRepository leaderRepo;
         public IMemberAssignRepository memberRepo;
+        public IAccountRepository accountRepo;
         public IObjectViewService objectViewService;
-        public TeamService(ITeamRepository repo, ILeaderAssignRepository leaderRepo, IMemberAssignRepository memberRepo, IObjectViewService objectViewService)
+        public TeamService(ITeamRepository repo, ILeaderAssignRepository leaderRepo, IMemberAssignRepository memberRepo, IObjectViewService objectViewService, IAccountRepository accountRepo)
         {
             this.repo = repo;
             this.leaderRepo = leaderRepo;
             this.memberRepo = memberRepo;
             this.objectViewService = objectViewService;
+            this.accountRepo = accountRepo;
         }
         public async Task<ServiceResult> GetListTeam()
         {
@@ -128,6 +131,84 @@ namespace Service.Service
                     Status = 200,
                     Message = "Update Success",
                     Data = team
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
+        public async Task<ServiceResult> GetUnassignedLeaderAccounts()
+        {
+            try
+            {
+                var accounts = (await accountRepo.GetAllAsync()).FindAll(l=>l.RoleId == 3);
+                if (accounts == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Not Found!",
+                    };
+                }
+                List<Account> accountResult = new();
+                foreach(var account in accounts)
+                {
+                    var leaderAssign = await leaderRepo.GetLeaderAssignByAccountId(account.Id);
+                    if(leaderAssign == null)
+                    {
+                        accountResult.Add(account);
+                    }
+                }
+                var result = await objectViewService.GetListAccountView(accountResult);
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "List Account",
+                    Data = result
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
+        public async Task<ServiceResult> GetUnassignedStaffAccounts()
+        {
+            try
+            {
+                var accounts = (await accountRepo.GetAllAsync()).FindAll(l => l.RoleId == 4);
+                if (accounts == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Not Found!",
+                    };
+                }
+                List<Account> accountResult = new();
+                foreach (var account in accounts)
+                {
+                    var leaderAssign = await leaderRepo.GetLeaderAssignByAccountId(account.Id);
+                    if (leaderAssign == null)
+                    {
+                        accountResult.Add(account);
+                    }
+                }
+                var result = await objectViewService.GetListAccountView(accountResult);
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "List Account",
+                    Data = result
                 };
             }
             catch (Exception ex)

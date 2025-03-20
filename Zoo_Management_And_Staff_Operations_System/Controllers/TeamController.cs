@@ -49,6 +49,22 @@ namespace TeamManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager")]
+        [HttpGet("team/leaders-unassign")]
+        public async Task<IActionResult> GetUnassignedLeaderAccounts()
+        {
+            var result = await service.GetUnassignedLeaderAccounts();
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
+        [Authorize(Roles = "Manager")]
+        [HttpGet("team/staffs-unassign")]
+        public async Task<IActionResult> GetUnassignedStaffAccounts()
+        {
+            var result = await service.GetUnassignedStaffAccounts();
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
         [Authorize(Roles = "Manager,Leader,Staff")]
         [HttpGet("team/leader/by-team/{teamId}")]
         public async Task<IActionResult> GetLeaderByTeamId(int teamId)

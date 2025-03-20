@@ -298,7 +298,9 @@ namespace Service.Service
         {
             RoleView role = new RoleView();
             role = await GetRoleView(roleRepo.GetById(account.RoleId));
-            var result = accountRepo.ConvertAccountIntoAccountView(account, role);
+            UserView user = new UserView();
+            user = await GetUserView(await userRepo.GetUserByAccountId(account.Id));
+            var result = accountRepo.ConvertAccountIntoAccountView(account, role, user);
             return result;
         }
         public async Task<UserView> GetUserView(User user)

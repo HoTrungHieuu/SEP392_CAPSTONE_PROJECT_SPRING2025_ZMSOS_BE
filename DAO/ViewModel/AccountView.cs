@@ -14,13 +14,14 @@ namespace DAO.ViewModel
     {
         public int Id { get; set; }
         public RoleView? Role {  get; set; }
+        public UserView? User { get; set; }
         public string? Email { get; set; }
         public DateOnly? DateCreated { get; set; }
         public DateOnly? DateUpdated { get; set; }
         public string? Status {  get; set; }
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? JwtToken { get; set; }
-        public void ConvertAccountIntoAccountView(Account key, RoleView role)
+        public void ConvertAccountIntoAccountView(Account key, RoleView role, UserView user)
         {
             Id = key.Id;
             Email = key.Email;
@@ -28,6 +29,7 @@ namespace DAO.ViewModel
             DateUpdated = key.UpdatedDate;
             Status = key.Status;
             Role = role;
+            User = user;
         }
     }
 }

@@ -14,6 +14,8 @@ namespace Service.IService
         public Task<ServiceResult> GetTeamById(int id);
         public Task<ServiceResult> AddTeam(TeamAdd key);
         public Task<ServiceResult> UpdateTeam(TeamUpdate key);
+        public Task<ServiceResult> GetUnassignedLeaderAccounts();
+        public Task<ServiceResult> GetUnassignedStaffAccounts();
         public Task<ServiceResult> GetLeaderByTeamId(int teamId);
         public Task<ServiceResult> AddLeaderAssign(LeaderAssignAdd key);
         public Task<ServiceResult> RemoveLeader(int accountId, int teamId);
