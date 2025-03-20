@@ -51,7 +51,6 @@ namespace Repository.Repository
                     Description = key.Description,
                     ArrivalDate = key.ArrivalDate,
                     Classify = key.Classify,
-                    Status = key.Status
                 };
                 await CreateAsync(animal);
                 return animal;
@@ -71,7 +70,6 @@ namespace Repository.Repository
                 animal.Name = key.Name;
                 animal.Description = key.Description;
                 animal.Classify = key.Classify;
-                animal.Status = key.Status;
                 await UpdateAsync(animal);
                 return animal;
             }

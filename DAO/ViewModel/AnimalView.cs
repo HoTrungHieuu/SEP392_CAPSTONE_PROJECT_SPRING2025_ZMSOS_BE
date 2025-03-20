@@ -23,7 +23,6 @@ namespace DAO.ViewModel
         public DateOnly? ArrivalDate { get; set; }
         public string? Classify {  get; set; }
         public CageView? Cage { get; set; }
-        public string? Status {  get; set; }
         public List<string>? UrlImages { get; set; }
         public void ConvertAnimalIntoAnimalView(Animal key,AnimalTypeView animalType,FlockView flock, IndividualView individual, CageView cage, List<string> urlImages)
         {
@@ -36,7 +35,6 @@ namespace DAO.ViewModel
             Flock = flock;
             Cage = cage;
             UrlImages = urlImages;
-            Status = key.Status;
         }
     }
 }
