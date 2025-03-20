@@ -206,8 +206,11 @@ namespace Service.Service
         }
         public async Task<TaskView> GetTaskView(BO.Models.Task task)
         {
-            TaskTypeView taskType = new();
-            taskType = await GetTaskTypeView(taskTypeRepo.GetById((int)task.TaskTypeId));
+            TaskTypeView? taskType = new();
+            if(task.TaskTypeId != null)
+            {
+                taskType = await GetTaskTypeView(taskTypeRepo.GetById((int)task.TaskTypeId));
+            }
             var animalAssigns = await animalAssignRepo.GetListAnimalAssignByTaskId(task.Id);
             if(animalAssigns == null)
             {

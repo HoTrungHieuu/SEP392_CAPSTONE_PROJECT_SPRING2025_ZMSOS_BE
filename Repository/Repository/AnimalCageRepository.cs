@@ -45,7 +45,6 @@ namespace Repository.Repository
             try
             {
                 var animalCage = (await GetAllAsync()).FirstOrDefault(l => l.CageId == cageId && l.AnimalId == animalId && l.ToDate == null);
-                if (animalCage != null) return null;
                 return animalCage.Id;
             }
             catch (Exception)

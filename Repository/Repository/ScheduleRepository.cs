@@ -54,7 +54,7 @@ namespace Repository.Repository
             {
                 for (DateOnly date = (DateOnly)key.FromDate; date <= key.ToDate; date = date.AddDays(1))
                 {
-                    if(Day.CheckDateOfWeek(date, key.DayOfWeek) && !key.DateExclution.Contains(date))
+                    if(Day.CheckDateOfWeek(date, key.DayOfWeek) && key.DateExclution!=null && !key.DateExclution.Contains(date))
                     {
                         Schedule schedule = new()
                         {

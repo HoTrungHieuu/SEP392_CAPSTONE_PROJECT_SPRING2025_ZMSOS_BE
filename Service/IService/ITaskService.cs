@@ -1,4 +1,5 @@
 ﻿using DAO.AddModel;
+using DAO.OtherModel;
 using DAO.UpdateModel;
 using System;
 using System.Collections.Generic;
@@ -14,5 +15,6 @@ namespace Service.IService
         public Task<ServiceResult> GetTaskById(int id);
         public Task<ServiceResult> AddTask(TaskAdd key);
         public Task<ServiceResult> UpdateTask(TaskUpdate key);
+        public Task<ServiceResult> AddTaskAutomatic(AnimalTaskMealSchdule key);
     }
 }

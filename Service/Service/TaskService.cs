@@ -3,6 +3,7 @@ using DAO.AddModel;
 using DAO.OtherModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Repository.IRepository;
 using Repository.IRepositoyr;
 using Service.IService;
@@ -17,17 +18,23 @@ namespace Service.Service
     public class TaskService : ITaskService
     {
         public ITaskRepository repo;
+        public IScheduleRepository scheduleRepo;
         public IAnimalCageRepository animalCageRepo;
         public IAnimalAssignRepository animalAssignRepo;
         public ITaskMealRepository taskMealRepo;
+        public IAnimalRepository animalRepo;
+        public IMealDayRepository mealDayRepo;
         public IObjectViewService objectViewService;
-        public TaskService(ITaskRepository repo, IAnimalCageRepository animalCageRepo, IAnimalAssignRepository animalAssignRepo, IObjectViewService objectViewService, ITaskMealRepository taskMealRepo)
+        public TaskService(ITaskRepository repo, IAnimalCageRepository animalCageRepo, IAnimalAssignRepository animalAssignRepo, IObjectViewService objectViewService, ITaskMealRepository taskMealRepo, IAnimalRepository animalRepo, IMealDayRepository mealDayRepo, IScheduleRepository scheduleRepo)
         {
             this.repo = repo;
             this.animalCageRepo = animalCageRepo;
             this.animalAssignRepo = animalAssignRepo;
             this.objectViewService = objectViewService;
             this.taskMealRepo = taskMealRepo;
+            this.animalRepo = animalRepo;
+            this.mealDayRepo = mealDayRepo;
+            this.scheduleRepo = scheduleRepo;
         }
         public async Task<ServiceResult> GetListTaskByScheduleId(int scheduleId)
         {
@@ -94,24 +101,7 @@ namespace Service.Service
         {
             try
             {
-                var task = await repo.AddTask(key);
-                foreach (var item1 in key.AnimalTasksId)
-                {
-                    List<(int?,TaskMealAdd?)> animalCageIds = new();
-                    foreach (var item2 in item1.AnimalMealIds)
-                    {
-                        animalCageIds.Add((await animalCageRepo.GetAnimalCageIdByCageIdAndAnimalId(item1.CageId, item2.AnimalId), item2.TaskMeal));
-                    }
-
-                    foreach (var item3 in animalCageIds)
-                    {
-                        if (item3.Item1 != null)
-                        {
-                            var animalAssign = await animalAssignRepo.AddAnimalAssign(task.Id, (int)item3.Item1);
-                            await taskMealRepo.AddTaskMeal(animalAssign.Id, item3.Item2);
-                        }
-                    }
-                }
+                await AddTaskSimply(key);
                 return new ServiceResult
                 {
                     Status = 200,
@@ -159,11 +149,95 @@ namespace Service.Service
         {
             try
             {
-                List<List<System.Threading.Tasks.Task>> tt = new();
+                List<List<(BO.Models.Task,DateOnly)>> tt = new();
                 foreach(var item1 in key.AnimalTasksId)
                 {
-                    List<System.Threading.Tasks.Task> t = new();
+                    List<(BO.Models.Task, DateOnly)> t = new();
+                    List<(List<DateTime>,float,int,MealDay?)> datess = new();
+                    foreach (var item2 in item1.AnimalMealIds)
+                    {
+                        (MealDay?,float) mealDay = (mealDayRepo.GetById(item2.TaskMeal.MealDayId),item2.TaskMeal.Percent);
+                        datess.Add((GetListDateTimeDayMeal(key.FromDate, key.ToDate, mealDay.Item1), mealDay.Item2, item2.AnimalId, mealDay.Item1));
+                    }
+                    for(int i = 0; i< datess.Count;i++)
+                    {
+                        foreach(var item2 in datess[i].Item1)
+                        {
+                            List<int> animalIdCurrent = new();
+                            animalIdCurrent.Add(datess[i].Item3);
+                            for (int j = i+1;j < datess.Count; j++)
+                            {
+                                if (datess[j].Item1.Contains(item2))
+                                {
+                                    animalIdCurrent.Add(datess[j].Item3);
+                                    datess[j].Item1.Remove(item2);
+                                }
+                            }
+                            List<AnimalMealId> keyAdd1 = new();
+                            foreach(var item3 in animalIdCurrent)
+                            {
+                                keyAdd1.Add(new()
+                                {
+                                    AnimalId = item3,
+                                    TaskMeal = new()
+                                    {
+                                        MealDayId = datess.FirstOrDefault(l=>l.Item3==item3).Item4.Id,
+                                        Percent = datess.FirstOrDefault(l => l.Item3 == item3).Item2
+                                    }
+                                });
+                            }
+                            AnimalCageTaskId keyAdd2 = new()
+                            {
+                                CageId = item1.CageId,
+                                AnimalMealIds = keyAdd1
+                            };
+                            List<AnimalCageTaskId> keyAdd2s = new();
+                            keyAdd2s.Add(keyAdd2);
+                            var task = await AddTaskSimply(new()
+                            {
+                                TaskTypeId = 1,
+                                TimeStart = TimeOnly.FromDateTime(item2),
+                                AnimalTasksId = keyAdd2s
+                            });
+                            t.Add((task, DateOnly.FromDateTime(item2)));
+                        }
+                    }
+                    tt.Add(t);
+                }
+                List<List<Schedule>> ss = new();
+                foreach(var item in key.AccountIds)
+                {
+                    ss.Add(await scheduleRepo.GetListScheduleByAccountId(item));
+                }
+                for (DateOnly date = key.FromDate; date <= key.ToDate; date = date.AddDays(1))
+                {
 
+                    List<List<(BO.Models.Task, DateOnly)>> ttTemp = new();
+                    foreach (var item1 in tt)
+                    {
+                        var tTemp = item1.FindAll(l => l.Item2 == date);
+                        ttTemp.Add(tTemp);
+                    }
+                    if (ttTemp.Count > 0)
+                    {
+                        List<List<Schedule>> ssTemp = new();
+                        foreach (var item1 in ss)
+                        {
+                            var sTemp = item1.FindAll(l => l.Date == date);
+                            ssTemp.Add(sTemp);
+                        }
+                        int count = 0;
+                        foreach (var item1 in ttTemp)
+                        {
+                            foreach(var item2 in item1)
+                            {
+                                if (count >= ssTemp.Count) count = 0;
+                                item2.Item1.ScheduleId = ssTemp[count][0].Id;
+                                await repo.UpdateAsync(item2.Item1);
+                                count++;
+                            }
+                        }
+                    }
                 }
                 return new ServiceResult
                 {
@@ -208,6 +282,35 @@ namespace Service.Service
                 }
             }
             return result;
+        }
+        private async System.Threading.Tasks.Task<BO.Models.Task> AddTaskSimply(TaskAdd key)
+        {
+            try
+            {
+                var task = await repo.AddTask(key);
+                foreach (var item1 in key.AnimalTasksId)
+                {
+                    List<(int?, TaskMealAdd?)> animalCageIds = new();
+                    foreach (var item2 in item1.AnimalMealIds)
+                    {
+                        animalCageIds.Add((await animalCageRepo.GetAnimalCageIdByCageIdAndAnimalId(item1.CageId, item2.AnimalId), item2.TaskMeal));
+                    }
+
+                    foreach (var item3 in animalCageIds)
+                    {
+                        if (item3.Item1 != null)
+                        {
+                            var animalAssign = await animalAssignRepo.AddAnimalAssign(task.Id, (int)item3.Item1);
+                            await taskMealRepo.AddTaskMeal(animalAssign.Id, item3.Item2);
+                        }
+                    }
+                }
+                return task;
+            }
+            catch(Exception ex)
+            {
+                throw;
+            }
         }
     }
 }

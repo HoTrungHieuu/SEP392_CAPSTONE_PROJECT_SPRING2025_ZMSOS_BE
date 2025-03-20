@@ -1,4 +1,5 @@
 ﻿using DAO.AddModel;
+using DAO.OtherModel;
 using DAO.UpdateModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -37,6 +38,13 @@ namespace AccountManagement.Controllers
         public async Task<IActionResult> AddTask(TaskAdd key)
         {
             var result = await service.AddTask(key);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
+        [HttpPost("taskAutomatic")]
+        public async Task<IActionResult> AddTaskAutomatic(AnimalTaskMealSchdule key)
+        {
+            var result = await service.AddTaskAutomatic(key);
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }

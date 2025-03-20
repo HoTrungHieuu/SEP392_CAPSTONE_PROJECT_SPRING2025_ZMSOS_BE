@@ -1080,6 +1080,22 @@
   },
   {
     "ContainingType": "AccountManagement.Controllers.TaskController",
+    "Method": "AddTaskAutomatic",
+    "RelativePath": "api/Task/taskAutomatic",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.OtherModel.AnimalTaskMealSchdule",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.TaskController",
     "Method": "GetListTaskByScheduleId",
     "RelativePath": "api/Task/tasks/by-schedule/{scheduleId}",
     "HttpMethod": "GET",

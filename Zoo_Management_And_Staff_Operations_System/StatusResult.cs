@@ -12,7 +12,7 @@ namespace AccountManagement
                 case 200:
                     return Ok(result);
                 case 400:
-                    return NotFound(result);
+                    return BadRequest(result);
                 case 404:
                     return NotFound(result);
                 case 409:
