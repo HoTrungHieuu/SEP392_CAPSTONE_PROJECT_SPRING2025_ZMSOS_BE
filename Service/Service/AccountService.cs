@@ -110,23 +110,21 @@ namespace Service.Service
                 };
                 await repo.CreateAsync(account);
 
-                AccountView accountView = new AccountView();
-                accountView = await objectViewService.GetAccountView(account);
-
                 User user = new User()
                 {
-                    AccountId = accountView.Id,
+                    AccountId = account.Id,
                     FullName = key.FullName,
                     Address = key.Address,
                     PhoneNumber = key.PhoneNumber,
                     Gender = key.Gender,
                 };
                 await userRepo.CreateAsync(user);
+                var result = await objectViewService.GetAccountView(account);
                 return new ServiceResult
                 {
                     Status = 200,
                     Message = "Create Success",
-                    Data = accountView
+                    Data = result
                 };
             }
             catch (Exception ex)
@@ -155,14 +153,13 @@ namespace Service.Service
                 account.Status = key.Status;
                 await repo.UpdateAsync(account);
 
-                AccountView accountView = new AccountView();
-                accountView = await objectViewService.GetAccountView(account);
+                var result = await objectViewService.GetAccountView(account);
 
                 return new ServiceResult
                 {
                     Status = 200,
                     Message = "Update Success",
-                    Data = accountView
+                    Data = result
                 };
             }
             catch (Exception ex)

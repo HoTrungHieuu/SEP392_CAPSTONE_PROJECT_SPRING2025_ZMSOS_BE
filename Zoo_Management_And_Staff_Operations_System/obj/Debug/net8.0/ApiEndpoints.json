@@ -1492,6 +1492,22 @@
   },
   {
     "ContainingType": "AccountManagement.Controllers.UserController",
+    "Method": "UpdateUser",
+    "RelativePath": "api/User/user",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.UpdateModel.UserUpdate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.UserController",
     "Method": "GetUserByAccountId",
     "RelativePath": "api/User/user/by-account/{accountId}",
     "HttpMethod": "GET",
@@ -1501,27 +1517,6 @@
       {
         "Name": "accountId",
         "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "AccountManagement.Controllers.UserController",
-    "Method": "UpdateUser",
-    "RelativePath": "api/User/user/by-account/{accountId}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "key",
-        "Type": "DAO.UpdateModel.UserUpdate",
-        "IsRequired": true
-      },
-      {
-        "Name": "accountId",
-        "Type": "",
         "IsRequired": true
       }
     ],

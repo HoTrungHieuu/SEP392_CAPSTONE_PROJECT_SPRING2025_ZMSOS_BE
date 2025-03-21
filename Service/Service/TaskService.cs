@@ -229,7 +229,7 @@ namespace Service.Service
                         int count = 0;
                         foreach (var item1 in ttTemp)
                         {
-                            foreach(var item2 in item1)
+                            foreach (var item2 in item1)
                             {
                                 if (count >= ssTemp.Count) count = 0;
                                 item2.Item1.ScheduleId = ssTemp[count][0].Id;

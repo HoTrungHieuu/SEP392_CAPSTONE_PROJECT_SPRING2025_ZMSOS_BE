@@ -25,7 +25,7 @@ namespace AccountManagement.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Admin,Manager,Leader,Staff")]
-        [HttpPut("user/by-account/{accountId}")]
+        [HttpPut("user")]
         public async Task<IActionResult> UpdateUser(UserUpdate key)
         {
             var result = await service.UpdateUser(key);

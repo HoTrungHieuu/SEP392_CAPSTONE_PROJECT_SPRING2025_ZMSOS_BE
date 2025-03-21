@@ -38,7 +38,8 @@ namespace Repository.Repository
                     Description = key.Description,
                     MaxQuantity = key.MaxQuantity,
                     CurrentQuantity = 0,
-                    Status = null,
+                    ZooAreaId = key.ZooAreaId,
+                    Status = "Acctive",
                 };
                 await CreateAsync(team);
                 return team;
@@ -65,12 +66,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public TeamView ConvertTeamIntoTeamView(Team team)
+        public TeamView ConvertTeamIntoTeamView(Team team, ZooAreaView zooArea)
         {
             try
             {
                 TeamView result = new TeamView();
-                result.ConvertTeamIntoTeamView(team);
+                result.ConvertTeamIntoTeamView(team, zooArea);
                 return result;
             }
             catch (Exception)

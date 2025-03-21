@@ -190,6 +190,7 @@ namespace Service.Service
         }
         public async Task<ZooAreaView> GetZooAreaView(ZooArea zooArea)
         {
+            if (zooArea == null) return null;
             List<string> urlImages = new List<string>();
             urlImages = await zooAreaImageRepo.GetListZooAreaImageUrlByZooAreaId(zooArea.Id);
             var result = zooAreaRepo.ConvertZooAreaIntoZooAreaView(zooArea, urlImages);
@@ -319,7 +320,9 @@ namespace Service.Service
         }
         public async Task<TeamView> GetTeamView(Team team)
         {
-            var result = teamRepo.ConvertTeamIntoTeamView(team);
+            ZooAreaView zooArea = new ZooAreaView();
+            zooArea = await GetZooAreaView(zooAreaRepo.GetById(team.ZooAreaId));
+            var result = teamRepo.ConvertTeamIntoTeamView(team, zooArea);
             return result;
         }
         public async Task<LeaderAssignView> GetLeaderAssignView(LeaderAssign leaderAssign)

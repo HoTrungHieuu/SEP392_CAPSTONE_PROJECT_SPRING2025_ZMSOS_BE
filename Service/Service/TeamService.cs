@@ -1,5 +1,6 @@
 ﻿using BO.Models;
 using DAO.AddModel;
+using DAO.OtherModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
 using Repository.IRepository;
@@ -74,8 +75,12 @@ namespace Service.Service
                         Message = "Not Found!",
                     };
                 }
-
-                var result = await objectViewService.GetTeamView(team);
+                TeamDetailView result = new()
+                {
+                    Team = await objectViewService.GetTeamView(team),
+                    Leader = await objectViewService.GetLeaderAssignView(await leaderRepo.GetLeaderAssignByTeamId(team.Id)),
+                    Members = await objectViewService.GetListMemberAssignView(await memberRepo.GetListMemberAssignByTeamId(team.Id)),
+                };
                 return new ServiceResult
                 {
                     Status = 200,
@@ -97,11 +102,12 @@ namespace Service.Service
             try
             {
                 var team = await repo.AddTeam(key);
+                var result = await objectViewService.GetTeamView(team);
                 return new ServiceResult
                 {
                     Status = 200,
                     Message = "Add Success",
-                    Data= team
+                    Data= result
                 };
             }
             catch (Exception ex)
@@ -126,6 +132,7 @@ namespace Service.Service
                         Message = "Not Found"
                     };
                 }
+                var result = await objectViewService.GetTeamView(team);
                 return new ServiceResult
                 {
                     Status = 200,
