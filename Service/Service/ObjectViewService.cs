@@ -174,6 +174,7 @@ namespace Service.Service
         }
         public async Task<CageView> GetCageView(Cage cage)
         {
+            if (cage == null) return null;
             ZooAreaView zooArea = new();
             zooArea = await GetZooAreaView(zooAreaRepo.GetById((int)cage.ZooAreaId));
             var result = cageRepo.ConvertCageIntoCageView(cage, zooArea);
@@ -207,6 +208,7 @@ namespace Service.Service
         }
         public async Task<TaskView> GetTaskView(BO.Models.Task task)
         {
+            if (task == null) return null;
             TaskTypeView? taskType = new();
             if(task.TaskTypeId != null)
             {
@@ -297,6 +299,7 @@ namespace Service.Service
         }
         public async Task<AccountView> GetAccountView(Account account)
         {
+            if (account == null) return null;
             RoleView role = new RoleView();
             role = await GetRoleView(roleRepo.GetById(account.RoleId));
             UserView user = new UserView();
@@ -320,6 +323,7 @@ namespace Service.Service
         }
         public async Task<TeamView> GetTeamView(Team team)
         {
+            if (team == null) return null;
             ZooAreaView zooArea = new ZooAreaView();
             zooArea = await GetZooAreaView(zooAreaRepo.GetById(team.ZooAreaId));
             var result = teamRepo.ConvertTeamIntoTeamView(team, zooArea);
@@ -327,6 +331,7 @@ namespace Service.Service
         }
         public async Task<LeaderAssignView> GetLeaderAssignView(LeaderAssign leaderAssign)
         {
+            if (leaderAssign == null) return null;
             TeamView team = new();
             team = await GetTeamView(teamRepo.GetById((int)leaderAssign.TeamId));
             UserView user = new();
@@ -345,6 +350,7 @@ namespace Service.Service
         }
         public async Task<MemberAssignView> GetMemberAssignView(MemberAssign memberAssign)
         {
+            if (memberAssign == null) return null;
             TeamView team = new();
             team = await GetTeamView(teamRepo.GetById((int)memberAssign.TeamId));
             UserView user = new();
@@ -363,6 +369,7 @@ namespace Service.Service
         }
         public async Task<ReportView> GetReportView(Report report)
         {
+            if (report == null) return null;
             UserView sender = new();
             sender = await GetUserView(await userRepo.GetUserByAccountId((int)report.SenderId));
             UserView reciever = new();
@@ -384,6 +391,7 @@ namespace Service.Service
         }
         public async Task<ApplicationView> GetApplicationView(Application application)
         {
+            if (application == null) return null;
             UserView sender = new();
             sender = await GetUserView(await userRepo.GetUserByAccountId((int)application.SenderId));
             UserView reciever = new();
@@ -419,6 +427,7 @@ namespace Service.Service
         }
         public async Task<IncompatibleAnimalTypeView> GetIncompatibleAnimalTypeView(IncompatibleAnimalType incompatibleAnimalType)
         {
+            if (incompatibleAnimalType == null) return null;
             AnimalTypeView animalType1 = new();
             animalType1 = await GetAnimalTypeView(animalTypeRepo.GetById((int)incompatibleAnimalType.AnimalTypeId1));
             AnimalTypeView animalType2 = new();
@@ -437,6 +446,7 @@ namespace Service.Service
         }
         public async Task<NewsView> GetNewsView(News news)
         {
+            if (news == null) return null;
             UserView user = new();
             user = await GetUserView(await userRepo.GetUserByAccountId((int)news.AccountId));
             var result = newsRepo.ConvertNewsIntoNewsView(news, user);
@@ -467,6 +477,7 @@ namespace Service.Service
         }
         public async Task<ScheduleView> GetScheduleView(Schedule schedule)
         {
+            if (schedule == null) return null;
             UserView user = new();
             user = await GetUserView(await userRepo.GetUserByAccountId((int)schedule.AccountId));
             var result = scheduleRepo.ConvertScheduleIntoScheduleView(schedule, user);
@@ -483,6 +494,7 @@ namespace Service.Service
         }
         public async Task<TaskEstimateView> GetTaskEstimateView(TaskEstimate taskEstimate)
         {
+            if (taskEstimate == null) return null;
             TaskTypeView taskType = new();
             taskType = await GetTaskTypeView(taskTypeRepo.GetById((int)taskEstimate.TaskTypeId));
             AnimalTypeView animalType = new();
@@ -529,6 +541,7 @@ namespace Service.Service
         }
         public async Task<MealDayView> GetMealDayView(MealDay mealDay)
         {
+            if (mealDay == null) return null;
             AnimalTypeView animalType = new();
             animalType = await GetAnimalTypeView(animalTypeRepo.GetById(mealDay.AnimalTypeId));
             List<MealFoodView> foods = new();

@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\sep392_capstone_project_spring2025_zmsos_be\\service\\service\\objectviewservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|solutionrelative:service\\service\\objectviewservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\sep392_capstone_project_spring2025_zmsos_be\\repository\\repository\\teamrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FBF7EAB0-E50D-42A4-AC29-53253FCDAA25}|Repository\\Repository.csproj|solutionrelative:repository\\repository\\teamrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -21,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\sep392_capstone_project_spring2025_zmsos_be\\service\\service\\teamservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|solutionrelative:service\\service\\teamservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\sep392_capstone_project_spring2025_zmsos_be\\service\\service\\objectviewservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D96CC571-4194-4F1E-8708-84CB89802667}|Service\\Service.csproj|solutionrelative:service\\service\\objectviewservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A129310C-F4D1-4FC2-9BCC-A6E7BD93CB9C}|Zoo_Management_And_Staff_Operations_System\\Zoo_Management_And_Staff_Operations_System.csproj|d:\\sep392_capstone_project_spring2025_zmsos_be\\sep392_capstone_project_spring2025_zmsos_be\\zoo_management_and_staff_operations_system\\controllers\\cagecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -806,7 +806,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 316,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -822,18 +822,17 @@
               "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\TaskController.cs",
               "ViewState": "AgIAAC8AAAAAAAAAAAAAACsAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T14:09:24.953Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-14T14:09:24.953Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "ObjectViewService.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\ObjectViewService.cs",
               "RelativeDocumentMoniker": "Service\\Service\\ObjectViewService.cs",
-              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\ObjectViewService.cs",
-              "RelativeToolTip": "Service\\Service\\ObjectViewService.cs",
-              "ViewState": "AgIAALgAAAAAAAAAAAAAAL4AAAAlAAAAAAAAAA==",
+              "ToolTip": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\ObjectViewService.cs*",
+              "RelativeToolTip": "Service\\Service\\ObjectViewService.cs*",
+              "ViewState": "AgIAAGoBAAAAAAAAAADwv0wBAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-17T04:38:41.882Z",
               "EditorCaption": ""
@@ -848,12 +847,11 @@
               "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\NewsController.cs",
               "ViewState": "AgIAACYAAAAAAAAAAAAAABsAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T14:09:23.329Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-14T14:09:23.329Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "TeamService.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service\\TeamService.cs",
               "RelativeDocumentMoniker": "Service\\Service\\TeamService.cs",
@@ -861,12 +859,11 @@
               "RelativeToolTip": "Service\\Service\\TeamService.cs",
               "ViewState": "AgIAAHoAAAAAAAAAAAAAAIoAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T13:06:37.141Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-14T13:06:37.141Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "TaskEstimateAdd.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\TaskEstimateAdd.cs",
               "RelativeDocumentMoniker": "DAO\\AddModel\\TaskEstimateAdd.cs",
@@ -874,12 +871,11 @@
               "RelativeToolTip": "DAO\\AddModel\\TaskEstimateAdd.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAAsAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T14:21:55.189Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-18T14:21:55.189Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "TaskTypeAdd.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\TaskTypeAdd.cs",
               "RelativeDocumentMoniker": "DAO\\AddModel\\TaskTypeAdd.cs",
@@ -887,12 +883,11 @@
               "RelativeToolTip": "DAO\\AddModel\\TaskTypeAdd.cs",
               "ViewState": "AgIAAAQAAAAAAAAAAAAAAAsAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T13:34:18.321Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-18T13:34:18.321Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "TeamAdd.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\DAO\\AddModel\\TeamAdd.cs",
               "RelativeDocumentMoniker": "DAO\\AddModel\\TeamAdd.cs",
@@ -900,12 +895,11 @@
               "RelativeToolTip": "DAO\\AddModel\\TeamAdd.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T13:53:30.964Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-06T13:53:30.964Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "TeamRepository.cs",
               "DocumentMoniker": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Repository\\Repository\\TeamRepository.cs",
               "RelativeDocumentMoniker": "Repository\\Repository\\TeamRepository.cs",
@@ -913,8 +907,7 @@
               "RelativeToolTip": "Repository\\Repository\\TeamRepository.cs",
               "ViewState": "AgIAAC4AAAAAAAAAAAAAACgAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T10:55:15.473Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-03T10:55:15.473Z"
             },
             {
               "$type": "Document",
@@ -926,8 +919,7 @@
               "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\ScheduleController.cs",
               "ViewState": "AgIAAC4AAAAAAAAAAAAAABsAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T14:09:25.566Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-14T14:09:25.566Z"
             },
             {
               "$type": "Document",
@@ -939,8 +931,7 @@
               "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\CageController.cs",
               "ViewState": "AgIAADgAAAAAAAAAAAAAAC4AAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-28T16:31:30.34Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-28T16:31:30.34Z"
             },
             {
               "$type": "Document",
@@ -952,8 +943,7 @@
               "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\AccountController.cs",
               "ViewState": "AgIAAFIAAAAAAAAAAAAAAFgAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-15T14:59:50.024Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-15T14:59:50.024Z"
             },
             {
               "$type": "Document",
@@ -965,8 +955,7 @@
               "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\AnimalController.cs",
               "ViewState": "AgIAAEMAAAAAAAAAAAAAAE8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-28T15:20:33.291Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-28T15:20:33.291Z"
             },
             {
               "$type": "Document",
@@ -978,8 +967,7 @@
               "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\MealDayController.cs",
               "ViewState": "AgIAADcAAAAAAAAAAAAAACMAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-16T18:58:02.997Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-16T18:58:02.997Z"
             },
             {
               "$type": "Document",
@@ -991,8 +979,7 @@
               "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\NotificationController.cs",
               "ViewState": "AgIAABQAAAAAAAAAAAAAABMAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T14:09:23.789Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-14T14:09:23.789Z"
             },
             {
               "$type": "Document",
@@ -1004,8 +991,7 @@
               "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\ReportController.cs",
               "ViewState": "AgIAADMAAAAAAAAAAAAAADQAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T14:09:24.299Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-14T14:09:24.299Z"
             },
             {
               "$type": "Document",
@@ -1017,8 +1003,7 @@
               "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\TaskEstimateController.cs",
               "ViewState": "AgIAADYAAAAAAAAAAAAAAEUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T15:02:55.8Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-19T15:02:55.8Z"
             },
             {
               "$type": "Document",
@@ -1030,8 +1015,7 @@
               "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\TaskTypeController.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAAADUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T14:07:14.162Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-18T14:07:14.162Z"
             },
             {
               "$type": "Document",
@@ -1043,8 +1027,7 @@
               "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\TeamController.cs",
               "ViewState": "AgIAAGkAAAAAAAAAAAAAAEQAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T14:09:19.313Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-14T14:09:19.313Z"
             },
             {
               "$type": "Document",
@@ -1056,8 +1039,7 @@
               "RelativeToolTip": "Zoo_Management_And_Staff_Operations_System\\Controllers\\UserController.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAAABsAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-14T14:09:18.619Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-14T14:09:18.619Z"
             },
             {
               "$type": "Document",
@@ -1069,8 +1051,7 @@
               "RelativeToolTip": "Repository\\Repository\\UserRepository.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAAAABoAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T10:55:58.678Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-03T10:55:58.678Z"
             },
             {
               "$type": "Document",
@@ -1082,8 +1063,7 @@
               "RelativeToolTip": "DAO\\ViewModel\\UserView.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAABAAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T14:19:30.168Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-18T14:19:30.168Z"
             },
             {
               "$type": "Document",
@@ -1095,8 +1075,7 @@
               "RelativeToolTip": "Service\\Service\\TaskTypeService.cs",
               "ViewState": "AgIAAGAAAAAAAAAAAAAAAGYAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T13:58:15.904Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-18T13:58:15.904Z"
             },
             {
               "$type": "Document",
@@ -1120,8 +1099,7 @@
               "RelativeToolTip": "Service\\Service\\AccountService.cs",
               "ViewState": "AgIAAGkAAAAAAAAAAAAAAKEAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T10:59:53.299Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-03T10:59:53.299Z"
             },
             {
               "$type": "Document",
@@ -1133,8 +1111,7 @@
               "RelativeToolTip": "Service\\Service\\TaskService.cs",
               "ViewState": "AgIAAOQAAAAAAAAAAAAAAOYAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T13:58:45.042Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-18T13:58:45.042Z"
             },
             {
               "$type": "Document",
@@ -1146,8 +1123,7 @@
               "RelativeToolTip": "Repository\\IRepository\\ITeamRepository.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAA+wBEAAABOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T10:55:34.779Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-03T10:55:34.779Z"
             },
             {
               "$type": "Document",
@@ -1159,8 +1135,7 @@
               "RelativeToolTip": "DAO\\ViewModel\\TeamView.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAAABoAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T10:41:58.595Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-03T10:41:58.595Z"
             },
             {
               "$type": "Document",
@@ -1184,8 +1159,7 @@
               "RelativeToolTip": "DAO\\OtherModel\\TeamDetailView.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAqwAsAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-21T16:06:08.473Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-21T16:06:08.473Z"
             },
             {
               "$type": "Document",
