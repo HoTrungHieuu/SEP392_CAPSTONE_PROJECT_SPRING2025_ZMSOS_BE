@@ -221,8 +221,7 @@ namespace Service.Service
                 return new ServiceResult
                 {
                     Status = 501,
-                    Message = ex.Message.ToString(),
-                    Data = ex.Message
+                    Message = ex.ToString(),
                 };
             }
         }

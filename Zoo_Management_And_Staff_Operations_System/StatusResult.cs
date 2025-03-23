@@ -18,7 +18,7 @@ namespace AccountManagement
                 case 409:
                     return Conflict(result);
                 case 501:
-                    return StatusCode(501);
+                    return StatusCode(501, result);
                 default:
                     return Ok();
             }
