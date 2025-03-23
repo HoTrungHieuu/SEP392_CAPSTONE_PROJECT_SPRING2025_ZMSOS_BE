@@ -13,7 +13,5 @@ public partial class ReportAttachment
 
     public string FileUrl { get; set; }
 
-    public string Status { get; set; }
-
     public virtual Report Report { get; set; }
 }

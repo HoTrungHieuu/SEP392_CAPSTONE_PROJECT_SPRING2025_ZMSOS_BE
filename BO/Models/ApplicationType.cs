@@ -13,7 +13,5 @@ public partial class ApplicationType
 
     public string Description { get; set; }
 
-    public string Status { get; set; }
-
     public virtual ICollection<Application> Applications { get; set; } = new List<Application>();
 }

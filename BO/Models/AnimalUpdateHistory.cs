@@ -17,8 +17,6 @@ public partial class AnimalUpdateHistory
 
     public DateOnly? UpdateDate { get; set; }
 
-    public string Status { get; set; }
-
     public virtual Account Account { get; set; }
 
     public virtual Animal Animal { get; set; }

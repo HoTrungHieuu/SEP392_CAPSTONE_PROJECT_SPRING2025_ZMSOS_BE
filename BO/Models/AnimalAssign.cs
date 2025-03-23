@@ -13,8 +13,6 @@ public partial class AnimalAssign
 
     public int? AnimalCageId { get; set; }
 
-    public string Status { get; set; }
-
     public virtual AnimalCage AnimalCage { get; set; }
 
     public virtual Task Task { get; set; }

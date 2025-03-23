@@ -61,7 +61,6 @@ namespace Repository.Repository
                     TaskTypeId = key.TaskTypeId,
                     AnimalTypeId = key.AnimalTypeId,
                     TimeEstimate = key.TimeEstimate,
-                    Status = null
                 };
                 await CreateAsync(taskEstimate);
                 return taskEstimate;

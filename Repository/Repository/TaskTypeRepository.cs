@@ -37,7 +37,6 @@ namespace Repository.Repository
                 {
                     Name = key.Name,
                     Description = key.Description,
-                    Status = null
                 };
                 await CreateAsync(taskType);
                 return taskType;

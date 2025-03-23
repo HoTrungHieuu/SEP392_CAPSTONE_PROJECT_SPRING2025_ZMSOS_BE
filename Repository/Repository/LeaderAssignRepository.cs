@@ -51,7 +51,6 @@ namespace Repository.Repository
                     LeaderId = key.AccountId,
                     FromDate = DateOnly.FromDateTime(DateTime.Now),
                     ToDate = null,
-                    Status = null
                 };
                 await CreateAsync(leaderAssign);
                 return leaderAssign;
@@ -68,7 +67,6 @@ namespace Repository.Repository
                 var leaderAssign = (await GetAllAsync()).FirstOrDefault(l => l.TeamId == teamId && l.LeaderId == accountId && l.ToDate == null);
                 if (leaderAssign == null) return null;
                 leaderAssign.ToDate = DateOnly.FromDateTime(DateTime.Now);
-                leaderAssign.Status = null;
                 await UpdateAsync(leaderAssign);
                 return leaderAssign;
             }

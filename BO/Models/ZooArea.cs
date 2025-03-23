@@ -17,8 +17,6 @@ public partial class ZooArea
 
     public string Location { get; set; }
 
-    public string Size { get; set; }
-
     public string Status { get; set; }
 
     public virtual ICollection<Cage> Cages { get; set; } = new List<Cage>();

@@ -76,7 +76,6 @@ namespace Repository.Repository
                     CageId = cageId,
                     FromDate = DateOnly.FromDateTime(DateTime.Now),
                     ToDate = null,
-                    Status = null
                 };
                 await CreateAsync(animalCage);
                 return animalCage;
@@ -93,7 +92,6 @@ namespace Repository.Repository
                 var animalCage = (await GetAllAsync()).FirstOrDefault(l => l.CageId == cageId && l.AnimalId == animalId && l.ToDate == null);
                 if (animalCage == null) return null;
                 animalCage.ToDate = DateOnly.FromDateTime(DateTime.Now);
-                animalCage.Status = null;
                 await UpdateAsync(animalCage);
                 return animalCage;
             }

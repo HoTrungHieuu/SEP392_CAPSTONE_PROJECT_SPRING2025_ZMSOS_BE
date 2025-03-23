@@ -30,7 +30,6 @@ namespace Repository.Repository
                 {
                     TaskId = taskId,
                     AnimalCageId = animalCageId,
-                    Status = null
                 };
                 await CreateAsync(animalAssign);
                 return animalAssign;

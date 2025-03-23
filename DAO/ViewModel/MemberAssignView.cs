@@ -14,7 +14,6 @@ namespace DAO.ViewModel
         public UserView User { get; set; }
         public DateOnly? FromDate { get; set; }
         public DateOnly? ToDate { get; set; }
-        public string? Status { get; set; }
         public void ConvertMemberAssignIntoMemberAssignView(MemberAssign key, TeamView team, UserView user)
         {
             Id = key.Id;
@@ -22,7 +21,6 @@ namespace DAO.ViewModel
             User = user;
             FromDate = key.FromDate;
             ToDate = key.ToDate;
-            Status = key.Status;
         }
     }
 }

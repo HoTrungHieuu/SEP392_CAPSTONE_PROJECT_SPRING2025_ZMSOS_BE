@@ -245,7 +245,6 @@ namespace Service.Service
                     {
                         ReportId = report.Id,
                         FileUrl = item,
-                        Status = null
                     });
                 }
                 return new ServiceResult

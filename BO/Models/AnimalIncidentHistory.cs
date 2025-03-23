@@ -17,7 +17,5 @@ public partial class AnimalIncidentHistory
 
     public DateOnly? ToDate { get; set; }
 
-    public string Status { get; set; }
-
     public virtual Animal Animal { get; set; }
 }

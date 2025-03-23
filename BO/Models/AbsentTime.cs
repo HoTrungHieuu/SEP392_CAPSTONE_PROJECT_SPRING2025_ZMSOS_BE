@@ -17,7 +17,5 @@ public partial class AbsentTime
 
     public DateOnly? ToDate { get; set; }
 
-    public string Status { get; set; }
-
     public virtual Account Account { get; set; }
 }
