@@ -141,11 +141,13 @@ namespace Service.Service
         }
         public async Task<FlockView> GetFlockView(Flock flock)
         {
+            if (flock == null) return null;
             var result = flockRepo.ConvertFlockIntoFlockView(flock);
             return result;
         }
         public async Task<IndividualView> GetIndividualView(Individual individual)
         {
+            if (individual == null) return null;
             var result = individualRepo.ConvertIndividualIntoIndividualView(individual);
             return result;
         }
