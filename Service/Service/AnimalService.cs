@@ -271,6 +271,14 @@ namespace Service.Service
         {
             try
             {
+                if(key.Classify != "Individual" && key.Classify != "Flock")
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "classify is invalid",
+                    };
+                }
                 var animal = await repo.AddAnimal(key);
                 if(animal.Classify == "Flock")
                 {

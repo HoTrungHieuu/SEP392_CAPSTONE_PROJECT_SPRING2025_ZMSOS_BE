@@ -27,6 +27,7 @@ namespace DAO.ViewModel
         public void ConvertAnimalIntoAnimalView(Animal key,AnimalTypeView animalType,FlockView flock, IndividualView individual, CageView cage, List<string> urlImages)
         {
             Id = key.Id;
+            Name = key.Name;
             Description = key.Description;
             Classify = key.Classify;
             ArrivalDate = key.ArrivalDate;
