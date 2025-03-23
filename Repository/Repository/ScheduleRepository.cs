@@ -38,6 +38,7 @@ namespace Repository.Repository
                     AccountId = key.AccountId,
                     Date = key.Date,
                     Note = key.Note,
+                    CreatedDate = DateTime.Now,
                     Status = null
                 };
                 await CreateAsync(schedule);
@@ -61,7 +62,8 @@ namespace Repository.Repository
                             AccountId = key.AccountId,
                             Date = date,
                             Note = null,
-                            Status = null
+                            Status = null,
+                            CreatedDate = DateTime.Now
                         };
                         await CreateAsync(schedule);
                     }
@@ -83,6 +85,7 @@ namespace Repository.Repository
                 }
                 schedule.Date = key.Date;
                 schedule.Note = key.Note;
+                schedule.UpdatedDate = DateTime.Now;
                 await UpdateAsync(schedule);
                 return schedule;
             }

@@ -63,6 +63,7 @@ namespace Repository.Repository
                     AnimalTypeId1 = key.AnimalTypeId1,
                     AnimalTypeId2 = key.AnimalTypeId2,
                     Reason = key.Reason,
+                    CreatedDate = DateTime.Now,
                 };
                 await CreateAsync(incompatibleAnimalType);
                 return incompatibleAnimalType;

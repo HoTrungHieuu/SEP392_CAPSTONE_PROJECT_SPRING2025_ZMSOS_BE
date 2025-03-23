@@ -106,9 +106,16 @@ namespace Repository.Repository
         }
         public async Task<bool> RemoveAsync(T entity)
         {
-            _dbSet.Remove(entity);
-            await _context.SaveChangesAsync();
-            return true;
+            try
+            {
+                _dbSet.Remove(entity);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         public T GetById(int? id)

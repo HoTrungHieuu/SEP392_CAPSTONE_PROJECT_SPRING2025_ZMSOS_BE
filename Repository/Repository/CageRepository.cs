@@ -87,6 +87,7 @@ namespace Repository.Repository
                 cage.UrlImage = key.UrlImage;
                 cage.Size = key.Size;
                 cage.Status = key.Status;
+                cage.UpdatedDate = DateTime.Now;
                 await UpdateAsync(cage);
                 return cage;
             }

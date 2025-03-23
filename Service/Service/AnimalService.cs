@@ -68,7 +68,7 @@ namespace Service.Service
                 return new ServiceResult
                 {
                     Status = 501,
-                    Message = ex.ToString(),
+                    Message = ex.Message.ToString(),
                 };
             }
         }
@@ -294,7 +294,7 @@ namespace Service.Service
                 return new ServiceResult
                 {
                     Status = 501,
-                    Message = ex.ToString(),
+                    Message = ex.Message.ToString(),
                 };
             }
         }
@@ -374,7 +374,7 @@ namespace Service.Service
                 return new ServiceResult
                 {
                     Status = 501,
-                    Message = ex.ToString(),
+                    Message = ex.Message.ToString(),
                 };
             }
         }

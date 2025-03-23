@@ -21,6 +21,7 @@ namespace Repository.Repository
             try
             {
                 var zooAreas = await GetAllAsync();
+                zooAreas.OrderByDescending(l => l.CreatedDate);
                 return zooAreas;
             }
             catch (Exception)
@@ -38,6 +39,7 @@ namespace Repository.Repository
                     Description = key.Description,
                     AnimalOrder = key.AnimalOrder,
                     Location = key.Location,
+                    CreatedDate = DateTime.Now,
                     Status = key.Status
                 };
                 await CreateAsync(zooArea);
@@ -58,6 +60,7 @@ namespace Repository.Repository
                 zooArea.Description = key.Description;
                 zooArea.AnimalOrder =key.AnimalOrder;
                 zooArea.Location = key.Location;
+                zooArea.UpdatedDate = DateTime.Now;
                 zooArea.Status = key.Status;
                 await UpdateAsync(zooArea);
                 return zooArea;

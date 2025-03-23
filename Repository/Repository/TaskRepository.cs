@@ -40,7 +40,7 @@ namespace Repository.Repository
                     Note = key.Note,
                     TimeStart = key.TimeStart,
                     TimeFinish = null,
-                    Status = null
+                    Status = null,
                 };
                 await CreateAsync(task);
                 return task;

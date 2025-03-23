@@ -39,6 +39,7 @@ namespace Repository.Repository
                     MaxQuantity = key.MaxQuantity,
                     CurrentQuantity = 0,
                     ZooAreaId = key.ZooAreaId,
+                    CreatedDate = DateTime.Now,
                     Status = "Acctive",
                 };
                 await CreateAsync(team);
@@ -58,6 +59,7 @@ namespace Repository.Repository
                 team.Name = key.Name;
                 team.Description = key.Description;
                 team.MaxQuantity = key.MaxQuantity;
+                team.UpdatedDate = DateTime.Now;
                 await UpdateAsync(team);
                 return team;
             }

@@ -50,7 +50,7 @@ namespace Repository.Repository
                     SenderId = key.SenderId,
                     Title = key.Title,
                     Details = key.Detail,
-                    //Date = DateTime.Now,
+                    Date = DateTime.Now,
                     Status = null
                 };
                 await CreateAsync(application);

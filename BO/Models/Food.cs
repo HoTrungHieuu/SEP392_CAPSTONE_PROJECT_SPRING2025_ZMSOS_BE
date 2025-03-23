@@ -15,5 +15,9 @@ public partial class Food
 
     public double? CaloPerGram { get; set; }
 
+    public DateTime? CreatedDate { get; set; }
+
+    public DateTime? UpdatedDate { get; set; }
+
     public virtual ICollection<MealFood> MealFoods { get; set; } = new List<MealFood>();
 }

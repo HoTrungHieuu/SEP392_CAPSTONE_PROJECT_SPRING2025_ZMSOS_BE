@@ -17,9 +17,9 @@ public partial class Account
 
     public string Status { get; set; }
 
-    public DateOnly? CreatedDate { get; set; }
+    public DateTime? CreatedDate { get; set; }
 
-    public DateOnly? UpdatedDate { get; set; }
+    public DateTime? UpdatedDate { get; set; }
 
     public virtual ICollection<AbsentTime> AbsentTimes { get; set; } = new List<AbsentTime>();
 

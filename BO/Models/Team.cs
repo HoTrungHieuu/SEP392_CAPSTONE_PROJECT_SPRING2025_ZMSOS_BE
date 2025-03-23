@@ -21,6 +21,10 @@ public partial class Team
 
     public string Status { get; set; }
 
+    public DateTime? CreatedDate { get; set; }
+
+    public DateTime? UpdatedDate { get; set; }
+
     public virtual ICollection<LeaderAssign> LeaderAssigns { get; set; } = new List<LeaderAssign>();
 
     public virtual ICollection<MemberAssign> MemberAssigns { get; set; } = new List<MemberAssign>();

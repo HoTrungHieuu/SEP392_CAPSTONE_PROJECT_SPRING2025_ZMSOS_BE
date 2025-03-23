@@ -35,6 +35,10 @@ public partial class AnimalType
 
     public string UrlImage { get; set; }
 
+    public DateTime? CreatedDate { get; set; }
+
+    public DateTime? UpdatedDate { get; set; }
+
     public virtual ICollection<Animal> Animals { get; set; } = new List<Animal>();
 
     public virtual ICollection<IncompatibleAnimalType> IncompatibleAnimalTypeAnimalTypeId1Navigations { get; set; } = new List<IncompatibleAnimalType>();

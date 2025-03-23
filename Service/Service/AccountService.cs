@@ -104,7 +104,7 @@ namespace Service.Service
                 {
                     Email = key.Email,
                     Password = key.Password,
-                    CreatedDate = DateOnly.FromDateTime(DateTime.Now),
+                    CreatedDate = DateTime.Now,
                     RoleId = key.RoleId,
                     Status = "Active",
                 };

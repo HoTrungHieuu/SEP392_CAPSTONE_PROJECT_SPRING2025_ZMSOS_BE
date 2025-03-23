@@ -17,6 +17,10 @@ public partial class Schedule
 
     public string Status { get; set; }
 
+    public DateTime? CreatedDate { get; set; }
+
+    public DateTime? UpdatedDate { get; set; }
+
     public virtual Account Account { get; set; }
 
     public virtual ICollection<Task> Tasks { get; set; } = new List<Task>();

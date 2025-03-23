@@ -36,7 +36,8 @@ namespace Repository.Repository
                 {
                     Name = key.Name,
                     Decription = key.Description,
-                    CaloPerGram = key.CaloPerGram
+                    CaloPerGram = key.CaloPerGram,
+                    CreatedDate = DateTime.Now,
                 };
                 await CreateAsync(food);
                 return food;
@@ -55,6 +56,7 @@ namespace Repository.Repository
                 food.Name = key.Name;
                 food.Decription = key.Description;
                 food.CaloPerGram = key.CaloPerGram;
+                food.UpdatedDate = DateTime.Now;
                 await UpdateAsync(food);
                 return food;
             }

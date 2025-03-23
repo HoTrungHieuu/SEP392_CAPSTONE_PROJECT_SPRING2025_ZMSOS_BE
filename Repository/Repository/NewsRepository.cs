@@ -59,6 +59,7 @@ namespace Repository.Repository
                 }
                 news.Headline = key.Headlinen;
                 news.Content = key.Content;
+                news.UpdatedDate = DateTime.Now;
                 await UpdateAsync(news);
                 return news;
             }

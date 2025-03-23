@@ -21,7 +21,7 @@ public partial class Application
 
     public string Reply { get; set; }
 
-    public DateOnly? Date { get; set; }
+    public DateTime? Date { get; set; }
 
     public string Status { get; set; }
 

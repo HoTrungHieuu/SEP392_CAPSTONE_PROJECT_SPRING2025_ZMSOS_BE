@@ -29,6 +29,10 @@ public partial class Cage
 
     public string Status { get; set; }
 
+    public DateTime? CreatedDate { get; set; }
+
+    public DateTime? UpdatedDate { get; set; }
+
     public virtual ICollection<AnimalCage> AnimalCages { get; set; } = new List<AnimalCage>();
 
     public virtual ICollection<CageUpdateHistory> CageUpdateHistories { get; set; } = new List<CageUpdateHistory>();

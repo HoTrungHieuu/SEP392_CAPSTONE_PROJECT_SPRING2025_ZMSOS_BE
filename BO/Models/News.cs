@@ -19,5 +19,9 @@ public partial class News
 
     public string Status { get; set; }
 
+    public DateTime? CreatedDate { get; set; }
+
+    public DateTime? UpdatedDate { get; set; }
+
     public virtual Account Account { get; set; }
 }

@@ -21,6 +21,7 @@ namespace Repository.Repository
             try
             {
                 var animals = await GetAllAsync();
+                animals.OrderByDescending(l => l.CreatedDate);
                 return animals;
             }
             catch (Exception)
@@ -32,7 +33,7 @@ namespace Repository.Repository
         {
             try
             {
-                var animals = (await GetAllAsync()).FindAll(l => l.AnimalTypeId == animalTypeId);
+                var animals = (await GetListAnimal()).FindAll(l => l.AnimalTypeId == animalTypeId);
                 return animals;
             }
             catch (Exception)
@@ -51,6 +52,7 @@ namespace Repository.Repository
                     Description = key.Description,
                     ArrivalDate = key.ArrivalDate,
                     Classify = key.Classify,
+                    CreatedDate = DateTime.Now,
                 };
                 await CreateAsync(animal);
                 return animal;
@@ -70,6 +72,7 @@ namespace Repository.Repository
                 animal.Name = key.Name;
                 animal.Description = key.Description;
                 animal.Classify = key.Classify;
+                animal.UpdatedDate = DateTime.Now;
                 await UpdateAsync(animal);
                 return animal;
             }

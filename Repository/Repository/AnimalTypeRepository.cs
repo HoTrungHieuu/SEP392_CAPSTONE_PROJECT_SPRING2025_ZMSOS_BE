@@ -46,6 +46,7 @@ namespace Repository.Repository
                     Reproduction = key.Reproduction,
                     ConservationStatus = key.ConservationStatus,
                     UrlImage = key.UrlImage,
+                    CreatedDate = DateTime.Now
                 };
                 await CreateAsync(animalType);
                 return animalType;
@@ -73,6 +74,7 @@ namespace Repository.Repository
                 animalType.Reproduction = key.Reproduction;
                 animalType.ConservationStatus = key.ConservationStatus;
                 animalType.UrlImage = key.UrlImage;
+                animalType.UpdatedDate = DateTime.Now;
                 await UpdateAsync(animalType);
                 return animalType;
             }

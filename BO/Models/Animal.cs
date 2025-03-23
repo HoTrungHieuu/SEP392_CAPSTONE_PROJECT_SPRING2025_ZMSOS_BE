@@ -19,6 +19,10 @@ public partial class Animal
 
     public string Classify { get; set; }
 
+    public DateTime? CreatedDate { get; set; }
+
+    public DateTime? UpdatedDate { get; set; }
+
     public virtual ICollection<AnimalCage> AnimalCages { get; set; } = new List<AnimalCage>();
 
     public virtual ICollection<AnimalImage> AnimalImages { get; set; } = new List<AnimalImage>();

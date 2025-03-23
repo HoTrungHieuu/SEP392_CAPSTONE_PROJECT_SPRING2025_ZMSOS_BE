@@ -41,6 +41,7 @@ namespace Repository.Repository
                     PeriodOfTime = key.PeriodOfTime.ToString(),
                     TimeStartInDay = key.TimeStartInDay,
                     TimeEndInDay = key.TimeEndInDay,
+                    CreatedDate = DateTime.Now,
                     Status = "Active"
                 };
                 await CreateAsync(mealDay);
@@ -64,6 +65,7 @@ namespace Repository.Repository
                 mealDay.PeriodOfTime = key.PeriodOfTime.ToString();
                 mealDay.TimeStartInDay = key.TimeStartInDay;
                 mealDay.TimeEndInDay = key.TimeEndInDay;
+                mealDay.UpdatedDate = DateTime.Now;
                 await UpdateAsync(mealDay);
                 return mealDay;
             }

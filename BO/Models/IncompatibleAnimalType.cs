@@ -15,6 +15,10 @@ public partial class IncompatibleAnimalType
 
     public string Reason { get; set; }
 
+    public DateTime? CreatedDate { get; set; }
+
+    public DateTime? UpdatedDate { get; set; }
+
     public virtual AnimalType AnimalTypeId1Navigation { get; set; }
 
     public virtual AnimalType AnimalTypeId2Navigation { get; set; }

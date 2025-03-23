@@ -23,6 +23,10 @@ public partial class MealDay
 
     public string Status { get; set; }
 
+    public DateTime? CreatedDate { get; set; }
+
+    public DateTime? UpdatedDate { get; set; }
+
     public virtual AnimalType AnimalType { get; set; }
 
     public virtual ICollection<MealFood> MealFoods { get; set; } = new List<MealFood>();
