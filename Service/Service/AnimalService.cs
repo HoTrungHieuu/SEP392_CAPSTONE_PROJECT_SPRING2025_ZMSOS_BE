@@ -409,7 +409,7 @@ namespace Service.Service
                 }
 
                 var animal = repo.GetById(animalId);
-                if(cage.Classify != animal.Classify && cage.Classify == null)
+                if(cage.Classify != animal.Classify || cage.Classify == null)
                 {
                     return new ServiceResult
                     {
