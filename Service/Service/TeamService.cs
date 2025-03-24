@@ -212,8 +212,8 @@ namespace Service.Service
                 List<Account> accountResult = new();
                 foreach (var account in accounts)
                 {
-                    var leaderAssign = await leaderRepo.GetLeaderAssignByAccountId(account.Id);
-                    if (leaderAssign == null)
+                    var memberAssign = await memberRepo.GetMemberAssignByAccountId(account.Id);
+                    if (memberAssign == null)
                     {
                         accountResult.Add(account);
                     }

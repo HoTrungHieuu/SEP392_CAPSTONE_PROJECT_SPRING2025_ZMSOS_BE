@@ -254,6 +254,22 @@
   },
   {
     "ContainingType": "AnimalAndCageManagement.Controllers.AnimalController",
+    "Method": "GetListAnimalByZooAreaId",
+    "RelativePath": "api/Animal/animals/by-zooArea/{zooAreaId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "zooAreaId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.AnimalController",
     "Method": "GetListAnimalSearch",
     "RelativePath": "api/Animal/animals/search-sort-paging",
     "HttpMethod": "POST",

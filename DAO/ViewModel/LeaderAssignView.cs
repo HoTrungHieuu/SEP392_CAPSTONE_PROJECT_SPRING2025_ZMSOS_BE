@@ -13,15 +13,15 @@ namespace DAO.ViewModel
     public class LeaderAssignView
     {
         public int Id {  get; set; }
-        public TeamView Team { get; set; }
-        public UserView User { get; set; }
+        public TeamView? Team { get; set; }
+        public AccountView? Account { get; set; }
         public DateOnly? FromDate { get; set; }
         public DateOnly? ToDate { get; set; }
-        public void ConvertLeaderAssignIntoLeaderAssignView(LeaderAssign key, TeamView team, UserView user)
+        public void ConvertLeaderAssignIntoLeaderAssignView(LeaderAssign key, TeamView team, AccountView account)
         {
             Id = key.Id;
             Team = team;
-            User = user;
+            Account = account;
             FromDate = key.FromDate;
             ToDate = key.ToDate;
         }

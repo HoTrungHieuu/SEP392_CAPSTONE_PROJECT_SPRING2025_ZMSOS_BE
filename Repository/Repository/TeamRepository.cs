@@ -52,7 +52,7 @@ namespace Repository.Repository
                     CurrentQuantity = 0,
                     ZooAreaId = key.ZooAreaId,
                     CreatedDate = DateTime.Now,
-                    Status = "Acctive",
+                    Status = "Active",
                 };
                 await CreateAsync(team);
                 return team;

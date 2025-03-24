@@ -52,6 +52,14 @@ namespace AnimalAndCageManagement.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Manager,Leader,Staff")]
+        [HttpGet("animals/by-zooArea/{zooAreaId}")]
+        public async Task<IActionResult> GetListAnimalByZooAreaId(int zooAreaId)
+        {
+            var result = await service.GetListAnimalByZooAreaId(zooAreaId);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
+        [Authorize(Roles = "Manager,Leader,Staff")]
         [HttpGet("animal/{id}")]
         public async Task<IActionResult> GetAnimalById(int id)
         {

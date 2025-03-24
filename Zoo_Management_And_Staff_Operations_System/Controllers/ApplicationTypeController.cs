@@ -15,7 +15,7 @@ namespace AccountManagement.Controllers
         {
             this.service = service;
         }
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Manager, Leader, Staff")]
         [HttpGet("applicationTypes")]
         public async Task<IActionResult> GetListApplicationType()
         {
@@ -23,7 +23,7 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Manager")]
         [HttpGet("applicationType")]
         public async Task<IActionResult> GetApplicationTypeoById(int id)
         {
@@ -31,7 +31,7 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Manager")]
         [HttpPost("applicationType")]
         public async Task<IActionResult> AddApplicationTypeo(ApplicationTypeAdd key)
         {

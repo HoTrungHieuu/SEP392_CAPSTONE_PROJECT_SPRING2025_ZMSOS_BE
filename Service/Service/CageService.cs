@@ -128,6 +128,15 @@ namespace Service.Service
         {
             try
             {
+                var zooArea = areaRepo.GetById(zooAreaId);
+                if (zooArea == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "ZooArea Not Found!",
+                    };
+                }
                 var cages = await repo.GetListCageByAreaId(zooAreaId);
                 if (cages == null)
                 {

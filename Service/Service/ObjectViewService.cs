@@ -338,9 +338,9 @@ namespace Service.Service
             if (leaderAssign == null) return null;
             TeamView team = new();
             team = await GetTeamView(teamRepo.GetById((int)leaderAssign.TeamId));
-            UserView user = new();
-            user = await GetUserView(userRepo.GetById((int)leaderAssign.LeaderId));
-            var result = leaderRepo.ConvertLeaderAssignIntoLeaderAssignView(leaderAssign,team,user);
+            AccountView account = new();
+            account = await GetAccountView(accountRepo.GetById((int)leaderAssign.LeaderId));
+            var result = leaderRepo.ConvertLeaderAssignIntoLeaderAssignView(leaderAssign,team,account);
             return result;
         }
         public async Task<List<MemberAssignView>> GetListMemberAssignView(List<MemberAssign> memberAssigns)
@@ -357,9 +357,9 @@ namespace Service.Service
             if (memberAssign == null) return null;
             TeamView team = new();
             team = await GetTeamView(teamRepo.GetById((int)memberAssign.TeamId));
-            UserView user = new();
-            user = await GetUserView(userRepo.GetById((int)memberAssign.MemberId));
-            var result = memberRepo.ConvertMemberAssignIntoMemberAssignView(memberAssign, team, user);
+            AccountView account = new();
+            account = await GetAccountView(accountRepo.GetById((int)memberAssign.MemberId));
+            var result = memberRepo.ConvertMemberAssignIntoMemberAssignView(memberAssign, team, account);
             return result;
         }
         public async Task<List<ReportView>> GetListReportView(List<Report> reports)

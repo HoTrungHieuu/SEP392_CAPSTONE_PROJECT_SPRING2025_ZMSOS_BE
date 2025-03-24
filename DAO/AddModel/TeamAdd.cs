@@ -11,6 +11,6 @@ namespace DAO.AddModel
         public string? Name { get; set; }
         public string? Description { get; set; }
         public int? MaxQuantity {  get; set; }
-        public int? ZooAreaId { get; set; }
+        public int ZooAreaId { get; set; }
     }
 }

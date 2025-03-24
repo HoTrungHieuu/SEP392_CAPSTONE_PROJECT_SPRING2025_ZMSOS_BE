@@ -20,6 +20,7 @@ namespace Service.Service
         public IAnimalRepository repo;
         public IAnimalTypeRepository typeRepo;
         public ICageRepository cageRepo;
+        public IZooAreaRepository zooAreaRepo;
         public IAnimalCageRepository animalCageRepo;
         public IFlockRepository flockRepo;
         public IIndividualRepository individualRepo;
@@ -30,7 +31,8 @@ namespace Service.Service
             IAnimalCageRepository animalCageRepo, ICageRepository cageRepo, IObjectViewService objectViewService, 
             IFlockRepository flockRepo, IIndividualRepository individualRepo, 
             IAnimalImageRepository animalImageRepo,
-            IIncompatibleAnimalTypeRepository incompatibleAnimalTypeRepo)
+            IIncompatibleAnimalTypeRepository incompatibleAnimalTypeRepo,
+            IZooAreaRepository zooAreaRepo)
         {
             this.repo = repo;
             this.typeRepo = typeRepo;
@@ -41,6 +43,7 @@ namespace Service.Service
             this.animalImageRepo = animalImageRepo;
             this.objectViewService = objectViewService;
             this.incompatibleAnimalTypeRepo = incompatibleAnimalTypeRepo;
+            this.zooAreaRepo = zooAreaRepo;
         }
         public async Task<ServiceResult> GetListAnimal()
         {
@@ -197,28 +200,52 @@ namespace Service.Service
                     };
                 }
                 var animalCages = await animalCageRepo.GetListAnimalCageByCageId(cageId);
-                if(animalCages == null)
-                {
-                    return new ServiceResult
-                    {
-                        Status = 404,
-                        Message = "Not Found!",
-                    };
-                }
                 List<Animal> animals = new List<Animal>();
                 foreach(var animalCage in animalCages)
                 {
                     animals.Add(repo.GetById(animalCage.AnimalId));
                 }
-                if (animals == null)
+
+                var result = await objectViewService.GetListAnimalView(animals);
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "Animals",
+                    Data = result
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
+        public async Task<ServiceResult> GetListAnimalByZooAreaId(int zooAreaId)
+        {
+            try
+            {
+                var zooArea = zooAreaRepo.GetById(zooAreaId);
+                if (zooArea == null)
                 {
                     return new ServiceResult
                     {
                         Status = 404,
-                        Message = "Not Found!",
+                        Message = "ZooArea Not Found!",
                     };
                 }
-
+                var cages = await cageRepo.GetListCageByAreaId(zooAreaId);
+                List<Animal> animals = new List<Animal>();
+                foreach (var cage in cages)
+                {
+                    var animalCages = await animalCageRepo.GetListAnimalCageByCageId(cage.Id);
+                    foreach (var animalCage in animalCages)
+                    {
+                        animals.Add(repo.GetById(animalCage.AnimalId));
+                    }
+                }
                 var result = await objectViewService.GetListAnimalView(animals);
                 return new ServiceResult
                 {
