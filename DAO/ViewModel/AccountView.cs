@@ -30,6 +30,8 @@ namespace DAO.ViewModel
             Status = key.Status;
             Role = role;
             User = user;
+            DateCreated = key.CreatedDate;
+            DateUpdated = key.UpdatedDate;
         }
     }
 }

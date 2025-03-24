@@ -196,7 +196,9 @@ namespace Service.Service
             if (zooArea == null) return null;
             List<string> urlImages = new List<string>();
             urlImages = await zooAreaImageRepo.GetListZooAreaImageUrlByZooAreaId(zooArea.Id);
-            var result = zooAreaRepo.ConvertZooAreaIntoZooAreaView(zooArea, urlImages);
+            TeamView team = new TeamView();
+            team = await GetTeamView(await teamRepo.GetTeamByZooAreaId(zooArea.Id));
+            var result = zooAreaRepo.ConvertZooAreaIntoZooAreaView(zooArea, urlImages, team);
             return result;
         }
         public async Task<List<TaskView>> GetListTaskView(List<BO.Models.Task> tasks)

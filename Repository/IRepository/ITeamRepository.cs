@@ -13,6 +13,7 @@ namespace Repository.IRepository
     public interface ITeamRepository : IGenericRepository<Team>
     {
         public Task<List<Team>?> GetListTeam();
+        public Task<Team?> GetTeamByZooAreaId(int zooAreaId);
         public Task<Team> AddTeam(TeamAdd key);
         public Task<Team?> UpdateTeam(TeamUpdate key);
         public TeamView ConvertTeamIntoTeamView(Team team, ZooAreaView zooArea);

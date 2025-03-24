@@ -19,11 +19,13 @@ namespace Service.Service
         public IZooAreaRepository repo;
         public IZooAreaImageRepository zooAreaImageRepo;
         public IObjectViewService objectViewService;
-        public ZooAreaService(IZooAreaRepository repo, IObjectViewService objectViewService, IZooAreaImageRepository zooAreaImageRepo)
+        public ITeamRepository teamRepo;
+        public ZooAreaService(IZooAreaRepository repo, IObjectViewService objectViewService, IZooAreaImageRepository zooAreaImageRepo, ITeamRepository teamRepo)
         {
             this.repo = repo;
             this.objectViewService = objectViewService;
             this.zooAreaImageRepo = zooAreaImageRepo;
+            this.teamRepo = teamRepo;
         }
         public async Task<ServiceResult> GetListZooArea()
         {
@@ -40,6 +42,44 @@ namespace Service.Service
                 }
 
                 var result = await objectViewService.GetListZooAreaView(zooAreas);
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "Zoo Areas",
+                    Data = result
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
+        public async Task<ServiceResult> GetListZooAreaUnassign()
+        {
+            try
+            {
+                var zooAreas = await repo.GetListZooArea();
+                if (zooAreas == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Not Found!",
+                    };
+                }
+                List<ZooArea> listTemp = new();
+                foreach(var zooArea in zooAreas)
+                {
+                    if(await teamRepo.GetTeamByZooAreaId(zooArea.Id) == null)
+                    {
+                        listTemp.Add(zooArea);
+                    }
+                }
+                var result = await objectViewService.GetListZooAreaView(listTemp);
                 return new ServiceResult
                 {
                     Status = 200,

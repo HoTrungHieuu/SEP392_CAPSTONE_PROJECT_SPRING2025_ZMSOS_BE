@@ -13,12 +13,16 @@ namespace DAO.ViewModel
         public string? Name { get; set; }
         public string? Description { get; set; }
         public float? CaloPerGram {  get; set; }
+        public DateTime? DateCreated { get; set; }
+        public DateTime? DateUpdated { get; set; }
         public void ConvertFoodIntoFoodView(Food key)
         {
             Id = key.Id;
             Name = key.Name;
             Description = key.Decription;
             CaloPerGram = (float)key.CaloPerGram;
+            DateCreated = key.CreatedDate;
+            DateUpdated = key.UpdatedDate;
         }
     }
 }

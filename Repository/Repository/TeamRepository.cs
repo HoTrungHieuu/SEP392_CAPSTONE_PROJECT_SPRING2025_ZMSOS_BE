@@ -28,6 +28,18 @@ namespace Repository.Repository
                 throw;
             }
         }
+        public async Task<Team?> GetTeamByZooAreaId(int zooAreaId)
+        {
+            try
+            {
+                var team = (await GetAllAsync()).FirstOrDefault(l => l.ZooAreaId == zooAreaId);
+                return team;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         public async Task<Team> AddTeam(TeamAdd key)
         {
             try

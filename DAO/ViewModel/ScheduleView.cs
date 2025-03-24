@@ -16,6 +16,8 @@ namespace DAO.ViewModel
         public DateOnly? Date { get; set; }
         public string? Note { get; set; }
         public string? Status { get; set; }
+        public DateTime? DateCreated { get; set; }
+        public DateTime? DateUpdated { get; set; }
         public void ConvertSchedualIntoSchedualView(Schedule key, UserView user)
         {
             Id = key.Id;
@@ -23,6 +25,8 @@ namespace DAO.ViewModel
             Date = key.Date;
             Note = key.Note;
             Status = key.Status;
+            DateCreated = key.CreatedDate;
+            DateUpdated = key.UpdatedDate;
         }
     }
 }

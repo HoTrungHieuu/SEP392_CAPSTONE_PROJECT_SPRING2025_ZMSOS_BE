@@ -22,6 +22,8 @@ namespace DAO.ViewModel
         public string? UrlImage {  get; set; }
         public DateOnly? DateCreate { get; set; }
         public string? Status {  get; set; }
+        public DateTime? DateCreated { get; set; }
+        public DateTime? DateUpdated { get; set; }
         public void ConvertCageIntoCageView(Cage key, ZooAreaView zooArea)
         {
             Id = key.Id;
@@ -35,6 +37,8 @@ namespace DAO.ViewModel
             DateCreate = key.DateCreate;
             UrlImage = key.UrlImage;
             Status = key.Status;
+            DateCreate = key.DateCreate;
+            DateUpdated = key.UpdatedDate;
         }
     }
 }

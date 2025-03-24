@@ -28,6 +28,14 @@ namespace AnimalAndCageManagement.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Manager")]
+        [HttpGet("zooAreas/unassign")]
+        public async Task<IActionResult> GetListZooAreaUnassign()
+        {
+            var result = await service.GetListZooAreaUnassign();
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
+        [Authorize(Roles = "Manager")]
         [HttpPost("zooAreas/search-sort-paging")]
         public async Task<IActionResult> GetListZooAreaSearch(ZooAreaSearch<ZooAreaView> key)
         {

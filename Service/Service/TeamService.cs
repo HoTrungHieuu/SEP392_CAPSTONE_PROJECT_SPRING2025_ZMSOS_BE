@@ -101,6 +101,14 @@ namespace Service.Service
         {
             try
             {
+                if(await repo.GetTeamByZooAreaId((int)key.ZooAreaId) != null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 200,
+                        Message = "Zoo Area had team",
+                    };
+                } 
                 var team = await repo.AddTeam(key);
                 var result = await objectViewService.GetTeamView(team);
                 return new ServiceResult

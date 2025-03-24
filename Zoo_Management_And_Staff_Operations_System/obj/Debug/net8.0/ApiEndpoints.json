@@ -1611,5 +1611,15 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.ZooAreaController",
+    "Method": "GetListZooAreaUnassign",
+    "RelativePath": "api/ZooArea/zooAreas/unassign",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
   }
 ]

@@ -26,6 +26,8 @@ namespace DAO.ViewModel
 
         public string? Status { get; set; }
         public List<MealFoodView>? Foods { get; set; }
+        public DateTime? DateCreated { get; set; }
+        public DateTime? DateUpdated { get; set; }
         public void ConvertMealDayIntoMealDayView(MealDay key, AnimalTypeView animalType, List<MealFoodView>? foods)
         {
             Id = key.Id;
@@ -37,6 +39,8 @@ namespace DAO.ViewModel
             Status = key.Status;
             AnimalType = animalType;
             Foods = foods;
+            DateCreated = key.CreatedDate;
+            DateUpdated = key.UpdatedDate;
         }
     }
 }

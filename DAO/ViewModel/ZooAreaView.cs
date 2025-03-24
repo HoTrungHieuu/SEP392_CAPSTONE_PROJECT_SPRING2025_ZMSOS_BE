@@ -15,8 +15,11 @@ namespace DAO.ViewModel
         public string? AnimalOrder {  get; set; }
         public string? Location {  get; set; }
         public List<string>? UrlImages { get; set; } 
+        public TeamView? Team { get; set; }
         public string? Status { get; set; }
-        public void ConvertZooAreaIntoZooAreaView(ZooArea key, List<string>? urlImages)
+        public DateTime? DateCreated { get; set; }
+        public DateTime? DateUpdated { get; set; }
+        public void ConvertZooAreaIntoZooAreaView(ZooArea key, List<string>? urlImages, TeamView? team)
         {
             Id = key.Id;
             Name = key.Name;
@@ -25,6 +28,9 @@ namespace DAO.ViewModel
             Location = key.Location;
             UrlImages = urlImages;
             Status = key.Status;
+            Team = team;
+            DateCreated = key.CreatedDate;
+            DateUpdated = key.UpdatedDate;
         }
     }
 }

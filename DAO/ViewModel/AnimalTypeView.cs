@@ -12,18 +12,20 @@ namespace DAO.ViewModel
     public class AnimalTypeView
     {
         public int Id { get; set; }
-        public string ScientificName { get; set; }
-        public string VietnameseName { get; set; }
-        public string EnglishName { get; set; }
-        public string Family { get; set; }
-        public string WeightRange { get; set; }
-        public string Characteristics { get; set; }
-        public string Distribution { get; set; }
-        public string Habitat {  get; set; }
-        public string Diet {  get; set; }
-        public string Reproduction {  get; set; }
-        public string ConservationStatus {  get; set; }
-        public string UrlImage {  get; set; }
+        public string? ScientificName { get; set; }
+        public string? VietnameseName { get; set; }
+        public string? EnglishName { get; set; }
+        public string? Family { get; set; }
+        public string? WeightRange { get; set; }
+        public string? Characteristics { get; set; }
+        public string? Distribution { get; set; }
+        public string? Habitat {  get; set; }
+        public string? Diet {  get; set; }
+        public string? Reproduction {  get; set; }
+        public string? ConservationStatus {  get; set; }
+        public string? UrlImage {  get; set; }
+        public DateTime? DateCreated { get; set; }
+        public DateTime? DateUpdated { get; set; }
         public void ConvertAnimalTypeIntoAnimalTypeView(AnimalType key)
         {
             Id = key.Id;
@@ -39,6 +41,8 @@ namespace DAO.ViewModel
             Reproduction = key.Reproduction;
             ConservationStatus = key.ConservationStatus;
             UrlImage = key.UrlImage;
+            DateCreated = key.CreatedDate;
+            DateUpdated = key.UpdatedDate;
         }
     }
 }

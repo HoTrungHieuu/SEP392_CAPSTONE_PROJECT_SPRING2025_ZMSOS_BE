@@ -12,14 +12,18 @@ namespace DAO.ViewModel
         public int Id { get; set; }
         public AnimalTypeView? AnimalType1 { get; set; }
         public AnimalTypeView? AnimalType2 { get; set; }
-        public string Reason { get; set; }
+        public string? Reason { get; set; }
         public string? Status { get; set; }
+        public DateTime? DateCreated { get; set; }
+        public DateTime? DateUpdated { get; set; }
         public void ConvertIncompatibleAnimalTypeIntoIncompatibleAnimalTypeView(IncompatibleAnimalType key,AnimalTypeView animalType1, AnimalTypeView animalType2)
         {
             Id = key.Id;
             AnimalType1 = animalType1;
             AnimalType2 = animalType2;
             Reason = key.Reason;
+            DateCreated = key.CreatedDate;
+            DateUpdated = key.UpdatedDate;
         }
     }
 }

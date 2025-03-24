@@ -12,11 +12,13 @@ namespace DAO.ViewModel
     public class NewsView
     {
         public int Id { get; set; } 
-        public string Headline {  get; set; }
-        public string Content {  get; set; }
+        public string? Headline {  get; set; }
+        public string? Content {  get; set; }
         public DateTime? Date { get; set; }
         public string? Status {  get; set; }
-        public UserView User { get; set; }
+        public UserView? User { get; set; }
+        public DateTime? DateCreated { get; set; }
+        public DateTime? DateUpdated { get; set; }
         public void ConvertNewsIntoNewsView(News key, UserView user)
         {
             Id = key.Id;
@@ -25,6 +27,8 @@ namespace DAO.ViewModel
             Date = key.Date;
             Status = key.Status;
             User = user;
+            DateCreated = key.CreatedDate;
+            DateUpdated = key.UpdatedDate;
         }
     }
 }

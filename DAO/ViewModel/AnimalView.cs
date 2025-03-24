@@ -24,6 +24,8 @@ namespace DAO.ViewModel
         public string? Classify {  get; set; }
         public CageView? Cage { get; set; }
         public List<string>? UrlImages { get; set; }
+        public DateTime? DateCreated { get; set; }
+        public DateTime? DateUpdated { get; set; }
         public void ConvertAnimalIntoAnimalView(Animal key,AnimalTypeView animalType,FlockView flock, IndividualView individual, CageView cage, List<string> urlImages)
         {
             Id = key.Id;
@@ -36,6 +38,8 @@ namespace DAO.ViewModel
             Flock = flock;
             Cage = cage;
             UrlImages = urlImages;
+            DateCreated = key.CreatedDate;
+            DateUpdated = key.UpdatedDate;
         }
     }
 }

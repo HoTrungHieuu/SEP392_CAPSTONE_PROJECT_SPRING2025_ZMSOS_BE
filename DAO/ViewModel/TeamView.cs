@@ -17,6 +17,8 @@ namespace DAO.ViewModel
         public int? MaxQuantity {  get; set; }
         public ZooAreaView? ZooArea { get; set; }
         public string? Status {  get; set; }
+        public DateTime? DateCreated { get; set; }
+        public DateTime? DateUpdated { get; set; }
         public void ConvertTeamIntoTeamView(Team key, ZooAreaView? zooArea)
         {
             Id = key.Id;
@@ -26,6 +28,8 @@ namespace DAO.ViewModel
             MaxQuantity = key.MaxQuantity;
             ZooArea = zooArea;
             Status = key.Status;
+            DateCreated = key.CreatedDate;
+            DateUpdated = key.UpdatedDate;
         }
     }
 }

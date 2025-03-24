@@ -70,12 +70,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public ZooAreaView ConvertZooAreaIntoZooAreaView(ZooArea zooArea, List<string> urlImages)
+        public ZooAreaView ConvertZooAreaIntoZooAreaView(ZooArea zooArea, List<string> urlImages, TeamView? team)
         {
             try
             {
                 ZooAreaView result = new ZooAreaView();
-                result.ConvertZooAreaIntoZooAreaView(zooArea,urlImages);
+                result.ConvertZooAreaIntoZooAreaView(zooArea,urlImages,team);
                 return result;
             }
             catch (Exception)
