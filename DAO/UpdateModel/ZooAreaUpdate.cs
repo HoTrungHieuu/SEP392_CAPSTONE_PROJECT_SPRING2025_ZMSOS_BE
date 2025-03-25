@@ -14,7 +14,7 @@ namespace DAO.UpdateModel
         public string? AnimalOrder {  get; set; }
         public string? Location {  get; set; }
         public string? Size {  get; set; }
-        public List<string>? UrlImages { get; set; }
+        public string? UrlImages { get; set; }
         public string? Status { get; set; }
     }
 }

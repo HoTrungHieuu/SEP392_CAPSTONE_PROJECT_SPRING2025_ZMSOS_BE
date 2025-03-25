@@ -39,7 +39,6 @@ namespace Service.Service
         public IScheduleRepository scheduleRepo;
         public ITaskEstimateRepository taskEstimateRepo;
         public IAnimalImageRepository animalImageRepo;
-        public IZooAreaImageRepository zooAreaImageRepo;
         public IRoleRepository roleRepo;
         public IFoodRepository foodRepo;
         public IMealDayRepository mealDayRepo;
@@ -58,7 +57,7 @@ namespace Service.Service
             INotificationRepository notificationRepo,
             IScheduleRepository scheduleRepo,
             ITaskEstimateRepository taskEstimateRepo,
-            IAnimalImageRepository animalImageRepo, IZooAreaImageRepository zooAreaImageRepo,
+            IAnimalImageRepository animalImageRepo,
             IRoleRepository roleRepo,
             IFoodRepository foodRepo, IMealDayRepository mealDayRepo, IMealFoodRepository mealFoodRepo, ITaskMealRepository taskMealRepo)
         {
@@ -87,7 +86,6 @@ namespace Service.Service
             this.scheduleRepo = scheduleRepo;
             this.taskEstimateRepo = taskEstimateRepo;
             this.animalImageRepo = animalImageRepo;
-            this.zooAreaImageRepo = zooAreaImageRepo;
             this.roleRepo = roleRepo;
             this.foodRepo = foodRepo;
             this.mealDayRepo = mealDayRepo;
@@ -195,10 +193,9 @@ namespace Service.Service
         {
             if (zooArea == null) return null;
             List<string> urlImages = new List<string>();
-            urlImages = await zooAreaImageRepo.GetListZooAreaImageUrlByZooAreaId(zooArea.Id);
             TeamView team = new TeamView();
             team = await GetTeamView(await teamRepo.GetTeamByZooAreaId(zooArea.Id));
-            var result = zooAreaRepo.ConvertZooAreaIntoZooAreaView(zooArea, urlImages, team);
+            var result = zooAreaRepo.ConvertZooAreaIntoZooAreaView(zooArea, team);
             return result;
         }
         public async Task<List<TaskView>> GetListTaskView(List<BO.Models.Task> tasks)

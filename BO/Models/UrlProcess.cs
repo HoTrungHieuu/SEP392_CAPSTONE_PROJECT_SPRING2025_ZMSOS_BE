@@ -5,15 +5,13 @@ using System.Collections.Generic;
 
 namespace BO.Models;
 
-public partial class ZooAreaImage
+public partial class UrlProcess
 {
     public int Id { get; set; }
 
-    public int? ZooAreaId { get; set; }
+    public int? CleaningProcessId { get; set; }
 
-    public string UrlImage { get; set; }
+    public string Url { get; set; }
 
-    public string Status { get; set; }
-
-    public virtual ZooArea ZooArea { get; set; }
+    public virtual CleaningProcess CleaningProcess { get; set; }
 }

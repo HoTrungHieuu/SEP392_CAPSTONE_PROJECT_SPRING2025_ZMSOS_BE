@@ -5,27 +5,25 @@ using System.Collections.Generic;
 
 namespace BO.Models;
 
-public partial class ZooArea
+public partial class CleaningOption
 {
     public int Id { get; set; }
+
+    public int? AnimalTypeId { get; set; }
 
     public string Name { get; set; }
 
     public string Description { get; set; }
 
-    public string AnimalOrder { get; set; }
-
-    public string Location { get; set; }
-
     public string Status { get; set; }
-
-    public string UrlImage { get; set; }
 
     public DateTime? CreatedDate { get; set; }
 
     public DateTime? UpdatedDate { get; set; }
 
-    public virtual ICollection<Cage> Cages { get; set; } = new List<Cage>();
+    public virtual AnimalType AnimalType { get; set; }
 
-    public virtual ICollection<Team> Teams { get; set; } = new List<Team>();
+    public virtual ICollection<CleaningProcess> CleaningProcesses { get; set; } = new List<CleaningProcess>();
+
+    public virtual ICollection<CleaningTask> CleaningTasks { get; set; } = new List<CleaningTask>();
 }

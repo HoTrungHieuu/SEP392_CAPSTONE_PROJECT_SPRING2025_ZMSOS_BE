@@ -17,14 +17,12 @@ namespace Service.Service
     public class ZooAreaService : IZooAreaService
     {
         public IZooAreaRepository repo;
-        public IZooAreaImageRepository zooAreaImageRepo;
         public IObjectViewService objectViewService;
         public ITeamRepository teamRepo;
-        public ZooAreaService(IZooAreaRepository repo, IObjectViewService objectViewService, IZooAreaImageRepository zooAreaImageRepo, ITeamRepository teamRepo)
+        public ZooAreaService(IZooAreaRepository repo, IObjectViewService objectViewService, ITeamRepository teamRepo)
         {
             this.repo = repo;
             this.objectViewService = objectViewService;
-            this.zooAreaImageRepo = zooAreaImageRepo;
             this.teamRepo = teamRepo;
         }
         public async Task<ServiceResult> GetListZooArea()
@@ -185,7 +183,6 @@ namespace Service.Service
             try
             {
                 var zooArea = await repo.AddZooArea(key);
-                await zooAreaImageRepo.AddZooAreaImageByZooAreaId(zooArea.Id, key.UrlImages);
                 var result = await objectViewService.GetZooAreaView(zooArea);
                 return new ServiceResult
                 {
@@ -216,8 +213,6 @@ namespace Service.Service
                         Message = "Not Found"
                     };
                 }
-                await zooAreaImageRepo.DeleteZooAreaImageByZooAreaId(zooArea.Id);
-                await zooAreaImageRepo.AddZooAreaImageByZooAreaId(zooArea.Id, key.UrlImages);
                 var result = await objectViewService.GetZooAreaView(zooArea);
                 return new ServiceResult
                 {
@@ -248,7 +243,6 @@ namespace Service.Service
                         Message = "Not Found"
                     };
                 }
-                await zooAreaImageRepo.DeleteZooAreaImageByZooAreaId(zooArea.Id);
                 await repo.RemoveAsync(zooArea);
                 return new ServiceResult
                 {

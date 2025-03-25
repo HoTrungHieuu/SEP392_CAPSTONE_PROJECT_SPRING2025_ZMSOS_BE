@@ -67,6 +67,18 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[CleaningOption]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CleaningProcess]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CleaningTask]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[Evaluation]",
          "ObjectType": 0
       },
@@ -135,6 +147,10 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[TaskHealth]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[TaskMeal]",
          "ObjectType": 0
       },
@@ -147,15 +163,15 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[UrlProcess]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[User]",
          "ObjectType": 0
       },
       {
          "Name": "[dbo].[ZooArea]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[ZooAreaImage]",
          "ObjectType": 0
       }
    ],

@@ -14,19 +14,19 @@ namespace DAO.ViewModel
         public string? Description { get; set; }
         public string? AnimalOrder {  get; set; }
         public string? Location {  get; set; }
-        public List<string>? UrlImages { get; set; } 
+        public string? UrlImages { get; set; } 
         public TeamView? Team { get; set; }
         public string? Status { get; set; }
         public DateTime? DateCreated { get; set; }
         public DateTime? DateUpdated { get; set; }
-        public void ConvertZooAreaIntoZooAreaView(ZooArea key, List<string>? urlImages, TeamView? team)
+        public void ConvertZooAreaIntoZooAreaView(ZooArea key, TeamView? team)
         {
             Id = key.Id;
             Name = key.Name;
             Description = key.Description;
             AnimalOrder = key.AnimalOrder; 
             Location = key.Location;
-            UrlImages = urlImages;
+            UrlImages = key.UrlImage;
             Status = key.Status;
             Team = team;
             DateCreated = key.CreatedDate;

@@ -40,6 +40,7 @@ namespace Repository.Repository
                     AnimalOrder = key.AnimalOrder,
                     Location = key.Location,
                     CreatedDate = DateTime.Now,
+                    UrlImage = key.UrlImages,
                     Status = key.Status
                 };
                 await CreateAsync(zooArea);
@@ -62,6 +63,7 @@ namespace Repository.Repository
                 zooArea.Location = key.Location;
                 zooArea.UpdatedDate = DateTime.Now;
                 zooArea.Status = key.Status;
+                zooArea.UrlImage = key.UrlImages;
                 await UpdateAsync(zooArea);
                 return zooArea;
             }
@@ -70,12 +72,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public ZooAreaView ConvertZooAreaIntoZooAreaView(ZooArea zooArea, List<string> urlImages, TeamView? team)
+        public ZooAreaView ConvertZooAreaIntoZooAreaView(ZooArea zooArea, TeamView? team)
         {
             try
             {
                 ZooAreaView result = new ZooAreaView();
-                result.ConvertZooAreaIntoZooAreaView(zooArea,urlImages,team);
+                result.ConvertZooAreaIntoZooAreaView(zooArea,team);
                 return result;
             }
             catch (Exception)

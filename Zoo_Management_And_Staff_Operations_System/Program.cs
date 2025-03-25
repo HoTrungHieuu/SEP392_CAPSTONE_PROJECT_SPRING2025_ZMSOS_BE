@@ -144,7 +144,6 @@ builder.Services.AddScoped<IAnimalAssignRepository, AnimalAssignRepository>();
 builder.Services.AddScoped<IIncompatibleAnimalTypeRepository, IncompatibleAnimalTypeRepository>();
 builder.Services.AddScoped<IIncompatibleAnimalTypeService, IncompatibleAnimalTypeService>();
 builder.Services.AddScoped<IAnimalImageRepository, AnimalImageRepository>();
-builder.Services.AddScoped<IZooAreaImageRepository, ZooAreaImageRepository>();
 builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 builder.Services.AddScoped<IFoodRepository, FoodRepository>();
 builder.Services.AddScoped<IFoodService, FoodService>();
