@@ -11,10 +11,12 @@ namespace DAO.AddModel
     {
         public int? ScheduleId { get; set; }
         public int? TaskTypeId { get; set; }
+        public string? TaskTypeName {  get; set; }
         public string? TaskName {  get; set; }
         public string? Description {  get; set; }
         public string? Note {  get; set; }
         public TimeOnly? TimeStart { get; set; }
         public List<AnimalCageTaskId>? AnimalTasksId { get; set; }
+        public List<AnimalCageTaskCleaningId>? AnimalTaskCleaningsId { get; set; }
     }
 }

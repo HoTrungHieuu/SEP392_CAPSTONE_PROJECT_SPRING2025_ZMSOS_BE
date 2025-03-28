@@ -9,10 +9,9 @@ namespace DAO.UpdateModel
     public class TaskUpdate
     {
         public int Id { get; set; }
+        public int ScheduleId {  get; set; }
         public string? TaskName {  get; set; }
         public string? Description {  get; set; }
-        public string? Note {  get; set; }
         public TimeOnly? TimeStart { get; set; }
-        public string? Status {  get; set; }
     }
 }

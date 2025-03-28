@@ -96,6 +96,21 @@ namespace Repository.Repository
                 throw;
             }
         }
+        public async Task<bool> CheckListCageClassify(List<int> cagesId)
+        {
+            List<Cage> cages = new List<Cage>();
+            foreach(int cageId in cagesId)
+            {
+                cages.Add(GetById(cageId));
+            }
+            if(cages.Count > 0)
+            {
+                string classifyIntial = cages[0].Classify;
+                if (cages.FindAll(l => l.Classify == classifyIntial).Count != cages.Count)
+                    return false;
+            }
+            return true;
+        }
         public CageView ConvertCageIntoCageView(Cage cage, ZooAreaView zooArea)
         {
             try

@@ -54,5 +54,11 @@ namespace Service.IService
         public Task<FoodView> GetFoodView(Food food);
         public Task<List<MealDayView>> GetListMealDayView(List<MealDay> mealDays);
         public Task<MealDayView> GetMealDayView(MealDay mealDay);
+        public Task<List<UrlProcessView>> GetListUrlProcessView(List<UrlProcess> urlProcesss);
+        public Task<UrlProcessView> GetUrlProcessView(UrlProcess urlProcess);
+        public Task<List<CleaningProcessView>> GetListCleaningProcessView(List<CleaningProcess> cleaningProcesss);
+        public Task<CleaningProcessView> GetCleaningProcessView(CleaningProcess cleaningProcess);
+        public Task<List<CleaningOptionView>> GetListCleaninOptionView(List<CleaningOption> cleaningOptions);
+        public Task<CleaningOptionView> GetCleaningOptionView(CleaningOption cleaningOption);
     }
 }

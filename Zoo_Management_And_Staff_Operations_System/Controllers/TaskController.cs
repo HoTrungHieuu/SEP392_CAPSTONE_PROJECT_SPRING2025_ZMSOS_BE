@@ -41,10 +41,31 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
-        [HttpPost("taskAutomatic")]
+        [HttpPost("taskStart/by-id/{id}")]
+        public async Task<IActionResult> StartTask(int id)
+        {
+            var result = await service.StartTask(id);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
+        [HttpPost("taskStaff")]
+        public async Task<IActionResult> UpdateTaskStaff(TaskStaffUpdate key)
+        {
+            var result = await service.UpdateTaskStaff(key);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
+        [HttpPost("taskMealAutomatic")]
         public async Task<IActionResult> AddTaskAutomatic(AnimalTaskMealSchdule key)
         {
             var result = await service.AddTaskAutomatic(key);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
+        [HttpPost("taskCleaningAutomatic")]
+        public async Task<IActionResult> AddTaskCleaningAutomatic(AnimalTaskCleaningSchedule key)
+        {
+            var result = await service.AddTaskCleaningAutomatic(key);
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }

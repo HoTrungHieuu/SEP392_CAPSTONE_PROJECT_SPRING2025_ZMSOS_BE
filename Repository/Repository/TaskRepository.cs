@@ -40,7 +40,7 @@ namespace Repository.Repository
                     Note = key.Note,
                     TimeStart = key.TimeStart,
                     TimeFinish = null,
-                    Status = null,
+                    Status = "Not Start",
                 };
                 await CreateAsync(task);
                 return task;
@@ -59,10 +59,29 @@ namespace Repository.Repository
                 {
                     return null;
                 }
+                task.ScheduleId = key.ScheduleId;
                 task.TaskName = key.TaskName;
                 task.Description = key.Description;
-                task.Note = key.Note;
                 task.TimeStart = key.TimeStart;
+                await UpdateAsync(task);
+                return task;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public async Task<BO.Models.Task?> UpdateTaskStaff(TaskStaffUpdate key)
+        {
+            try
+            {
+                BO.Models.Task task = GetById(key.Id);
+                if (task == null)
+                {
+                    return null;
+                }
+                task.Note = key.Note;
+                task.Status = "Finish";
                 task.TimeFinish = TimeOnly.FromDateTime(DateTime.Now);
                 await UpdateAsync(task);
                 return task;
@@ -72,12 +91,30 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public TaskView ConvertTaskIntoTaskView(BO.Models.Task task, List<AnimalCageTask> animalCageTasks, TaskTypeView taskType)
+        public async Task<BO.Models.Task?> StartTask(int id)
+        {
+            try
+            {
+                BO.Models.Task task = GetById(id);
+                if (task == null)
+                {
+                    return null;
+                }
+                task.Status = "In Progressing";
+                await UpdateAsync(task);
+                return task;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public TaskView ConvertTaskIntoTaskView(BO.Models.Task task, List<AnimalCageTask> animalCageTasks, List<AnimalCageTaskCleaning> animalCageTaskCleanings, TaskTypeView taskType)
         {
             try
             {
                 TaskView result = new TaskView();
-                result.ConvertTaskIntoTaskView(task, animalCageTasks, taskType);
+                result.ConvertTaskIntoTaskView(task, animalCageTasks,animalCageTaskCleanings, taskType);
                 return result;
             }
             catch (Exception)

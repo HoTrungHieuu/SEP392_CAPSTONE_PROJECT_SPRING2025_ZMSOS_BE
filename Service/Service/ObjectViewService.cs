@@ -44,6 +44,10 @@ namespace Service.Service
         public IMealDayRepository mealDayRepo;
         public IMealFoodRepository mealFoodRepo;
         public ITaskMealRepository taskMealRepo;
+        public ICleaningOptionRepository cleaningOptionRepo;
+        public ICleaningProcessRepository cleaningProcessRepo;
+        public IUrlProcessRepository urlProcessRepo;
+        public ITaskCleaningRepository taskCleaningRepo;
         public ObjectViewService(IAnimalRepository animalRepo, IAnimalTypeRepository animalTypeRepo, 
             ICageRepository cageRepo, IZooAreaRepository zooAreaRepo,
             ITaskRepository taskRepo, ITaskTypeRepository taskTypeRepo, IAnimalCageRepository animalCageRepo, IAnimalAssignRepository animalAssignRepo,
@@ -59,7 +63,8 @@ namespace Service.Service
             ITaskEstimateRepository taskEstimateRepo,
             IAnimalImageRepository animalImageRepo,
             IRoleRepository roleRepo,
-            IFoodRepository foodRepo, IMealDayRepository mealDayRepo, IMealFoodRepository mealFoodRepo, ITaskMealRepository taskMealRepo)
+            IFoodRepository foodRepo, IMealDayRepository mealDayRepo, IMealFoodRepository mealFoodRepo, ITaskMealRepository taskMealRepo,
+            ICleaningOptionRepository cleaningOptionRepo, ICleaningProcessRepository cleaningProcessRepo, IUrlProcessRepository urlProcessRepo, ITaskCleaningRepository taskCleaningRepo)
         {
             this.animalRepo = animalRepo;
             this.animalTypeRepo = animalTypeRepo;
@@ -91,6 +96,10 @@ namespace Service.Service
             this.mealDayRepo = mealDayRepo;
             this.mealFoodRepo = mealFoodRepo;
             this.taskMealRepo = taskMealRepo;
+            this.cleaningOptionRepo = cleaningOptionRepo;
+            this.cleaningProcessRepo = cleaningProcessRepo;
+            this.urlProcessRepo = urlProcessRepo;
+            this.taskCleaningRepo = taskCleaningRepo;
         }
         public async Task<List<AnimalView>> GetListAnimalView(List<Animal> animals)
         {
@@ -218,33 +227,49 @@ namespace Service.Service
             var animalAssigns = await animalAssignRepo.GetListAnimalAssignByTaskId(task.Id);
             if(animalAssigns == null)
             {
-                var resultTemp = taskRepo.ConvertTaskIntoTaskView(task, null, taskType);
+                var resultTemp = taskRepo.ConvertTaskIntoTaskView(task, null, null, taskType);
                 return resultTemp;
             }
-            List<(AnimalView, CageView, AnimalAssign)> animalCageViews = new();
-            List<AnimalCageTask> animalCageTasks = new();
-            foreach (var animalAssign in animalAssigns)
+            if(task.TaskTypeId == 1)
             {
-                var animalCage = animalCageRepo.GetById(animalAssign.AnimalCageId);
-                animalCageViews.Add((await GetAnimalView(animalRepo.GetById(animalCage.AnimalId)), await GetCageView(cageRepo.GetById(animalCage.CageId)), animalAssign));
-            }
-            animalCageViews.OrderBy(l => l.Item2);
-            AnimalCageTask animalCageTask = new();
-            for (int i = 0; i < animalCageViews.Count; i++)
-            {
-                if (i > 0)
+                List<(AnimalView, CageView, AnimalAssign)> animalCageViews = new();
+                List<AnimalCageTask> animalCageTasks = new();
+                foreach (var animalAssign in animalAssigns)
                 {
-                    if (animalCageViews[i].Item2.Id == animalCageViews[i - 1].Item2.Id)
+                    var animalCage = animalCageRepo.GetById(animalAssign.AnimalCageId);
+                    animalCageViews.Add((await GetAnimalView(animalRepo.GetById(animalCage.AnimalId)), await GetCageView(cageRepo.GetById(animalCage.CageId)), animalAssign));
+                }
+                animalCageViews.OrderBy(l => l.Item2);
+                AnimalCageTask animalCageTask = new();
+                for (int i = 0; i < animalCageViews.Count; i++)
+                {
+                    if (i > 0)
                     {
-                        animalCageTask.Animals.Add(new AnimalTaskMeal()
+                        if (animalCageViews[i].Item2.Id == animalCageViews[i - 1].Item2.Id)
                         {
-                            Animal = animalCageViews[i].Item1,
-                            MealDay = await GetMealDayView(mealDayRepo.GetById((await taskMealRepo.GetTaskMealByAnimalAssignId(animalCageViews[i].Item3.Id)).MealDayId))
-                        });
+                            animalCageTask.Animals.Add(new AnimalTaskMeal()
+                            {
+                                Animal = animalCageViews[i].Item1,
+                                MealDay = await GetMealDayView(mealDayRepo.GetById((await taskMealRepo.GetTaskMealByAnimalAssignId(animalCageViews[i].Item3.Id)).MealDayId))
+                            });
+                        }
+                        else
+                        {
+                            animalCageTasks.Add(animalCageTask);
+                            animalCageTask = new()
+                            {
+                                Cage = animalCageViews[i].Item2,
+                                Animals = new()
+                            };
+                            animalCageTask.Animals.Add(new AnimalTaskMeal()
+                            {
+                                Animal = animalCageViews[i].Item1,
+                                MealDay = await GetMealDayView(mealDayRepo.GetById((await taskMealRepo.GetTaskMealByAnimalAssignId(animalCageViews[i].Item3.Id)).MealDayId))
+                            });
+                        }
                     }
                     else
                     {
-                        animalCageTasks.Add(animalCageTask);
                         animalCageTask = new()
                         {
                             Cage = animalCageViews[i].Item2,
@@ -257,22 +282,67 @@ namespace Service.Service
                         });
                     }
                 }
-                else
-                {
-                    animalCageTask = new()
-                    {
-                        Cage = animalCageViews[i].Item2,
-                        Animals = new()
-                    };
-                    animalCageTask.Animals.Add(new AnimalTaskMeal()
-                    {
-                        Animal = animalCageViews[i].Item1,
-                        MealDay = await GetMealDayView(mealDayRepo.GetById((await taskMealRepo.GetTaskMealByAnimalAssignId(animalCageViews[i].Item3.Id)).MealDayId))
-                    });
-                }
+                animalCageTasks.Add(animalCageTask);
+                var resultTemp = taskRepo.ConvertTaskIntoTaskView(task, animalCageTasks, null, taskType);
+                return resultTemp;
             }
-            animalCageTasks.Add(animalCageTask);
-            var result = taskRepo.ConvertTaskIntoTaskView(task, animalCageTasks, taskType);
+            else if(task.TaskTypeId == 2)
+            {
+                List<(AnimalView, CageView, AnimalAssign)> animalCageViews = new();
+                List<AnimalCageTaskCleaning> animalCageTasks = new();
+                foreach (var animalAssign in animalAssigns)
+                {
+                    var animalCage = animalCageRepo.GetById(animalAssign.AnimalCageId);
+                    animalCageViews.Add((await GetAnimalView(animalRepo.GetById(animalCage.AnimalId)), await GetCageView(cageRepo.GetById(animalCage.CageId)), animalAssign));
+                }
+                animalCageViews.OrderBy(l => l.Item2);
+                AnimalCageTaskCleaning animalCageTask = new();
+                for (int i = 0; i < animalCageViews.Count; i++)
+                {
+                    if (i > 0)
+                    {
+                        if (animalCageViews[i].Item2.Id == animalCageViews[i - 1].Item2.Id)
+                        {
+                            animalCageTask.Animals.Add(new AnimalTaskCleaning()
+                            {
+                                Animal = animalCageViews[i].Item1,
+                                CleaningOption = await GetCleaningOptionView(cleaningOptionRepo.GetById((await taskCleaningRepo.GetTaskCleaningByAnimalAssignId(animalCageViews[i].Item3.Id)).CleaningOptionId))
+                            });
+                        }
+                        else
+                        {
+                            animalCageTasks.Add(animalCageTask);
+                            animalCageTask = new()
+                            {
+                                Cage = animalCageViews[i].Item2,
+                                Animals = new()
+                            };
+                            animalCageTask.Animals.Add(new AnimalTaskCleaning()
+                            {
+                                Animal = animalCageViews[i].Item1,
+                                CleaningOption = await GetCleaningOptionView(cleaningOptionRepo.GetById((await taskCleaningRepo.GetTaskCleaningByAnimalAssignId(animalCageViews[i].Item3.Id)).CleaningOptionId))
+                            });
+                        }
+                    }
+                    else
+                    {
+                        animalCageTask = new()
+                        {
+                            Cage = animalCageViews[i].Item2,
+                            Animals = new()
+                        };
+                        animalCageTask.Animals.Add(new AnimalTaskCleaning()
+                        {
+                            Animal = animalCageViews[i].Item1,
+                            CleaningOption = await GetCleaningOptionView(cleaningOptionRepo.GetById((await taskCleaningRepo.GetTaskCleaningByAnimalAssignId(animalCageViews[i].Item3.Id)).CleaningOptionId))
+                        });
+                    }
+                }
+                animalCageTasks.Add(animalCageTask);
+                var resultTemp = taskRepo.ConvertTaskIntoTaskView(task, null, animalCageTasks, taskType);
+                return resultTemp;
+            }
+            var result = taskRepo.ConvertTaskIntoTaskView(task, null,null, taskType);
             return result;
         }
         public async Task<List<TaskTypeView>> GetListTaskTypeView(List<TaskType> taskTypes)
@@ -557,6 +627,54 @@ namespace Service.Service
                 });
             }
             var result = mealDayRepo.ConvertMealDayIntoMealDayView(mealDay, animalType,foods);
+            return result;
+        }
+        public async Task<List<UrlProcessView>> GetListUrlProcessView(List<UrlProcess> urlProcesss)
+        {
+            List<UrlProcessView> result = new List<UrlProcessView>();
+            foreach (var urlProcess in urlProcesss)
+            {
+                result.Add(await GetUrlProcessView(urlProcess));
+            }
+            return result;
+        }
+        public async Task<UrlProcessView> GetUrlProcessView(UrlProcess urlProcess)
+        {
+            var result = urlProcessRepo.ConvertUrlProcessIntoUrlProcessView(urlProcess);
+            return result;
+        }
+        public async Task<List<CleaningProcessView>> GetListCleaningProcessView(List<CleaningProcess> cleaningProcesss)
+        {
+            List<CleaningProcessView> result = new List<CleaningProcessView>();
+            foreach (var cleaningProcess in cleaningProcesss)
+            {
+                result.Add(await GetCleaningProcessView(cleaningProcess));
+            }
+            return result;
+        }
+        public async Task<CleaningProcessView> GetCleaningProcessView(CleaningProcess cleaningProcess)
+        {
+            List<UrlProcessView> urlProcesss = new List<UrlProcessView>();
+            urlProcesss = await GetListUrlProcessView((await urlProcessRepo.GetListUrlProcessByCleaningProcessId(cleaningProcess.Id)));
+            var result = cleaningProcessRepo.ConvertCleaningProcessIntoCleaningProcessView(cleaningProcess,urlProcesss);
+            return result;
+        }
+        public async Task<List<CleaningOptionView>> GetListCleaninOptionView(List<CleaningOption> cleaningOptions)
+        {
+            List<CleaningOptionView> result = new List<CleaningOptionView>();
+            foreach (var cleaningOption in cleaningOptions)
+            {
+                result.Add(await GetCleaningOptionView(cleaningOption));
+            }
+            return result;
+        }
+        public async Task<CleaningOptionView> GetCleaningOptionView(CleaningOption cleaningOption)
+        {
+            AnimalTypeView animalType = new AnimalTypeView();
+            animalType = await GetAnimalTypeView((animalTypeRepo.GetById(cleaningOption.AnimalTypeId)));
+            List<CleaningProcessView> cleaningProcesss = new List<CleaningProcessView>();
+            cleaningProcesss = await GetListCleaningProcessView((await cleaningProcessRepo.GetListCleaningProcessByCleaningOptionId(cleaningOption.Id)));
+            var result = cleaningOptionRepo.ConvertCleaningOptionIntoCleaningOptionView(cleaningOption, animalType,cleaningProcesss);
             return result;
         }
     }

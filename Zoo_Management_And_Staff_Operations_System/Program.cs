@@ -151,6 +151,12 @@ builder.Services.AddScoped<IMealDayRepository, MealDayRepository>();
 builder.Services.AddScoped<IMealDayService, MealDayService>();
 builder.Services.AddScoped<IMealFoodRepository, MealFoodRepository>();
 builder.Services.AddScoped<ITaskMealRepository, TaskMealRepository>();
+builder.Services.AddScoped<ICleaningOptionRepository, CleaningOptionRepository>();
+builder.Services.AddScoped<ICleaningOptionService, CleaningOptionService>();
+builder.Services.AddScoped<ICleaningProcessRepository, CleaningProcessRepository>();
+builder.Services.AddScoped<IUrlProcessRepository, UrlProcessRepository>();
+builder.Services.AddScoped<ITaskCleaningRepository, TaskCleaningRepository>();
+builder.Services.AddScoped<IHealthTaskRepository, HealthTaskRepository>();
 
 var app = builder.Build();
 

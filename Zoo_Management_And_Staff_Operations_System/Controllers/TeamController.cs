@@ -17,7 +17,7 @@ namespace TeamManagement.Controllers
         {
             this.service = service;
         }
-        [Authorize(Roles = "Manager")]
+        [Authorize(Roles = "Manager,Leader")]
         [HttpGet("teams")]
         public async Task<IActionResult> GetListTeam()
         {

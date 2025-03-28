@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -15,12 +16,15 @@ namespace DAO.ViewModel
         public string? TaskName { get; set; }
         public string? Description { get; set; }
         public string? Note { get; set; }
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public List<AnimalCageTask>? AnimalCageTask {  get; set; }
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public List<AnimalCageTaskCleaning>? AnimalCageTaskCleaning { get; set; }
         public TaskTypeView? TaskType { get;set; }
         public TimeOnly? TimeStart { get; set; }
         public TimeOnly? TimeFinish { get; set; }
         public string? Status {  get; set; }
-        public void ConvertTaskIntoTaskView(BO.Models.Task key,List<AnimalCageTask> animalCageTask, TaskTypeView taskType)
+        public void ConvertTaskIntoTaskView(BO.Models.Task key,List<AnimalCageTask> animalCageTask, List<AnimalCageTaskCleaning> animalCageTaskCleaning, TaskTypeView taskType)
         {
             Id = key.Id;
             TaskName = key.TaskName;
@@ -30,6 +34,7 @@ namespace DAO.ViewModel
             TimeFinish = key.TimeFinish;
             Status = key.Status;
             AnimalCageTask = animalCageTask;
+            AnimalCageTaskCleaning = animalCageTaskCleaning;
             TaskType = taskType;
         }
     }
