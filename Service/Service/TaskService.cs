@@ -4,6 +4,7 @@ using DAO.OtherModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Nest;
 using Repository.IRepository;
 using Repository.IRepositoyr;
 using Service.IService;
@@ -458,10 +459,144 @@ namespace Service.Service
                             keyAdd2s.Add(keyAdd2);
                             var task = await AddTaskSimply(new()
                             {
-                                TaskTypeId = 1,
+                                TaskTypeId = 2,
                                 TaskTypeName = "Cleaning",
                                 TimeStart = TimeOnly.FromDateTime(item2),
                                 AnimalTaskCleaningsId = keyAdd2s
+                            });
+                            t.Add((task, DateOnly.FromDateTime(item2)));
+                        }
+                    }
+                    tt.Add(t);
+                }
+                List<List<Schedule>> ss = new();
+                foreach (var item in key.AccountIds)
+                {
+                    ss.Add(await scheduleRepo.GetListScheduleByAccountId(item));
+                }
+                for (DateOnly date = key.FromDate; date <= key.ToDate; date = date.AddDays(1))
+                {
+
+                    List<List<(BO.Models.Task, DateOnly)>> ttTemp = new();
+                    foreach (var item1 in tt)
+                    {
+                        var tTemp = item1.FindAll(l => l.Item2 == date);
+                        ttTemp.Add(tTemp);
+                    }
+                    if (ttTemp.Count > 0)
+                    {
+                        List<List<Schedule>> ssTemp = new();
+                        foreach (var item1 in ss)
+                        {
+                            var sTemp = item1.FindAll(l => l.Date == date);
+                            ssTemp.Add(sTemp);
+                        }
+                        int count = 0;
+                        foreach (var item1 in ttTemp)
+                        {
+                            foreach (var item2 in item1)
+                            {
+                                if (count >= ssTemp.Count) count = 0;
+                                item2.Item1.ScheduleId = ssTemp[count][0].Id;
+                                await repo.UpdateAsync(item2.Item1);
+                                count++;
+                            }
+                        }
+                    }
+                }
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "Add Success",
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
+        public async Task<ServiceResult> AddTaskHealthAutomatic(AnimalTaskNormalScheldule key)
+        {
+            try
+            {
+                if (key.AnimalTaskNormalsId.Count > 3)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Cage number is not excess 3",
+                    };
+                }
+                List<int> cagesId = new List<int>();
+                foreach (var item in key.AnimalTaskNormalsId)
+                {
+                    cagesId.Add(item.CageId);
+                }
+                if (!(await cageRepo.CheckListCageClassify(cagesId)))
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Cage is not same classify",
+                    };
+                }
+                if (!(await CheckAutoValidate(key.FromDate, key.ToDate, key.AccountIds)))
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Not enough day fromdate todate",
+                    };
+                }
+
+                List<List<(BO.Models.Task, DateOnly)>> tt = new();
+                foreach (var item1 in key.AnimalTaskNormalsId)
+                {
+                    List<(BO.Models.Task, DateOnly)> t = new();
+                    List<(List<DateTime>, int)> datess = new();
+                    foreach (var item2 in item1.AnimalIds)
+                    {
+                        datess.Add((GetListDateTimeDayCleaning(key.FromDate, key.ToDate, item2.TimeInterval), item2.AnimalId));
+                    }
+                    for (int i = 0; i < datess.Count; i++)
+                    {
+                        foreach (var item2 in datess[i].Item1)
+                        {
+                            List<int> animalIdCurrent = new();
+                            animalIdCurrent.Add(datess[i].Item2);
+                            for (int j = i + 1; j < datess.Count; j++)
+                            {
+                                if (datess[j].Item1.Contains(item2))
+                                {
+                                    animalIdCurrent.Add(datess[j].Item2);
+                                    datess[j].Item1.Remove(item2);
+                                }
+                            }
+                            List<AnimalNormalId> keyAdd1 = new();
+                            foreach (var item3 in animalIdCurrent)
+                            {
+                                keyAdd1.Add(new()
+                                {
+                                    AnimalId = item3,
+                                });
+                            }
+                            AnimalCageTaskNormalId keyAdd2 = new()
+                            {
+                                CageId = item1.CageId,
+                                AnimalIds = keyAdd1
+                            };
+                            List<AnimalCageTaskNormalId> keyAdd2s = new();
+                            keyAdd2s.Add(keyAdd2);
+                            var task = await AddTaskSimply(new()
+                            {
+                                TaskTypeId = 3,
+                                TaskTypeName = "Health",
+                                TimeStart = TimeOnly.FromDateTime(item2),
+                                AnimalTaskNormalsId = keyAdd2s
                             });
                             t.Add((task, DateOnly.FromDateTime(item2)));
                         }
@@ -606,7 +741,40 @@ namespace Service.Service
                 }
                 else if (key.TaskTypeName == "Health")
                 {
-                    await healthTaskRepo.AddHealthTask(task.Id);
+                    foreach (var item1 in key.AnimalTaskNormalsId)
+                    {
+                        List<int?> animalCageIds = new();
+                        foreach (var item2 in item1.AnimalIds)
+                        {
+                            animalCageIds.Add(await animalCageRepo.GetAnimalCageIdByCageIdAndAnimalId(item1.CageId, item2.AnimalId));
+                        }
+                        foreach (var item3 in animalCageIds)
+                        {
+                            if (item3 != null)
+                            {
+                                var animalAssign = await animalAssignRepo.AddAnimalAssign(task.Id, (int)item3);
+                                await healthTaskRepo.AddHealthTask(animalAssign.Id);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (var item1 in key.AnimalTaskNormalsId)
+                    {
+                        List<int?> animalCageIds = new();
+                        foreach (var item2 in item1.AnimalIds)
+                        {
+                            animalCageIds.Add(await animalCageRepo.GetAnimalCageIdByCageIdAndAnimalId(item1.CageId, item2.AnimalId));
+                        }
+                        foreach (var item3 in animalCageIds)
+                        {
+                            if (item3 != null)
+                            {
+                                var animalAssign = await animalAssignRepo.AddAnimalAssign(task.Id, (int)item3);
+                            }
+                        }
+                    }
                 }
                 return task;
             }

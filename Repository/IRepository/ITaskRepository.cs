@@ -19,6 +19,6 @@ namespace Repository.IRepositoyr
         public Task<BO.Models.Task?> UpdateTask(TaskUpdate key);
         public Task<BO.Models.Task?> UpdateTaskStaff(TaskStaffUpdate key);
         public Task<BO.Models.Task?> StartTask(int id);
-        public TaskView ConvertTaskIntoTaskView(BO.Models.Task task, List<AnimalCageTask> animalCageTasks, List<AnimalCageTaskCleaning> animalCageTaskCleanings, TaskTypeView taskType);
+        public TaskView ConvertTaskIntoTaskView(BO.Models.Task task, List<AnimalCageTask> animalCageTasks, List<AnimalCageTaskCleaning> animalCageTaskCleanings, List<AnimalCageTaskNormal> animalCageTaskNormals, TaskTypeView taskType);
     }
 }

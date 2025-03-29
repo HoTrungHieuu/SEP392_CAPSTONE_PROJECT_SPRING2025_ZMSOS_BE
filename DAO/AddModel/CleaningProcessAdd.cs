@@ -10,7 +10,7 @@ namespace DAO.AddModel
     {
         public string? Content { get; set; }
 
-        public string? Estimatetime { get; set; }
+        public string? EstimateTime { get; set; }
         public List<UrlProcessAdd>? UrlProcesss { get; set; }
     }
 }

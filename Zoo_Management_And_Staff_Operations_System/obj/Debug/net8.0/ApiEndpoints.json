@@ -1218,6 +1218,22 @@
   },
   {
     "ContainingType": "AccountManagement.Controllers.TaskController",
+    "Method": "AddTaskHealthAutomatic",
+    "RelativePath": "api/Task/taskHealthAutomatic",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.OtherModel.AnimalTaskNormalScheldule",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.TaskController",
     "Method": "AddTaskAutomatic",
     "RelativePath": "api/Task/taskMealAutomatic",
     "HttpMethod": "POST",

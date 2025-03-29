@@ -19,5 +19,7 @@ public partial class AnimalAssign
 
     public virtual Task Task { get; set; }
 
+    public virtual ICollection<TaskHealth> TaskHealths { get; set; } = new List<TaskHealth>();
+
     public virtual ICollection<TaskMeal> TaskMeals { get; set; } = new List<TaskMeal>();
 }

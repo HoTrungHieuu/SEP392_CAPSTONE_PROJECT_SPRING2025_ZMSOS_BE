@@ -15,10 +15,6 @@
    "T4TemplatePath": null,
    "Tables": [
       {
-         "Name": "[dbo].[AbsentTime]",
-         "ObjectType": 0
-      },
-      {
          "Name": "[dbo].[Account]",
          "ObjectType": 0
       },
@@ -39,15 +35,7 @@
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[AnimalIncidentHistory]",
-         "ObjectType": 0
-      },
-      {
          "Name": "[dbo].[AnimalType]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[AnimalUpdateHistory]",
          "ObjectType": 0
       },
       {
@@ -63,10 +51,6 @@
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[CageUpdateHistory]",
-         "ObjectType": 0
-      },
-      {
          "Name": "[dbo].[CleaningOption]",
          "ObjectType": 0
       },
@@ -76,10 +60,6 @@
       },
       {
          "Name": "[dbo].[CleaningTask]",
-         "ObjectType": 0
-      },
-      {
-         "Name": "[dbo].[Evaluation]",
          "ObjectType": 0
       },
       {

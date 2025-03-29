@@ -15,14 +15,14 @@ namespace DAO.ViewModel
 
         public string? Content { get; set; }
 
-        public string? Estimatetime { get; set; }
+        public string? EstimateTime { get; set; }
         List<UrlProcessView>? UrlProcesss { get; set; }
         public void ConvertCleaningProcessIntoCleaningProcessView(CleaningProcess key, List<UrlProcessView>? urlProcesss)
         {
             Id = key.Id;
             StepNumber = key.StepNumber;
             Content = key.Content;
-            Estimatetime = key.Estimatetime;
+            EstimateTime = key.EstimateTime;
             UrlProcesss = urlProcesss;
         }
     }

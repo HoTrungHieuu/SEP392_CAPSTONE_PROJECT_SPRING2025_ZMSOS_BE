@@ -35,7 +35,5 @@ public partial class Cage
 
     public virtual ICollection<AnimalCage> AnimalCages { get; set; } = new List<AnimalCage>();
 
-    public virtual ICollection<CageUpdateHistory> CageUpdateHistories { get; set; } = new List<CageUpdateHistory>();
-
     public virtual ZooArea ZooArea { get; set; }
 }

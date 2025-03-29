@@ -31,7 +31,5 @@ public partial class Task
 
     public virtual Schedule Schedule { get; set; }
 
-    public virtual ICollection<TaskHealth> TaskHealths { get; set; } = new List<TaskHealth>();
-
     public virtual TaskType TaskType { get; set; }
 }

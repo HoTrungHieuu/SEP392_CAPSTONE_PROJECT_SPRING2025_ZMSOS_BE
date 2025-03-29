@@ -60,5 +60,6 @@ namespace Service.IService
         public Task<CleaningProcessView> GetCleaningProcessView(CleaningProcess cleaningProcess);
         public Task<List<CleaningOptionView>> GetListCleaninOptionView(List<CleaningOption> cleaningOptions);
         public Task<CleaningOptionView> GetCleaningOptionView(CleaningOption cleaningOption);
+        public Task<TaskHealthView> GetTaskHealthView(TaskHealth taskHealth);
     }
 }

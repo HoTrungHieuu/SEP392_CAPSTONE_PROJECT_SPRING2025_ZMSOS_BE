@@ -9,7 +9,7 @@ public partial class TaskHealth
 {
     public int Id { get; set; }
 
-    public int? TaskId { get; set; }
+    public int? AnimalAssignId { get; set; }
 
     public string AnimalCondition { get; set; }
 
@@ -17,5 +17,5 @@ public partial class TaskHealth
 
     public string DetailInformation { get; set; }
 
-    public virtual Task Task { get; set; }
+    public virtual AnimalAssign AnimalAssign { get; set; }
 }

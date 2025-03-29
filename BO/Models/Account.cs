@@ -21,15 +21,9 @@ public partial class Account
 
     public DateTime? UpdatedDate { get; set; }
 
-    public virtual ICollection<AbsentTime> AbsentTimes { get; set; } = new List<AbsentTime>();
-
-    public virtual ICollection<AnimalUpdateHistory> AnimalUpdateHistories { get; set; } = new List<AnimalUpdateHistory>();
-
     public virtual ICollection<Application> ApplicationRecievers { get; set; } = new List<Application>();
 
     public virtual ICollection<Application> ApplicationSenders { get; set; } = new List<Application>();
-
-    public virtual ICollection<CageUpdateHistory> CageUpdateHistories { get; set; } = new List<CageUpdateHistory>();
 
     public virtual ICollection<LeaderAssign> LeaderAssigns { get; set; } = new List<LeaderAssign>();
 

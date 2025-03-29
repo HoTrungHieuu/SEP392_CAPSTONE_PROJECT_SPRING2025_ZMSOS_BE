@@ -19,5 +19,6 @@ namespace Service.IService
         public Task<ServiceResult> UpdateTaskStaff(TaskStaffUpdate key);
         public Task<ServiceResult> AddTaskCleaningAutomatic(AnimalTaskCleaningSchedule key);
         public Task<ServiceResult> AddTaskAutomatic(AnimalTaskMealSchdule key);
+        public Task<ServiceResult> AddTaskHealthAutomatic(AnimalTaskNormalScheldule key);
     }
 }

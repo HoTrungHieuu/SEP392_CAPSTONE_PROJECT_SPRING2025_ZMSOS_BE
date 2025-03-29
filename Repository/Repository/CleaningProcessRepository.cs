@@ -37,7 +37,7 @@ namespace Repository.Repository
                     CleaningOptionId = cleaningOptiontId,
                     StepNumber = stepNumber,
                     Content = key.Content,
-                    Estimatetime = key.Estimatetime
+                    EstimateTime = key.EstimateTime
                 };
                 await CreateAsync(cleaningProcess);
                 return cleaningProcess;

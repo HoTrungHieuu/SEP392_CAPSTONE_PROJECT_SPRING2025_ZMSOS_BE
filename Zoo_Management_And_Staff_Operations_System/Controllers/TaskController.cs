@@ -69,6 +69,13 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [HttpPost("taskHealthAutomatic")]
+        public async Task<IActionResult> AddTaskHealthAutomatic(AnimalTaskNormalScheldule key)
+        {
+            var result = await service.AddTaskHealthAutomatic(key);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
         [Authorize(Roles = "Admin,Manager,Leader,Staff")]
         [HttpPut("task")]
         public async Task<IActionResult> UpdateTask(TaskUpdate key)

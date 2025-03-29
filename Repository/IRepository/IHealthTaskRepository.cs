@@ -11,9 +11,9 @@ namespace Repository.IRepository
 {
     public interface IHealthTaskRepository : IGenericRepository<TaskHealth>
     {
-        public Task<TaskHealth?> GetTaskHealthByTaskId(int taskId);
-        public Task<TaskHealth> AddHealthTask(int taskId);
-        public Task<TaskHealth> UpdateHealthTask(int taskId, TaskHealthUpdate key);
-        public TaskHealView ConvertTaskHealthIntoTaskHealthView(TaskHealth taskHealth);
+        public Task<TaskHealth?> GetTaskHealthByAnimalAssignId(int animalAssignId);
+        public Task<TaskHealth> AddHealthTask(int animalAssignId);
+        public Task<TaskHealth> UpdateHealthTask(int animalAssignId, TaskHealthUpdate key);
+        public TaskHealthView ConvertTaskHealthIntoTaskHealthView(TaskHealth taskHealth);
     }
 }

@@ -15,7 +15,7 @@ public partial class CleaningProcess
 
     public string Content { get; set; }
 
-    public string Estimatetime { get; set; }
+    public string EstimateTime { get; set; }
 
     public virtual CleaningOption CleaningOption { get; set; }
 

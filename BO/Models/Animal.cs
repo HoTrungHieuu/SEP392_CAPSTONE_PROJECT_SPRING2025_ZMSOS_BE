@@ -27,11 +27,7 @@ public partial class Animal
 
     public virtual ICollection<AnimalImage> AnimalImages { get; set; } = new List<AnimalImage>();
 
-    public virtual ICollection<AnimalIncidentHistory> AnimalIncidentHistories { get; set; } = new List<AnimalIncidentHistory>();
-
     public virtual AnimalType AnimalType { get; set; }
-
-    public virtual ICollection<AnimalUpdateHistory> AnimalUpdateHistories { get; set; } = new List<AnimalUpdateHistory>();
 
     public virtual ICollection<Flock> Flocks { get; set; } = new List<Flock>();
 

@@ -16,6 +16,7 @@ namespace DAO.AddModel
         public string? Description {  get; set; }
         public string? Note {  get; set; }
         public TimeOnly? TimeStart { get; set; }
+        public List<AnimalCageTaskNormalId>? AnimalTaskNormalsId { get; set; }
         public List<AnimalCageTaskId>? AnimalTasksId { get; set; }
         public List<AnimalCageTaskCleaningId>? AnimalTaskCleaningsId { get; set; }
     }

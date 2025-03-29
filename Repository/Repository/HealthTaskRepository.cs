@@ -16,11 +16,11 @@ namespace Repository.Repository
         public HealthTaskRepository()
         {
         }
-        public async Task<TaskHealth?> GetTaskHealthByTaskId(int taskId)
+        public async Task<TaskHealth?> GetTaskHealthByAnimalAssignId(int animalAssignId)
         {
             try
             {
-                var healthTask = (await GetAllAsync()).FirstOrDefault(l => l.TaskId == taskId);
+                var healthTask = (await GetAllAsync()).FirstOrDefault(l => l.AnimalAssignId == animalAssignId);
                 return healthTask;
             }
             catch (Exception)
@@ -28,13 +28,13 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public async Task<TaskHealth> AddHealthTask(int taskId)
+        public async Task<TaskHealth> AddHealthTask(int animalAssignId)
         {
             try
             {
                 TaskHealth healthTask = new()
                 {
-                    TaskId = taskId,
+                    AnimalAssignId = animalAssignId,
                 };
                 await CreateAsync(healthTask);
                 return healthTask;
@@ -44,11 +44,11 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public async Task<TaskHealth> UpdateHealthTask(int taskId, TaskHealthUpdate key)
+        public async Task<TaskHealth> UpdateHealthTask(int animalAssignId, TaskHealthUpdate key)
         {
             try
             {
-                var healthTask = await GetTaskHealthByTaskId(taskId);
+                var healthTask = await GetTaskHealthByAnimalAssignId(animalAssignId);
                 if (healthTask == null) return null;
                 healthTask.AnimalCondition = key.AnimalCondition;
                 healthTask.DetailInformation = key.DetailInformation;
@@ -61,11 +61,11 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public TaskHealView ConvertTaskHealthIntoTaskHealthView(TaskHealth taskHealth)
+        public TaskHealthView ConvertTaskHealthIntoTaskHealthView(TaskHealth taskHealth)
         {
             try
             {
-                TaskHealView result = new TaskHealView();
+                TaskHealthView result = new TaskHealthView();
                 result.ConvertTaskHealthIntoTaskHealthView(taskHealth);
                 return result;
             }

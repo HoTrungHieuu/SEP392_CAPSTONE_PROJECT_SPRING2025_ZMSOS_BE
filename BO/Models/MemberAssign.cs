@@ -17,8 +17,6 @@ public partial class MemberAssign
 
     public DateOnly? ToDate { get; set; }
 
-    public virtual ICollection<Evaluation> Evaluations { get; set; } = new List<Evaluation>();
-
     public virtual Account Member { get; set; }
 
     public virtual Team Team { get; set; }
