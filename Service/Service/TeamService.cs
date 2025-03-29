@@ -101,6 +101,14 @@ namespace Service.Service
         {
             try
             {
+                if (key.ZooAreaId == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Zoo Area Not Null",
+                    };
+                }
                 if(await repo.GetTeamByZooAreaId((int)key.ZooAreaId) != null)
                 {
                     return new ServiceResult

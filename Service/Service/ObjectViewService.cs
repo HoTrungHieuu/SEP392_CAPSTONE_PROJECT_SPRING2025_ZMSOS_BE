@@ -395,6 +395,7 @@ namespace Service.Service
         }
         public async Task<TeamView> GetTeamView(Team team)
         {
+            if (team == null) return null;
             var zooArea = zooAreaRepo.GetById(team.ZooAreaId);
             if (team == null) return null;
             string? zooAreaName = null;
