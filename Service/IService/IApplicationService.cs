@@ -1,5 +1,6 @@
 ﻿using DAO.AddModel;
 using DAO.SearchModel;
+using DAO.UpdateModel;
 using DAO.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace Service.IService
         public Task<ServiceResult> GetListApplicationByRecieverIdSearch(int recieverId, ApplicationSearch<ApplicationView> key);
         public Task<ServiceResult> GetApplicationById(int id);
         public Task<ServiceResult> AddApplication(ApplicationAdd key);
+        public Task<ServiceResult> UpdateApplication(ApplicationUpdate key);
 
     }
 }

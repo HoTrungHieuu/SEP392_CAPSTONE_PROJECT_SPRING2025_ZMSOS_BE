@@ -51,7 +51,7 @@ namespace Repository.Repository
                     Title = key.Title,
                     Details = key.Detail,
                     Date = DateTime.Now,
-                    Status = null
+                    Status = "Pending"
                 };
                 await CreateAsync(application);
                 return application;
@@ -71,6 +71,7 @@ namespace Repository.Repository
                     return null;
                 }
                 application.Reply = key.Reply;  
+                application.Status = key.Status;
                 await UpdateAsync(application);
                 return application;
             }

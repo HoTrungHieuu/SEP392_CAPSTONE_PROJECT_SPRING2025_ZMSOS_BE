@@ -97,6 +97,50 @@ namespace Service.Service
                 };
             }
         }
+        public async Task<ServiceResult> GetTeamByAccountId(int accountId)
+        {
+            try
+            {
+                var account = accountRepo.GetById(accountId);
+                if (account == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Account Not Found!",
+                    };
+                }
+                var team = repo.GetById((await memberRepo.GetMemberAssignByAccountId(accountId)).TeamId);
+                if (team == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Not Found!",
+                    };
+                }
+                TeamDetailView result = new()
+                {
+                    Team = await objectViewService.GetTeamView(team),
+                    Leader = await objectViewService.GetLeaderAssignView(await leaderRepo.GetLeaderAssignByTeamId(team.Id)),
+                    Members = await objectViewService.GetListMemberAssignView(await memberRepo.GetListMemberAssignByTeamId(team.Id)),
+                };
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "Team",
+                    Data = result
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
         public async Task<ServiceResult> AddTeam(TeamAdd key)
         {
             try

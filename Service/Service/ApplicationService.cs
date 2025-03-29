@@ -2,6 +2,7 @@
 using DAO.AddModel;
 using DAO.OtherModel;
 using DAO.SearchModel;
+using DAO.UpdateModel;
 using DAO.ViewModel;
 using Repository.IRepository;
 using Repository.IRepositoyr;
@@ -228,8 +229,24 @@ namespace Service.Service
                 else if(account.RoleId == 4)
                 {
                     var member = await memberAssignRepo.GetMemberAssignByAccountId((int)key.SenderId);
+                    if (member==null)
+                    {
+                        return new ServiceResult
+                        {
+                            Status = 400,
+                            Message = "Sender has no team",
+                        };
+                    }
                     var team = teamRepo.GetById(member.TeamId);
                     var leader = await leaderAssignRepo.GetLeaderAssignByTeamId(team.Id);
+                    if (leader == null)
+                    {
+                        return new ServiceResult
+                        {
+                            Status = 400,
+                            Message = "Sender has no team leader",
+                        };
+                    }
                     recieverId = leader?.LeaderId;
                 }
                 if(recieverId == null)
@@ -241,10 +258,51 @@ namespace Service.Service
                     };
                 }
                 var application = await repo.AddApplication(key, (int)recieverId);
+                var result = await objectViewService.GetApplicationView(application);
                 return new ServiceResult
                 {
                     Status = 200,
                     Message = "Add Success",
+                    Data = result
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
+        public async Task<ServiceResult> UpdateApplication(ApplicationUpdate key)
+        {
+            try
+            {
+                var application = repo.GetById(key.Id);
+                if (application == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Not Found",
+                    };
+                }
+                if(application.Status != "Pending")
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Application Approved or Rejected ",
+                    };
+                }
+                application = await repo.UpdateApplication(key);
+                var result = await objectViewService.GetApplicationView(application);
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "Add Success",
+                    Data = result
                 };
             }
             catch (Exception ex)

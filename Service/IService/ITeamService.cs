@@ -12,6 +12,7 @@ namespace Service.IService
     {
         public Task<ServiceResult> GetListTeam();
         public Task<ServiceResult> GetTeamById(int id);
+        public Task<ServiceResult> GetTeamByAccountId(int accountId);
         public Task<ServiceResult> AddTeam(TeamAdd key);
         public Task<ServiceResult> UpdateTeam(TeamUpdate key);
         public Task<ServiceResult> GetUnassignedLeaderAccounts();

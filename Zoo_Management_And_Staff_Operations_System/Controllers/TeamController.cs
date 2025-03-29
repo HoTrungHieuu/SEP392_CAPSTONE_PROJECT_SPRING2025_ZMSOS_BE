@@ -33,6 +33,14 @@ namespace TeamManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Leader,Staff")]
+        [HttpGet("team/by-account/{accountId}")]
+        public async Task<IActionResult> GetTeamByAccountId(int accountId)
+        {
+            var result = await service.GetTeamByAccountId(accountId);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
         [Authorize(Roles = "Manager")]
         [HttpPost("team")]
         public async Task<IActionResult> AddTeam(TeamAdd key)

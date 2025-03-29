@@ -408,6 +408,22 @@
   },
   {
     "ContainingType": "AccountManagement.Controllers.ApplicationController",
+    "Method": "UpdateApplicaiton",
+    "RelativePath": "api/Application/application/reply",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.UpdateModel.ApplicationUpdate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.ApplicationController",
     "Method": "GetListApplicationByRecieverId",
     "RelativePath": "api/Application/applications/by-reciever/{recieverId}",
     "HttpMethod": "GET",
@@ -1486,6 +1502,22 @@
     "Parameters": [
       {
         "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeamManagement.Controllers.TeamController",
+    "Method": "GetTeamByAccountId",
+    "RelativePath": "api/Team/team/by-account/{accountId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "accountId",
         "Type": "System.Int32",
         "IsRequired": true
       }

@@ -1,5 +1,6 @@
 ﻿using DAO.AddModel;
 using DAO.SearchModel;
+using DAO.UpdateModel;
 using DAO.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -62,6 +63,14 @@ namespace AccountManagement.Controllers
         public async Task<IActionResult> AddApplication(ApplicationAdd key)
         {
             var result = await service.AddApplication(key);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
+        [Authorize(Roles = "Manager,Leader")]
+        [HttpPut("application/reply")]
+        public async Task<IActionResult> UpdateApplicaiton(ApplicationUpdate key)
+        {
+            var result = await service.UpdateApplication(key);
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
