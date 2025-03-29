@@ -1,6 +1,7 @@
 ﻿using BO.Models;
 using DAO.OtherModel;
 using DAO.ViewModel;
+using Microsoft.Identity.Client;
 using Repository.IRepository;
 using Repository.IRepositoyr;
 using Service.IService;
@@ -394,10 +395,11 @@ namespace Service.Service
         }
         public async Task<TeamView> GetTeamView(Team team)
         {
+            var zooArea = zooAreaRepo.GetById(team.ZooAreaId);
             if (team == null) return null;
-            ZooAreaView zooArea = new ZooAreaView();
-            zooArea = await GetZooAreaView(zooAreaRepo.GetById(team.ZooAreaId));
-            var result = teamRepo.ConvertTeamIntoTeamView(team, zooArea);
+            string? zooAreaName = null;
+            if(zooArea != null) zooAreaName = zooArea.Name;
+            var result = teamRepo.ConvertTeamIntoTeamView(team, zooAreaName);
             return result;
         }
         public async Task<LeaderAssignView> GetLeaderAssignView(LeaderAssign leaderAssign)

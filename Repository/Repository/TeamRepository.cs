@@ -80,12 +80,12 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public TeamView ConvertTeamIntoTeamView(Team team, ZooAreaView zooArea)
+        public TeamView ConvertTeamIntoTeamView(Team team, string? zooAreaName)
         {
             try
             {
                 TeamView result = new TeamView();
-                result.ConvertTeamIntoTeamView(team, zooArea);
+                result.ConvertTeamIntoTeamView(team, zooAreaName);
                 return result;
             }
             catch (Exception)
