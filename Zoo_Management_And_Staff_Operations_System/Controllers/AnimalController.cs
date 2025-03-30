@@ -6,7 +6,9 @@ using DAO.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Nest;
 using Service.IService;
+using System.IO;
 
 namespace AnimalAndCageManagement.Controllers
 {
@@ -113,6 +115,30 @@ namespace AnimalAndCageManagement.Controllers
             var result = await service.ReplaceAnimalCage(animalId, cageId);
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
+        }
+        [HttpGet("animal/export/excel")]
+        public async Task<IActionResult> ExportListAnimal()
+        {
+            var result = await service.ExportListAnimal();
+            return File(result,
+               "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+               "Animals.xlsx");
+        }
+        [HttpPost("animal/import/excel")]
+        public async Task<IActionResult> ImportListAnimal(IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+                throw new ArgumentException("File không được để trống");
+
+            var fileExtension = Path.GetExtension(file.FileName).ToLower();
+            if (fileExtension != ".xlsx" && fileExtension != ".xls")
+                throw new ArgumentException("Chỉ chấp nhận file Excel (.xlsx hoặc .xls)");
+            using (var stream = file.OpenReadStream())
+            {
+                var result = await service.ImportAnimals(stream);
+                StatusResult statusResult = new StatusResult();
+                return statusResult.Result(result);
+            }
         }
     }
 }

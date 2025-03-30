@@ -290,6 +290,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "DotNetCore.NPOI": {
+              "target": "Package",
+              "version": "[1.2.3, )"
+            },
+            "EPPlus": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
             "Elasticsearch.Net": {
               "target": "Package",
               "version": "[7.17.5, )"

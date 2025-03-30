@@ -196,6 +196,16 @@
   },
   {
     "ContainingType": "AnimalAndCageManagement.Controllers.AnimalController",
+    "Method": "ExportListAnimal",
+    "RelativePath": "api/Animal/animal/export/excel",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.AnimalController",
     "Method": "DeleteAnimal",
     "RelativePath": "api/Animal/animal/id/{animalId}",
     "HttpMethod": "DELETE",
@@ -206,6 +216,22 @@
         "Name": "animalId",
         "Type": "System.Int32",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.AnimalController",
+    "Method": "ImportListAnimal",
+    "RelativePath": "api/Animal/animal/import/excel",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

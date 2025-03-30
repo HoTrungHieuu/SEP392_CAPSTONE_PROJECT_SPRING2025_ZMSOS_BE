@@ -5,10 +5,16 @@ using DAO.SearchModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
 using Nest;
+using NPOI.HSSF.UserModel;
+using NPOI.OpenXmlFormats.Wordprocessing;
+using NPOI.SS.UserModel;
+using NPOI.XSSF.UserModel;
+using OfficeOpenXml;
 using Repository.IRepository;
 using Service.IService;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,12 +33,13 @@ namespace Service.Service
         public IAnimalImageRepository animalImageRepo;
         public IIncompatibleAnimalTypeRepository incompatibleAnimalTypeRepo;
         public IObjectViewService objectViewService;
+        public IAnimalTypeRepository animalTypeRepo;
         public AnimalService(IAnimalRepository repo, IAnimalTypeRepository typeRepo, 
             IAnimalCageRepository animalCageRepo, ICageRepository cageRepo, IObjectViewService objectViewService, 
             IFlockRepository flockRepo, IIndividualRepository individualRepo, 
             IAnimalImageRepository animalImageRepo,
             IIncompatibleAnimalTypeRepository incompatibleAnimalTypeRepo,
-            IZooAreaRepository zooAreaRepo)
+            IZooAreaRepository zooAreaRepo, IAnimalTypeRepository animalTypeRepo)
         {
             this.repo = repo;
             this.typeRepo = typeRepo;
@@ -44,6 +51,7 @@ namespace Service.Service
             this.objectViewService = objectViewService;
             this.incompatibleAnimalTypeRepo = incompatibleAnimalTypeRepo;
             this.zooAreaRepo = zooAreaRepo;
+            this.animalTypeRepo = animalTypeRepo;
         }
         public async Task<ServiceResult> GetListAnimal()
         {
@@ -624,5 +632,178 @@ namespace Service.Service
                 };
             }
         }
+        public async Task<MemoryStream> ExportListAnimal()
+        {
+            try
+            {
+                
+                var animals = await repo.GetListAnimal();
+                var result = await objectViewService.GetListAnimalView(animals);
+
+                // Create new Excel workbook (XSSF for .xlsx format)
+                IWorkbook workbook = new XSSFWorkbook();
+                try
+                {
+                    ISheet sheet = workbook.CreateSheet("Animals");
+
+                    // Create header style
+                    IFont headerFont = workbook.CreateFont();
+                    headerFont.IsBold = true;
+                    headerFont.FontHeightInPoints = 12;
+
+                    ICellStyle headerStyle = workbook.CreateCellStyle();
+                    headerStyle.SetFont(headerFont);
+                    headerStyle.FillForegroundColor = IndexedColors.LightBlue.Index;
+                    headerStyle.FillPattern = FillPattern.SolidForeground;
+
+                    // Create date style
+                    ICellStyle dateStyle = workbook.CreateCellStyle();
+                    IDataFormat dateFormat = workbook.CreateDataFormat();
+                    dateStyle.DataFormat = dateFormat.GetFormat("dd/MM/yyyy");
+
+                    // Create header row
+                    IRow headerRow = sheet.CreateRow(0);
+                    string[] headers = {
+        "Id", "Animal_Type_Name", "Name", "Description",
+        "Arrival_Date", "Classify", "Created_Date", "Updated_Date",
+        "Birth_Date", "Age", "Gender", "Weight", "Height",
+        "Individual_Notes", "Individual_Status", "Quantity",
+        "Flock_Notes", "Flock_Status"
+    };
+
+                    for (int i = 0; i < headers.Length; i++)
+                    {
+                        ICell cell = headerRow.CreateCell(i);
+                        cell.SetCellValue(headers[i]);
+                        cell.CellStyle = headerStyle;
+                    }
+
+                    // Add data rows
+                    int rowNum = 1;
+                    foreach (var animal in result)
+                    {
+                        IRow row = sheet.CreateRow(rowNum++);
+
+                        // Set cell values with proper null checks
+                        row.CreateCell(0).SetCellValue(animal.Id.ToString());
+                        SetCellValue(row, 1, animal?.AnimalType?.VietnameseName);
+                        SetCellValue(row, 2, animal?.Name);
+                        SetCellValue(row, 3, animal?.Description);
+
+                        // Handle date fields with proper formatting
+                        SetCellValue(row, 4, animal?.ArrivalDate.ToString());
+                        SetCellValue(row, 5, animal?.Classify);
+                        SetCellValue(row, 6, animal?.DateCreated.ToString());
+                        SetCellValue(row, 7, animal?.DateUpdated.ToString());
+                        SetCellValue(row, 8, animal?.Individual?.BirthDate.ToString());
+
+                        SetCellValue(row, 9, animal?.Individual?.Age);
+                        SetCellValue(row, 10, animal?.Individual?.Gender);
+                        SetCellValue(row, 11, animal?.Individual?.Weight);
+                        SetCellValue(row, 12, animal?.Individual?.Height);
+                        SetCellValue(row, 13, animal?.Individual?.Note);
+                        SetCellValue(row, 14, animal?.Individual?.Status);
+                        SetCellValue(row, 15, animal?.Flock?.Quantity.ToString());
+                        SetCellValue(row, 16, animal?.Flock?.Note);
+                        SetCellValue(row, 17, animal?.Flock?.Status);
+                    }
+
+                    // Auto-size all columns
+                    for (int i = 0; i < headers.Length; i++)
+                    {
+                        sheet.AutoSizeColumn(i);
+                    }
+                    using var tempStream = new MemoryStream();
+                    workbook.Write(tempStream);
+
+                    // Tạo stream mới độc lập
+                    var outputStream = new MemoryStream(tempStream.ToArray());
+                    outputStream.Position = 0;
+
+                    return outputStream;
+                }
+                finally
+                {
+                    workbook.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        private void SetCellValue(IRow row, int columnIndex, string value)
+        {
+            row.CreateCell(columnIndex).SetCellValue(value ?? string.Empty);
+        }
+        private string? GetCellValue(ICell cell)
+        {
+            if (cell == null)
+                return null;
+            return cell.StringCellValue;
+        }
+        public async Task<ServiceResult> ImportAnimals(Stream stream)
+        {
+            IWorkbook workbook = new XSSFWorkbook(stream);
+           
+            ISheet sheet = workbook.GetSheetAt(0); // Lấy sheet đầu tiên
+            if (sheet == null)
+                throw new Exception("Không tìm thấy sheet nào trong file");
+
+            ServiceResult serviceResult = new();
+            for (int rowIndex = 1; rowIndex <= sheet.LastRowNum; rowIndex++)
+            {
+                try
+                {
+                    IRow row = sheet.GetRow(rowIndex);
+                    if (row == null) continue; // Bỏ qua dòng trống
+                    string? animalTypeName = GetCellValue(row.GetCell(0));
+                    string? name = GetCellValue(row.GetCell(1));
+                    string? description = GetCellValue(row.GetCell(2));
+                    string? arrivalDate = GetCellValue(row.GetCell(3));
+                    string? classify = GetCellValue(row.GetCell(4));
+                    string? birthDate = GetCellValue(row.GetCell(5));
+                    string? age = GetCellValue(row.GetCell(6));
+                    string? gender = GetCellValue(row.GetCell(7));
+                    string? weigtht = GetCellValue(row.GetCell(8));
+                    string? height = GetCellValue(row.GetCell(9));
+                    string? quantity = GetCellValue(row.GetCell(10));
+
+                    int? animalTypeId = null;
+                    if(animalTypeName != "")
+                    {
+                        var animalType = (await animalTypeRepo.GetAllAsync()).FirstOrDefault(l => l.VietnameseName == animalTypeName);
+                    }
+                    AnimalAdd key = new()
+                    {
+                        AnimalTypeId = (int)animalTypeId,
+                        Name = (name == "") ? null : name,
+                        Description = (description == "") ? null : description,
+                        ArrivalDate = (arrivalDate == "") ? null : DateOnly.Parse(arrivalDate),
+                        Classify = (classify == "") ? null : classify,
+                        Individual = new()
+                        {
+                            BirthDate = (birthDate == "") ? null : DateOnly.Parse(birthDate),
+                            Age = (age == "") ? null : age,
+                            Gender = (gender == "") ? null : gender,
+                            Weight = (weigtht == "") ? null : weigtht,
+                            Height = (height == "") ? null : height,
+                        },
+                        Flock = new()
+                        {
+                            Quantity = (quantity == "") ? null : int.Parse(quantity),
+                        }
+                    };
+                    serviceResult = await AddAnimal(key);
+                }
+                catch (Exception ex)
+                {
+                    // Ghi log lỗi và tiếp tục
+                    Console.WriteLine($"Lỗi dòng {rowIndex + 1}: {ex.Message}");
+                }
+            }
+            return serviceResult;
+        }
+
     }
 }

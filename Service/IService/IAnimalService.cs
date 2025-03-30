@@ -25,5 +25,7 @@ namespace Service.IService
         public Task<ServiceResult> AddAnimalCage(int animalId, int cageId);
         public Task<ServiceResult> RemoveAnimalCage(int animalId, int cageId);
         public Task<ServiceResult> ReplaceAnimalCage(int animalId, int cageId);
+        public Task<MemoryStream> ExportListAnimal();
+        public Task<ServiceResult> ImportAnimals(Stream stream);
     }
 }
