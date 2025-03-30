@@ -110,7 +110,15 @@ namespace Service.Service
                         Message = "Account Not Found!",
                     };
                 }
-                var team = repo.GetById((await memberRepo.GetMemberAssignByAccountId(accountId)).TeamId);
+                Team team = new();
+                if(account.RoleId == 4)
+                {
+                    team = repo.GetById((await memberRepo.GetMemberAssignByAccountId(accountId)).TeamId);
+                }
+                else if(account.RoleId == 3)
+                {
+                    team = repo.GetById((await leaderRepo.GetLeaderAssignByAccountId(accountId)).TeamId);
+                }
                 if (team == null)
                 {
                     return new ServiceResult

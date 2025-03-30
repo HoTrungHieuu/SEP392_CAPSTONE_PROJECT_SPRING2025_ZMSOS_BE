@@ -226,8 +226,24 @@ namespace Service.Service
                 else if (account.RoleId == 4)
                 {
                     var member = await memberAssignRepo.GetMemberAssignByAccountId((int)key.SenderId);
+                    if (member == null)
+                    {
+                        return new ServiceResult
+                        {
+                            Status = 400,
+                            Message = "Sender has no team",
+                        };
+                    }
                     var team = teamRepo.GetById(member.TeamId);
                     var leader = await leaderAssignRepo.GetLeaderAssignByTeamId(team.Id);
+                    if (leader == null)
+                    {
+                        return new ServiceResult
+                        {
+                            Status = 400,
+                            Message = "Sender has no team leader",
+                        };
+                    }
                     recieverId = leader?.LeaderId;
                 }
                 if (recieverId == null)

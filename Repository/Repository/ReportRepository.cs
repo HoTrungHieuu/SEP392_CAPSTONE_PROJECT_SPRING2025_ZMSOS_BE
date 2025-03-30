@@ -50,7 +50,7 @@ namespace Repository.Repository
                     Title = key.Title,
                     Content = key.Content,
                     Date = DateTime.Now,
-                    Status = null
+                    Status = null,
                 };
                 await CreateAsync(report);
                 return report;
