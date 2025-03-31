@@ -3,6 +3,7 @@ using DAO.AddModel;
 using DAO.OtherModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
+using Nest;
 using Repository.IRepository;
 using Repository.IRepositoyr;
 using Service.IService;
@@ -386,6 +387,15 @@ namespace Service.Service
         {
             try
             {
+                var account = accountRepo.GetById(accountId);
+                if (account.RoleId != 3)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Account has invalid role"
+                    };
+                }
                 var team = repo.GetById(teamId);
                 if (team == null)
                 {
@@ -520,6 +530,15 @@ namespace Service.Service
         {
             try
             {
+                var account = accountRepo.GetById(accountId);
+                if (account.RoleId != 4)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Account has invalid role"
+                    };
+                }
                 var team = repo.GetById(teamId);
                 if (team == null)
                 {
