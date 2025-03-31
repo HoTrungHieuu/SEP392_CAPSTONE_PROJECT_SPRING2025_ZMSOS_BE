@@ -70,7 +70,6 @@ namespace Repository.Repository
                 if (team == null) return null;
                 team.Name = key.Name;
                 team.Description = key.Description;
-                team.MaxQuantity = key.MaxQuantity;
                 team.UpdatedDate = DateTime.Now;
                 await UpdateAsync(team);
                 return team;
