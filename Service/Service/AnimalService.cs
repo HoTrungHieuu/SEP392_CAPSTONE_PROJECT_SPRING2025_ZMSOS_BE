@@ -10,10 +10,12 @@ using NPOI.OpenXmlFormats.Wordprocessing;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
 using OfficeOpenXml;
+using OfficeOpenXml.Style;
 using Repository.IRepository;
 using Service.IService;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -640,92 +642,68 @@ namespace Service.Service
                 var animals = await repo.GetListAnimal();
                 var result = await objectViewService.GetListAnimalView(animals);
 
-                // Create new Excel workbook (XSSF for .xlsx format)
-                IWorkbook workbook = new XSSFWorkbook();
-                try
+                using var package = new ExcelPackage();
+                var sheet = package.Workbook.Worksheets.Add("Animals");
+
+                // Định dạng header
+                using (var headerRange = sheet.Cells["A1:R1"])
                 {
-                    ISheet sheet = workbook.CreateSheet("Animals");
-
-                    // Create header style
-                    IFont headerFont = workbook.CreateFont();
-                    headerFont.IsBold = true;
-                    headerFont.FontHeightInPoints = 12;
-
-                    ICellStyle headerStyle = workbook.CreateCellStyle();
-                    headerStyle.SetFont(headerFont);
-                    headerStyle.FillForegroundColor = IndexedColors.LightBlue.Index;
-                    headerStyle.FillPattern = FillPattern.SolidForeground;
-
-                    // Create date style
-                    ICellStyle dateStyle = workbook.CreateCellStyle();
-                    IDataFormat dateFormat = workbook.CreateDataFormat();
-                    dateStyle.DataFormat = dateFormat.GetFormat("dd/MM/yyyy");
-
-                    // Create header row
-                    IRow headerRow = sheet.CreateRow(0);
-                    string[] headers = {
-        "Id", "Animal_Type_Name", "Name", "Description",
-        "Arrival_Date", "Classify", "Created_Date", "Updated_Date",
-        "Birth_Date", "Age", "Gender", "Weight", "Height",
-        "Individual_Notes", "Individual_Status", "Quantity",
-        "Flock_Notes", "Flock_Status"
-    };
-
-                    for (int i = 0; i < headers.Length; i++)
-                    {
-                        ICell cell = headerRow.CreateCell(i);
-                        cell.SetCellValue(headers[i]);
-                        cell.CellStyle = headerStyle;
-                    }
-
-                    // Add data rows
-                    int rowNum = 1;
-                    foreach (var animal in result)
-                    {
-                        IRow row = sheet.CreateRow(rowNum++);
-
-                        // Set cell values with proper null checks
-                        row.CreateCell(0).SetCellValue(animal.Id.ToString());
-                        SetCellValue(row, 1, animal?.AnimalType?.VietnameseName);
-                        SetCellValue(row, 2, animal?.Name);
-                        SetCellValue(row, 3, animal?.Description);
-
-                        // Handle date fields with proper formatting
-                        SetCellValue(row, 4, animal?.ArrivalDate.ToString());
-                        SetCellValue(row, 5, animal?.Classify);
-                        SetCellValue(row, 6, animal?.DateCreated.ToString());
-                        SetCellValue(row, 7, animal?.DateUpdated.ToString());
-                        SetCellValue(row, 8, animal?.Individual?.BirthDate.ToString());
-
-                        SetCellValue(row, 9, animal?.Individual?.Age);
-                        SetCellValue(row, 10, animal?.Individual?.Gender);
-                        SetCellValue(row, 11, animal?.Individual?.Weight);
-                        SetCellValue(row, 12, animal?.Individual?.Height);
-                        SetCellValue(row, 13, animal?.Individual?.Note);
-                        SetCellValue(row, 14, animal?.Individual?.Status);
-                        SetCellValue(row, 15, animal?.Flock?.Quantity.ToString());
-                        SetCellValue(row, 16, animal?.Flock?.Note);
-                        SetCellValue(row, 17, animal?.Flock?.Status);
-                    }
-
-                    // Auto-size all columns
-                    for (int i = 0; i < headers.Length; i++)
-                    {
-                        sheet.AutoSizeColumn(i);
-                    }
-                    using var tempStream = new MemoryStream();
-                    workbook.Write(tempStream);
-
-                    // Tạo stream mới độc lập
-                    var outputStream = new MemoryStream(tempStream.ToArray());
-                    outputStream.Position = 0;
-
-                    return outputStream;
+                    headerRange.Style.Font.Bold = true;
+                    headerRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                    headerRange.Style.Fill.BackgroundColor.SetColor(Color.LightBlue);
                 }
-                finally
+
+                // Đặt tên header
+                string[] headers = {
+            "Id", "Animal_Type_Name", "Name", "Description",
+            "Arrival_Date", "Classify", "Created_Date", "Updated_Date",
+            "Birth_Date", "Age", "Gender", "Weight", "Height",
+            "Individual_Notes", "Individual_Status", "Quantity",
+            "Flock_Notes", "Flock_Status"
+        };
+                for (int i = 0; i < headers.Length; i++)
                 {
-                    workbook.Close();
+                    sheet.Cells[1, i + 1].Value = headers[i];
                 }
+                int row = 2;
+                foreach (var animal in result)
+                {
+                    sheet.Cells[row, 1].Value = animal.Id.ToString();
+                    sheet.Cells[row, 2].Value = animal?.AnimalType?.VietnameseName ?? "";
+                    sheet.Cells[row, 3].Value = animal?.Name ?? "";
+                    sheet.Cells[row, 4].Value = animal?.Description ?? "";
+                    sheet.Cells[row, 5].Value = animal?.ArrivalDate.ToString() ?? "";
+                    sheet.Cells[row, 6].Value = animal?.Classify ?? "";
+                    sheet.Cells[row, 7].Value = animal?.DateCreated.ToString() ?? "";
+                    sheet.Cells[row, 8].Value = animal?.DateUpdated.ToString() ?? "";
+                    sheet.Cells[row, 9].Value = animal?.Individual?.BirthDate.ToString() ?? "";
+                    sheet.Cells[row, 10].Value = animal?.Individual?.Age ?? "";
+                    sheet.Cells[row, 11].Value = animal?.Individual?.Gender ?? "";
+                    sheet.Cells[row, 12].Value = animal?.Individual?.Weight ?? "";
+                    sheet.Cells[row, 13].Value = animal?.Individual?.Height ?? "";
+                    sheet.Cells[row, 14].Value = animal?.Individual?.Note ?? "";
+                    sheet.Cells[row, 15].Value = animal?.Individual?.Status ?? "";
+                    sheet.Cells[row, 16].Value = animal?.Flock?.Quantity.ToString() ?? "";
+                    sheet.Cells[row, 17].Value = animal?.Flock?.Note ?? "";
+                    sheet.Cells[row, 18].Value = animal?.Flock?.Status ?? "";
+
+                    // Xử lý ngày tháng
+                    if (animal.ArrivalDate != null)
+                    {
+                        sheet.Cells[row, 5].Value = animal.ArrivalDate;
+                        sheet.Cells[row, 5].Style.Numberformat.Format = "dd/MM/yyyy";
+                    }
+
+                    // Các cột khác tương tự...
+                    row++;
+                }
+                sheet.Cells[sheet.Dimension.Address].AutoFitColumns();
+
+                // Trả về MemoryStream
+                var stream = new MemoryStream();
+                package.SaveAs(stream);
+                stream.Position = 0;
+                return stream;
             }
             catch (Exception ex)
             {
