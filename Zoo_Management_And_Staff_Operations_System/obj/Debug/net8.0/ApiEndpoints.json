@@ -1211,6 +1211,58 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AccountManagement.Controllers.ScheduleController",
+    "Method": "GetListScheduleByAccountIdByDate",
+    "RelativePath": "api/Schedule/schedules/by-account\u0026\u0026fromDate\u0026\u0026toDate/{accountId}/{fromDate}/{toDate}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "accountId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "fromDate",
+        "Type": "System.DateOnly",
+        "IsRequired": true
+      },
+      {
+        "Name": "toDate",
+        "Type": "System.DateOnly",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.ScheduleController",
+    "Method": "GetListScheduleByTeamIdByDate",
+    "RelativePath": "api/Schedule/schedules/by-team\u0026\u0026fromDate\u0026\u0026toDate/{teamId}/{fromDate}/{toDate}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "teamId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "fromDate",
+        "Type": "System.DateOnly",
+        "IsRequired": true
+      },
+      {
+        "Name": "toDate",
+        "Type": "System.DateOnly",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AccountManagement.Controllers.TaskController",
     "Method": "AddTask",
     "RelativePath": "api/Task/task",

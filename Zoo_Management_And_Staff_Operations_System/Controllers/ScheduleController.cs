@@ -26,6 +26,22 @@ namespace AccountManagement.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Admin,Manager,Leader,Staff")]
+        [HttpGet("schedules/by-account&&fromDate&&toDate/{accountId}/{fromDate}/{toDate}")]
+        public async Task<IActionResult> GetListScheduleByAccountIdByDate(int accountId, DateOnly fromDate, DateOnly toDate)
+        {
+            var result = await service.GetListScheduleByAccountIdByDate(accountId,fromDate,toDate);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
+        [Authorize(Roles = "Admin,Manager,Leader,Staff")]
+        [HttpGet("schedules/by-team&&fromDate&&toDate/{teamId}/{fromDate}/{toDate}")]
+        public async Task<IActionResult> GetListScheduleByTeamIdByDate(int teamId, DateOnly fromDate, DateOnly toDate)
+        {
+            var result = await service.GetListScheduleByTeamIdByDate(teamId, fromDate, toDate);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
+        [Authorize(Roles = "Admin,Manager,Leader,Staff")]
         [HttpGet("schedule/{id}")]
         public async Task<IActionResult> GetScheduleById(int id)
         {

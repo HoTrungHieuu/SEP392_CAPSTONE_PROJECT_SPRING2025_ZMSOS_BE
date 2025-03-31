@@ -29,6 +29,18 @@ namespace Repository.Repository
                 throw;
             }
         }
+        public async Task<List<Schedule>?> GetListScheduleByAccountIdByDate(int accountId, DateOnly fromDate, DateOnly toDate)
+        {
+            try
+            {
+                var schedules = (await GetAllAsync()).FindAll(l => l.AccountId == accountId && l.Date>= fromDate && l.Date<=toDate);
+                return schedules;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         public async Task<Schedule> AddSchedule(ScheduleAdd key)
         {
             try

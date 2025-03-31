@@ -14,6 +14,7 @@ namespace Repository.IRepositoyr
     public interface IScheduleRepository : IGenericRepository<Schedule>
     {
         public Task<List<Schedule>?> GetListScheduleByAccountId(int accountId);
+        public Task<List<Schedule>?> GetListScheduleByAccountIdByDate(int accountId, DateOnly fromDate, DateOnly toDate);
         public Task<Schedule> AddSchedule(ScheduleAdd key);
         public System.Threading.Tasks.Task AddScheduleAuto(ScheduleAutoAdd key);
         public Task<Schedule?> UpdateSchedule(ScheduleUpdate key);

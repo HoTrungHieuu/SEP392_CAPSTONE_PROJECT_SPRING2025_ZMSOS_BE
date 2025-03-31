@@ -12,6 +12,8 @@ namespace Service.IService
     public interface IScheduleService
     {
         public Task<ServiceResult> GetListScheduleByAccountId(int accountId);
+        public Task<ServiceResult> GetListScheduleByAccountIdByDate(int accountId, DateOnly fromDate, DateOnly toDate);
+        public Task<ServiceResult> GetListScheduleByTeamIdByDate(int teamId, DateOnly fromDate, DateOnly toDate);
         public Task<ServiceResult> GetScheduleById(int id);
         public Task<ServiceResult> AddSchedule(ScheduleAdd key);
         public Task<ServiceResult> AddScheduleAuto(ScheduleAutoAdd key);
