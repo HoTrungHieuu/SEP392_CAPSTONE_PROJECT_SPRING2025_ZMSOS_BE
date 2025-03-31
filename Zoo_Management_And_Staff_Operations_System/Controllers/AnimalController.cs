@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Nest;
+using Service;
 using Service.IService;
 using System.IO;
 
@@ -127,12 +128,21 @@ namespace AnimalAndCageManagement.Controllers
         [HttpPost("animal/import/excel")]
         public async Task<IActionResult> ImportListAnimal(IFormFile file)
         {
+            
             if (file == null || file.Length == 0)
-                throw new ArgumentException("File không được để trống");
+                return BadRequest(new ServiceResult
+                {
+                    Status = 400,
+                    Message = "File required"
+                });
 
             var fileExtension = Path.GetExtension(file.FileName).ToLower();
-            if (fileExtension != ".xlsx" && fileExtension != ".xls")
-                throw new ArgumentException("Chỉ chấp nhận file Excel (.xlsx hoặc .xls)");
+            if (fileExtension != ".xlsx")
+                return BadRequest(new ServiceResult
+                {
+                    Status = 400,
+                    Message = "File must be .xlsx"
+                });
             using (var stream = file.OpenReadStream())
             {
                 var result = await service.ImportAnimals(stream);

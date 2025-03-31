@@ -17,6 +17,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.IO.Pipes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -714,41 +715,34 @@ namespace Service.Service
         {
             row.CreateCell(columnIndex).SetCellValue(value ?? string.Empty);
         }
-        private string? GetCellValue(ICell cell)
+        private string? GetCellValue(ExcelRange cell)
         {
-            if (cell == null)
-                return null;
-            return cell.StringCellValue;
+            return cell.Value?.ToString()?.Trim() ?? null;
         }
         public async Task<ServiceResult> ImportAnimals(Stream stream)
         {
-            IWorkbook workbook = new XSSFWorkbook(stream);
-           
-            ISheet sheet = workbook.GetSheetAt(0); // Lấy sheet đầu tiên
-            if (sheet == null)
-                throw new Exception("Không tìm thấy sheet nào trong file");
+            using var excelPackage = new ExcelPackage(stream);
 
-            ServiceResult serviceResult = new();
-            for (int rowIndex = 1; rowIndex <= sheet.LastRowNum; rowIndex++)
+            var worksheet = excelPackage.Workbook.Worksheets[0];
+            int row = 2;
+            while (worksheet.Cells[row, 1].Value != null)
             {
                 try
                 {
-                    IRow row = sheet.GetRow(rowIndex);
-                    if (row == null) continue; // Bỏ qua dòng trống
-                    string? animalTypeName = GetCellValue(row.GetCell(0));
-                    string? name = GetCellValue(row.GetCell(1));
-                    string? description = GetCellValue(row.GetCell(2));
-                    string? arrivalDate = GetCellValue(row.GetCell(3));
-                    string? classify = GetCellValue(row.GetCell(4));
-                    string? birthDate = GetCellValue(row.GetCell(5));
-                    string? age = GetCellValue(row.GetCell(6));
-                    string? gender = GetCellValue(row.GetCell(7));
-                    string? weigtht = GetCellValue(row.GetCell(8));
-                    string? height = GetCellValue(row.GetCell(9));
-                    string? quantity = GetCellValue(row.GetCell(10));
+                    string? animalTypeName = GetCellValue(worksheet.Cells[row, 1]);
+                    string? name = GetCellValue(worksheet.Cells[row, 2]);
+                    string? description = GetCellValue(worksheet.Cells[row, 3]);
+                    string? arrivalDate = GetCellValue(worksheet.Cells[row, 4]);
+                    string? classify = GetCellValue(worksheet.Cells[row, 5]);
+                    string? birthDate = GetCellValue(worksheet.Cells[row, 6]);
+                    string? age = GetCellValue(worksheet.Cells[row, 7]);
+                    string? gender = GetCellValue(worksheet.Cells[row, 8]);
+                    string? weigtht = GetCellValue(worksheet.Cells[row, 9]);
+                    string? height = GetCellValue(worksheet.Cells[row, 10]);
+                    string? quantity = GetCellValue(worksheet.Cells[row, 11]);
 
                     int? animalTypeId = null;
-                    if(animalTypeName != "")
+                    if (animalTypeName != "")
                     {
                         var animalType = (await animalTypeRepo.GetAllAsync()).FirstOrDefault(l => l.VietnameseName == animalTypeName);
                     }
@@ -772,15 +766,25 @@ namespace Service.Service
                             Quantity = (quantity == "") ? null : int.Parse(quantity),
                         }
                     };
-                    serviceResult = await AddAnimal(key);
+                    await AddAnimal(key);
+
                 }
                 catch (Exception ex)
                 {
-                    // Ghi log lỗi và tiếp tục
-                    Console.WriteLine($"Lỗi dòng {rowIndex + 1}: {ex.Message}");
+                    return new ServiceResult()
+                    {
+                        Status = 501,
+                        Message = ex.Message,
+                    };
                 }
+
+                row++;
             }
-            return serviceResult;
+            return new ServiceResult()
+            {
+                Status = 200,
+                Message = "Import Success",
+            };
         }
 
     }
