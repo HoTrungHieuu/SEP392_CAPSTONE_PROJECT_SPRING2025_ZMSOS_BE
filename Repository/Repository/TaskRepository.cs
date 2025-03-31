@@ -37,7 +37,6 @@ namespace Repository.Repository
                     ScheduleId = key.ScheduleId,
                     TaskName = key.TaskName,
                     Description = key.Description,
-                    Note = key.Note,
                     TimeStart = key.TimeStart,
                     TimeFinish = null,
                     Status = "Not Start",
