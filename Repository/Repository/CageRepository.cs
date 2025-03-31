@@ -80,7 +80,6 @@ namespace Repository.Repository
             {
                 var cage = GetById(key.Id);
                 if (cage == null) return null;
-                cage.ZooAreaId = key.ZooAreaId;
                 cage.Name = key.Name;
                 cage.Description = key.Description;
                 cage.MaxQuantity = key.MaxQuantity;
