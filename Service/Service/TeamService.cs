@@ -330,6 +330,15 @@ namespace Service.Service
         {
             try
             {
+                var account = accountRepo.GetById(key.AccountId);
+                if(account.RoleId != 3)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Account has wrong role"
+                    };
+                }
                 var team = repo.GetById(key.TeamId);
                 if (team == null)
                 {
@@ -346,6 +355,15 @@ namespace Service.Service
                     {
                         Status = 400,
                         Message = "Leader Is Exist"
+                    };
+                }
+                leader = await leaderRepo.GetLeaderAssignByAccountId((int)key.AccountId);
+                if(leader != null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Account Had Team"
                     };
                 }
                 leader = await leaderRepo.AddLeaderAssign(key);
@@ -436,6 +454,7 @@ namespace Service.Service
         {
             try
             {
+                
                 var team = repo.GetById(key.TeamId);
                 if (team == null)
                 {
@@ -464,6 +483,12 @@ namespace Service.Service
                 List<int> unsuccessId = new List<int>();
                 foreach (int id in key.AccountIds)
                 {
+                    var account = accountRepo.GetById(id);
+                    if(account.RoleId == 3)
+                    {
+                        unsuccessId.Add(id);
+                        continue;
+                    }
                     var member = await memberRepo.AddMemberAssign(key.TeamId, id);
                     if (member == null)
                     {

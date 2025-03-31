@@ -717,7 +717,7 @@ namespace Service.Service
         }
         private string? GetCellValue(ExcelRange cell)
         {
-            return cell.Value?.ToString()?.Trim() ?? null;
+            return cell.Value?.ToString()?.Trim();
         }
         public async Task<ServiceResult> ImportAnimals(Stream stream)
         {
@@ -745,6 +745,7 @@ namespace Service.Service
                     if (animalTypeName != "")
                     {
                         var animalType = (await animalTypeRepo.GetAllAsync()).FirstOrDefault(l => l.VietnameseName == animalTypeName);
+                        animalTypeId = animalType?.Id;
                     }
                     AnimalAdd key = new()
                     {

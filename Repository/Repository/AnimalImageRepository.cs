@@ -46,6 +46,10 @@ namespace Repository.Repository
         {
             try
             {
+                if (listUrl == null)
+                {
+                    return;
+                }
                 foreach (var item in listUrl)
                 {
                     AnimalImage animalImage = new AnimalImage()
