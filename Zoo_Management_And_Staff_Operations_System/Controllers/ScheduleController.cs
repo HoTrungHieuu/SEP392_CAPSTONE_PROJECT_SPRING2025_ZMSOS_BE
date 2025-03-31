@@ -1,4 +1,5 @@
 ﻿using DAO.AddModel;
+using DAO.DeleteModel;
 using DAO.UpdateModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -53,6 +54,13 @@ namespace AccountManagement.Controllers
         public async Task<IActionResult> UpdateSchedule(ScheduleUpdate key)
         {
             var result = await service.UpdateSchedule(key);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
+        [HttpDelete("schedule")]
+        public async Task<IActionResult> DeleteSchedule(ScheduleDelete key)
+        {
+            var result = await service.DeleteSchedule(key);
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }

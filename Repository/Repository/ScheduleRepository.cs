@@ -33,7 +33,9 @@ namespace Repository.Repository
         {
             try
             {
-                Schedule schedule = new()
+                var schedule = (await GetListScheduleByAccountId((int)key.AccountId)).FirstOrDefault(l => l.Date == key.Date);
+                if (schedule != null) return null;
+                schedule = new()
                 {
                     AccountId = key.AccountId,
                     Date = key.Date,
@@ -57,15 +59,12 @@ namespace Repository.Repository
                 {
                     if(Day.CheckDateOfWeek(date, key.DayOfWeek) && key.DateExclution!=null && !key.DateExclution.Contains(date))
                     {
-                        Schedule schedule = new()
+                        await AddSchedule(new ScheduleAdd()
                         {
                             AccountId = key.AccountId,
                             Date = date,
                             Note = null,
-                            Status = null,
-                            CreatedDate = DateTime.Now
-                        };
-                        await CreateAsync(schedule);
+                        });
                     }
                 }
             }
@@ -88,6 +87,19 @@ namespace Repository.Repository
                 schedule.UpdatedDate = DateTime.Now;
                 await UpdateAsync(schedule);
                 return schedule;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public async System.Threading.Tasks.Task DeleteSchedule(int scheduleId)
+        {
+            try
+            {
+                var schedule = GetById(scheduleId);
+                if (schedule == null) return;
+                await RemoveAsync(schedule);
             }
             catch (Exception)
             {

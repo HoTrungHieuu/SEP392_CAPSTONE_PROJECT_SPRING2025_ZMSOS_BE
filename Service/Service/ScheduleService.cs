@@ -1,7 +1,9 @@
 ﻿using BO.Models;
 using DAO.AddModel;
+using DAO.DeleteModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
+using Nest;
 using Repository.IRepositoyr;
 using Service.IService;
 using System;
@@ -162,6 +164,39 @@ namespace Service.Service
                 {
                     Status = 200,
                     Message = "Update Success",
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
+        public async Task<ServiceResult> DeleteSchedule(ScheduleDelete key)
+        {
+            try
+            {
+                if(key.FromDate> key.ToDate)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "from date and to date invalid",
+                    };
+                }
+                var schedules = (await repo.GetListScheduleByAccountId(key.AccountId)).FindAll(l => l.Date >= key.FromDate && l.Date <= key.ToDate);
+                foreach(var schedule in schedules)
+                {
+                    await repo.DeleteSchedule(schedule.Id);
+                }
+                
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "Delete Success",
                 };
             }
             catch (Exception ex)

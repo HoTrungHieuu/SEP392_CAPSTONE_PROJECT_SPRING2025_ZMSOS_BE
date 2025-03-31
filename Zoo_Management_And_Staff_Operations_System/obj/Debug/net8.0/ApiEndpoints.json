@@ -1148,6 +1148,22 @@
   },
   {
     "ContainingType": "AccountManagement.Controllers.ScheduleController",
+    "Method": "DeleteSchedule",
+    "RelativePath": "api/Schedule/schedule",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.DeleteModel.ScheduleDelete",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.ScheduleController",
     "Method": "GetScheduleById",
     "RelativePath": "api/Schedule/schedule/{id}",
     "HttpMethod": "GET",
