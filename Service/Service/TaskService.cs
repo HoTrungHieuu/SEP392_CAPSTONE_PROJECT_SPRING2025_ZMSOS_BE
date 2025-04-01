@@ -369,7 +369,7 @@ namespace Service.Service
                         foreach (var item1 in ss)
                         {
                             var sTemp = item1.FindAll(l => l.Date == date);
-                            ssTemp.Add(sTemp);
+                            if(sTemp.Count != 0) ssTemp.Add(sTemp);
                         }
                         int count = 0;
                         foreach (var item1 in ttTemp)
@@ -526,7 +526,7 @@ namespace Service.Service
                         foreach (var item1 in ss)
                         {
                             var sTemp = item1.FindAll(l => l.Date == date);
-                            ssTemp.Add(sTemp);
+                            if (sTemp.Count != 0) ssTemp.Add(sTemp);
                         }
                         int count = 0;
                         foreach (var item1 in ttTemp)
@@ -678,7 +678,7 @@ namespace Service.Service
                         foreach (var item1 in ss)
                         {
                             var sTemp = item1.FindAll(l => l.Date == date);
-                            ssTemp.Add(sTemp);
+                            if (sTemp.Count != 0) ssTemp.Add(sTemp);
                         }
                         int count = 0;
                         foreach (var item1 in ttTemp)
