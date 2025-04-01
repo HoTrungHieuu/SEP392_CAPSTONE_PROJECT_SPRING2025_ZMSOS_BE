@@ -8,9 +8,12 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Repository.IRepository;
 using OfficeOpenXml;
+using SocketIO.Core;
+
 
 ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 var builder = WebApplication.CreateBuilder(args);
+
 
 // Add services to the container.
 
@@ -30,6 +33,7 @@ builder.Services.AddCors(options =>
                .AllowAnyHeader();
     });
 });
+
 
 
 builder.Services.AddAuthentication(options =>
@@ -176,11 +180,14 @@ app.UseCors("AllowAllOrigins");
 
 app.UseRouting();
 
+
 app.UseAuthentication();
 
 //app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+
 
 app.MapControllers();
 

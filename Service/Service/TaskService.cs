@@ -5,6 +5,7 @@ using DAO.UpdateModel;
 using DAO.ViewModel;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Nest;
+using NPOI.SS.Formula.Functions;
 using Repository.IRepository;
 using Repository.IRepositoyr;
 using Service.IService;
@@ -274,6 +275,24 @@ namespace Service.Service
                     };
                 }
 
+                for (DateOnly date = key.FromDate; date <= key.ToDate; date = date.AddDays(1))
+                {
+                    foreach (var cage in key.AnimalTasksId)
+                    {
+                        foreach (var animal in cage.AnimalMealIds)
+                        {
+                            if (!(await CheckTaskDuplicate(date, animal.AnimalId, 3)))
+                            {
+                                return new ServiceResult
+                                {
+                                    Status = 400,
+                                    Message = $"Animal with Id {animal.AnimalId} in Cage Id {cage.CageId} had task Meal in date {date}",
+                                };
+                            }
+                        }
+                    }
+                }
+
                 List<List<(BO.Models.Task,DateOnly)>> tt = new();
                 foreach(var item1 in key.AnimalTasksId)
                 {
@@ -414,6 +433,24 @@ namespace Service.Service
                     };
                 }
 
+                for (DateOnly date = key.FromDate; date <= key.ToDate; date = date.AddDays(1))
+                {
+                    foreach (var cage in key.AnimalTaskCleaningsId)
+                    {
+                        foreach (var animal in cage.AnimalCleaningIds)
+                        {
+                            if (!(await CheckTaskDuplicate(date, animal.AnimalId, 2)))
+                            {
+                                return new ServiceResult
+                                {
+                                    Status = 400,
+                                    Message = $"Animal with Id {animal.AnimalId} in Cage Id {cage.CageId} had task Cleaning in date {date}",
+                                };
+                            }
+                        }
+                    }
+                }
+
                 List<List<(BO.Models.Task, DateOnly)>> tt = new();
                 foreach (var item1 in key.AnimalTaskCleaningsId)
                 {
@@ -551,6 +588,24 @@ namespace Service.Service
                         Status = 400,
                         Message = "Not enough day fromdate todate",
                     };
+                }
+
+                for (DateOnly date = key.FromDate; date <= key.ToDate; date = date.AddDays(1))
+                {
+                    foreach (var cage in key.AnimalTaskNormalsId)
+                    {
+                        foreach(var animal in cage.AnimalIds)
+                        {
+                            if (!(await CheckTaskDuplicate(date, animal.AnimalId, 3)))
+                            {
+                                return new ServiceResult
+                                {
+                                    Status = 400,
+                                    Message = $"Animal with Id {animal.AnimalId} in Cage Id {cage.CageId} had task Health in date {date}",
+                                };
+                            }
+                        }
+                    }
                 }
 
                 List<List<(BO.Models.Task, DateOnly)>> tt = new();
@@ -799,6 +854,22 @@ namespace Service.Service
             {
                 if(schedules.FirstOrDefault(l=>l.Date == date) == null) 
                     return false;
+            }
+            return true;
+        }
+        private async Task<bool> CheckTaskDuplicate(DateOnly date, int animalId, int taskTypeId)
+        {
+            AnimalCage animalCage = await animalCageRepo.GetAnimalCageCurrentByAnimalId(animalId);
+            List<Schedule> schedules = (await scheduleRepo.GetAllAsync()).FindAll(l => l.Date == date);
+            foreach(var schedule in schedules)
+            {
+                var tasks = (await repo.GetListTaskByScheduleId(schedule.Id)).FindAll(l=>l.TaskTypeId == taskTypeId);
+                foreach(var task in tasks)
+                {
+                    var animalAssigns = await animalAssignRepo.GetListAnimalAssignByTaskId(task.Id);
+                    var animalAssign = animalAssigns.FirstOrDefault(l => l.AnimalCageId == animalCage.Id);
+                    if(animalAssign != null) return false;
+                }
             }
             return true;
         }

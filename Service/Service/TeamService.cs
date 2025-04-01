@@ -4,6 +4,7 @@ using DAO.OtherModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
 using Nest;
+using NPOI.SS.UserModel;
 using Repository.IRepository;
 using Repository.IRepositoyr;
 using Service.IService;
@@ -24,13 +25,15 @@ namespace Service.Service
         public IMemberAssignRepository memberRepo;
         public IAccountRepository accountRepo;
         public IObjectViewService objectViewService;
-        public TeamService(ITeamRepository repo, ILeaderAssignRepository leaderRepo, IMemberAssignRepository memberRepo, IObjectViewService objectViewService, IAccountRepository accountRepo)
+        public INotificationRepository notificationRepo;
+        public TeamService(ITeamRepository repo, ILeaderAssignRepository leaderRepo, IMemberAssignRepository memberRepo, IObjectViewService objectViewService, IAccountRepository accountRepo, INotificationRepository notificationRepo)
         {
             this.repo = repo;
             this.leaderRepo = leaderRepo;
             this.memberRepo = memberRepo;
             this.objectViewService = objectViewService;
             this.accountRepo = accountRepo;
+            this.notificationRepo = notificationRepo;
         }
         public async Task<ServiceResult> GetListTeam()
         {
@@ -368,6 +371,11 @@ namespace Service.Service
                     };
                 }
                 leader = await leaderRepo.AddLeaderAssign(key);
+                await notificationRepo.AddNotification(new()
+                {
+                    AccountId = (int)leader.LeaderId,
+                    Content = $"Bạn đã được thêm vào team {team.Name}"
+                });
                 return new ServiceResult
                 {
                     Status = 200,
@@ -406,6 +414,11 @@ namespace Service.Service
                     };
                 }
                 var leader = await leaderRepo.RemoveLeaderAssign(teamId,accountId);
+                await notificationRepo.AddNotification(new()
+                {
+                    AccountId = (int)leader.LeaderId,
+                    Content = $"Bạn đã bị xóa khỏi team {team.Name}"
+                });
                 if (leader == null)
                 {
                     return new ServiceResult
@@ -500,6 +513,11 @@ namespace Service.Service
                         continue;
                     }
                     var member = await memberRepo.AddMemberAssign(key.TeamId, id);
+                    await notificationRepo.AddNotification(new()
+                    {
+                        AccountId = id,
+                        Content = $"Bạn đã được thêm vào team {team.Name}"
+                    });
                     if (member == null)
                     {
                         unsuccessId.Add(id);
@@ -549,6 +567,11 @@ namespace Service.Service
                     };
                 }
                 var member = await memberRepo.RemoveMemberAssign(teamId, accountId);
+                await notificationRepo.AddNotification(new()
+                {
+                    AccountId = (int)member.MemberId,
+                    Content = $"Bạn đã bị xóa khỏi team {team.Name}"
+                });
                 if (member == null)
                 {
                     return new ServiceResult
