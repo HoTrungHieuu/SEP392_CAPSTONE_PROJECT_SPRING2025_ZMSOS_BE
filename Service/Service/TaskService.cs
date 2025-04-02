@@ -250,14 +250,7 @@ namespace Service.Service
                 {
                     cagesId.Add(item.CageId);
                 }
-                if(!(await cageRepo.CheckListCageClassify(cagesId)))
-                {
-                    return new ServiceResult
-                    {
-                        Status = 400,
-                        Message = "Cage is not same classify",
-                    };
-                }
+               
                 if(!(await CheckAutoValidate(key.FromDate, key.ToDate, key.AccountIds)))
                 {
                     return new ServiceResult
@@ -405,14 +398,7 @@ namespace Service.Service
                 {
                     cagesId.Add(item.CageId);
                 }
-                if (!(await cageRepo.CheckListCageClassify(cagesId)))
-                {
-                    return new ServiceResult
-                    {
-                        Status = 400,
-                        Message = "Cage is not same classify",
-                    };
-                }
+                
                 if (!(await CheckAutoValidate(key.FromDate, key.ToDate, key.AccountIds)))
                 {
                     return new ServiceResult
@@ -558,14 +544,7 @@ namespace Service.Service
                 {
                     cagesId.Add(item.CageId);
                 }
-                if (!(await cageRepo.CheckListCageClassify(cagesId)))
-                {
-                    return new ServiceResult
-                    {
-                        Status = 400,
-                        Message = "Cage is not same classify",
-                    };
-                }
+                
                 if (!(await CheckAutoValidate(key.FromDate, key.ToDate, key.AccountIds)))
                 {
                     return new ServiceResult
@@ -709,7 +688,12 @@ namespace Service.Service
                 while(timeStart <= (TimeOnly)key.TimeEndInDay)
                 {
                     result.Add(date.ToDateTime(timeStart));
-                    timeStart = TimeOnly.FromTimeSpan(timeStart.ToTimeSpan() + new TimeSpan(hours: periodOfTime.Hours, 0 , 0));
+                    var newTimeSpan = timeStart.ToTimeSpan() + new TimeSpan(hours: periodOfTime.Hours, 0, 0);
+                    if (newTimeSpan.Ticks < 0 || newTimeSpan.Ticks > TimeOnly.MaxValue.Ticks)
+                    {
+                        break; 
+                    }
+                    timeStart = TimeOnly.FromTimeSpan(newTimeSpan);
                     if (periodOfTime.Days > 0)
                     {
                         break;
