@@ -245,14 +245,6 @@ namespace Service.Service
         {
             try
             {
-                if(key.AnimalTasksId.Count > 3)
-                {
-                    return new ServiceResult
-                    {
-                        Status = 400,
-                        Message = "Cage number is not excess 3",
-                    };
-                }
                 List<int> cagesId = new List<int>();
                 foreach(var item in key.AnimalTasksId)
                 {
@@ -408,14 +400,6 @@ namespace Service.Service
         {
             try
             {
-                if (key.AnimalTaskCleaningsId.Count > 3)
-                {
-                    return new ServiceResult
-                    {
-                        Status = 400,
-                        Message = "Cage number is not excess 3",
-                    };
-                }
                 List<int> cagesId = new List<int>();
                 foreach (var item in key.AnimalTaskCleaningsId)
                 {
@@ -569,14 +553,6 @@ namespace Service.Service
         {
             try
             {
-                if (key.AnimalTaskNormalsId.Count > 3)
-                {
-                    return new ServiceResult
-                    {
-                        Status = 400,
-                        Message = "Cage number is not excess 3",
-                    };
-                }
                 List<int> cagesId = new List<int>();
                 foreach (var item in key.AnimalTaskNormalsId)
                 {
