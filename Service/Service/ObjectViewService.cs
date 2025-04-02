@@ -437,7 +437,19 @@ namespace Service.Service
         }
         public async Task<UserView> GetUserView(User user)
         {
-            var result = userRepo.ConvertUserIntoUserView(user);
+            var account = accountRepo.GetById(user.AccountId);
+            Team team = new();
+            if(account.RoleId == 3)
+            {
+                var leaderAssign = await leaderRepo.GetLeaderAssignByAccountId(account.Id);
+                team = teamRepo.GetById(leaderAssign?.TeamId);
+            }
+            else if (account.RoleId == 4)
+            {
+                var memberAssign = await memberRepo.GetMemberAssignByAccountId(account.Id);
+                team = teamRepo.GetById(memberAssign?.TeamId);
+            }
+            var result = userRepo.ConvertUserIntoUserView(user,team?.Name);
             return result;
         }
         public async Task<List<TeamView>> GetListTeamView(List<Team> teams)
@@ -456,7 +468,7 @@ namespace Service.Service
             if (team == null) return null;
             string? zooAreaName = null;
             if(zooArea != null) zooAreaName = zooArea.Name;
-            var result = teamRepo.ConvertTeamIntoTeamView(team, zooAreaName);
+            var result = teamRepo.ConvertTeamIntoTeamView(team, zooAreaName,zooArea?.Id);
             return result;
         }
         public async Task<LeaderAssignView> GetLeaderAssignView(LeaderAssign leaderAssign)

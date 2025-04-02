@@ -72,13 +72,12 @@ namespace Service.Service
                 user.AvartarUrl = key.AvartarUrl;
                 await repo.UpdateAsync(user);
 
-                UserView userView = new UserView();
-                userView.ConvertUserIntoUserView(user);
+                var result = await objectViewService.GetUserView(user);
                 return new ServiceResult
                 {
                     Status = 200,
                     Message = "Update Success",
-                    Data = userView
+                    Data = result
                 };
             }
             catch (Exception ex)

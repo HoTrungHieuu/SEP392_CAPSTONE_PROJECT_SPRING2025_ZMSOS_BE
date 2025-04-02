@@ -14,12 +14,12 @@ namespace Repository.Repository
         public UserRepository()
         {
         }
-        public UserView ConvertUserIntoUserView(User user)
+        public UserView ConvertUserIntoUserView(User user,string? teamName)
         {
             try
             {
                 UserView result = new UserView();
-                result.ConvertUserIntoUserView(user);
+                result.ConvertUserIntoUserView(user,teamName);
                 return result;
             }
             catch (Exception)

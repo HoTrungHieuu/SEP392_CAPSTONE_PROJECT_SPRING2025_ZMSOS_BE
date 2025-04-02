@@ -11,7 +11,7 @@ namespace Repository.IRepositoyr
 {
     public interface IUserRepository : IGenericRepository<User>
     {
-        public UserView ConvertUserIntoUserView(User user);
+        public UserView ConvertUserIntoUserView(User user, string? teamName);
         public Task<User?> GetUserByAccountId(int accountId);
         public System.Threading.Tasks.Task DeleteUserByAccountId(int accountId);
     }

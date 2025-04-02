@@ -16,6 +16,6 @@ namespace Repository.IRepository
         public Task<Team?> GetTeamByZooAreaId(int zooAreaId);
         public Task<Team> AddTeam(TeamAdd key);
         public Task<Team?> UpdateTeam(TeamUpdate key);
-        public TeamView ConvertTeamIntoTeamView(Team team, string? zooAreaName);
+        public TeamView ConvertTeamIntoTeamView(Team team, string? zooAreaName, int? zooAreaId);
     }
 }

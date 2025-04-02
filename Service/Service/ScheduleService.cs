@@ -165,8 +165,6 @@ namespace Service.Service
                         Message = "Not Found!",
                     };
                 }
-                UserView user = new();
-                user.ConvertUserIntoUserView(await userRepo.GetUserByAccountId((int)schedule.AccountId));
                 var result = await objectViewService.GetScheduleView(schedule);
                 return new ServiceResult
                 {
