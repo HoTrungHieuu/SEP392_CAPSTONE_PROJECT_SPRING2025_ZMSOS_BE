@@ -685,12 +685,14 @@ namespace Service.Service
             int count = 0;
             for (DateOnly date = fromDate; date <= toDate; date = date.AddDays(1 + count+periodOfTime.Days))
             {
+                bool isEccessDate = false;
                 while(timeStart <= (TimeOnly)key.TimeEndInDay)
                 {
                     result.Add(date.ToDateTime(timeStart));
                     var newTimeSpan = timeStart.ToTimeSpan() + new TimeSpan(hours: periodOfTime.Hours, 0, 0);
                     if (newTimeSpan.Ticks < 0 || newTimeSpan.Ticks > TimeOnly.MaxValue.Ticks)
                     {
+                        isEccessDate = true;
                         break; 
                     }
                     timeStart = TimeOnly.FromTimeSpan(newTimeSpan);
@@ -699,7 +701,7 @@ namespace Service.Service
                         break;
                     }
                 }
-                if(timeStart > (TimeOnly)key.TimeEndInDay)
+                if(timeStart > (TimeOnly)key.TimeEndInDay || isEccessDate)
                 {
                     timeStart = (TimeOnly)key.TimeStartInDay;
                     count = 0;
