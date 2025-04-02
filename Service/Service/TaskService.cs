@@ -374,7 +374,7 @@ namespace Service.Service
                         }
                         if (date.Day % 2 == 1)
                         {
-                            ssTemp = ssTemp.OrderDescending().ToList();
+                            ssTemp.Reverse();
                         }
                         int count = 0;
                         foreach (var item1 in ttTemp)
@@ -536,7 +536,7 @@ namespace Service.Service
                         }
                         if (date.Day % 2 == 1)
                         {
-                            ssTemp = ssTemp.OrderDescending().ToList();
+                            ssTemp.Reverse();
                         }
                         int count = 0;
                         foreach (var item1 in ttTemp)
@@ -691,7 +691,7 @@ namespace Service.Service
                         }
                         if(date.Day % 2 == 1)
                         {
-                            ssTemp = ssTemp.OrderDescending().ToList();
+                            ssTemp.Reverse();
                         }
                         int count = 0;
                         foreach (var item1 in ttTemp)

@@ -54,6 +54,7 @@ namespace Repository.Repository
                     Size = key.Size,
                     UrlImage = key.UrlImage,
                     DateCreate = DateOnly.FromDateTime(DateTime.Now),
+                    CreatedDate = DateTime.Now,
                     Status = key.Status,
                 };
                 if(key.Classify == "Individual")
