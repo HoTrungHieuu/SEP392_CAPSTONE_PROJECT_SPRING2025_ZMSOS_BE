@@ -341,6 +341,7 @@ namespace Service.Service
                             {
                                 TaskTypeId = 1,
                                 TaskTypeName = "Meal",
+                                TaskName = "Cho Ăn",
                                 TimeStart = TimeOnly.FromDateTime(item2),
                                 AnimalTasksId = keyAdd2s
                             });
@@ -371,16 +372,20 @@ namespace Service.Service
                             var sTemp = item1.FindAll(l => l.Date == date);
                             if(sTemp.Count != 0) ssTemp.Add(sTemp);
                         }
+                        if (date.Day % 2 == 1)
+                        {
+                            ssTemp = ssTemp.OrderDescending().ToList();
+                        }
                         int count = 0;
                         foreach (var item1 in ttTemp)
                         {
+                            if (count >= ssTemp.Count) count = 0;
                             foreach (var item2 in item1)
                             {
-                                if (count >= ssTemp.Count) count = 0;
                                 item2.Item1.ScheduleId = ssTemp[count][0].Id;
                                 await repo.UpdateAsync(item2.Item1);
-                                count++;
                             }
+                            count++;
                         }
                     }
                 }
@@ -498,6 +503,7 @@ namespace Service.Service
                             {
                                 TaskTypeId = 2,
                                 TaskTypeName = "Cleaning",
+                                TaskName = "Dọn vệ sinh",
                                 TimeStart = TimeOnly.FromDateTime(item2),
                                 AnimalTaskCleaningsId = keyAdd2s
                             });
@@ -528,16 +534,19 @@ namespace Service.Service
                             var sTemp = item1.FindAll(l => l.Date == date);
                             if (sTemp.Count != 0) ssTemp.Add(sTemp);
                         }
+                        if (date.Day % 2 == 1)
+                        {
+                            ssTemp = ssTemp.OrderDescending().ToList();
+                        }
                         int count = 0;
                         foreach (var item1 in ttTemp)
                         {
+                            if (count >= ssTemp.Count) count = 0;
                             foreach (var item2 in item1)
                             {
-                                if (count >= ssTemp.Count) count = 0;
                                 item2.Item1.ScheduleId = ssTemp[count][0].Id;
-                                await repo.UpdateAsync(item2.Item1);
-                                count++;
                             }
+                            count++;
                         }
                     }
                 }
@@ -650,6 +659,7 @@ namespace Service.Service
                             {
                                 TaskTypeId = 3,
                                 TaskTypeName = "Health",
+                                TaskName = "Chăm sóc",
                                 TimeStart = TimeOnly.FromDateTime(item2),
                                 AnimalTaskNormalsId = keyAdd2s
                             });
@@ -665,7 +675,6 @@ namespace Service.Service
                 }
                 for (DateOnly date = key.FromDate; date <= key.ToDate; date = date.AddDays(1))
                 {
-
                     List<List<(BO.Models.Task, DateOnly)>> ttTemp = new();
                     foreach (var item1 in tt)
                     {
@@ -680,16 +689,21 @@ namespace Service.Service
                             var sTemp = item1.FindAll(l => l.Date == date);
                             if (sTemp.Count != 0) ssTemp.Add(sTemp);
                         }
+                        if(date.Day % 2 == 1)
+                        {
+                            ssTemp = ssTemp.OrderDescending().ToList();
+                        }
                         int count = 0;
                         foreach (var item1 in ttTemp)
                         {
+                            if (count >= ssTemp.Count) count = 0;
                             foreach (var item2 in item1)
                             {
-                                if (count >= ssTemp.Count) count = 0;
+                                
                                 item2.Item1.ScheduleId = ssTemp[count][0].Id;
                                 await repo.UpdateAsync(item2.Item1);
-                                count++;
                             }
+                            count++;
                         }
                     }
                 }

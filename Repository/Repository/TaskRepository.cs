@@ -34,6 +34,7 @@ namespace Repository.Repository
             {
                 BO.Models.Task task = new()
                 {
+                    TaskTypeId = key.TaskTypeId,
                     ScheduleId = key.ScheduleId,
                     TaskName = key.TaskName,
                     Description = key.Description,
