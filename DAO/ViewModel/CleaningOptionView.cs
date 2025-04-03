@@ -11,6 +11,7 @@ namespace DAO.ViewModel
     {
 
         public AnimalTypeView? AnimalType { get; set; }
+        public int? Id {  get; set; }
 
         public string? Name { get; set; }
 
@@ -24,6 +25,7 @@ namespace DAO.ViewModel
         List<CleaningProcessView>? CleaningProcesss {  get; set; }
         public void ConvertCleaningOptionIntoCleaningOptionView(CleaningOption key, AnimalTypeView animalType, List<CleaningProcessView>? cleaningProcesss)
         {
+            Id = key.Id;
             AnimalType = animalType;
             Name = key.Name;
             Description = key.Description;

@@ -591,6 +591,7 @@ namespace Service.Service
                             foreach (var item2 in item1)
                             {
                                 item2.Item1.ScheduleId = ssTemp[count][0].Id;
+                                await repo.UpdateAsync(item2.Item1);
                             }
                             count++;
                         }

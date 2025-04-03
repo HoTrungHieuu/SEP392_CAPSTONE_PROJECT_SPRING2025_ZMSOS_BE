@@ -29,7 +29,7 @@ namespace Zoo_Management_And_Staff_Operations_System.Controllers
         [HttpGet("cleaningOptions/by-animalType/{animalTypeId}")]
         public async Task<IActionResult> GetListCleaningOptionByAnimalTypeId(int animalTypeId)
         {
-            var result = await service.GetListCleaningOption();
+            var result = await service.GetListCleaningOptionByAnimalTypeId(animalTypeId);
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
@@ -42,7 +42,7 @@ namespace Zoo_Management_And_Staff_Operations_System.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Manager")]
-        [HttpPost("food")]
+        [HttpPost("cleaningOption")]
         public async Task<IActionResult> AddCleaningOption(CleaningOptionAdd key)
         {
             var result = await service.AddCleaningOption(key);

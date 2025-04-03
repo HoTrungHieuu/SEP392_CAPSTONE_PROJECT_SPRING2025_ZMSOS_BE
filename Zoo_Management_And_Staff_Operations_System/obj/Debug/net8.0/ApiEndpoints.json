@@ -672,6 +672,22 @@
   },
   {
     "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.CleaningOptionController",
+    "Method": "AddCleaningOption",
+    "RelativePath": "api/CleaningOption/cleaningOption",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.AddModel.CleaningOptionAdd",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.CleaningOptionController",
     "Method": "GetCleaningOptionById",
     "RelativePath": "api/CleaningOption/cleaningOption/{id}",
     "HttpMethod": "GET",
@@ -707,22 +723,6 @@
       {
         "Name": "animalTypeId",
         "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.CleaningOptionController",
-    "Method": "AddCleaningOption",
-    "RelativePath": "api/CleaningOption/food",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "key",
-        "Type": "DAO.AddModel.CleaningOptionAdd",
         "IsRequired": true
       }
     ],
