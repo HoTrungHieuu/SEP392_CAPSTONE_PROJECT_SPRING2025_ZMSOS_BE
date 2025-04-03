@@ -260,6 +260,16 @@ namespace Service.Service
                     };
                 }
 
+                var isTaskDuplicateStaff = (await CheckTaskDuplicateStaff(key.FromDate, key.ToDate, key.AccountIds, 1));
+                if (!isTaskDuplicateStaff.Item1)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = $"Staff with id {isTaskDuplicateStaff.Item2} had meal task in {isTaskDuplicateStaff.Item3}",
+                    };
+                }
+
                 for (DateOnly date = key.FromDate; date <= key.ToDate; date = date.AddDays(1))
                 {
                     foreach (var cage in key.AnimalTasksId)
@@ -408,6 +418,16 @@ namespace Service.Service
                     };
                 }
 
+                var isTaskDuplicateStaff = (await CheckTaskDuplicateStaff(key.FromDate, key.ToDate, key.AccountIds, 2));
+                if (!isTaskDuplicateStaff.Item1)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = $"Staff with id {isTaskDuplicateStaff.Item2} had cleaning task in {isTaskDuplicateStaff.Item3}",
+                    };
+                }
+
                 for (DateOnly date = key.FromDate; date <= key.ToDate; date = date.AddDays(1))
                 {
                     foreach (var cage in key.AnimalTaskCleaningsId)
@@ -551,6 +571,15 @@ namespace Service.Service
                     {
                         Status = 400,
                         Message = "Not enough day fromdate todate",
+                    };
+                }
+                var isTaskDuplicateStaff = (await CheckTaskDuplicateStaff(key.FromDate, key.ToDate, key.AccountIds, 3));
+                if (!isTaskDuplicateStaff.Item1)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = $"Staff with id {isTaskDuplicateStaff.Item2} had health task in {isTaskDuplicateStaff.Item3}",
                     };
                 }
 
@@ -832,6 +861,31 @@ namespace Service.Service
                     return false;
             }
             return true;
+        }
+        private async Task<(bool,int?,DateOnly?)> CheckTaskDuplicateStaff(DateOnly fromDate, DateOnly toDate, List<int> listStaffId, int taskTypeId)
+        {
+            List<Account> accounts = new List<Account>();
+            foreach (var item in listStaffId)
+            {
+                accounts.Add(accountRepo.GetById(item));
+            }
+            List<(Schedule,int)> schedules = new List<(Schedule, int)>();
+            foreach (var item in accounts)
+            {
+                var schedulesTemp = await scheduleRepo.GetListScheduleByAccountIdByDate(item.Id,fromDate,toDate);
+                foreach(var scheduleTemp in schedulesTemp)
+                {
+                    schedules.Add((scheduleTemp, item.Id));
+                }
+            }
+            foreach(var schedule in schedules)
+            {
+                if ((await repo.GetListTaskByScheduleId(schedule.Item1.Id)).FindAll(l => l.TaskTypeId == taskTypeId).Count > 0)
+                {
+                    return (false,schedule.Item2,schedule.Item1.Date);
+                }
+            }
+            return (true,null,null);
         }
         private async Task<bool> CheckTaskDuplicate(DateOnly date, int animalId, int taskTypeId)
         {
