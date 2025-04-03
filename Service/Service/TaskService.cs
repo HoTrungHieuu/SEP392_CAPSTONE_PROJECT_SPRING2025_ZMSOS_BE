@@ -32,7 +32,9 @@ namespace Service.Service
         public IHealthTaskRepository healthTaskRepo;
         public IAccountRepository accountRepo;
         public ICageRepository cageRepo;
-        public TaskService(ITaskRepository repo, IAnimalCageRepository animalCageRepo, IAnimalAssignRepository animalAssignRepo, IObjectViewService objectViewService, ITaskMealRepository taskMealRepo, IAnimalRepository animalRepo, IMealDayRepository mealDayRepo, IScheduleRepository scheduleRepo, ITaskCleaningRepository taskCleaningRepo, ICleaningOptionRepository cleaningOptionRepo, IHealthTaskRepository healthTaskRepo,IAccountRepository accountRepo, ICageRepository cageRepo)
+        public IMemberAssignRepository memberAssignRepo;
+        
+        public TaskService(ITaskRepository repo, IAnimalCageRepository animalCageRepo, IAnimalAssignRepository animalAssignRepo, IObjectViewService objectViewService, ITaskMealRepository taskMealRepo, IAnimalRepository animalRepo, IMealDayRepository mealDayRepo, IScheduleRepository scheduleRepo, ITaskCleaningRepository taskCleaningRepo, ICleaningOptionRepository cleaningOptionRepo, IHealthTaskRepository healthTaskRepo,IAccountRepository accountRepo, ICageRepository cageRepo, IMemberAssignRepository memberAssignRepo)
         {
             this.repo = repo;
             this.animalCageRepo = animalCageRepo;
@@ -47,6 +49,60 @@ namespace Service.Service
             this.healthTaskRepo = healthTaskRepo;
             this.accountRepo = accountRepo;
             this.cageRepo = cageRepo;
+            this.memberAssignRepo = memberAssignRepo;
+        }
+        public async Task<ServiceResult> GetListTaskByDateByTeamId(int teamId, DateOnly fromDate, DateOnly toDate)
+        {
+            try
+            {
+                if(fromDate > toDate)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Date invalid"
+                    };
+                }
+                var members = await memberAssignRepo.GetListMemberAssignByTeamId(teamId);
+                List<TaskStatisticPerDay> taskStatisticPerDays = new List<TaskStatisticPerDay>();
+                for (DateOnly date = fromDate; date <= toDate; date = date.AddDays(1))
+                {
+                    TaskStatisticPerDay taskStatisticPerDay = new()
+                    {
+                        Date = date,
+                        AccountTasks = new()
+                    };
+                    foreach(var member in members)
+                    {
+                        var schedules = await scheduleRepo.GetListScheduleByAccountIdByDate((int)member.MemberId, date, date);
+                        if (schedules.Count > 0)
+                        {
+                            var tasks = await repo.GetListTaskByScheduleId(schedules[0].Id);
+                            taskStatisticPerDay.AccountTasks.Add(new()
+                            {
+                                Account = await objectViewService.GetAccountView(accountRepo.GetById(member.MemberId)),
+                                Tasks = await objectViewService.GetListTaskView(tasks)
+                            });
+                        }
+                    }
+                    taskStatisticPerDays.Add(taskStatisticPerDay);
+                }
+
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "Tasks",
+                    Data = taskStatisticPerDays
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
         }
         public async Task<ServiceResult> GetListTaskByScheduleId(int scheduleId)
         {

@@ -11,6 +11,7 @@ namespace Service.IService
 {
     public interface ITaskService
     {
+        public Task<ServiceResult> GetListTaskByDateByTeamId(int teamId, DateOnly fromDate, DateOnly toDate);
         public Task<ServiceResult> GetListTaskByScheduleId(int scheduleId);
         public Task<ServiceResult> GetTaskById(int id);
         public Task<ServiceResult> AddTask(TaskAdd key);

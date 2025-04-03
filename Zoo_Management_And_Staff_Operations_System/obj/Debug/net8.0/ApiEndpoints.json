@@ -1376,6 +1376,32 @@
   },
   {
     "ContainingType": "AccountManagement.Controllers.TaskController",
+    "Method": "GetListTaskByDateByTeamId",
+    "RelativePath": "api/Task/tasks/by-team/{teamId}/{fromDate}/{toDate}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "teamId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "fromDate",
+        "Type": "System.DateOnly",
+        "IsRequired": true
+      },
+      {
+        "Name": "toDate",
+        "Type": "System.DateOnly",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.TaskController",
     "Method": "UpdateTaskStaff",
     "RelativePath": "api/Task/taskStaff",
     "HttpMethod": "POST",
