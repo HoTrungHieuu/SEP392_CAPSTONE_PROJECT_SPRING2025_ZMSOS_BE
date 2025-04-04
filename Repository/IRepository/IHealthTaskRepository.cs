@@ -13,7 +13,7 @@ namespace Repository.IRepository
     {
         public Task<TaskHealth?> GetTaskHealthByAnimalAssignId(int animalAssignId);
         public Task<TaskHealth> AddHealthTask(int animalAssignId);
-        public Task<TaskHealth> UpdateHealthTask(int animalAssignId, TaskHealthUpdate key);
+        public Task<TaskHealth> UpdateHealthTask(TaskHealthUpdate key);
         public TaskHealthView ConvertTaskHealthIntoTaskHealthView(TaskHealth taskHealth);
     }
 }

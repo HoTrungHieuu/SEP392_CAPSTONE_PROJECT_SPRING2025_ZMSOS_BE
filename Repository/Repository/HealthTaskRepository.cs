@@ -44,12 +44,11 @@ namespace Repository.Repository
                 throw;
             }
         }
-        public async Task<TaskHealth> UpdateHealthTask(int animalAssignId, TaskHealthUpdate key)
+        public async Task<TaskHealth> UpdateHealthTask(TaskHealthUpdate key)
         {
             try
             {
-                var healthTask = await GetTaskHealthByAnimalAssignId(animalAssignId);
-                if (healthTask == null) return null;
+                var healthTask = GetById(key.Id);
                 healthTask.AnimalCondition = key.AnimalCondition;
                 healthTask.DetailInformation = key.DetailInformation;
                 healthTask.SeverityLevel = key.SeverityLevel;

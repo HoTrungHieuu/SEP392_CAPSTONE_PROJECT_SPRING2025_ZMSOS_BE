@@ -9,6 +9,7 @@ namespace DAO.ViewModel
 {
     public class TaskHealthView
     {
+        public int Id { get; set; }
         public string? AnimalCondition { get; set; }
 
         public string? SeverityLevel { get; set; }
@@ -16,6 +17,7 @@ namespace DAO.ViewModel
         public string? DetailInformation { get; set; }
         public void ConvertTaskHealthIntoTaskHealthView(TaskHealth key)
         {
+            Id = key.Id;
             AnimalCondition = key.AnimalCondition;
             SeverityLevel = key.SeverityLevel;
             DetailInformation = key.DetailInformation;

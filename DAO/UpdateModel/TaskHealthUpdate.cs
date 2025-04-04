@@ -8,6 +8,7 @@ namespace DAO.UpdateModel
 {
     public class TaskHealthUpdate
     {
+        public int Id { get; set; }
         public string? AnimalCondition { get; set; }
 
         public string? SeverityLevel { get; set; }

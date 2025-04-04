@@ -33,8 +33,9 @@ namespace Service.Service
         public IAccountRepository accountRepo;
         public ICageRepository cageRepo;
         public IMemberAssignRepository memberAssignRepo;
+        public ITeamRepository teamRepo;
         
-        public TaskService(ITaskRepository repo, IAnimalCageRepository animalCageRepo, IAnimalAssignRepository animalAssignRepo, IObjectViewService objectViewService, ITaskMealRepository taskMealRepo, IAnimalRepository animalRepo, IMealDayRepository mealDayRepo, IScheduleRepository scheduleRepo, ITaskCleaningRepository taskCleaningRepo, ICleaningOptionRepository cleaningOptionRepo, IHealthTaskRepository healthTaskRepo,IAccountRepository accountRepo, ICageRepository cageRepo, IMemberAssignRepository memberAssignRepo)
+        public TaskService(ITaskRepository repo, IAnimalCageRepository animalCageRepo, IAnimalAssignRepository animalAssignRepo, IObjectViewService objectViewService, ITaskMealRepository taskMealRepo, IAnimalRepository animalRepo, IMealDayRepository mealDayRepo, IScheduleRepository scheduleRepo, ITaskCleaningRepository taskCleaningRepo, ICleaningOptionRepository cleaningOptionRepo, IHealthTaskRepository healthTaskRepo,IAccountRepository accountRepo, ICageRepository cageRepo, IMemberAssignRepository memberAssignRepo,ITeamRepository teamRepo)
         {
             this.repo = repo;
             this.animalCageRepo = animalCageRepo;
@@ -50,6 +51,7 @@ namespace Service.Service
             this.accountRepo = accountRepo;
             this.cageRepo = cageRepo;
             this.memberAssignRepo = memberAssignRepo;
+            this.teamRepo = teamRepo;
         }
         public async Task<ServiceResult> GetListTaskByDateByTeamId(int teamId, DateOnly fromDate, DateOnly toDate)
         {
@@ -81,7 +83,7 @@ namespace Service.Service
                             taskStatisticPerDay.AccountTasks.Add(new()
                             {
                                 Account = await objectViewService.GetAccountView(accountRepo.GetById(member.MemberId)),
-                                Tasks = await objectViewService.GetListTaskView(tasks)
+                                Tasks = tasks
                             });
                         }
                     }
@@ -93,6 +95,85 @@ namespace Service.Service
                     Status = 200,
                     Message = "Tasks",
                     Data = taskStatisticPerDays
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
+        public async Task<ServiceResult> GetListTaskAnimalByDateByTeamId(int teamId, DateOnly fromDate, DateOnly toDate)
+        {
+            try
+            {
+                if (fromDate > toDate)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Date invalid"
+                    };
+                }
+                var members = await memberAssignRepo.GetListMemberAssignByTeamId(teamId);
+                List<TaskAnimalDay> taskAnimalDays = new List<TaskAnimalDay>();
+                for (DateOnly date = fromDate; date <= toDate; date = date.AddDays(1))
+                {
+                    TaskAnimalDay taskAnimalDay = new()
+                    {
+                        Date = date,
+                        AnimalTask = new()
+                    };
+                    
+                    foreach (var member in members)
+                    {
+                        var schedules = await scheduleRepo.GetListScheduleByAccountIdByDate((int)member.MemberId, date, date);
+                        if (schedules.Count > 0)
+                        {
+                            var tasks = await repo.GetListTaskByScheduleId(schedules[0].Id);
+                            foreach(var task in tasks)
+                            {
+                                var animalAssigns = await animalAssignRepo.GetListAnimalAssignByTaskId(task.Id);
+                                foreach(var animalAssign in animalAssigns)
+                                {
+                                    var animalCage = animalCageRepo.GetById(animalAssign.AnimalCageId);
+                                    var animal = await objectViewService.GetAnimalView(animalRepo.GetById(animalCage.AnimalId));
+                                    var taskAnimal = taskAnimalDay.AnimalTask.FirstOrDefault(l => l.Animal.Id == animal.Id);
+                                    if (taskAnimal == null)
+                                    {
+
+                                        taskAnimalDay.AnimalTask.Add(new()
+                                        {
+                                            Animal = animal,
+                                            TotalTaskNumber = 1,
+                                            TotalTaskMeal = (task?.TaskTypeId == 1)?1:0,
+                                            TotalTaskCleaning = (task?.TaskTypeId == 2) ? 1 : 0,
+                                            TotalTaskHealth = (task?.TaskTypeId == 3) ? 1 : 0,
+                                        });
+                                    }
+                                    else
+                                    {
+                                        taskAnimal.TotalTaskNumber += 1;
+                                        taskAnimal.TotalTaskMeal += (task?.TaskTypeId == 1) ? 1 : 0;
+                                        taskAnimal.TotalTaskCleaning += (task?.TaskTypeId == 2) ? 1 : 0;
+                                        taskAnimal.TotalTaskHealth += (task?.TaskTypeId == 3) ? 1 : 0;
+                                    }
+                                }
+                            }
+                        }
+                        
+                    }
+                    taskAnimalDays.Add(taskAnimalDay);
+                }
+
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "Tasks",
+                    Data = taskAnimalDays
                 };
             }
             catch (Exception ex)
@@ -208,6 +289,7 @@ namespace Service.Service
                 }
                 task = await repo.UpdateTask(key);
                 
+                
                 return new ServiceResult
                 {
                     Status = 200,
@@ -282,6 +364,13 @@ namespace Service.Service
                     };
                 }
                 task = await repo.UpdateTaskStaff(key);
+                if (task.TaskTypeId == 3 && key.TeakHealths !=null)
+                {
+                    foreach(var taskHealth in key.TeakHealths)
+                    {
+                        await healthTaskRepo.UpdateHealthTask(taskHealth);
+                    }
+                }
                 return new ServiceResult
                 {
                     Status = 200,

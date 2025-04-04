@@ -1360,6 +1360,32 @@
   },
   {
     "ContainingType": "AccountManagement.Controllers.TaskController",
+    "Method": "GetListTaskAnimalByDateByTeamId",
+    "RelativePath": "api/Task/tasks/animals/by-team/{teamId}/{fromDate}/{toDate}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "teamId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "fromDate",
+        "Type": "System.DateOnly",
+        "IsRequired": true
+      },
+      {
+        "Name": "toDate",
+        "Type": "System.DateOnly",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.TaskController",
     "Method": "GetListTaskByScheduleId",
     "RelativePath": "api/Task/tasks/by-schedule/{scheduleId}",
     "HttpMethod": "GET",
