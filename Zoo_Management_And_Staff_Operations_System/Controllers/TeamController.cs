@@ -33,7 +33,7 @@ namespace TeamManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
-        [Authorize(Roles = "Leader,Staff")]
+        [Authorize(Roles = "Manager,Leader,Staff")]
         [HttpGet("team/by-account/{accountId}")]
         public async Task<IActionResult> GetTeamByAccountId(int accountId)
         {
