@@ -1280,6 +1280,22 @@
   },
   {
     "ContainingType": "AccountManagement.Controllers.TaskController",
+    "Method": "ClearTask",
+    "RelativePath": "api/Task/task",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.OtherModel.ClearTask",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.TaskController",
     "Method": "UpdateTask",
     "RelativePath": "api/Task/task",
     "HttpMethod": "PUT",
@@ -1368,6 +1384,32 @@
     "Parameters": [
       {
         "Name": "teamId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "fromDate",
+        "Type": "System.DateOnly",
+        "IsRequired": true
+      },
+      {
+        "Name": "toDate",
+        "Type": "System.DateOnly",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.TaskController",
+    "Method": "GetListTaskByDateByAccountId",
+    "RelativePath": "api/Task/tasks/by-account/{accountId}/{fromDate}/{toDate}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "accountId",
         "Type": "System.Int32",
         "IsRequired": true
       },

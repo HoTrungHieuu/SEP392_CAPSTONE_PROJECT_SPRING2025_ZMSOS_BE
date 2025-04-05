@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace DAO.OtherModel
 {
-    public class TaskNumberAnimal
+    public class TaskAccountPerDay
     {
-        public AnimalView Animal { get; set; }
-        public TaskNumber TaskQuantity { get; set; }
+        public DateOnly? Date {  get; set; }
+        public List<TaskView>? Tasks { get; set; }
     }
 }

@@ -80,11 +80,33 @@ namespace Service.Service
                         if (schedules.Count > 0)
                         {
                             var tasks = await repo.GetListTaskByScheduleId(schedules[0].Id);
-                            taskStatisticPerDay.AccountTasks.Add(new()
+                            foreach(var task in tasks)
                             {
-                                Account = await objectViewService.GetAccountView(accountRepo.GetById(member.MemberId)),
-                                Tasks = tasks
-                            });
+                                var taskAccount = taskStatisticPerDay.AccountTasks.FirstOrDefault(l => l.Account.Id == member.MemberId);
+                                if (taskAccount == null)
+                                {
+
+                                    taskStatisticPerDay.AccountTasks.Add(new()
+                                    {
+                                        Account = await objectViewService.GetAccountView(accountRepo.GetById(member.MemberId)),
+                                        TaskQuantity = new()
+                                        {
+                                            TotalTaskNumber = 1,
+                                            TotalTaskMeal = (task?.TaskTypeId == 1) ? 1 : 0,
+                                            TotalTaskCleaning = (task?.TaskTypeId == 2) ? 1 : 0,
+                                            TotalTaskHealth = (task?.TaskTypeId == 3) ? 1 : 0,
+                                        },
+                                    });
+                                }
+                                else
+                                {
+                                    taskAccount.TaskQuantity.TotalTaskNumber += 1;
+                                    taskAccount.TaskQuantity.TotalTaskMeal += (task?.TaskTypeId == 1) ? 1 : 0;
+                                    taskAccount.TaskQuantity.TotalTaskCleaning += (task?.TaskTypeId == 2) ? 1 : 0;
+                                    taskAccount.TaskQuantity.TotalTaskHealth += (task?.TaskTypeId == 3) ? 1 : 0;
+                                }
+                            }
+                            
                         }
                     }
                     taskStatisticPerDays.Add(taskStatisticPerDay);
@@ -95,6 +117,46 @@ namespace Service.Service
                     Status = 200,
                     Message = "Tasks",
                     Data = taskStatisticPerDays
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
+        public async Task<ServiceResult> GetListTaskByDateByAccountId(int accountId, DateOnly fromDate, DateOnly toDate)
+        {
+            try
+            {
+                if (fromDate > toDate)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Date invalid"
+                    };
+                }
+                var schedules = await scheduleRepo.GetListScheduleByAccountIdByDate(accountId,fromDate,toDate);
+                List<TaskAccountPerDay> taskAccountPerDays = new List<TaskAccountPerDay>();
+                foreach (var schedule in schedules)
+                {
+                    var tasks = await repo.GetListTaskByScheduleId(schedule.Id);
+                    taskAccountPerDays.Add(new()
+                    {
+                        Date = schedule?.Date,
+                        Tasks = await objectViewService.GetListTaskView(tasks)
+                    });
+                }
+
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "Tasks",
+                    Data = taskAccountPerDays
                 };
             }
             catch (Exception ex)
@@ -148,18 +210,21 @@ namespace Service.Service
                                         taskAnimalDay.AnimalTask.Add(new()
                                         {
                                             Animal = animal,
-                                            TotalTaskNumber = 1,
-                                            TotalTaskMeal = (task?.TaskTypeId == 1)?1:0,
-                                            TotalTaskCleaning = (task?.TaskTypeId == 2) ? 1 : 0,
-                                            TotalTaskHealth = (task?.TaskTypeId == 3) ? 1 : 0,
+                                            TaskQuantity = new()
+                                            {
+                                                TotalTaskNumber = 1,
+                                                TotalTaskMeal = (task?.TaskTypeId == 1) ? 1 : 0,
+                                                TotalTaskCleaning = (task?.TaskTypeId == 2) ? 1 : 0,
+                                                TotalTaskHealth = (task?.TaskTypeId == 3) ? 1 : 0,
+                                            },
                                         });
                                     }
                                     else
                                     {
-                                        taskAnimal.TotalTaskNumber += 1;
-                                        taskAnimal.TotalTaskMeal += (task?.TaskTypeId == 1) ? 1 : 0;
-                                        taskAnimal.TotalTaskCleaning += (task?.TaskTypeId == 2) ? 1 : 0;
-                                        taskAnimal.TotalTaskHealth += (task?.TaskTypeId == 3) ? 1 : 0;
+                                        taskAnimal.TaskQuantity.TotalTaskNumber += 1;
+                                        taskAnimal.TaskQuantity.TotalTaskMeal += (task?.TaskTypeId == 1) ? 1 : 0;
+                                        taskAnimal.TaskQuantity.TotalTaskCleaning += (task?.TaskTypeId == 2) ? 1 : 0;
+                                        taskAnimal.TaskQuantity.TotalTaskHealth += (task?.TaskTypeId == 3) ? 1 : 0;
                                     }
                                 }
                             }
@@ -386,6 +451,38 @@ namespace Service.Service
                 };
             }
         }
+        public async Task<ServiceResult> ClearTaskStaff(ClearTask key)
+        {
+            try
+            {
+                var schedules = await scheduleRepo.GetListScheduleByAccountIdByDate(key.AccountId, key.FromDate, key.ToDate);
+                foreach(var schedule in schedules)
+                {
+                    var tasks = await repo.GetListTaskByScheduleId(schedule.Id);
+                    foreach(var task in tasks)
+                    {
+                        if(task.Status == "Not Start")
+                        {
+                            task.Status = "Deleted";
+                        }
+                        await repo.UpdateAsync(task);
+                    }
+                }
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "Clear Success",
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
         public async Task<ServiceResult> AddTaskAutomatic(AnimalTaskMealSchdule key)
         {
             try
@@ -401,7 +498,7 @@ namespace Service.Service
                     return new ServiceResult
                     {
                         Status = 400,
-                        Message = "Not enough day fromdate todate",
+                        Message = "Staffs needs to have a schedule during this time to create the task",
                     };
                 }
 
@@ -559,7 +656,7 @@ namespace Service.Service
                     return new ServiceResult
                     {
                         Status = 400,
-                        Message = "Not enough day fromdate todate",
+                        Message = "User needs to have a schedule during this time to create the task",
                     };
                 }
 
@@ -716,7 +813,7 @@ namespace Service.Service
                     return new ServiceResult
                     {
                         Status = 400,
-                        Message = "Not enough day fromdate todate",
+                        Message = "User needs to have a schedule during this time to create the task",
                     };
                 }
                 var isTaskDuplicateStaff = (await CheckTaskDuplicateStaff(key.FromDate, key.ToDate, key.AccountIds, 3));

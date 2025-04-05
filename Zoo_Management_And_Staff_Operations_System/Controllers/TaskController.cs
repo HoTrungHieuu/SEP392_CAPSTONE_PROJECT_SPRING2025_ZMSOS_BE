@@ -26,6 +26,14 @@ namespace AccountManagement.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Admin,Manager,Leader,Staff")]
+        [HttpGet("tasks/by-account/{accountId}/{fromDate}/{toDate}")]
+        public async Task<IActionResult> GetListTaskByDateByAccountId(int accountId, DateOnly fromDate, DateOnly toDate)
+        {
+            var result = await service.GetListTaskByDateByAccountId(accountId, fromDate, toDate);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
+        [Authorize(Roles = "Admin,Manager,Leader,Staff")]
         [HttpGet("tasks/animals/by-team/{teamId}/{fromDate}/{toDate}")]
         public async Task<IActionResult> GetListTaskAnimalByDateByTeamId(int teamId, DateOnly fromDate, DateOnly toDate)
         {
@@ -68,6 +76,13 @@ namespace AccountManagement.Controllers
         public async Task<IActionResult> UpdateTaskStaff(TaskStaffUpdate key)
         {
             var result = await service.UpdateTaskStaff(key);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
+        [HttpDelete("task")]
+        public async Task<IActionResult> ClearTask(ClearTask key)
+        {
+            var result = await service.ClearTaskStaff(key);
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }

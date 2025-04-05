@@ -13,10 +13,12 @@ namespace Service.IService
     {
         public Task<ServiceResult> GetListTaskByDateByTeamId(int teamId, DateOnly fromDate, DateOnly toDate);
         public Task<ServiceResult> GetListTaskAnimalByDateByTeamId(int teamId, DateOnly fromDate, DateOnly toDate);
+        public Task<ServiceResult> GetListTaskByDateByAccountId(int accountId, DateOnly fromDate, DateOnly toDate);
         public Task<ServiceResult> GetListTaskByScheduleId(int scheduleId);
         public Task<ServiceResult> GetTaskById(int id);
         public Task<ServiceResult> AddTask(TaskAdd key);
         public Task<ServiceResult> UpdateTask(TaskUpdate key);
+        public Task<ServiceResult> ClearTaskStaff(ClearTask key);
         public Task<ServiceResult> StartTask(int id);
         public Task<ServiceResult> UpdateTaskStaff(TaskStaffUpdate key);
         public Task<ServiceResult> AddTaskCleaningAutomatic(AnimalTaskCleaningSchedule key);

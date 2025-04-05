@@ -20,7 +20,7 @@ namespace Repository.Repository
         {
             try
             {
-                var tasks = (await GetAllAsync()).FindAll(l => l.ScheduleId == scheduleId);
+                var tasks = (await GetAllAsync()).FindAll(l => l.ScheduleId == scheduleId).FindAll(l=>l.Status != "Deleted");
                 return tasks;
             }
             catch (Exception)
