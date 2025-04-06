@@ -437,6 +437,7 @@ namespace Service.Service
         }
         public async Task<UserView> GetUserView(User user)
         {
+            if (user == null) return null;
             var account = accountRepo.GetById(user.AccountId);
             Team team = new();
             if(account.RoleId == 3)
@@ -555,6 +556,7 @@ namespace Service.Service
         }
         public async Task<ApplicationTypeView> GetApplicationTypeView(ApplicationType applicationType)
         {
+            if (applicationType == null) return null;
             var result = applicationTypeRepo.ConvertApplicationTypeIntoApplicationTypeView(applicationType);
             return result;
         }
