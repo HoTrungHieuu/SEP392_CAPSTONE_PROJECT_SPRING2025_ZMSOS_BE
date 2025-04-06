@@ -989,7 +989,7 @@ namespace Service.Service
         {
             List<DateTime> result = new List<DateTime>();
             int day = key.Day_Interval.Value.Days;
-            for (DateOnly date = fromDate; date <= toDate; date = date.AddDays(1 + day))
+            for (DateOnly date = fromDate; date <= toDate; date = date.AddDays(day))
             {
                 foreach(var time in key.Times)
                 {
