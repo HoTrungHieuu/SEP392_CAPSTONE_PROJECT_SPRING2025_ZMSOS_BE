@@ -25,7 +25,7 @@ namespace Zoo_Management_And_Staff_Operations_System.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
-        [Authorize(Roles = "Manager")]
+        [Authorize(Roles = "Manager,Leader")]
         [HttpGet("cleaningOptions/by-animalType/{animalTypeId}")]
         public async Task<IActionResult> GetListCleaningOptionByAnimalTypeId(int animalTypeId)
         {
