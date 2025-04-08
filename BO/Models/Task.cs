@@ -25,6 +25,10 @@ public partial class Task
 
     public TimeOnly? TimeFinish { get; set; }
 
+    public TimeOnly? TimeStartActual { get; set; }
+
+    public string UrlImage { get; set; }
+
     public string Status { get; set; }
 
     public virtual ICollection<AnimalAssign> AnimalAssigns { get; set; } = new List<AnimalAssign>();

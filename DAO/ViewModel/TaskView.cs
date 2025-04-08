@@ -23,8 +23,10 @@ namespace DAO.ViewModel
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public List<AnimalCageTaskCleaning>? AnimalCageTaskCleaning { get; set; }
         public TaskTypeView? TaskType { get;set; }
+        public TimeOnly? TimeStartActual {  get; set; }
         public TimeOnly? TimeStart { get; set; }
         public TimeOnly? TimeFinish { get; set; }
+        public string? UrlImage {  get; set; }
         public string? Status {  get; set; }
         public void ConvertTaskIntoTaskView(BO.Models.Task key,List<AnimalCageTask> animalCageTask, List<AnimalCageTaskCleaning> animalCageTaskCleaning, List<AnimalCageTaskNormal> animalCageTaskNormal, TaskTypeView taskType)
         {
@@ -32,8 +34,10 @@ namespace DAO.ViewModel
             TaskName = key.TaskName;
             Description = key.Description;
             Note = key.Note;    
+            TimeStartActual = key.TimeStartActual;
             TimeStart = key.TimeStart;
             TimeFinish = key.TimeFinish;
+            UrlImage = key.UrlImage;
             Status = key.Status;
             AnimalCageTask = animalCageTask;
             AnimalCageTaskCleaning = animalCageTaskCleaning;

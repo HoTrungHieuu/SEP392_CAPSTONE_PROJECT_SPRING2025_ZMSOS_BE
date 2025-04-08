@@ -10,9 +10,7 @@ namespace DAO.UpdateModel
     {
         public int Id { get; set; }
         public string? AnimalCondition { get; set; }
-
         public string? SeverityLevel { get; set; }
-
         public string? DetailInformation { get; set; }
     }
 }

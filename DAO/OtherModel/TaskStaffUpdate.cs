@@ -12,6 +12,7 @@ namespace DAO.OtherModel
     {
         public int Id {  get; set; }
         public string? Note {  get; set; }
+        public string? UrlImage {  get; set; }
         public List<TaskHealthUpdate>? TeakHealths {  get; set; }
     }
 }
