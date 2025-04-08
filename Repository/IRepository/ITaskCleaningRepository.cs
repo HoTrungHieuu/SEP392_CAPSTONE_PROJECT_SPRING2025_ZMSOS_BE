@@ -11,6 +11,7 @@ namespace Repository.IRepository
     public interface ITaskCleaningRepository : IGenericRepository<CleaningTask>
     {
         public Task<CleaningTask?> GetTaskCleaningByAnimalAssignId(int animalAssignId);
+        public Task<List<CleaningTask>?> GetListTaskCleaningByCleaningOptionId(int cleaningOptionId);
         public Task<CleaningTask> AddTaskCleaning(int animalAssignId, TaskCleaningAdd key);
     }
 }

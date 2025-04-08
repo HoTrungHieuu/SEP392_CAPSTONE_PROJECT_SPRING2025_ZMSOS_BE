@@ -15,5 +15,8 @@ namespace Service.IService
         public Task<ServiceResult> GeMealDayById(int id);
         public Task<ServiceResult> AddMealDay(MealDayAdd key);
         public Task<ServiceResult> UpdateMealDay(MealDayUpdate key);
+        public Task<ServiceResult> DisableMealDay(List<int> mealDayIds);
+        public Task<MemoryStream> ExportListMealDay();
+        public Task<ServiceResult> ImportMealDays(Stream stream);
     }
 }

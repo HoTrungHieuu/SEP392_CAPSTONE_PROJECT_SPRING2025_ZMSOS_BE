@@ -20,7 +20,7 @@ namespace Repository.Repository
         {
             try
             {
-                var cages = (await GetAllAsync());
+                var cages = (await GetAllAsync()).FindAll(l=>l.Status != "Deleted");
                 cages.OrderByDescending(l=>l.DateCreate).ToList();
                 return cages;
             }
@@ -90,6 +90,21 @@ namespace Repository.Repository
                 cage.UpdatedDate = DateTime.Now;
                 await UpdateAsync(cage);
                 return cage;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public async Task<int> DisableCage(int id)
+        {
+            try
+            {
+                var cage = GetById(id);
+                if (cage == null) return 0;
+                cage.Status = "Deleted";
+                var row = await UpdateAsync(cage);
+                return row;
             }
             catch (Exception)
             {

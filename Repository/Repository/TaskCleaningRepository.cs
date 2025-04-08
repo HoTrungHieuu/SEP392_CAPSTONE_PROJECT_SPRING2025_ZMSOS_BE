@@ -26,6 +26,18 @@ namespace Repository.Repository
                 throw;
             }
         }
+        public async Task<List<CleaningTask>?> GetListTaskCleaningByCleaningOptionId(int cleaningOptionId)
+        {
+            try
+            {
+                var taskCleanings = (await GetAllAsync()).FindAll(l => l.AnimalAssignId == cleaningOptionId);
+                return taskCleanings;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         public async Task<CleaningTask> AddTaskCleaning(int animalAssignId, TaskCleaningAdd key)
         {
             try

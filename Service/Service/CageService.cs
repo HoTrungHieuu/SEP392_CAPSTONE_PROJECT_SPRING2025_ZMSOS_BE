@@ -4,6 +4,7 @@ using DAO.OtherModel;
 using DAO.SearchModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
+using Microsoft.Identity.Client;
 using Repository.IRepository;
 using Service.IService;
 using System;
@@ -19,11 +20,15 @@ namespace Service.Service
         public ICageRepository repo;
         public IZooAreaRepository areaRepo;
         public IObjectViewService objectViewService;
-        public CageService(ICageRepository repo, IZooAreaRepository areaRepo, IObjectViewService objectViewService)
+        public IAnimalCageRepository animalCageRepo;
+        public IAnimalRepository animalRepo;
+        public CageService(ICageRepository repo, IZooAreaRepository areaRepo, IObjectViewService objectViewService, IAnimalCageRepository animalCageRepo, IAnimalRepository animalRepo)
         {
             this.repo = repo;
             this.areaRepo = areaRepo;
             this.objectViewService = objectViewService;
+            this.animalCageRepo = animalCageRepo;
+            this.animalRepo = animalRepo;
         }
         public async Task<ServiceResult> GetListCage()
         {
@@ -236,6 +241,46 @@ namespace Service.Service
                     Status = 200,
                     Message = "Update Success",
                     Data = result
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
+        public async Task<ServiceResult> DisableCage(List<int> cageIds)
+        {
+            try
+            {
+                cageIds = cageIds.Distinct().ToList();
+                List<int> unsucessIds = new List<int>();
+                foreach(int cageId in cageIds)
+                {
+                    var animalCages = await animalCageRepo.GetListAnimalCageByCageId(cageId);
+                    List<Animal> animals = new List<Animal>();
+                    foreach (var animalCage in animalCages)
+                    {
+                        animals.Add(animalRepo.GetById(animalCage.AnimalId));
+                    }
+                    if(animals.Count > 0)
+                    {
+                        unsucessIds.Add(cageId);
+                    }
+                    else
+                    {
+                        if((await repo.DisableCage(cageId))== 0)
+                            unsucessIds.Add(cageId);
+                    }
+                }
+                
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = $"Disable Success with id unsuccess {unsucessIds}",
                 };
             }
             catch (Exception ex)

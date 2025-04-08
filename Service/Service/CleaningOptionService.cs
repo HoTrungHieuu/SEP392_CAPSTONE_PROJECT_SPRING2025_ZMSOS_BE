@@ -1,4 +1,5 @@
-﻿using DAO.AddModel;
+﻿using BO.Models;
+using DAO.AddModel;
 using DAO.UpdateModel;
 using Repository.IRepository;
 using Service.IService;
@@ -16,12 +17,14 @@ namespace Service.Service
         public ICleaningProcessRepository cleaningProcessRepo;
         public IUrlProcessRepository urlProcessRepo;
         public IObjectViewService objectViewService;
-        public CleaningOptionService(ICleaningOptionRepository repo, ICleaningProcessRepository cleaningProcessRepo, IUrlProcessRepository urlProcessRepo, IObjectViewService objectViewService)
+        public ITaskCleaningRepository taskCleaningRepo;
+        public CleaningOptionService(ICleaningOptionRepository repo, ICleaningProcessRepository cleaningProcessRepo, IUrlProcessRepository urlProcessRepo, IObjectViewService objectViewService, ITaskCleaningRepository taskCleaningRepo)
         {
             this.repo = repo;
             this.cleaningProcessRepo = cleaningProcessRepo;
             this.urlProcessRepo = urlProcessRepo;
             this.objectViewService = objectViewService;
+            this.taskCleaningRepo = taskCleaningRepo;
         }
         public async Task<ServiceResult> GetListCleaningOption()
         {
@@ -137,6 +140,41 @@ namespace Service.Service
                     Status = 200,
                     Message = "Add Success",
                     Data = result
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
+        public async Task<ServiceResult> DisableCleaningOption(List<int> cleaningOptinoIds)
+        {
+            try
+            {
+                cleaningOptinoIds = cleaningOptinoIds.Distinct().ToList();
+                List<int> unsucessIds = new List<int>();
+                foreach (int cleaningOptinoId in cleaningOptinoIds)
+                {
+                    var cleaningTasks = await taskCleaningRepo.GetListTaskCleaningByCleaningOptionId(cleaningOptinoId);
+                    if (cleaningTasks?.Count > 0)
+                    {
+                       
+                    }
+                    else
+                    {
+                        if((await repo.DisableCleaningOption(cleaningOptinoId)) == 0)
+                            unsucessIds.Add(cleaningOptinoId);
+                    }
+                }
+
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = $"Disable Success with id unsuccess {unsucessIds}",
                 };
             }
             catch (Exception ex)

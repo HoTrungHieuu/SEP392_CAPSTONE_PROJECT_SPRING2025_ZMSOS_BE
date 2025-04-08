@@ -13,6 +13,7 @@ namespace Service.IService
         public Task<ServiceResult> GetListCleaningOption();
         public Task<ServiceResult> GetListCleaningOptionByAnimalTypeId(int animalTypeId);
         public Task<ServiceResult> AddCleaningOption(CleaningOptionAdd key);
+        public Task<ServiceResult> DisableCleaningOption(List<int> cleaningOptinoIds);
         public Task<ServiceResult> GetCleaningOptionById(int id);
     }
 }

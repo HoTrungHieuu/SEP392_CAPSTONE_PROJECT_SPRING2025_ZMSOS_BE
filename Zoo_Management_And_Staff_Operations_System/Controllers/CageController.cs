@@ -68,6 +68,14 @@ namespace AnimalAndCageManagement.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Manager")]
+        [HttpDelete("cage/disable")]
+        public async Task<IActionResult> DisableCage(List<int> ids)
+        {
+            var result = await service.DisableCage(ids);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
+        [Authorize(Roles = "Manager")]
         [HttpDelete("cage/{id}")]
         public async Task<IActionResult> DeleteCage(int id)
         {

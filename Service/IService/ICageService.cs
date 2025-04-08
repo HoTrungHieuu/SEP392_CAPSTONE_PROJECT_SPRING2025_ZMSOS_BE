@@ -19,5 +19,6 @@ namespace Service.IService
         public Task<ServiceResult> AddCage(CageAdd key);
         public Task<ServiceResult> UpdateCage(CageUpdate key);
         public Task<ServiceResult> DeleteCage(int id);
+        public Task<ServiceResult> DisableCage(List<int> cageIds);
     }
 }

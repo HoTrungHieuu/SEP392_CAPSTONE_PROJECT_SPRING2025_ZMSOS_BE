@@ -20,7 +20,7 @@ namespace Repository.Repository
         {
             try
             {
-                var cleaningOption = (await GetAllAsync()).FindAll(l => l.AnimalTypeId == animalTypeId);
+                var cleaningOption = (await GetAllAsync()).FindAll(l => l.AnimalTypeId == animalTypeId).FindAll(l=>l.Status != "Deleted");
                 return cleaningOption;
             }
             catch (Exception)
@@ -59,6 +59,21 @@ namespace Repository.Repository
                 cleaningOption.UpdatedDate = DateTime.Now;
                 await UpdateAsync(cleaningOption);
                 return cleaningOption;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public async Task<int> DisableCleaningOption(int id)
+        {
+            try
+            {
+                var cleaningOption = GetById(id);
+                if (cleaningOption == null) return 0;
+                cleaningOption.Status = "Deleted";
+                var row = await UpdateAsync(cleaningOption);
+                return row;
             }
             catch (Exception)
             {

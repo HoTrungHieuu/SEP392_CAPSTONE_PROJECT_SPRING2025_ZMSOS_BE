@@ -14,8 +14,10 @@ namespace Repository.IRepository
     public interface IMealDayRepository : IGenericRepository<MealDay>
     {
         public Task<List<MealDay>?> GetListMealDayByAnimalTypeId(int animalTypeId);
+        public Task<List<MealDay>?> GetListMealDay();
         public Task<MealDay?> AddMealDay(MealDayAdd key);
         public Task<MealDay?> UpdateMealDay(MealDayUpdate key);
+        public Task<int> DisableMealDay(int id);
         public MealDayView ConvertMealDayIntoMealDayView(MealDay mealDay, AnimalTypeView animalType, List<MealFoodView>? foods);
     }
 }

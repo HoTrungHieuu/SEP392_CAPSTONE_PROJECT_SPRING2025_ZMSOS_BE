@@ -49,6 +49,14 @@ namespace Zoo_Management_And_Staff_Operations_System.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager")]
+        [HttpDelete("cleaningOption/disable")]
+        public async Task<IActionResult> DisableCleaningOption(List<int> ids)
+        {
+            var result = await service.DisableCleaningOption(ids);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
         /*[Authorize(Roles = "Manager")]
         [HttpPut("food")]
         public async Task<IActionResult> UpdateFood(FoodUpdate key)

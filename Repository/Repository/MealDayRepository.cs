@@ -17,11 +17,24 @@ namespace Repository.Repository
         public MealDayRepository()
         {
         }
+        public async Task<List<MealDay>?> GetListMealDay()
+        {
+            try
+            {
+                var mealDays = (await GetAllAsync()).FindAll(l=>l.Status != "Deleted");
+                if (mealDays == null) return null;
+                return mealDays;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         public async Task<List<MealDay>?> GetListMealDayByAnimalTypeId(int animalTypeId)
         {
             try
             {
-                var mealDays = (await GetAllAsync()).FindAll(l => l.AnimalTypeId == animalTypeId);
+                var mealDays = (await GetListMealDay()).FindAll(l => l.AnimalTypeId == animalTypeId);
                 if (mealDays == null) return null;
                 return mealDays;
             }
@@ -68,6 +81,24 @@ namespace Repository.Repository
                 mealDay.UpdatedDate = DateTime.Now;
                 await UpdateAsync(mealDay);
                 return mealDay;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public async Task<int> DisableMealDay(int id)
+        {
+            try
+            {
+                var mealDay = GetById(id);
+                if (mealDay == null)
+                {
+                    return 0;
+                }
+                mealDay.Status = "Deleted";
+                var row = await UpdateAsync(mealDay);
+                return row;
             }
             catch (Exception)
             {

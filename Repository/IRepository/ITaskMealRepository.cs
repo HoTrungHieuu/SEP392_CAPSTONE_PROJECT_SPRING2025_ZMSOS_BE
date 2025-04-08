@@ -11,6 +11,7 @@ namespace Repository.IRepository
     public interface ITaskMealRepository : IGenericRepository<TaskMeal>
     {
         public Task<TaskMeal?> GetTaskMealByAnimalAssignId(int animalAssignId);
+        public Task<List<TaskMeal>?> GetListTaskMealByMealDayId(int mealDayId);
         public Task<TaskMeal> AddTaskMeal(int animalAssignId, TaskMealAdd key);
     }
 }

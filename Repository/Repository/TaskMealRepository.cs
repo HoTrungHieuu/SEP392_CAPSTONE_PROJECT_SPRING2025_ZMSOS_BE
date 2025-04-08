@@ -20,8 +20,20 @@ namespace Repository.Repository
         {
             try
             {
-                var taskMeal = (await GetAllAsync()).FirstOrDefault(l=>l.AnimalAssignId == animalAssignId);
+                var taskMeal = (await GetAllAsync()).FirstOrDefault(l => l.AnimalAssignId == animalAssignId);
                 return taskMeal;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public async Task<List<TaskMeal>?> GetListTaskMealByMealDayId(int mealDayId)
+        {
+            try
+            {
+                var taskMeals = (await GetAllAsync()).FindAll(l => l.MealDayId == mealDayId);
+                return taskMeals;
             }
             catch (Exception)
             {
