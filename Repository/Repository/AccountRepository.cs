@@ -19,6 +19,16 @@ namespace Repository.Repository
             var account = (await GetAllAsync()).FirstOrDefault(l => l.RoleId == 2);
             return account;
         }
+        public async Task<List<Account>?> GetListAccountLeader()
+        {
+            var accounts = (await GetAllAsync()).FindAll(l => l.RoleId == 3);
+            return accounts;
+        }
+        public async Task<List<Account>?> GetListAccountStaff()
+        {
+            var accounts = (await GetAllAsync()).FindAll(l => l.RoleId == 4);
+            return accounts;
+        }
         public AccountView ConvertAccountIntoAccountView(Account account, RoleView role, UserView user)
         {
             try

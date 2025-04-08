@@ -163,6 +163,7 @@ builder.Services.AddScoped<ICleaningProcessRepository, CleaningProcessRepository
 builder.Services.AddScoped<IUrlProcessRepository, UrlProcessRepository>();
 builder.Services.AddScoped<ITaskCleaningRepository, TaskCleaningRepository>();
 builder.Services.AddScoped<IHealthTaskRepository, HealthTaskRepository>();
+builder.Services.AddScoped<IStatisticService, StatisticService>();
 
 var app = builder.Build();
 

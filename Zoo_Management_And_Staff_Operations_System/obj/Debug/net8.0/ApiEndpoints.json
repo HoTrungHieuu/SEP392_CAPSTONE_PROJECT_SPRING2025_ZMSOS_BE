@@ -1337,6 +1337,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.StatisticController",
+    "Method": "GetStatistic",
+    "RelativePath": "api/Statistic/statistic",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AccountManagement.Controllers.TaskController",
     "Method": "AddTask",
     "RelativePath": "api/Task/task",
