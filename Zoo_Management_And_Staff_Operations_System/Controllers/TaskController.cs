@@ -65,14 +65,14 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
-        [HttpPost("taskStart/by-id/{id}")]
+        [HttpPut("taskStart/by-id/{id}")]
         public async Task<IActionResult> StartTask(int id)
         {
             var result = await service.StartTask(id);
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
-        [HttpPost("taskStaff")]
+        [HttpPut("taskStaff")]
         public async Task<IActionResult> UpdateTaskStaff(TaskStaffUpdate key)
         {
             var result = await service.UpdateTaskStaff(key);

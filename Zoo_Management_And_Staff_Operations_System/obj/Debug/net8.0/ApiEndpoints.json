@@ -1556,7 +1556,7 @@
     "ContainingType": "AccountManagement.Controllers.TaskController",
     "Method": "UpdateTaskStaff",
     "RelativePath": "api/Task/taskStaff",
-    "HttpMethod": "POST",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -1572,7 +1572,7 @@
     "ContainingType": "AccountManagement.Controllers.TaskController",
     "Method": "StartTask",
     "RelativePath": "api/Task/taskStart/by-id/{id}",
-    "HttpMethod": "POST",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
