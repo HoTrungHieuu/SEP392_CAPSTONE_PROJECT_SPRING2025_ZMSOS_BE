@@ -344,7 +344,7 @@ namespace Service.Service
                         Message = "Not Found"
                     };
                 }
-                if(task.Status != "In Progress")
+                if(task.Status != "In Progressing")
                 {
                     return new ServiceResult
                     {
@@ -383,7 +383,7 @@ namespace Service.Service
                         Message = "Not Found"
                     };
                 }
-                if(task.Status != "Not Start")
+                if(task.Status != "In Progressing")
                 {
                     return new ServiceResult
                     {
@@ -420,7 +420,7 @@ namespace Service.Service
                         Message = "Not Found"
                     };
                 }
-                if (task.Status != "In Progress")
+                if (task.Status != "In Progressing")
                 {
                     return new ServiceResult
                     {

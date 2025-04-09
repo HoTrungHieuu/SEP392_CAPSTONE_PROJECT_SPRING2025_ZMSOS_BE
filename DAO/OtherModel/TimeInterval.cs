@@ -9,9 +9,31 @@ namespace DAO.OtherModel
 {
     public class TimeInterval
     {
+        [CheckListTime]
         public List<TimeOnly>? Times { get; set; }
         [TimeIntervalValidation]
         public TimeSpan? Day_Interval { get; set; }
+    }
+    public class CheckListTimeAttribute : ValidationAttribute
+    {
+        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+        {
+            if (value is List<TimeOnly> listTime)
+            {
+                foreach(var time in (List<TimeOnly>)value)
+                {
+                    if(time.Second != 0)
+                    {
+                        return new ValidationResult($"{time} must have second equal 0.");
+                    }
+                    if(((List<TimeOnly>)value).FindAll(l=>l == time).Count > 1)
+                    {
+                        return new ValidationResult("List time must be different.");
+                    }
+                }
+            }
+            return ValidationResult.Success;
+        }
     }
     public class TimeIntervalValidationAttribute : ValidationAttribute
     {
