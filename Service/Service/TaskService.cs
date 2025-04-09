@@ -383,7 +383,7 @@ namespace Service.Service
                         Message = "Not Found"
                     };
                 }
-                if(task.Status != "In Progressing")
+                if(task.Status != "Not Start")
                 {
                     return new ServiceResult
                     {
