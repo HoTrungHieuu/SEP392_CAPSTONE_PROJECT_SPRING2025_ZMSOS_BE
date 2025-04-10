@@ -26,7 +26,8 @@ namespace Service.Service
         public IAccountRepository accountRepo;
         public IObjectViewService objectViewService;
         public INotificationRepository notificationRepo;
-        public TeamService(ITeamRepository repo, ILeaderAssignRepository leaderRepo, IMemberAssignRepository memberRepo, IObjectViewService objectViewService, IAccountRepository accountRepo, INotificationRepository notificationRepo)
+        public IScheduleRepository scheduleRepo;
+        public TeamService(ITeamRepository repo, ILeaderAssignRepository leaderRepo, IMemberAssignRepository memberRepo, IObjectViewService objectViewService, IAccountRepository accountRepo, INotificationRepository notificationRepo, IScheduleRepository scheduleRepo)
         {
             this.repo = repo;
             this.leaderRepo = leaderRepo;
@@ -34,6 +35,7 @@ namespace Service.Service
             this.objectViewService = objectViewService;
             this.accountRepo = accountRepo;
             this.notificationRepo = notificationRepo;
+            this.scheduleRepo = scheduleRepo;
         }
         public async Task<ServiceResult> GetListTeam()
         {
@@ -564,6 +566,15 @@ namespace Service.Service
                     {
                         Status = 404,
                         Message = "Team Not Found"
+                    };
+                }
+                var schedules = (await scheduleRepo.GetListScheduleByAccountId(accountId)).FindAll(l => l.Date > DateOnly.FromDateTime(DateTime.Now));
+                if(schedules.Count > 0)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Staff had Schedule can not remove!"
                     };
                 }
                 var member = await memberRepo.RemoveMemberAssign(teamId, accountId);

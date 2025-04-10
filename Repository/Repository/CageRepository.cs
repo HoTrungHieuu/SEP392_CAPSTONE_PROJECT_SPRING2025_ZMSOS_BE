@@ -21,7 +21,7 @@ namespace Repository.Repository
             try
             {
                 var cages = (await GetAllAsync()).FindAll(l=>l.Status != "Deleted");
-                cages.OrderByDescending(l=>l.DateCreate).ToList();
+                cages = cages.OrderByDescending(l=>l.DateCreate).ToList();
                 return cages;
             }
             catch (Exception)

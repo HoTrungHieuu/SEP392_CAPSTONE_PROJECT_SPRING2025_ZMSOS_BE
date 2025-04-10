@@ -21,6 +21,7 @@ namespace Repository.Repository
             try
             {
                 var foods = await GetAllAsync();
+                foods = foods.OrderByDescending(l => l.CreatedDate).ToList();
                 return foods;
             }
             catch (Exception)

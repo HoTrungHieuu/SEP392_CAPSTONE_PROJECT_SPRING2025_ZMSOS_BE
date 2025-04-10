@@ -21,6 +21,7 @@ namespace Repository.Repository
             try
             {
                 var animalTypes = await GetAllAsync();
+                animalTypes = animalTypes.OrderByDescending(l => l.CreatedDate).ToList();
                 return animalTypes;
             }
             catch (Exception)

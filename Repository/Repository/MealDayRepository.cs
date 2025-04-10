@@ -22,6 +22,7 @@ namespace Repository.Repository
             try
             {
                 var mealDays = (await GetAllAsync()).FindAll(l=>l.Status != "Deleted");
+                mealDays = mealDays.OrderByDescending(l => l.CreatedDate).ToList();
                 if (mealDays == null) return null;
                 return mealDays;
             }

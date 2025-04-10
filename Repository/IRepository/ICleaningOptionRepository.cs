@@ -12,6 +12,7 @@ namespace Repository.IRepository
 {
     public interface ICleaningOptionRepository : IGenericRepository<CleaningOption>
     {
+        public Task<List<CleaningOption>?> GetListCleaningOption();
         public Task<List<CleaningOption>?> GetListCleaningOptionByAnimalTypeId(int animalTypeId);
         public Task<CleaningOption> AddCleaningOption(CleaningOptionAdd key);
         public Task<CleaningOption?> UpdateCleaningOption(CleaningOptionUpdate key);

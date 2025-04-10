@@ -16,12 +16,25 @@ namespace Repository.Repository
         public CleaningOptionRepository()
         {
         }
+        public async Task<List<CleaningOption>?> GetListCleaningOption()
+        {
+            try
+            {
+                var cleaningOptions = (await GetAllAsync()).FindAll(l => l.Status != "Deleted");
+                cleaningOptions = cleaningOptions.OrderByDescending(l => l.CreatedDate).ToList();
+                return cleaningOptions;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         public async Task<List<CleaningOption>?> GetListCleaningOptionByAnimalTypeId(int animalTypeId)
         {
             try
             {
-                var cleaningOption = (await GetAllAsync()).FindAll(l => l.AnimalTypeId == animalTypeId).FindAll(l=>l.Status != "Deleted");
-                return cleaningOption;
+                var cleaningOptions = (await GetListCleaningOption()).FindAll(l => l.AnimalTypeId == animalTypeId);
+                return cleaningOptions;
             }
             catch (Exception)
             {

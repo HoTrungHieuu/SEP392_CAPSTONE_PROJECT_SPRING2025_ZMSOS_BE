@@ -21,6 +21,7 @@ namespace Repository.Repository
             try
             {
                 var teams = await GetAllAsync();
+                teams = teams.OrderByDescending(l => l.CreatedDate).ToList();
                 return teams;
             }
             catch (Exception)
@@ -32,7 +33,7 @@ namespace Repository.Repository
         {
             try
             {
-                var team = (await GetAllAsync()).FirstOrDefault(l => l.ZooAreaId == zooAreaId);
+                var team = (await GetListTeam()).FirstOrDefault(l => l.ZooAreaId == zooAreaId);
                 return team;
             }
             catch (Exception)
