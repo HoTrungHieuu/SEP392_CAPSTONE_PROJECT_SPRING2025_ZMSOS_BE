@@ -360,6 +360,15 @@ namespace Service.Service
                 if (animal.Classify == "Flock")
                 {
                     await flockRepo.UpdateFlock(animal.Id, key.Flock);
+                    var animalCage = await animalCageRepo.GetAnimalCageCurrentByAnimalId(animal.Id);
+                    if(animalCage != null)
+                    {
+                        var cage = cageRepo.GetById(animalCage.CageId);
+                        var flock = await flockRepo.GetFlockByAnimalId(animal.Id);
+                        cage.CurrentQuantity = flock.Quantity;
+                        await cageRepo.UpdateAsync(cage);
+                    }
+                    
                 }
                 else if (animal.Classify == "Individual")
                 {
@@ -504,6 +513,8 @@ namespace Service.Service
                         };
                     }
                     var animalCage = await animalCageRepo.AddAnimalCage(animalId, cageId);
+                    cage.CurrentQuantity = (await flockRepo.GetFlockByAnimalId(animal.Id))?.Quantity;
+                    await cageRepo.UpdateAsync(cage);
                     if (animalCage == null)
                     {
                         return new ServiceResult
@@ -562,6 +573,11 @@ namespace Service.Service
                 if(cage.Classify == "Individual")
                 {
                     cage.CurrentQuantity -= 1;
+                    await cageRepo.UpdateAsync(cage);
+                }
+                else if(cage.Classify == "Flock")
+                {
+                    cage.CurrentQuantity = null;
                     await cageRepo.UpdateAsync(cage);
                 }
                 return new ServiceResult
