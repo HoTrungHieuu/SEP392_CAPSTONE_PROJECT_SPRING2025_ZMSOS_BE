@@ -305,6 +305,38 @@ namespace Service.Service
                 };
             }
         }
+        public async Task<ServiceResult> GetAnimalHistoryById(int id)
+        {
+            try
+            {
+                var animalCages = await animalCageRepo.GetListAnimalCageHistoryByAnimalId(id);
+                List<AnimalHistory> result = new();
+                foreach(var animalCage in animalCages)
+                {
+                    result.Add(new()
+                    {
+                        Cage = await objectViewService.GetCageView(cageRepo.GetById(animalCage.CageId)),
+                        FromDate = animalCage?.FromDate,
+                        ToDate = animalCage?.ToDate,
+                    });
+                }
+
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "Animal History",
+                    Data = result
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
         public async Task<ServiceResult> AddAnimal(AnimalAdd key)
         {
             try

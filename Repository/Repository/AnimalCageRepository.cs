@@ -64,6 +64,30 @@ namespace Repository.Repository
                 throw;
             }
         }
+        public async Task<List<AnimalCage>?> GetListAnimalCageHistoryByCageId(int cageId)
+        {
+            try
+            {
+                var animalCages = (await GetAllAsync()).FindAll(l => l.CageId == cageId && l.ToDate != null);
+                return animalCages;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public async Task<List<AnimalCage>?> GetListAnimalCageHistoryByAnimalId(int animalId)
+        {
+            try
+            {
+                var animalCages = (await GetAllAsync()).FindAll(l => l.AnimalId == animalId && l.ToDate != null);
+                return animalCages;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         public async Task<AnimalCage?> AddAnimalCage(int animalId, int cageId)
         {
             try

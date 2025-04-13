@@ -13,6 +13,8 @@ namespace Repository.IRepository
         public Task<List<int?>?> GetListAnimalCageIdByCageId(int cageId);
         public Task<int?> GetAnimalCageIdByCageIdAndAnimalId(int cageId, int animalId);
         public Task<AnimalCage?> GetAnimalCageCurrentByAnimalId(int animalId);
+        public Task<List<AnimalCage>?> GetListAnimalCageHistoryByCageId(int cageId);
+        public Task<List<AnimalCage>?> GetListAnimalCageHistoryByAnimalId(int animalId);
         public Task<AnimalCage?> AddAnimalCage(int animalId, int cageId);
         public Task<AnimalCage?> RemoveAnimalCage(int animalId, int cageId);
     }

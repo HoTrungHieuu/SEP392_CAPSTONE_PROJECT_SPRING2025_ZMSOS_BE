@@ -206,6 +206,22 @@
   },
   {
     "ContainingType": "AnimalAndCageManagement.Controllers.AnimalController",
+    "Method": "GetAnimalHistoryById",
+    "RelativePath": "api/Animal/animal/history/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.AnimalController",
     "Method": "DeleteAnimal",
     "RelativePath": "api/Animal/animal/id/{animalId}",
     "HttpMethod": "DELETE",
@@ -639,6 +655,22 @@
       {
         "Name": "ids",
         "Type": "System.Collections.Generic.List\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.CageController",
+    "Method": "GetCageHistoryById",
+    "RelativePath": "api/Cage/cage/history/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],

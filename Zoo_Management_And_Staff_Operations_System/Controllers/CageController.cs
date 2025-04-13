@@ -51,6 +51,14 @@ namespace AnimalAndCageManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager,Leader,Staff")]
+        [HttpGet("cage/history/{id}")]
+        public async Task<IActionResult> GetCageHistoryById(int id)
+        {
+            var result = await service.GetCageHistoryById(id);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
         [Authorize(Roles = "Manager")]
         [HttpPost("cage")]
         public async Task<IActionResult> AddCage(CageAdd key)

@@ -19,6 +19,7 @@ namespace Service.IService
         public Task<ServiceResult> GetListAnimalByCageId(int cageId);
         public Task<ServiceResult> GetListAnimalByZooAreaId(int zooAreaId);
         public Task<ServiceResult> GetAnimalById(int id);
+        public Task<ServiceResult> GetAnimalHistoryById(int id);
         public Task<ServiceResult> AddAnimal(AnimalAdd key);
         public Task<ServiceResult> UpdateAnimal(AnimalUpdate key);
         public Task<ServiceResult> DeleteAnimal(int animalId);
