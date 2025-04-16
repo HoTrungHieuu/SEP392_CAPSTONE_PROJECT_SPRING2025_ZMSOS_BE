@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "0NopnQXP4Kc=",
+  "dgSpecHash": "kcDEBZIi9zg=",
   "success": true,
   "projectFilePath": "D:\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE\\Service\\Service.csproj",
   "expectedPackageFiles": [
@@ -15,6 +15,8 @@
     "C:\\Users\\PC\\.nuget\\packages\\epplus\\7.1.1\\epplus.7.1.1.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\epplus.interfaces\\6.1.1\\epplus.interfaces.6.1.1.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\epplus.system.drawing\\6.1.1\\epplus.system.drawing.6.1.1.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.3.0\\microsoft.aspnetcore.http.abstractions.2.3.0.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.3.0\\microsoft.aspnetcore.http.features.2.3.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.csharp\\4.6.0\\microsoft.csharp.4.6.0.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.data.sqlclient\\5.1.6\\microsoft.data.sqlclient.5.1.6.nupkg.sha512",

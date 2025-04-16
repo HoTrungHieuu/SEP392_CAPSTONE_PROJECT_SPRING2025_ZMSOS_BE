@@ -1115,6 +1115,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AccountManagement.Controllers.NotificationController",
+    "Method": "GetListNotification",
+    "RelativePath": "api/Notification/notifications/ss",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "message",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AccountManagement.Controllers.ReportController",
     "Method": "AddReport",
     "RelativePath": "api/Report/report",
@@ -1830,6 +1846,27 @@
   },
   {
     "ContainingType": "TeamManagement.Controllers.TeamController",
+    "Method": "GetListTeamFoodStatistic",
+    "RelativePath": "api/Team/team/food/statistic/{fromDate}/{toDate}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fromDate",
+        "Type": "System.DateOnly",
+        "IsRequired": true
+      },
+      {
+        "Name": "toDate",
+        "Type": "System.DateOnly",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TeamManagement.Controllers.TeamController",
     "Method": "AddLeader",
     "RelativePath": "api/Team/team/leader",
     "HttpMethod": "POST",
@@ -2095,5 +2132,27 @@
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Program\u002B\u003C\u003Ec__DisplayClass0_0",
+    "Method": "\u003C\u003CMain\u003E$\u003Eb__4",
+    "RelativePath": "send",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "message",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
   }
 ]

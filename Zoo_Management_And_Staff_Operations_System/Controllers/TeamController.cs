@@ -33,6 +33,14 @@ namespace TeamManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Manager")]
+        [HttpGet("team/food/statistic/{fromDate}/{toDate}")]
+        public async Task<IActionResult> GetListTeamFoodStatistic(DateOnly fromDate, DateOnly toDate)
+        {
+            var result = await service.GetListTeamFoodStatistic(fromDate,toDate);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
         [Authorize(Roles = "Manager,Leader,Staff")]
         [HttpGet("team/by-account/{accountId}")]
         public async Task<IActionResult> GetTeamByAccountId(int accountId)

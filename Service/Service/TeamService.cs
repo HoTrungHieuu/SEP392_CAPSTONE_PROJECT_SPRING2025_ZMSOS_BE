@@ -27,7 +27,13 @@ namespace Service.Service
         public IObjectViewService objectViewService;
         public INotificationRepository notificationRepo;
         public IScheduleRepository scheduleRepo;
-        public TeamService(ITeamRepository repo, ILeaderAssignRepository leaderRepo, IMemberAssignRepository memberRepo, IObjectViewService objectViewService, IAccountRepository accountRepo, INotificationRepository notificationRepo, IScheduleRepository scheduleRepo)
+        public ITaskMealRepository taskMealRepo;
+        public IMealDayRepository mealDayRepo;
+        public IFoodRepository foodRepo;
+        public ITaskRepository taskRepo;
+        public IAnimalAssignRepository animalAssignRepo;
+        public IMealFoodRepository mealFoodRepo;
+        public TeamService(ITeamRepository repo, ILeaderAssignRepository leaderRepo, IMemberAssignRepository memberRepo, IObjectViewService objectViewService, IAccountRepository accountRepo, INotificationRepository notificationRepo, IScheduleRepository scheduleRepo, ITaskMealRepository taskMealRepo, IMealDayRepository mealDayRepo, IFoodRepository foodRepo, ITaskRepository taskRepo,IAnimalAssignRepository animalAssignRepo, IMealFoodRepository mealFoodRepo)
         {
             this.repo = repo;
             this.leaderRepo = leaderRepo;
@@ -36,6 +42,12 @@ namespace Service.Service
             this.accountRepo = accountRepo;
             this.notificationRepo = notificationRepo;
             this.scheduleRepo = scheduleRepo;
+            this.taskMealRepo = taskMealRepo;
+            this.mealDayRepo = mealDayRepo;
+            this.foodRepo = foodRepo;
+            this.taskRepo = taskRepo;
+            this.animalAssignRepo = animalAssignRepo;
+            this.mealFoodRepo = mealFoodRepo;
         }
         public async Task<ServiceResult> GetListTeam()
         {
@@ -143,6 +155,73 @@ namespace Service.Service
                 {
                     Status = 200,
                     Message = "Team",
+                    Data = result
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
+        public async Task<ServiceResult> GetListTeamFoodStatistic(DateOnly fromDate, DateOnly toDate)
+        {
+            try
+            {
+                List<TeamFoodStatistic> result = new();  
+                var teams = await repo.GetListTeam();
+                foreach(var team in teams)
+                {
+                    TeamFoodStatistic teamFoodStatistic = new TeamFoodStatistic()
+                    {
+                        Team = await objectViewService.GetTeamView(team),
+                        FoodTotals = new()
+                    };
+                    var members = await memberRepo.GetListMemberAssignByTeamId(team.Id);
+                    foreach(var member in members)
+                    {
+                        var schedules = await scheduleRepo.GetListScheduleByAccountIdByDate((int)member.MemberId,fromDate,toDate);
+                        foreach(var schedule in schedules)
+                        {
+                            var tasks = (await taskRepo.GetListTaskByScheduleId(schedule.Id)).FindAll(l=>l.TaskTypeId == 1);
+                            foreach(var task in tasks)
+                            {
+                                var animalAsigns = await animalAssignRepo.GetListAnimalAssignByTaskId(task.Id);
+                                foreach(var animalAssign in animalAsigns)
+                                {
+                                    var taskMeal = await taskMealRepo.GetTaskMealByAnimalAssignId(animalAssign.Id);
+                                    var mealDay = mealDayRepo.GetById(taskMeal.MealDayId);
+                                    var mealFoods = await mealFoodRepo.GetListMealFoodByMealDayId(mealDay.Id);
+                                    foreach(var mealFood in mealFoods)
+                                    {
+                                        var food = foodRepo.GetById(mealFood.Id);
+                                        var foodTotal = teamFoodStatistic.FoodTotals.FirstOrDefault(l => l.Food.Id == food.Id);
+                                        if(foodTotal == null)
+                                        {
+                                            teamFoodStatistic.FoodTotals.Add(new()
+                                            {
+                                                Food = await objectViewService.GetFoodView(food),
+                                                QuantitativeTotal = (mealFood.Quantitative == null)? 0 : (mealFood.Quantitative * taskMeal.Percent / 100)
+                                            });
+                                        }
+                                        else
+                                        {
+                                            foodTotal.QuantitativeTotal += (mealFood.Quantitative == null) ? 0 : (mealFood.Quantitative * taskMeal.Percent / 100);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    result.Add(teamFoodStatistic);
+                }
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "Team Statistic",
                     Data = result
                 };
             }

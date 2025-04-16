@@ -9,6 +9,7 @@ using System.Text;
 using Repository.IRepository;
 using OfficeOpenXml;
 using SocketIO.Core;
+using Service.Other;
 
 
 ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
@@ -165,7 +166,23 @@ builder.Services.AddScoped<ITaskCleaningRepository, TaskCleaningRepository>();
 builder.Services.AddScoped<IHealthTaskRepository, HealthTaskRepository>();
 builder.Services.AddScoped<IStatisticService, StatisticService>();
 
+builder.Services.AddSingleton<WebSocketConnectionManager>();
+builder.Services.AddSingleton<WebSocketHandler>();
+
 var app = builder.Build();
+app.UseWebSockets();
+
+var wsManager = new WebSocketConnectionManager();
+var wsHandler = new WebSocketHandler(wsManager);
+
+app.Map("/ws", wsHandler.HandleAsync);
+
+app.MapGet("/send", async (string message) =>
+{
+    await wsHandler.SendMessageAsync(message);
+    return Results.Ok("?ã g?i!");
+});
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
