@@ -1,5 +1,6 @@
 ﻿using BO.Models;
 using DAO.AddModel;
+using DAO.OtherModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
 using Repository.IRepository;
@@ -38,7 +39,7 @@ namespace Repository.Repository
                     Name = key.Name,
                     Decription = key.Description,
                     CaloPerGram = key.CaloPerGram,
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = VietNamTime.GetVietNamTime(),
                 };
                 await CreateAsync(food);
                 return food;
@@ -57,7 +58,7 @@ namespace Repository.Repository
                 food.Name = key.Name;
                 food.Decription = key.Description;
                 food.CaloPerGram = key.CaloPerGram;
-                food.UpdatedDate = DateTime.Now;
+                food.UpdatedDate = VietNamTime.GetVietNamTime();
                 await UpdateAsync(food);
                 return food;
             }

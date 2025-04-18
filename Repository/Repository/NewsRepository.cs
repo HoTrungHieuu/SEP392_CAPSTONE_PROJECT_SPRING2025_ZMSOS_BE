@@ -1,5 +1,6 @@
 ﻿using BO.Models;
 using DAO.AddModel;
+using DAO.OtherModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
 using Repository.IRepositoyr;
@@ -37,7 +38,7 @@ namespace Repository.Repository
                     AccountId = key.AccountId,
                     Headline = key.Headlinen,
                     Content = key.Content,
-                    Date = DateTime.Now,
+                    Date = VietNamTime.GetVietNamTime(),
                     Status = null
                 };
                 await CreateAsync(news);
@@ -59,7 +60,7 @@ namespace Repository.Repository
                 }
                 news.Headline = key.Headlinen;
                 news.Content = key.Content;
-                news.UpdatedDate = DateTime.Now;
+                news.UpdatedDate = VietNamTime.GetVietNamTime();
                 await UpdateAsync(news);
                 return news;
             }

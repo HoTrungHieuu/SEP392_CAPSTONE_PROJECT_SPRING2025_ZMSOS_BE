@@ -1,5 +1,6 @@
 ﻿using BO.Models;
 using DAO.AddModel;
+using DAO.OtherModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
 using Repository.IRepository;
@@ -51,7 +52,7 @@ namespace Repository.Repository
                     Name = key.Name,
                     Description = key.Description,
                     Status = "Active",
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = VietNamTime.GetVietNamTime(),
                 };
                 await CreateAsync(cleaningOption);
                 return cleaningOption;
@@ -69,7 +70,7 @@ namespace Repository.Repository
                 if (cleaningOption == null) return null;
                 cleaningOption.Name = key.Name;
                 cleaningOption.Description = key.Description;
-                cleaningOption.UpdatedDate = DateTime.Now;
+                cleaningOption.UpdatedDate = VietNamTime.GetVietNamTime();
                 await UpdateAsync(cleaningOption);
                 return cleaningOption;
             }

@@ -1,5 +1,6 @@
 ﻿using BO.Models;
 using DAO.AddModel;
+using DAO.OtherModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
 using Repository.IRepository;
@@ -39,7 +40,7 @@ namespace Repository.Repository
                     Description = key.Description,
                     AnimalOrder = key.AnimalOrder,
                     Location = key.Location,
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = VietNamTime.GetVietNamTime(),
                     UrlImage = key.UrlImages,
                     Status = key.Status
                 };
@@ -61,7 +62,7 @@ namespace Repository.Repository
                 zooArea.Description = key.Description;
                 zooArea.AnimalOrder =key.AnimalOrder;
                 zooArea.Location = key.Location;
-                zooArea.UpdatedDate = DateTime.Now;
+                zooArea.UpdatedDate = VietNamTime.GetVietNamTime();
                 zooArea.Status = key.Status;
                 zooArea.UrlImage = key.UrlImages;
                 await UpdateAsync(zooArea);

@@ -647,7 +647,7 @@ namespace Service.Service
                         Message = "Team Not Found"
                     };
                 }
-                var schedules = (await scheduleRepo.GetListScheduleByAccountId(accountId)).FindAll(l => l.Date > DateOnly.FromDateTime(DateTime.Now));
+                var schedules = (await scheduleRepo.GetListScheduleByAccountId(accountId)).FindAll(l => l.Date > DateOnly.FromDateTime(VietNamTime.GetVietNamTime()));
                 if(schedules.Count > 0)
                 {
                     return new ServiceResult

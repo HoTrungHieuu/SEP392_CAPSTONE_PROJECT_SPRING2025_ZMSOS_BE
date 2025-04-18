@@ -22,7 +22,7 @@ namespace DAO.ViewModel
         public DateTime? CreatedDate { get; set; }
 
         public DateTime? UpdatedDate { get; set; }
-        List<CleaningProcessView>? CleaningProcesss {  get; set; }
+        public List<CleaningProcessView>? CleaningProcesss {  get; set; }
         public void ConvertCleaningOptionIntoCleaningOptionView(CleaningOption key, AnimalTypeView animalType, List<CleaningProcessView>? cleaningProcesss)
         {
             Id = key.Id;

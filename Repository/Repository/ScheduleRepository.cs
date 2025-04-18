@@ -52,7 +52,7 @@ namespace Repository.Repository
                     AccountId = key.AccountId,
                     Date = key.Date,
                     Note = key.Note,
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = VietNamTime.GetVietNamTime(),
                     Status = null
                 };
                 await CreateAsync(schedule);
@@ -96,7 +96,7 @@ namespace Repository.Repository
                 }
                 schedule.Date = key.Date;
                 schedule.Note = key.Note;
-                schedule.UpdatedDate = DateTime.Now;
+                schedule.UpdatedDate = VietNamTime.GetVietNamTime();
                 await UpdateAsync(schedule);
                 return schedule;
             }

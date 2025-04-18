@@ -1,5 +1,6 @@
 ﻿using BO.Models;
 using DAO.AddModel;
+using DAO.OtherModel;
 using Repository.IRepository;
 using System;
 using System.Collections.Generic;
@@ -98,7 +99,7 @@ namespace Repository.Repository
                 {
                     AnimalId = animalId,
                     CageId = cageId,
-                    FromDate = DateOnly.FromDateTime(DateTime.Now),
+                    FromDate = DateOnly.FromDateTime(VietNamTime.GetVietNamTime()),
                     ToDate = null,
                 };
                 await CreateAsync(animalCage);
@@ -115,7 +116,7 @@ namespace Repository.Repository
             {
                 var animalCage = (await GetAllAsync()).FirstOrDefault(l => l.CageId == cageId && l.AnimalId == animalId && l.ToDate == null);
                 if (animalCage == null) return null;
-                animalCage.ToDate = DateOnly.FromDateTime(DateTime.Now);
+                animalCage.ToDate = DateOnly.FromDateTime(VietNamTime.GetVietNamTime());
                 await UpdateAsync(animalCage);
                 return animalCage;
             }

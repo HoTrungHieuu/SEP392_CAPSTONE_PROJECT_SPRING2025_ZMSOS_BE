@@ -1,5 +1,6 @@
 ﻿using BO.Models;
 using DAO.AddModel;
+using DAO.OtherModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
 using Repository.IRepository;
@@ -63,7 +64,7 @@ namespace Repository.Repository
                     AnimalTypeId1 = key.AnimalTypeId1,
                     AnimalTypeId2 = key.AnimalTypeId2,
                     Reason = key.Reason,
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = VietNamTime.GetVietNamTime(),
                 };
                 await CreateAsync(incompatibleAnimalType);
                 return incompatibleAnimalType;

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using DAO.AddModel;
 using DAO.UpdateModel;
 using Repository.IRepository;
+using DAO.OtherModel;
 
 namespace Service.Service
 {
@@ -104,7 +105,7 @@ namespace Service.Service
                 {
                     Email = key.Email,
                     Password = key.Password,
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = VietNamTime.GetVietNamTime(),
                     RoleId = key.RoleId,
                     Status = "Active",
                 };

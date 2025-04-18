@@ -21,9 +21,9 @@ namespace DAO.OtherModel
             {
                 if (value is DateOnly fromDate)
                 {
-                    if (fromDate < DateOnly.FromDateTime(DateTime.Now))
+                    if (fromDate < DateOnly.FromDateTime(VietNamTime.GetVietNamTime()))
                     {
-                        return new ValidationResult($"fromDate must > {DateOnly.FromDateTime(DateTime.Now)}.");
+                        return new ValidationResult($"fromDate must > {DateOnly.FromDateTime(VietNamTime.GetVietNamTime())}.");
                     }
                 }
                 return ValidationResult.Success;

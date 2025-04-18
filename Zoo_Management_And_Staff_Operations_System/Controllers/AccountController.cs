@@ -1,4 +1,5 @@
 ﻿using DAO.AddModel;
+using DAO.OtherModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
 using Microsoft.AspNetCore.Authorization;
@@ -77,7 +78,7 @@ namespace AccountManagement.Controllers
                 issuer: issuer,
                 audience: audience,
                 claims: claims,
-                expires: DateTime.Now.AddDays(30),
+                expires: VietNamTime.GetVietNamTime().AddDays(30),
                 signingCredentials: credentials);
             return new JwtSecurityTokenHandler().WriteToken(token);
         }

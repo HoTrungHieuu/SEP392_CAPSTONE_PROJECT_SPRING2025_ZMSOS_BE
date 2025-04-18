@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SocketIO.Core;
+using DAO.OtherModel;
 
 namespace Repository.Repository
 {
@@ -36,7 +37,7 @@ namespace Repository.Repository
                 {
                     AccountId = key.AccountId,
                     Content = key.Content,
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = VietNamTime.GetVietNamTime(),
                     Status = null
                 };
                 await CreateAsync(notification);

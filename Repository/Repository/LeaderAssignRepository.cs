@@ -1,5 +1,6 @@
 ﻿using BO.Models;
 using DAO.AddModel;
+using DAO.OtherModel;
 using DAO.ViewModel;
 using Repository.IRepository;
 using System;
@@ -49,7 +50,7 @@ namespace Repository.Repository
                 {
                     TeamId = key.TeamId,
                     LeaderId = key.AccountId,
-                    FromDate = DateOnly.FromDateTime(DateTime.Now),
+                    FromDate = DateOnly.FromDateTime(VietNamTime.GetVietNamTime()),
                     ToDate = null,
                 };
                 await CreateAsync(leaderAssign);
@@ -66,7 +67,7 @@ namespace Repository.Repository
             {
                 var leaderAssign = (await GetAllAsync()).FirstOrDefault(l => l.TeamId == teamId && l.LeaderId == accountId && l.ToDate == null);
                 if (leaderAssign == null) return null;
-                leaderAssign.ToDate = DateOnly.FromDateTime(DateTime.Now);
+                leaderAssign.ToDate = DateOnly.FromDateTime(VietNamTime.GetVietNamTime());
                 await UpdateAsync(leaderAssign);
                 return leaderAssign;
             }

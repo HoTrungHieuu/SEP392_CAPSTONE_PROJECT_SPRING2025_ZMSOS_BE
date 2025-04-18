@@ -55,7 +55,7 @@ namespace Repository.Repository
                     PeriodOfTime = key.PeriodOfTime.ToString(),
                     TimeStartInDay = key.TimeStartInDay,
                     TimeEndInDay = key.TimeEndInDay,
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = VietNamTime.GetVietNamTime(),
                     Status = "Active"
                 };
                 await CreateAsync(mealDay);
@@ -79,7 +79,7 @@ namespace Repository.Repository
                 mealDay.PeriodOfTime = key.PeriodOfTime.ToString();
                 mealDay.TimeStartInDay = key.TimeStartInDay;
                 mealDay.TimeEndInDay = key.TimeEndInDay;
-                mealDay.UpdatedDate = DateTime.Now;
+                mealDay.UpdatedDate = VietNamTime.GetVietNamTime();
                 await UpdateAsync(mealDay);
                 return mealDay;
             }

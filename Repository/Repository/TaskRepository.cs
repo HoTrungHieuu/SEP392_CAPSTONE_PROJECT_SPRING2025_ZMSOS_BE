@@ -83,7 +83,7 @@ namespace Repository.Repository
                 task.Note = key.Note;
                 task.Status = "Finish";
                 task.UrlImage = key.UrlImage;
-                task.TimeFinish = TimeOnly.FromDateTime(DateTime.Now);
+                task.TimeFinish = TimeOnly.FromDateTime(VietNamTime.GetVietNamTime());
                 await UpdateAsync(task);
                 return task;
             }
@@ -101,7 +101,7 @@ namespace Repository.Repository
                 {
                     return null;
                 }
-                task.TimeStartActual = TimeOnly.FromDateTime(DateTime.Now);
+                task.TimeStartActual = TimeOnly.FromDateTime(VietNamTime.GetVietNamTime());
                 task.Status = "In Progressing";
                 await UpdateAsync(task);
                 return task;

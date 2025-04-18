@@ -22,6 +22,7 @@ namespace Service.Service
         public IObjectViewService objectViewService;
         public IAnimalCageRepository animalCageRepo;
         public IAnimalRepository animalRepo;
+        public IIncompatibleAnimalTypeRepository incompatibleAnimalTypeRepo;
         public CageService(ICageRepository repo, IZooAreaRepository areaRepo, IObjectViewService objectViewService, IAnimalCageRepository animalCageRepo, IAnimalRepository animalRepo)
         {
             this.repo = repo;
@@ -44,6 +45,52 @@ namespace Service.Service
                     };
                 }
                 var result = await objectViewService.GetListCageView(cages);
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "Cages",
+                    Data = result
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
+        public async Task<ServiceResult> GetListCageSuitable(int animalTypeId)
+        {
+            try
+            {
+                var cages = await repo.GetListCage();
+                List<Cage> cageResult = new List<Cage>();
+                foreach(var cage in cages)
+                {
+                    var animalCages = await animalCageRepo.GetListAnimalCageByCageId(cage.Id);
+                    List<Animal> animals = new List<Animal>();
+                    foreach (var animalCage in animalCages)
+                    {
+                        animals.Add(animalRepo.GetById(animalCage.AnimalId));
+                    }
+                    bool check = false;
+                    foreach (var animal in animals)
+                    {
+                        if (await incompatibleAnimalTypeRepo.CheckIncompatibleAnimalType((int)animal.AnimalTypeId, animalTypeId))
+                        {
+                            check = true;
+                            break;
+                        }
+                    }
+                    if (!check)
+                    {
+                        cageResult.Add(cage);
+                    }
+
+                }
+                var result = await objectViewService.GetListCageView(cageResult);
                 return new ServiceResult
                 {
                     Status = 200,

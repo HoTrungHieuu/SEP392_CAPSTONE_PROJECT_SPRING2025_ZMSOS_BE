@@ -1,5 +1,6 @@
 ﻿using BO.Models;
 using DAO.AddModel;
+using DAO.OtherModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
 using Repository.IRepository;
@@ -47,7 +48,7 @@ namespace Repository.Repository
                     Reproduction = key.Reproduction,
                     ConservationStatus = key.ConservationStatus,
                     UrlImage = key.UrlImage,
-                    CreatedDate = DateTime.Now
+                    CreatedDate = VietNamTime.GetVietNamTime()
                 };
                 await CreateAsync(animalType);
                 return animalType;
@@ -75,7 +76,7 @@ namespace Repository.Repository
                 animalType.Reproduction = key.Reproduction;
                 animalType.ConservationStatus = key.ConservationStatus;
                 animalType.UrlImage = key.UrlImage;
-                animalType.UpdatedDate = DateTime.Now;
+                animalType.UpdatedDate = VietNamTime.GetVietNamTime();
                 await UpdateAsync(animalType);
                 return animalType;
             }

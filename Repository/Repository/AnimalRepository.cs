@@ -1,5 +1,6 @@
 ﻿using BO.Models;
 using DAO.AddModel;
+using DAO.OtherModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
 using Repository.IRepository;
@@ -52,7 +53,7 @@ namespace Repository.Repository
                     Description = key.Description,
                     ArrivalDate = key.ArrivalDate,
                     Classify = key.Classify,
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = VietNamTime.GetVietNamTime(),
                 };
                 await CreateAsync(animal);
                 return animal;
@@ -71,7 +72,7 @@ namespace Repository.Repository
                 animal.Name = key.Name;
                 animal.Description = key.Description;
                 animal.Classify = key.Classify;
-                animal.UpdatedDate = DateTime.Now;
+                animal.UpdatedDate = VietNamTime.GetVietNamTime();
                 await UpdateAsync(animal);
                 return animal;
             }

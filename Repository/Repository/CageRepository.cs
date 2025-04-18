@@ -1,5 +1,6 @@
 ﻿using BO.Models;
 using DAO.AddModel;
+using DAO.OtherModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
 using Repository.IRepository;
@@ -53,8 +54,8 @@ namespace Repository.Repository
                     Classify = key.Classify,
                     Size = key.Size,
                     UrlImage = key.UrlImage,
-                    DateCreate = DateOnly.FromDateTime(DateTime.Now),
-                    CreatedDate = DateTime.Now,
+                    DateCreate = DateOnly.FromDateTime(VietNamTime.GetVietNamTime()),
+                    CreatedDate = VietNamTime.GetVietNamTime(),
                     Status = key.Status,
                 };
                 if(key.Classify == "Individual")
@@ -87,7 +88,7 @@ namespace Repository.Repository
                 cage.UrlImage = key.UrlImage;
                 cage.Size = key.Size;
                 cage.Status = key.Status;
-                cage.UpdatedDate = DateTime.Now;
+                cage.UpdatedDate = VietNamTime.GetVietNamTime();
                 await UpdateAsync(cage);
                 return cage;
             }

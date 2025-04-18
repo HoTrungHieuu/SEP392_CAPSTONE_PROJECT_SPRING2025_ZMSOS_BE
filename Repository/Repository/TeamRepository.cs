@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAO.ViewModel;
 using DAO.UpdateModel;
+using DAO.OtherModel;
 
 namespace Repository.Repository
 {
@@ -52,7 +53,7 @@ namespace Repository.Repository
                     MaxQuantity = key.MaxQuantity,
                     CurrentQuantity = 0,
                     ZooAreaId = key.ZooAreaId,
-                    CreatedDate = DateTime.Now,
+                    CreatedDate = VietNamTime.GetVietNamTime(),
                     Status = "Active",
                 };
                 await CreateAsync(team);
@@ -71,7 +72,7 @@ namespace Repository.Repository
                 if (team == null) return null;
                 team.Name = key.Name;
                 team.Description = key.Description;
-                team.UpdatedDate = DateTime.Now;
+                team.UpdatedDate = VietNamTime.GetVietNamTime();
                 await UpdateAsync(team);
                 return team;
             }

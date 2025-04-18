@@ -1,5 +1,6 @@
 ﻿using BO.Models;
 using DAO.AddModel;
+using DAO.OtherModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
 using Repository.IRepositoyr;
@@ -50,7 +51,7 @@ namespace Repository.Repository
                     SenderId = key.SenderId,
                     Title = key.Title,
                     Details = key.Detail,
-                    Date = DateTime.Now,
+                    Date = VietNamTime.GetVietNamTime(),
                     Status = "Pending"
                 };
                 await CreateAsync(application);
