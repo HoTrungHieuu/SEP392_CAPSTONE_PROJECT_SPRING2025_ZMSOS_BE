@@ -719,6 +719,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AnimalAndCageManagement.Controllers.CageController",
+    "Method": "GetListCageSuitable",
+    "RelativePath": "api/Cage/cages/suitable/{animalId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "animalId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.CleaningOptionController",
     "Method": "AddCleaningOption",
     "RelativePath": "api/CleaningOption/cleaningOption",

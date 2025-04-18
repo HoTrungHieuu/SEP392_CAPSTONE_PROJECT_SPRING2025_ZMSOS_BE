@@ -23,13 +23,14 @@ namespace Service.Service
         public IAnimalCageRepository animalCageRepo;
         public IAnimalRepository animalRepo;
         public IIncompatibleAnimalTypeRepository incompatibleAnimalTypeRepo;
-        public CageService(ICageRepository repo, IZooAreaRepository areaRepo, IObjectViewService objectViewService, IAnimalCageRepository animalCageRepo, IAnimalRepository animalRepo)
+        public CageService(ICageRepository repo, IZooAreaRepository areaRepo, IObjectViewService objectViewService, IAnimalCageRepository animalCageRepo, IAnimalRepository animalRepo, IIncompatibleAnimalTypeRepository incompatibleAnimalTypeRepo)
         {
             this.repo = repo;
             this.areaRepo = areaRepo;
             this.objectViewService = objectViewService;
             this.animalCageRepo = animalCageRepo;
             this.animalRepo = animalRepo;
+            this.incompatibleAnimalTypeRepo = incompatibleAnimalTypeRepo;
         }
         public async Task<ServiceResult> GetListCage()
         {
@@ -61,10 +62,19 @@ namespace Service.Service
                 };
             }
         }
-        public async Task<ServiceResult> GetListCageSuitable(int animalTypeId)
+        public async Task<ServiceResult> GetListCageSuitable(int animalId)
         {
             try
             {
+                var animalResult = animalRepo.GetById(animalId);
+                if (animalResult == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Animal Not Found",
+                    };
+                }
                 var cages = await repo.GetListCage();
                 List<Cage> cageResult = new List<Cage>();
                 foreach(var cage in cages)
@@ -78,7 +88,7 @@ namespace Service.Service
                     bool check = false;
                     foreach (var animal in animals)
                     {
-                        if (await incompatibleAnimalTypeRepo.CheckIncompatibleAnimalType((int)animal.AnimalTypeId, animalTypeId))
+                        if (await incompatibleAnimalTypeRepo.CheckIncompatibleAnimalType((int)animal.AnimalTypeId, (int)animalResult.AnimalTypeId))
                         {
                             check = true;
                             break;

@@ -23,9 +23,9 @@ namespace DAO.ViewModel
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public List<AnimalCageTaskCleaning>? AnimalCageTaskCleaning { get; set; }
         public TaskTypeView? TaskType { get;set; }
-        public TimeOnly? TimeStartActual {  get; set; }
-        public TimeOnly? TimeStart { get; set; }
-        public TimeOnly? TimeFinish { get; set; }
+        public string? TimeStartActual {  get; set; }
+        public string? TimeStart { get; set; }
+        public string? TimeFinish { get; set; }
         public string? UrlImage {  get; set; }
         public string? Status {  get; set; }
         public void ConvertTaskIntoTaskView(BO.Models.Task key,List<AnimalCageTask> animalCageTask, List<AnimalCageTaskCleaning> animalCageTaskCleaning, List<AnimalCageTaskNormal> animalCageTaskNormal, TaskTypeView taskType)
@@ -34,9 +34,9 @@ namespace DAO.ViewModel
             TaskName = key.TaskName;
             Description = key.Description;
             Note = key.Note;    
-            TimeStartActual = key.TimeStartActual;
-            TimeStart = key.TimeStart;
-            TimeFinish = key.TimeFinish;
+            TimeStartActual = key.TimeStartActual?.ToString("HH:mm:ss") ?? null;
+            TimeStart = key.TimeStart?.ToString("HH:mm:ss") ?? null;
+            TimeFinish = key.TimeFinish?.ToString("HH:mm:ss") ?? null;
             UrlImage = key.UrlImage;
             Status = key.Status;
             AnimalCageTask = animalCageTask;

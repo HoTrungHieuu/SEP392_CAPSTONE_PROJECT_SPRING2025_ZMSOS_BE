@@ -41,7 +41,7 @@ namespace Repository.Repository
                     Weight = key.Weight,
                     Height = key.Height,
                     Notes = key.Note,
-                    Status = null,
+                    Status = key.Status,
                 };
                 await CreateAsync(individual);
                 return individual;

@@ -28,6 +28,14 @@ namespace AnimalAndCageManagement.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Manager,Leader,Staff")]
+        [HttpGet("cages/suitable/{animalId}")]
+        public async Task<IActionResult> GetListCageSuitable(int animalId)
+        {
+            var result = await service.GetListCageSuitable(animalId);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
+        [Authorize(Roles = "Manager,Leader,Staff")]
         [HttpPost("cages/search-sort-paging")]
         public async Task<IActionResult> GetListCageSearch(CageSearch<CageView> key)
         {

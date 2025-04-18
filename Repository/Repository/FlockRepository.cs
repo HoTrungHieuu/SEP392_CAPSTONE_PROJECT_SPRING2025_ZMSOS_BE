@@ -37,7 +37,7 @@ namespace Repository.Repository
                     AnimalId = animalId,
                     Quantity = key.Quantity,
                     Notes = key.Note,
-                    Status = null
+                    Status = key.Status
                 };
                 await CreateAsync(flock);
                 return flock;

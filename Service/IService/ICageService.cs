@@ -13,6 +13,7 @@ namespace Service.IService
     public interface ICageService
     {
         public Task<ServiceResult> GetListCage();
+        public Task<ServiceResult> GetListCageSuitable(int animalId);
         public Task<ServiceResult> GetListCageSearching(CageSearch<CageView> key);
         public Task<ServiceResult> GetListCageByZooAreaId(int zooAreaId);
         public Task<ServiceResult> GetCageById(int id);
