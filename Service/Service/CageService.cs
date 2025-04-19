@@ -6,6 +6,7 @@ using DAO.UpdateModel;
 using DAO.ViewModel;
 using Microsoft.Identity.Client;
 using Repository.IRepository;
+using Repository.IRepositoyr;
 using Service.IService;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,12 @@ namespace Service.Service
         public IAnimalCageRepository animalCageRepo;
         public IAnimalRepository animalRepo;
         public IIncompatibleAnimalTypeRepository incompatibleAnimalTypeRepo;
-        public CageService(ICageRepository repo, IZooAreaRepository areaRepo, IObjectViewService objectViewService, IAnimalCageRepository animalCageRepo, IAnimalRepository animalRepo, IIncompatibleAnimalTypeRepository incompatibleAnimalTypeRepo)
+        public IZooAreaRepository zooAreaRepo;
+        public ITeamRepository teamRepo;
+        public ILeaderAssignRepository leaderAssignRepo;
+        public IAccountRepository accountRepo;
+        public INotificationRepository notificationRepo;
+        public CageService(ICageRepository repo, IZooAreaRepository areaRepo, IObjectViewService objectViewService, IAnimalCageRepository animalCageRepo, IAnimalRepository animalRepo, IIncompatibleAnimalTypeRepository incompatibleAnimalTypeRepo, IZooAreaRepository zooAreaRepo, ITeamRepository teamRepo, ILeaderAssignRepository leaderAssignRepo, IAccountRepository accountRepo, INotificationRepository notificationRepo)
         {
             this.repo = repo;
             this.areaRepo = areaRepo;
@@ -31,6 +37,11 @@ namespace Service.Service
             this.animalCageRepo = animalCageRepo;
             this.animalRepo = animalRepo;
             this.incompatibleAnimalTypeRepo = incompatibleAnimalTypeRepo;
+            this.zooAreaRepo = zooAreaRepo;
+            this.teamRepo = teamRepo;
+            this.leaderAssignRepo = leaderAssignRepo;
+            this.accountRepo = accountRepo;
+            this.notificationRepo = notificationRepo;
         }
         public async Task<ServiceResult> GetListCage()
         {
@@ -295,6 +306,17 @@ namespace Service.Service
             {
                 var cage = await repo.AddCage(key);
                 var result = await objectViewService.GetCageView(cage);
+
+                var zooArea = zooAreaRepo.GetById(key.ZooAreaId);
+                var team = await teamRepo.GetTeamByZooAreaId(zooArea.Id);
+                var leaderAssign = await leaderAssignRepo.GetLeaderAssignByTeamId(team.Id);
+                var account = accountRepo.GetById(leaderAssign.LeaderId);
+                await notificationRepo.AddNotification(new()
+                {
+                    AccountId = account.Id,
+                    Content = $"Chuồng {cage.Name} đã được thêm vào khu vực của bạn"
+                });
+
                 return new ServiceResult
                 {
                     Status = 200,

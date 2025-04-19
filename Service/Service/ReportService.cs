@@ -22,8 +22,9 @@ namespace Service.Service
         public ITeamRepository teamRepo;
         public ILeaderAssignRepository leaderAssignRepo;
         public IMemberAssignRepository memberAssignRepo;
+        public INotificationRepository notificationRepo;
         public IObjectViewService objectViewService;
-        public ReportService(IReportRepository repo, IReportAttachmentRepository attachmentRepo, IUserRepository userRepo,IAccountRepository accountRepo,ITeamRepository teamRepo, ILeaderAssignRepository leaderAssignRepo, IMemberAssignRepository memberAssignRepo, IObjectViewService objectViewService)
+        public ReportService(IReportRepository repo, IReportAttachmentRepository attachmentRepo, IUserRepository userRepo,IAccountRepository accountRepo,ITeamRepository teamRepo, ILeaderAssignRepository leaderAssignRepo, IMemberAssignRepository memberAssignRepo, IObjectViewService objectViewService, INotificationRepository notificationRepo)
         {
             this.repo = repo;
             this.attachmentRepo = attachmentRepo;
@@ -33,6 +34,7 @@ namespace Service.Service
             this.leaderAssignRepo = leaderAssignRepo;
             this.memberAssignRepo = memberAssignRepo;
             this.objectViewService = objectViewService;
+            this.notificationRepo = notificationRepo;
         }
         public async Task<ServiceResult> GetListReportBySenderId(int senderId)
         {
@@ -255,7 +257,12 @@ namespace Service.Service
                     };
                 }
                 var report = await repo.AddReport(key,(int)recieverId);
-                foreach(var item in key.UrlFile)
+                await notificationRepo.AddNotification(new NotificationAdd()
+                {
+                    AccountId = (int)recieverId,
+                    Content = $"Bạn đã nhận được đơn từ {accountRepo.GetById(recieverId).Email}"
+                });
+                foreach (var item in key.UrlFile)
                 {
                     await attachmentRepo.CreateAsync(new()
                     {

@@ -19,7 +19,7 @@ namespace Zoo_Management_And_Staff_Operations_System.Controllers
         {
             this.service = service;
         }
-        [Authorize(Roles = "Manager")]
+        [Authorize(Roles = "Manager,Leader")]
         [HttpGet("foods")]
         public async Task<IActionResult> GetListFood()
         {
