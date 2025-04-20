@@ -8,6 +8,7 @@ using Nest;
 using Repository.IRepository;
 using Repository.IRepositoyr;
 using Service.IService;
+using Service.Other;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,9 @@ namespace Service.Service
         public IObjectViewService objectViewService;
         public IMemberAssignRepository memberAssignRepo;
         public ITeamRepository teamRepo;
-        public ScheduleService(IScheduleRepository repo, IUserRepository userRepo,IAccountRepository accountRepo, IObjectViewService objectViewService, IMemberAssignRepository memberAssignRepo, ITeamRepository teamRepo)
+        public INotificationRepository notificationRepo;
+        private readonly WebSocketHandler wsHandler;
+        public ScheduleService(IScheduleRepository repo, IUserRepository userRepo,IAccountRepository accountRepo, IObjectViewService objectViewService, IMemberAssignRepository memberAssignRepo, ITeamRepository teamRepo,INotificationRepository notificationRepo, WebSocketHandler wsHandler)
         {
             this.repo = repo;
             this.userRepo = userRepo;
@@ -32,6 +35,8 @@ namespace Service.Service
             this.objectViewService = objectViewService;
             this.memberAssignRepo = memberAssignRepo;
             this.teamRepo = teamRepo;
+            this.notificationRepo = notificationRepo;
+            this.wsHandler = wsHandler;
         }
         public async Task<ServiceResult> GetListScheduleByAccountId(int accountId)
         {
@@ -187,6 +192,12 @@ namespace Service.Service
             try
             {
                 var schedule = await repo.AddSchedule(key);
+                await notificationRepo.AddNotification(new NotificationAdd()
+                {
+                    AccountId = (int)key.AccountId,
+                    Content = $"Bạn đã nhận được lịch đi làm vào {key.Date}"
+                });
+                await wsHandler.SendMessageAsync((int)key.AccountId);
                 return new ServiceResult
                 {
                     Status = 200,
@@ -224,6 +235,12 @@ namespace Service.Service
                     };
                 }
                 await repo.AddScheduleAuto(key);
+                await notificationRepo.AddNotification(new NotificationAdd()
+                {
+                    AccountId = (int)key.AccountId,
+                    Content = $"Bạn đã nhận được lịch đi làm từ {key.FromDate} đến {key.ToDate}"
+                });
+                await wsHandler.SendMessageAsync((int)key.AccountId);
                 return new ServiceResult
                 {
                     Status = 200,

@@ -35,11 +35,11 @@ namespace AccountManagement.Controllers
             return statusResult.Result(result);
         }
         [HttpGet("notifications/ss")]
-        public async Task<IActionResult> GetListNotification(string message)
+        public async Task<IActionResult> GetListNotification(int accountId)
         {
             try
             {
-                await handler.SendMessageAsync(message);
+                await handler.SendMessageAsync(accountId);
                 return Ok();
             }
             catch(Exception ex)

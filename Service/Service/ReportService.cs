@@ -5,6 +5,7 @@ using DAO.ViewModel;
 using Repository.IRepository;
 using Repository.IRepositoyr;
 using Service.IService;
+using Service.Other;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,8 +24,9 @@ namespace Service.Service
         public ILeaderAssignRepository leaderAssignRepo;
         public IMemberAssignRepository memberAssignRepo;
         public INotificationRepository notificationRepo;
+        private readonly WebSocketHandler wsHandler;
         public IObjectViewService objectViewService;
-        public ReportService(IReportRepository repo, IReportAttachmentRepository attachmentRepo, IUserRepository userRepo,IAccountRepository accountRepo,ITeamRepository teamRepo, ILeaderAssignRepository leaderAssignRepo, IMemberAssignRepository memberAssignRepo, IObjectViewService objectViewService, INotificationRepository notificationRepo)
+        public ReportService(IReportRepository repo, IReportAttachmentRepository attachmentRepo, IUserRepository userRepo,IAccountRepository accountRepo,ITeamRepository teamRepo, ILeaderAssignRepository leaderAssignRepo, IMemberAssignRepository memberAssignRepo, IObjectViewService objectViewService, INotificationRepository notificationRepo, WebSocketHandler wsHandler)
         {
             this.repo = repo;
             this.attachmentRepo = attachmentRepo;
@@ -35,6 +37,7 @@ namespace Service.Service
             this.memberAssignRepo = memberAssignRepo;
             this.objectViewService = objectViewService;
             this.notificationRepo = notificationRepo;
+            this.wsHandler = wsHandler;
         }
         public async Task<ServiceResult> GetListReportBySenderId(int senderId)
         {
@@ -260,8 +263,9 @@ namespace Service.Service
                 await notificationRepo.AddNotification(new NotificationAdd()
                 {
                     AccountId = (int)recieverId,
-                    Content = $"Bạn đã nhận được đơn từ {accountRepo.GetById(recieverId).Email}"
+                    Content = $"Bạn đã nhận được báo cáo từ {accountRepo.GetById(recieverId).Email}"
                 });
+                await wsHandler.SendMessageAsync((int)recieverId);
                 foreach (var item in key.UrlFile)
                 {
                     await attachmentRepo.CreateAsync(new()

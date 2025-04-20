@@ -12,7 +12,9 @@ using NPOI.XSSF.UserModel;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using Repository.IRepository;
+using Repository.IRepositoyr;
 using Service.IService;
+using Service.Other;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -37,12 +39,18 @@ namespace Service.Service
         public IIncompatibleAnimalTypeRepository incompatibleAnimalTypeRepo;
         public IObjectViewService objectViewService;
         public IAnimalTypeRepository animalTypeRepo;
+        public ITeamRepository teamRepo;
+        public ILeaderAssignRepository leaderAssignRepo;
+        public IAccountRepository accountRepo;
+        public INotificationRepository notificationRepo;
+        private readonly WebSocketHandler wsHandler;
         public AnimalService(IAnimalRepository repo, IAnimalTypeRepository typeRepo, 
             IAnimalCageRepository animalCageRepo, ICageRepository cageRepo, IObjectViewService objectViewService, 
             IFlockRepository flockRepo, IIndividualRepository individualRepo, 
             IAnimalImageRepository animalImageRepo,
             IIncompatibleAnimalTypeRepository incompatibleAnimalTypeRepo,
-            IZooAreaRepository zooAreaRepo, IAnimalTypeRepository animalTypeRepo)
+            IZooAreaRepository zooAreaRepo, IAnimalTypeRepository animalTypeRepo,ITeamRepository teamRepo, ILeaderAssignRepository leaderAssignRepo,
+            IAccountRepository accountRepo, INotificationRepository notificationRepo, WebSocketHandler wsHandler)
         {
             this.repo = repo;
             this.typeRepo = typeRepo;
@@ -55,6 +63,11 @@ namespace Service.Service
             this.incompatibleAnimalTypeRepo = incompatibleAnimalTypeRepo;
             this.zooAreaRepo = zooAreaRepo;
             this.animalTypeRepo = animalTypeRepo;
+            this.teamRepo = teamRepo;
+            this.leaderAssignRepo = leaderAssignRepo;
+            this.accountRepo = accountRepo;
+            this.notificationRepo = notificationRepo;
+            this.wsHandler = wsHandler;
         }
         public async Task<ServiceResult> GetListAnimal()
         {
@@ -556,6 +569,30 @@ namespace Service.Service
                         };
                     }
                 }
+
+                var zooArea = zooAreaRepo.GetById(cage.ZooAreaId);
+                if (zooArea != null)
+                {
+                    var team = await teamRepo.GetTeamByZooAreaId(zooArea.Id);
+                    if (team != null)
+                    {
+                        var leaderAssign = await leaderAssignRepo.GetLeaderAssignByTeamId(team.Id);
+                        if (leaderAssign != null)
+                        {
+                            var account = accountRepo.GetById(leaderAssign.LeaderId);
+                            if (account != null)
+                            {
+                                await notificationRepo.AddNotification(new()
+                                {
+                                    AccountId = account.Id,
+                                    Content = $"Animal {animal.Name} đã được thêm vào chuồng {cage.Name}"
+                                });
+                                await wsHandler.SendMessageAsync(account.Id);
+                            }
+                        }
+                    }
+                }
+
                 return new ServiceResult
                 {
                     Status = 200,
@@ -611,6 +648,28 @@ namespace Service.Service
                 {
                     cage.CurrentQuantity = null;
                     await cageRepo.UpdateAsync(cage);
+                }
+                var zooArea = zooAreaRepo.GetById(cage.ZooAreaId);
+                if (zooArea != null)
+                {
+                    var team = await teamRepo.GetTeamByZooAreaId(zooArea.Id);
+                    if (team != null)
+                    {
+                        var leaderAssign = await leaderAssignRepo.GetLeaderAssignByTeamId(team.Id);
+                        if (leaderAssign != null)
+                        {
+                            var account = accountRepo.GetById(leaderAssign.LeaderId);
+                            if (account != null)
+                            {
+                                await notificationRepo.AddNotification(new()
+                                {
+                                    AccountId = account.Id,
+                                    Content = $"Animal {animal.Name} đã bị loại khỏi chuồng {cage.Name}"
+                                });
+                                await wsHandler.SendMessageAsync(account.Id);
+                            }
+                        }
+                    }
                 }
                 return new ServiceResult
                 {

@@ -44,9 +44,9 @@ namespace Service.Other
             }
         }
 
-        public async Task SendMessageAsync(string message)
+        public async Task SendMessageAsync(int accountId)
         {
-            var json = JsonSerializer.Serialize(new { status = "yes", message });
+            var json = JsonSerializer.Serialize(new { accountId });
             var bytes = Encoding.UTF8.GetBytes(json);
 
             foreach (var socket in _manager.GetAll().Values)

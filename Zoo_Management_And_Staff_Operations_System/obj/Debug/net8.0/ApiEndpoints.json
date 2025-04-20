@@ -1139,8 +1139,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "message",
-        "Type": "System.String",
+        "Name": "accountId",
+        "Type": "System.Int32",
         "IsRequired": false
       }
     ],
@@ -2148,27 +2148,5 @@
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Program\u002B\u003C\u003Ec__DisplayClass0_0",
-    "Method": "\u003C\u003CMain\u003E$\u003Eb__4",
-    "RelativePath": "send",
-    "HttpMethod": "GET",
-    "IsController": false,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "message",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
   }
 ]

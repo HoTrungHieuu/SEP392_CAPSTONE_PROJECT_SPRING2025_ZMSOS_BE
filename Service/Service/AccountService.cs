@@ -118,6 +118,7 @@ namespace Service.Service
                     Address = key.Address,
                     PhoneNumber = key.PhoneNumber,
                     Gender = key.Gender,
+                    Experience = key.Experience,
                 };
                 await userRepo.CreateAsync(user);
                 var result = await objectViewService.GetAccountView(account);

@@ -1,4 +1,5 @@
-﻿using BO.Models;
+﻿using Azure;
+using BO.Models;
 using DAO.AddModel;
 using DAO.OtherModel;
 using DAO.UpdateModel;
@@ -8,6 +9,7 @@ using NPOI.SS.UserModel;
 using Repository.IRepository;
 using Repository.IRepositoyr;
 using Service.IService;
+using Service.Other;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +35,8 @@ namespace Service.Service
         public ITaskRepository taskRepo;
         public IAnimalAssignRepository animalAssignRepo;
         public IMealFoodRepository mealFoodRepo;
-        public TeamService(ITeamRepository repo, ILeaderAssignRepository leaderRepo, IMemberAssignRepository memberRepo, IObjectViewService objectViewService, IAccountRepository accountRepo, INotificationRepository notificationRepo, IScheduleRepository scheduleRepo, ITaskMealRepository taskMealRepo, IMealDayRepository mealDayRepo, IFoodRepository foodRepo, ITaskRepository taskRepo,IAnimalAssignRepository animalAssignRepo, IMealFoodRepository mealFoodRepo)
+        private readonly WebSocketHandler wsHandler;
+        public TeamService(ITeamRepository repo, ILeaderAssignRepository leaderRepo, IMemberAssignRepository memberRepo, IObjectViewService objectViewService, IAccountRepository accountRepo, INotificationRepository notificationRepo, IScheduleRepository scheduleRepo, ITaskMealRepository taskMealRepo, IMealDayRepository mealDayRepo, IFoodRepository foodRepo, ITaskRepository taskRepo,IAnimalAssignRepository animalAssignRepo, IMealFoodRepository mealFoodRepo, WebSocketHandler wsHandler)
         {
             this.repo = repo;
             this.leaderRepo = leaderRepo;
@@ -48,6 +51,7 @@ namespace Service.Service
             this.taskRepo = taskRepo;
             this.animalAssignRepo = animalAssignRepo;
             this.mealFoodRepo = mealFoodRepo;
+            this.wsHandler = wsHandler;
         }
         public async Task<ServiceResult> GetListTeam()
         {
@@ -457,6 +461,14 @@ namespace Service.Service
                     AccountId = (int)leader.LeaderId,
                     Content = $"Bạn đã được thêm vào team {team.Name}"
                 });
+
+                await notificationRepo.AddNotification(new()
+                {
+                    AccountId = account.Id,
+                    Content = $"Bạn đã được bổ nhiệm làm trưởng nhóm của {team.Name}"
+                });
+                await wsHandler.SendMessageAsync(account.Id);
+
                 return new ServiceResult
                 {
                     Status = 200,
@@ -508,6 +520,12 @@ namespace Service.Service
                         Message = "Leader Not In Team"
                     };
                 }
+                await notificationRepo.AddNotification(new()
+                {
+                    AccountId = account.Id,
+                    Content = $"Bạn đã bị xóa khỏi nhóm {team.Name}"
+                });
+                await wsHandler.SendMessageAsync(account.Id);
                 return new ServiceResult
                 {
                     Status = 200,
@@ -599,6 +617,7 @@ namespace Service.Service
                         AccountId = id,
                         Content = $"Bạn đã được thêm vào team {team.Name}"
                     });
+                    await wsHandler.SendMessageAsync(id);
                     if (member == null)
                     {
                         unsuccessId.Add(id);
@@ -672,6 +691,12 @@ namespace Service.Service
                 }
                 team.CurrentQuantity -= 1;
                 await repo.UpdateAsync(team);
+                await notificationRepo.AddNotification(new()
+                {
+                    AccountId = account.Id,
+                    Content = $"Bạn đã bị xóa khỏi nhóm {team.Name}"
+                });
+                await wsHandler.SendMessageAsync(account.Id);
                 return new ServiceResult
                 {
                     Status = 200,

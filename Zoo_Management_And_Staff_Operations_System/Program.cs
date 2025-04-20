@@ -177,12 +177,6 @@ var wsHandler = new WebSocketHandler(wsManager);
 
 app.Map("/ws", wsHandler.HandleAsync);
 
-app.MapGet("/send", async (string message) =>
-{
-    await wsHandler.SendMessageAsync(message);
-    return Results.Ok("?ã g?i!");
-});
-
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

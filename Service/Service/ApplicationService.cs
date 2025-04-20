@@ -7,12 +7,12 @@ using DAO.ViewModel;
 using Repository.IRepository;
 using Repository.IRepositoyr;
 using Service.IService;
+using Service.Other;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Service.Service
 {
@@ -26,8 +26,9 @@ namespace Service.Service
         public IMemberAssignRepository memberAssignRepo;
         public ILeaderAssignRepository leaderAssignRepo;
         public INotificationRepository notificationRepo;
+        private readonly WebSocketHandler wsHandler;
         public IObjectViewService objectViewService;
-        public ApplicationService(IApplicationRepository repo, IApplicationTypeRepository applicationTypeRepo,IAccountRepository accountRepo, ITeamRepository teamRepo, IMemberAssignRepository memberAssignRepo, ILeaderAssignRepository leaderAssignRepo, IUserRepository userRepo, IObjectViewService objectViewService, INotificationRepository notificationRepo)
+        public ApplicationService(IApplicationRepository repo, IApplicationTypeRepository applicationTypeRepo,IAccountRepository accountRepo, ITeamRepository teamRepo, IMemberAssignRepository memberAssignRepo, ILeaderAssignRepository leaderAssignRepo, IUserRepository userRepo, IObjectViewService objectViewService, INotificationRepository notificationRepo, WebSocketHandler wsHandler)
         {
             this.repo = repo;
             this.applicationTypeRepo = applicationTypeRepo;
@@ -38,6 +39,7 @@ namespace Service.Service
             this.leaderAssignRepo = leaderAssignRepo;
             this.objectViewService = objectViewService;
             this.notificationRepo = notificationRepo;
+            this.wsHandler = wsHandler;
         }
         public async Task<ServiceResult> GetListApplicationBySenderId(int senderId)
         {
@@ -265,6 +267,7 @@ namespace Service.Service
                     AccountId = (int)recieverId,
                     Content = $"Bạn đã nhận được đơn từ {accountRepo.GetById(recieverId).Email}"
                 });
+                await wsHandler.SendMessageAsync((int)recieverId);
                 var result = await objectViewService.GetApplicationView(application);
                 return new ServiceResult
                 {
@@ -305,10 +308,16 @@ namespace Service.Service
                 }
                 application = await repo.UpdateApplication(key);
                 var result = await objectViewService.GetApplicationView(application);
+                await notificationRepo.AddNotification(new NotificationAdd()
+                {
+                    AccountId = (int)application.SenderId,
+                    Content = $"Bạn có 1 đơn được phản hồi"
+                });
+                await wsHandler.SendMessageAsync((int)application.SenderId);
                 return new ServiceResult
                 {
                     Status = 200,
-                    Message = "Add Success",
+                    Message = "Update Success",
                     Data = result
                 };
             }
