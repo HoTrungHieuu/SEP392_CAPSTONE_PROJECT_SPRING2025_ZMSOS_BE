@@ -24,6 +24,7 @@ namespace DAO.ViewModel
         public string? Reproduction {  get; set; }
         public string? ConservationStatus {  get; set; }
         public string? UrlImage {  get; set; }
+        public string? UrlReference {  get; set; }
         public DateTime? DateCreated { get; set; }
         public DateTime? DateUpdated { get; set; }
         public void ConvertAnimalTypeIntoAnimalTypeView(AnimalType key)
@@ -41,6 +42,7 @@ namespace DAO.ViewModel
             Reproduction = key.Reproduction;
             ConservationStatus = key.ConservationStatus;
             UrlImage = key.UrlImage;
+            UrlReference = key.UrlReference;
             DateCreated = key.CreatedDate;
             DateUpdated = key.UpdatedDate;
         }

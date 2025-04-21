@@ -35,6 +35,8 @@ public partial class AnimalType
 
     public string UrlImage { get; set; }
 
+    public string UrlReference { get; set; }
+
     public DateTime? CreatedDate { get; set; }
 
     public DateTime? UpdatedDate { get; set; }

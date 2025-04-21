@@ -48,6 +48,7 @@ namespace Repository.Repository
                     Reproduction = key.Reproduction,
                     ConservationStatus = key.ConservationStatus,
                     UrlImage = key.UrlImage,
+                    UrlReference = key.UrlReference,
                     CreatedDate = VietNamTime.GetVietNamTime()
                 };
                 await CreateAsync(animalType);
@@ -76,6 +77,7 @@ namespace Repository.Repository
                 animalType.Reproduction = key.Reproduction;
                 animalType.ConservationStatus = key.ConservationStatus;
                 animalType.UrlImage = key.UrlImage;
+                animalType.UrlReference = key.UrlReference;
                 animalType.UpdatedDate = VietNamTime.GetVietNamTime();
                 await UpdateAsync(animalType);
                 return animalType;

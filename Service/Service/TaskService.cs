@@ -370,6 +370,62 @@ namespace Service.Service
                 };
             }
         }
+        public async Task<ServiceResult> TranferTask(TaskTranfer key)
+        {
+            try
+            {
+                var task = repo.GetById(key.Id);
+                if (task == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Task Not Found"
+                    };
+                }
+                var account = accountRepo.GetById(key.AccountId);
+                if (task == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Account Not Found"
+                    };
+                }
+                if (task.Status != "Not Start")
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Can not Tranfer when task in process or finished"
+                    };
+                }
+                var schedule = scheduleRepo.GetById(task.ScheduleId);
+                var scheduleAccount = await scheduleRepo.GetListScheduleByAccountIdByDate(key.AccountId, (DateOnly)schedule.Date, (DateOnly)schedule.Date);
+                if (scheduleAccount.Count == 0)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = $"Account do not have schedule on {schedule.Date}"
+                    };
+                }
+                await repo.TranferTask(key.Id, scheduleAccount[0].Id);
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "Tranfer Success",
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
         public async Task<ServiceResult> StartTask(int id)
         {
             try

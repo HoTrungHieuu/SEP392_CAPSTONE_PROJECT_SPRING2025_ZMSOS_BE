@@ -284,6 +284,54 @@ namespace Service.Service
                 };
             }
         }
+        public async Task<ServiceResult> TranferSchedule(ScheduleTranfer key)
+        {
+            try
+            {
+                var account = accountRepo.GetById(key.AccountId);
+                if (account == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Account Not Found"
+                    };
+                }
+                var schedule = repo.GetById(key.Id);
+                if(schedule == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Schedule Not Found"
+                    };
+                }
+                var schedules = await repo.GetListScheduleByAccountIdByDate(key.AccountId, (DateOnly)schedule.Date, (DateOnly)schedule.Date);
+                if(schedules.Count > 0)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = $"Account Had Schedule in {schedule.Date}"
+                    };
+                }
+                await repo.TranferSchedule(key.Id, key.AccountId);
+                
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "Tranfer Success",
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
         public async Task<ServiceResult> DeleteSchedule(ScheduleDelete key)
         {
             try

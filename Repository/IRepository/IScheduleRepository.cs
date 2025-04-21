@@ -18,6 +18,7 @@ namespace Repository.IRepositoyr
         public Task<Schedule> AddSchedule(ScheduleAdd key);
         public System.Threading.Tasks.Task AddScheduleAuto(ScheduleAutoAdd key);
         public Task<Schedule?> UpdateSchedule(ScheduleUpdate key);
+        public Task<Schedule?> TranferSchedule(int id, int accountId);
         public System.Threading.Tasks.Task DeleteSchedule(int scheduleId);
         public ScheduleView ConvertScheduleIntoScheduleView(Schedule schedule, UserView user);
     }

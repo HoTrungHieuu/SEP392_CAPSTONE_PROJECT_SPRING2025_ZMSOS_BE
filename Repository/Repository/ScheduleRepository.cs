@@ -105,6 +105,24 @@ namespace Repository.Repository
                 throw;
             }
         }
+        public async Task<Schedule?> TranferSchedule(int id, int accountId)
+        {
+            try
+            {
+                Schedule schedule = GetById(id);
+                if (schedule == null)
+                {
+                    return null;
+                }
+                schedule.AccountId = accountId;
+                await UpdateAsync(schedule);
+                return schedule;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         public async System.Threading.Tasks.Task DeleteSchedule(int scheduleId)
         {
             try

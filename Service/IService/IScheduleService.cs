@@ -1,5 +1,6 @@
 ﻿using DAO.AddModel;
 using DAO.DeleteModel;
+using DAO.OtherModel;
 using DAO.UpdateModel;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace Service.IService
         public Task<ServiceResult> AddSchedule(ScheduleAdd key);
         public Task<ServiceResult> AddScheduleAuto(ScheduleAutoAdd key);
         public Task<ServiceResult> UpdateSchedule(ScheduleUpdate key);
+        public Task<ServiceResult> TranferSchedule(ScheduleTranfer key);
         public Task<ServiceResult> DeleteSchedule(ScheduleDelete key);
     }
 }

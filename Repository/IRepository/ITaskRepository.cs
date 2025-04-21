@@ -17,6 +17,7 @@ namespace Repository.IRepositoyr
         public Task<List<BO.Models.Task>?> GetListTaskByScheduleId(int scheduleId);
         public Task<BO.Models.Task> AddTask(TaskAdd key);
         public Task<BO.Models.Task?> UpdateTask(TaskUpdate key);
+        public Task<BO.Models.Task?> TranferTask(int id, int scheduleId);
         public Task<BO.Models.Task?> UpdateTaskStaff(TaskStaffUpdate key);
         public Task<BO.Models.Task?> StartTask(int id);
         public TaskView ConvertTaskIntoTaskView(BO.Models.Task task, List<AnimalCageTask> animalCageTasks, List<AnimalCageTaskCleaning> animalCageTaskCleanings, List<AnimalCageTaskNormal> animalCageTaskNormals, TaskTypeView taskType);

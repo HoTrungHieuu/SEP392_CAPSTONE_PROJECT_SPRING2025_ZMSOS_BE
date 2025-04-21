@@ -98,7 +98,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
     {
         modelBuilder.Entity<Account>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Account__3213E83F93E9B1F1");
+            entity.HasKey(e => e.Id).HasName("PK__Account__3213E83F01435045");
 
             entity.ToTable("Account");
 
@@ -127,7 +127,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<Animal>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Animal__3213E83F80F902D1");
+            entity.HasKey(e => e.Id).HasName("PK__Animal__3213E83F8E7A63B9");
 
             entity.ToTable("Animal");
 
@@ -157,7 +157,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<AnimalAssign>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__AnimalAs__3213E83F205B0EC5");
+            entity.HasKey(e => e.Id).HasName("PK__AnimalAs__3213E83F75D35F45");
 
             entity.ToTable("AnimalAssign");
 
@@ -176,7 +176,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<AnimalCage>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__AnimalCa__3213E83F0BF4C52F");
+            entity.HasKey(e => e.Id).HasName("PK__AnimalCa__3213E83FF2642D32");
 
             entity.ToTable("AnimalCage");
 
@@ -197,7 +197,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<AnimalImage>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__AnimalIm__3213E83F739069EB");
+            entity.HasKey(e => e.Id).HasName("PK__AnimalIm__3213E83FE32B0FB4");
 
             entity.ToTable("AnimalImage");
 
@@ -212,7 +212,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<AnimalType>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__AnimalTy__3213E83F31CAA0AC");
+            entity.HasKey(e => e.Id).HasName("PK__AnimalTy__3213E83F77777C08");
 
             entity.ToTable("AnimalType");
 
@@ -254,6 +254,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
                 .HasColumnType("datetime")
                 .HasColumnName("updated_date");
             entity.Property(e => e.UrlImage).HasColumnName("url_image");
+            entity.Property(e => e.UrlReference).HasColumnName("url_reference");
             entity.Property(e => e.VietnameseName)
                 .HasMaxLength(500)
                 .HasColumnName("vietnamese_name");
@@ -264,7 +265,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<Application>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Applicat__3213E83F105AA7E9");
+            entity.HasKey(e => e.Id).HasName("PK__Applicat__3213E83FE90E9431");
 
             entity.ToTable("Application");
 
@@ -303,7 +304,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<ApplicationType>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Applicat__3213E83F8F70A880");
+            entity.HasKey(e => e.Id).HasName("PK__Applicat__3213E83F6C231219");
 
             entity.ToTable("ApplicationType");
 
@@ -318,7 +319,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<Cage>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Cage__3213E83F1F635D99");
+            entity.HasKey(e => e.Id).HasName("PK__Cage__3213E83F9502C994");
 
             entity.ToTable("Cage");
 
@@ -357,7 +358,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<CleaningOption>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Cleaning__3213E83FE22F159B");
+            entity.HasKey(e => e.Id).HasName("PK__Cleaning__3213E83F81DCA77C");
 
             entity.ToTable("CleaningOption");
 
@@ -386,7 +387,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<CleaningProcess>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Cleaning__3213E83F53BFC408");
+            entity.HasKey(e => e.Id).HasName("PK__Cleaning__3213E83F47BD53F1");
 
             entity.ToTable("CleaningProcess");
 
@@ -407,7 +408,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<CleaningTask>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Cleaning__3213E83F52A7443E");
+            entity.HasKey(e => e.Id).HasName("PK__Cleaning__3213E83F42DE1775");
 
             entity.ToTable("CleaningTask");
 
@@ -426,7 +427,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<Flock>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Flock__3213E83F3BB427D5");
+            entity.HasKey(e => e.Id).HasName("PK__Flock__3213E83F79988681");
 
             entity.ToTable("Flock");
 
@@ -447,7 +448,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<Food>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Food__3213E83FAB610035");
+            entity.HasKey(e => e.Id).HasName("PK__Food__3213E83FC7307FBF");
 
             entity.ToTable("Food");
 
@@ -469,7 +470,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<IncompatibleAnimalType>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Incompat__3213E83F7308970E");
+            entity.HasKey(e => e.Id).HasName("PK__Incompat__3213E83FAB459F46");
 
             entity.ToTable("IncompatibleAnimalType");
 
@@ -497,7 +498,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<Individual>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Individu__3213E83FDCDB833E");
+            entity.HasKey(e => e.Id).HasName("PK__Individu__3213E83F1A2C4468");
 
             entity.ToTable("Individual");
 
@@ -530,7 +531,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<LeaderAssign>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__LeaderAs__3213E83FF7F43303");
+            entity.HasKey(e => e.Id).HasName("PK__LeaderAs__3213E83F70F45FB0");
 
             entity.ToTable("LeaderAssign");
 
@@ -551,7 +552,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<MealDay>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__MealDay__3213E83F0F925043");
+            entity.HasKey(e => e.Id).HasName("PK__MealDay__3213E83F8794442A");
 
             entity.ToTable("MealDay");
 
@@ -583,7 +584,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<MealFood>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__MealFood__3213E83F60B7FF21");
+            entity.HasKey(e => e.Id).HasName("PK__MealFood__3213E83F61C770F3");
 
             entity.ToTable("MealFood");
 
@@ -603,7 +604,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<MemberAssign>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__MemberAs__3213E83F1FFC65D7");
+            entity.HasKey(e => e.Id).HasName("PK__MemberAs__3213E83F5E7400D8");
 
             entity.ToTable("MemberAssign");
 
@@ -624,7 +625,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<News>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__News__3213E83FD9CD1526");
+            entity.HasKey(e => e.Id).HasName("PK__News__3213E83FDFF9B8CE");
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.AccountId).HasColumnName("account_id");
@@ -652,7 +653,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<Notification>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Notifica__3213E83F069FA168");
+            entity.HasKey(e => e.Id).HasName("PK__Notifica__3213E83FC631E43F");
 
             entity.ToTable("Notification");
 
@@ -675,7 +676,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<Report>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Report__3213E83F3798BEEC");
+            entity.HasKey(e => e.Id).HasName("PK__Report__3213E83FA11C84E7");
 
             entity.ToTable("Report");
 
@@ -706,7 +707,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<ReportAttachment>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__ReportAt__3213E83FD24D36E0");
+            entity.HasKey(e => e.Id).HasName("PK__ReportAt__3213E83F8094BA71");
 
             entity.ToTable("ReportAttachment");
 
@@ -721,7 +722,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<Role>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Role__3213E83F4AABDE97");
+            entity.HasKey(e => e.Id).HasName("PK__Role__3213E83F1CA039BB");
 
             entity.ToTable("Role");
 
@@ -734,7 +735,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<Schedule>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Schedule__3213E83F03AEE55E");
+            entity.HasKey(e => e.Id).HasName("PK__Schedule__3213E83F2AEF67AB");
 
             entity.ToTable("Schedule");
 
@@ -761,7 +762,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<Task>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Task__3213E83F698DAC83");
+            entity.HasKey(e => e.Id).HasName("PK__Task__3213E83FCF1A77A2");
 
             entity.ToTable("Task");
 
@@ -799,7 +800,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<TaskEstimate>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__TaskEsti__3213E83FB611B7F4");
+            entity.HasKey(e => e.Id).HasName("PK__TaskEsti__3213E83FF24331AB");
 
             entity.ToTable("TaskEstimate");
 
@@ -824,7 +825,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<TaskHealth>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__TaskHeal__3213E83F08E69656");
+            entity.HasKey(e => e.Id).HasName("PK__TaskHeal__3213E83F84C5D1B7");
 
             entity.ToTable("TaskHealth");
 
@@ -847,7 +848,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<TaskMeal>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__TaskMeal__3213E83FCEC63857");
+            entity.HasKey(e => e.Id).HasName("PK__TaskMeal__3213E83FC9D6C569");
 
             entity.ToTable("TaskMeal");
 
@@ -867,7 +868,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<TaskType>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__TaskType__3213E83F903DD7B8");
+            entity.HasKey(e => e.Id).HasName("PK__TaskType__3213E83F95B148BE");
 
             entity.ToTable("TaskType");
 
@@ -882,7 +883,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<Team>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Team__3213E83F0917A7AD");
+            entity.HasKey(e => e.Id).HasName("PK__Team__3213E83F93881600");
 
             entity.ToTable("Team");
 
@@ -913,7 +914,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<UrlProcess>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__UrlProce__3213E83F285D6127");
+            entity.HasKey(e => e.Id).HasName("PK__UrlProce__3213E83FCF15CD74");
 
             entity.ToTable("UrlProcess");
 
@@ -930,7 +931,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__User__3213E83FA9ED166B");
+            entity.HasKey(e => e.Id).HasName("PK__User__3213E83F0D4A065F");
 
             entity.ToTable("User");
 
@@ -962,7 +963,7 @@ public partial class Zoo_Management_And_Staff_Operations_SystemContext : DbConte
 
         modelBuilder.Entity<ZooArea>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__ZooArea__3213E83F0D09A5B8");
+            entity.HasKey(e => e.Id).HasName("PK__ZooArea__3213E83FA48A9700");
 
             entity.ToTable("ZooArea");
 

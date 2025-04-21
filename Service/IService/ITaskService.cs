@@ -18,6 +18,7 @@ namespace Service.IService
         public Task<ServiceResult> GetTaskById(int id);
         public Task<ServiceResult> AddTask(TaskAdd key);
         public Task<ServiceResult> UpdateTask(TaskUpdate key);
+        public Task<ServiceResult> TranferTask(TaskTranfer key);
         public Task<ServiceResult> ClearTaskStaff(ClearTask key);
         public Task<ServiceResult> StartTask(int id);
         public Task<ServiceResult> UpdateTaskStaff(TaskStaffUpdate key);

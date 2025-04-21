@@ -59,10 +59,27 @@ namespace Repository.Repository
                 {
                     return null;
                 }
-                task.ScheduleId = key.ScheduleId;
                 task.TaskName = key.TaskName;
                 task.Description = key.Description;
                 task.TimeStart = key.TimeStart;
+                await UpdateAsync(task);
+                return task;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public async Task<BO.Models.Task?> TranferTask(int id, int scheduleId)
+        {
+            try
+            {
+                BO.Models.Task task = GetById(id);
+                if (task == null)
+                {
+                    return null;
+                }
+                task.ScheduleId = scheduleId;
                 await UpdateAsync(task);
                 return task;
             }

@@ -1334,6 +1334,22 @@
   },
   {
     "ContainingType": "AccountManagement.Controllers.ScheduleController",
+    "Method": "TranferSchedule",
+    "RelativePath": "api/Schedule/schedule/tranfer",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.OtherModel.ScheduleTranfer",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.ScheduleController",
     "Method": "GetListScheduleByAccountId",
     "RelativePath": "api/Schedule/schedules/by-account/{accountId}",
     "HttpMethod": "GET",
@@ -1469,6 +1485,22 @@
       {
         "Name": "id",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.TaskController",
+    "Method": "TranferTask",
+    "RelativePath": "api/Task/task/tranfer",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.OtherModel.TaskTranfer",
         "IsRequired": true
       }
     ],

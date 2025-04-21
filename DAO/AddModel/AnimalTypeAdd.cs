@@ -20,5 +20,6 @@ namespace DAO.AddModel
         public string? Reproduction { get; set; }
         public string? ConservationStatus { get; set; }
         public string? UrlImage { get; set; }
+        public string? UrlReference {  get; set; }
     }
 }

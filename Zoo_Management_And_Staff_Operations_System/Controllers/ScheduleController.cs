@@ -1,5 +1,6 @@
 ﻿using DAO.AddModel;
 using DAO.DeleteModel;
+using DAO.OtherModel;
 using DAO.UpdateModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -70,6 +71,14 @@ namespace AccountManagement.Controllers
         public async Task<IActionResult> UpdateSchedule(ScheduleUpdate key)
         {
             var result = await service.UpdateSchedule(key);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
+        [Authorize(Roles = "Admin,Manager,Leader")]
+        [HttpPut("schedule/tranfer")]
+        public async Task<IActionResult> TranferSchedule(ScheduleTranfer key)
+        {
+            var result = await service.TranferSchedule(key);
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }

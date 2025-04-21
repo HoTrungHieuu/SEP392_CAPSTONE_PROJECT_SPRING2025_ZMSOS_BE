@@ -115,5 +115,13 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [Authorize(Roles = "Admin,Manager,Leader,Staff")]
+        [HttpPut("task/tranfer")]
+        public async Task<IActionResult> TranferTask(TaskTranfer key)
+        {
+            var result = await service.TranferTask(key);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
     }
 }
