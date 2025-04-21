@@ -69,7 +69,7 @@ namespace Repository.Repository
         {
             try
             {
-                var animalCages = (await GetAllAsync()).FindAll(l => l.CageId == cageId && l.ToDate != null);
+                var animalCages = (await GetAllAsync()).FindAll(l => l.CageId == cageId);
                 return animalCages;
             }
             catch (Exception)
@@ -81,7 +81,7 @@ namespace Repository.Repository
         {
             try
             {
-                var animalCages = (await GetAllAsync()).FindAll(l => l.AnimalId == animalId && l.ToDate != null);
+                var animalCages = (await GetAllAsync()).FindAll(l => l.AnimalId == animalId);
                 return animalCages;
             }
             catch (Exception)
