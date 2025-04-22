@@ -21,5 +21,6 @@ namespace Service.IService
         public Task<ServiceResult> UpdateSchedule(ScheduleUpdate key);
         public Task<ServiceResult> TranferSchedule(ScheduleTranfer key);
         public Task<ServiceResult> DeleteSchedule(ScheduleDelete key);
+        public Task<ServiceResult> DisableSchedule(ScheduleDelete key);
     }
 }

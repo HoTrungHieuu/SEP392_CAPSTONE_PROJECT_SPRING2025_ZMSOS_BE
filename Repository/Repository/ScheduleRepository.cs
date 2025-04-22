@@ -17,11 +17,23 @@ namespace Repository.Repository
         public ScheduleRepository()
         {
         }
+        public async Task<List<Schedule>?> GetListSchedule()
+        {
+            try
+            {
+                var schedules = (await GetAllAsync()).FindAll(l => l.Status != "Deleted");
+                return schedules;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         public async Task<List<Schedule>?> GetListScheduleByAccountId(int accountId)
         {
             try
             {
-                var schedules = (await GetAllAsync()).FindAll(l => l.AccountId == accountId);
+                var schedules = (await GetListSchedule())?.FindAll(l => l.AccountId == accountId);
                 return schedules;
             }
             catch (Exception)
@@ -33,7 +45,7 @@ namespace Repository.Repository
         {
             try
             {
-                var schedules = (await GetAllAsync()).FindAll(l => l.AccountId == accountId && l.Date>= fromDate && l.Date<=toDate);
+                var schedules = (await GetListSchedule())?.FindAll(l => l.AccountId == accountId && l.Date>= fromDate && l.Date<=toDate);
                 return schedules;
             }
             catch (Exception)
@@ -130,6 +142,20 @@ namespace Repository.Repository
                 var schedule = GetById(scheduleId);
                 if (schedule == null) return;
                 await RemoveAsync(schedule);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public async System.Threading.Tasks.Task DisableSchedule(int scheduleId)
+        {
+            try
+            {
+                var schedule = GetById(scheduleId);
+                if (schedule == null) return;
+                schedule.Status = "Deleted";
+                await UpdateAsync(schedule);
             }
             catch (Exception)
             {

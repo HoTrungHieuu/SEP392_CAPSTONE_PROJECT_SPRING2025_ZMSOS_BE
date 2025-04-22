@@ -57,6 +57,36 @@ namespace Service.Service
                 };
             }
         }
+        public async Task<ServiceResult> GetAccountById(int id)
+        {
+            try
+            {
+                var account = repo.GetById(id);
+                if (account == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Not Found!",
+                    };
+                }
+                var result = await objectViewService.GetAccountView(account);
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "Account",
+                    Data = result
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
         public async Task<ServiceResult> Login(string email, string password)
         {
             try
@@ -161,6 +191,38 @@ namespace Service.Service
                 {
                     Status = 200,
                     Message = "Update Success",
+                    Data = result
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
+        public async Task<ServiceResult> ChangePasswordAccount(PasswordChange key)
+        {
+            try
+            {
+                var account = repo.GetById(key.AccountId);
+                if (account == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Account Not Found!",
+                    };
+                }
+                account = await repo.ChangePassword(key);
+                var result = await objectViewService.GetAccountView(account);
+
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "Change Success",
                     Data = result
                 };
             }

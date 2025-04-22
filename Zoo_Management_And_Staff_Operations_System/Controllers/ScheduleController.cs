@@ -89,5 +89,12 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [HttpDelete("schedule/disable")]
+        public async Task<IActionResult> DisableSchedule(ScheduleDelete key)
+        {
+            var result = await service.DisableSchedule(key);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
     }
 }

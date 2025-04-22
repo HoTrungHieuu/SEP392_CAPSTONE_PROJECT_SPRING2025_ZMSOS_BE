@@ -365,5 +365,38 @@ namespace Service.Service
                 };
             }
         }
+        public async Task<ServiceResult> DisableSchedule(ScheduleDelete key)
+        {
+            try
+            {
+                if (key.FromDate > key.ToDate)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "from date and to date invalid",
+                    };
+                }
+                var schedules = await repo.GetListScheduleByAccountIdByDate(key.AccountId,key.FromDate,key.ToDate);
+                foreach (var schedule in schedules)
+                {
+                    await repo.DisableSchedule(schedule.Id);
+                }
+
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "Delete Success",
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
     }
 }

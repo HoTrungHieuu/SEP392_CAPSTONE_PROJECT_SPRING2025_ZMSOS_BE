@@ -21,6 +21,10 @@ namespace DAO.ViewModel
         public string? Status {  get; set; }
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? JwtToken { get; set; }
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public string? RefreshToken {  get; set; }
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public DateOnly? ExpireTime {  get; set; }
         public void ConvertAccountIntoAccountView(Account key, RoleView role, UserView user)
         {
             Id = key.Id;

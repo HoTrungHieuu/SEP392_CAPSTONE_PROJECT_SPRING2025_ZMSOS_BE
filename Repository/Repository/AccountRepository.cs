@@ -1,4 +1,5 @@
 ﻿using BO.Models;
+using DAO.OtherModel;
 using DAO.ViewModel;
 using Repository.IRepositoyr;
 using System;
@@ -28,6 +29,13 @@ namespace Repository.Repository
         {
             var accounts = (await GetAllAsync()).FindAll(l => l.RoleId == 4);
             return accounts;
+        }
+        public async Task<Account> ChangePassword(PasswordChange key)
+        {
+            var account = GetById(key.AccountId);
+            account.Password = key.Password;
+            await UpdateAsync(account);
+            return account;
         }
         public AccountView ConvertAccountIntoAccountView(Account account, RoleView role, UserView user)
         {

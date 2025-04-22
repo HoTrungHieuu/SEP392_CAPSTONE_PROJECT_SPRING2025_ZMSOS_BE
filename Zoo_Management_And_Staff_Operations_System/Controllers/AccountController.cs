@@ -32,6 +32,13 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [HttpGet("account/id/{id}")]
+        public async Task<IActionResult> GetAccountById(int id)
+        {
+            var result = await service.GetAccountById(id);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
         [HttpGet("roles")]
         public async Task<IActionResult> GetListRole()
         {
@@ -46,8 +53,10 @@ namespace AccountManagement.Controllers
             if (result.Status == 200)
             {
                 var account = (AccountView)result.Data;
-                var token = GenerateJwtToken(account.Id, account.Role.RoleName);
-                account.JwtToken = token;
+                var token1 = GenerateJwtToken(account.Id, account.Role.RoleName);
+                var token2 = GenerateJwtToken(account.Id, account.Role.RoleName);
+                account.JwtToken = token1;
+                account.RefreshToken = token2;
             }
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
@@ -94,6 +103,13 @@ namespace AccountManagement.Controllers
         public async Task<IActionResult> DeleteAccount(int accountId)
         {
             var result = await service.DeleteAccount(accountId);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
+        [HttpPut("account/changePassword")]
+        public async Task<IActionResult> ChangePassword(PasswordChange key)
+        {
+            var result = await service.ChangePasswordAccount(key);
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }

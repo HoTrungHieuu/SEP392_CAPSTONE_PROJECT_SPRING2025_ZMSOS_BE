@@ -17,6 +17,10 @@ public partial class Account
 
     public string Status { get; set; }
 
+    public string RefreshToken { get; set; }
+
+    public DateOnly? ExpiryTime { get; set; }
+
     public DateTime? CreatedDate { get; set; }
 
     public DateTime? UpdatedDate { get; set; }
