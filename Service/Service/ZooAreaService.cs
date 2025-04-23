@@ -182,6 +182,15 @@ namespace Service.Service
         {
             try
             {
+                var zooAreas = (await repo.GetListZooArea()).FindAll(l => l.Name.ToLower() == key.Name.ToLower());
+                if (zooAreas.Count > 0)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Zoo Area Name is Exist",
+                    };
+                }
                 var zooArea = await repo.AddZooArea(key);
                 var result = await objectViewService.GetZooAreaView(zooArea);
                 return new ServiceResult
@@ -204,6 +213,15 @@ namespace Service.Service
         {
             try
             {
+                var zooAreas = (await repo.GetListZooArea()).FindAll(l => l.Id != key.Id && l.Name.ToLower() == key.Name.ToLower());
+                if (zooAreas.Count > 0)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Zoo Area Name is Exist",
+                    };
+                }
                 var zooArea = await repo.UpdateZooArea(key);
                 if (zooArea == null)
                 {

@@ -354,6 +354,15 @@ namespace Service.Service
         {
             try
             {
+                var animals = (await repo.GetListAnimal()).FindAll(l => l.Name.ToLower() == key.Name.ToLower());
+                if (animals.Count > 0)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Animal Name is Exist",
+                    };
+                }
                 if(key.Classify != "Individual" && key.Classify != "Flock")
                 {
                     return new ServiceResult
@@ -393,6 +402,15 @@ namespace Service.Service
         {
             try
             {
+                var animals = (await repo.GetListAnimal()).FindAll(l => l.Id != key.Id && l.Name.ToLower() == key.Name.ToLower());
+                if (animals.Count > 0)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Animal Name is Exist",
+                    };
+                }
                 var animal = await repo.UpdateAnimal(key);
                 if (animal == null)
                 {
@@ -857,21 +875,21 @@ namespace Service.Service
                     AnimalAdd key = new()
                     {
                         AnimalTypeId = (int)animalTypeId,
-                        Name = (name == "") ? null : name,
-                        Description = (description == "") ? null : description,
-                        ArrivalDate = (arrivalDate == "") ? null : DateOnly.Parse(arrivalDate),
-                        Classify = (classify == "") ? null : classify,
+                        Name = (name == "" || name == null) ? null : name,
+                        Description = (description == "" || description == null) ? null : description,
+                        ArrivalDate = (arrivalDate == "" || arrivalDate == null) ? null : DateOnly.Parse(arrivalDate),
+                        Classify = (classify == "" || classify == null) ? null : classify,
                         Individual = new()
                         {
-                            BirthDate = (birthDate == "") ? null : DateOnly.Parse(birthDate),
-                            Age = (age == "") ? null : age,
-                            Gender = (gender == "") ? null : gender,
-                            Weight = (weigtht == "") ? null : weigtht,
-                            Height = (height == "") ? null : height,
+                            BirthDate = (birthDate == "" || birthDate == null) ? null : DateOnly.Parse(birthDate),
+                            Age = (age == "" || age == null) ? null : age,
+                            Gender = (gender == "" || gender == null) ? null : gender,
+                            Weight = (weigtht == "" || weigtht == null) ? null : weigtht,
+                            Height = (height == "" || height == null) ? null : height,
                         },
                         Flock = new()
                         {
-                            Quantity = (quantity == "") ? null : int.Parse(quantity),
+                            Quantity = (quantity == "" || quantity == null) ? null : int.Parse(quantity),
                         }
                     };
                     await AddAnimal(key);

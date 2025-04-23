@@ -123,6 +123,15 @@ namespace Service.Service
         {
             try
             {
+                var cleaningOptions = (await repo.GetListCleaningOption()).FindAll(l => l.Name.ToLower() == key.Name.ToLower());
+                if (cleaningOptions.Count > 0)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Cleaning Option Name is Exist",
+                    };
+                }
                 var cleaningOption = await repo.AddCleaningOption(key);
                 int stepNumber = 0;
                 foreach(var item1 in key.CleaningProcesss)

@@ -181,6 +181,33 @@ namespace Service.Service
         {
             try
             {
+                var animalTypes = (await repo.GetListAnimalType()).FindAll(l => l.EnglishName.ToLower() == key.EnglishName.ToLower());
+                if (animalTypes.Count > 0)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "English Name is Exist",
+                    };
+                }
+                animalTypes = (await repo.GetListAnimalType()).FindAll(l => l.VietnameseName.ToLower() == key.VietnameseName.ToLower());
+                if (animalTypes.Count > 0)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Vietnamese Name is Exist",
+                    };
+                }
+                animalTypes = (await repo.GetListAnimalType()).FindAll(l => l.ScientificName.ToLower() == key.ScientificName.ToLower());
+                if (animalTypes.Count > 0)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Scientific Name is Exist",
+                    };
+                }
                 var animalType = await repo.AddAnimalType(key);
                 var result = await objectViewService.GetAnimalTypeView(animalType);
                 return new ServiceResult

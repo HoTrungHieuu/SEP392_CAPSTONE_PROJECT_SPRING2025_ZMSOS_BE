@@ -242,6 +242,15 @@ namespace Service.Service
         {
             try
             {
+                var teams = (await repo.GetListTeam()).FindAll(l => l.Name.ToLower() == key.Name.ToLower());
+                if (teams.Count > 0)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Team Name is Exist",
+                    };
+                }
                 if (key.ZooAreaId == null)
                 {
                     return new ServiceResult
@@ -280,6 +289,15 @@ namespace Service.Service
         {
             try
             {
+                var teams = (await repo.GetListTeam()).FindAll(l => l.Id != key.Id && l.Name.ToLower() == key.Name.ToLower());
+                if (teams.Count > 0)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Team Name is Exist",
+                    };
+                }
                 var team = await repo.UpdateTeam(key);
                 if (team == null)
                 {

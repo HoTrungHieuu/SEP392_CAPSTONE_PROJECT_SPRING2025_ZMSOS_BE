@@ -128,6 +128,15 @@ namespace Service.Service
         {
             try
             {
+                var mealDays = (await repo.GetListMealDay()).FindAll(l => l.Name.ToLower() == key.Name.ToLower());
+                if (mealDays.Count > 0)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Meal Day Name is Exist",
+                    };
+                }
                 var mealDay = await repo.AddMealDay(key);
                 double totalCalo = 0;
                 foreach (var foodAdd in key.FoodsAdd)
@@ -161,6 +170,15 @@ namespace Service.Service
         {
             try
             {
+                var mealDays = (await repo.GetListMealDay()).FindAll(l => l.Id != key.Id && l.Name.ToLower() == key.Name.ToLower());
+                if (mealDays.Count > 0)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Meal Day Name is Exist",
+                    };
+                }
                 var mealDay = await repo.UpdateMealDay(key);
                 if (mealDay == null)
                 {
@@ -353,10 +371,10 @@ namespace Service.Service
                         MealDayAdd key = new()
                         {
                             AnimalTypeId = (int)animalTypeId,
-                            Name = (stringCells.Item2 == "") ? null : stringCells.Item2,
-                            PeriodOfTime = (stringCells.Item3 == "") ? null : TimeSpan.Parse(stringCells.Item3),
-                            TimeStartInDay = (stringCells.Item4 == "") ? null : TimeOnly.Parse(stringCells.Item4),
-                            TimeEndInDay = (stringCells.Item5 == "") ? null : TimeOnly.Parse(stringCells.Item5),
+                            Name = (stringCells.Item2 == ""|| stringCells.Item2 == null) ? null : stringCells.Item2,
+                            PeriodOfTime = (stringCells.Item3 == "" || stringCells.Item3 == null) ? null : TimeSpan.Parse(stringCells.Item3),
+                            TimeStartInDay = (stringCells.Item4 == "" || stringCells.Item4 == null) ? null : TimeOnly.Parse(stringCells.Item4),
+                            TimeEndInDay = (stringCells.Item5 == "" || stringCells.Item5 == null) ? null : TimeOnly.Parse(stringCells.Item5),
                             FoodsAdd = foodAdds,
                         };
                         await AddMealDay(key);

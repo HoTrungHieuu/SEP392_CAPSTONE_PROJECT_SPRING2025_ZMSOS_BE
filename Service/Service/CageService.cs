@@ -307,6 +307,15 @@ namespace Service.Service
         {
             try
             {
+                var cages = (await repo.GetListCage()).FindAll(l => l.Name.ToLower() == key.Name.ToLower());
+                if (cages.Count > 0)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Cage Name is Exist",
+                    };
+                }
                 var cage = await repo.AddCage(key);
                 var result = await objectViewService.GetCageView(cage);
 
@@ -354,6 +363,15 @@ namespace Service.Service
         {
             try
             {
+                var cages = (await repo.GetListCage()).FindAll(l => l.Id != key.Id && l.Name.ToLower() == key.Name.ToLower());
+                if (cages.Count > 0)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Cage Name is Exist",
+                    };
+                }
                 var cage = await repo.UpdateCage(key);
                 if (cage == null)
                 {

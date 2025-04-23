@@ -31,7 +31,7 @@ namespace Service.Service
         {
             try
             {
-                var accounts = (await repo.GetAllAsync());
+                var accounts = (await repo.GetListAccount());
                 if (accounts == null)
                 {
                     return new ServiceResult
@@ -91,7 +91,7 @@ namespace Service.Service
         {
             try
             {
-                var account = (await repo.GetAllAsync()).FirstOrDefault(l => l.Email == email && l.Password == password);
+                var account = (await repo.GetListAccount()).FirstOrDefault(l => l.Email == email && l.Password == password);
                 if (account == null)
                 {
                     return new ServiceResult
@@ -122,7 +122,7 @@ namespace Service.Service
         {
             try
             {
-                var account = (await repo.GetAllAsync()).FirstOrDefault(l => l.Email == key.Email);
+                var account = (await repo.GetListAccount()).FirstOrDefault(l => l.Email == key.Email);
                 if(account !=null)
                 {
                     return new ServiceResult
@@ -172,7 +172,7 @@ namespace Service.Service
         {
             try
             {
-                var account = (await repo.GetAllAsync()).FirstOrDefault(l => l.Id == key.Id);
+                var account = (await repo.GetListAccount()).FirstOrDefault(l => l.Id == key.Id);
                 if (account == null)
                 {
                     return new ServiceResult

@@ -13,6 +13,7 @@ namespace Repository.IRepositoyr
 {
     public interface IApplicationRepository : IGenericRepository<Application>
     {
+        public Task<List<Application>?> GetListApplcation();
         public Task<List<Application>?> GetListApplcationBySenderId(int senderId);
         public Task<List<Application>?> GetListApplcationByRecieverId(int recieverId);
         public Task<Application> AddApplication(ApplicationAdd key, int recieverId);

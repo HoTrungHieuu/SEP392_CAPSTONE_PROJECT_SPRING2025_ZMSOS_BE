@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Repository.Repository
 {
@@ -16,11 +17,24 @@ namespace Repository.Repository
         public ReportRepository()
         {
         }
+        public async Task<List<Report>?> GetListReport()
+        {
+            try
+            {
+                var reports = await GetAllAsync();
+                reports = reports.OrderByDescending(l => l.Date).ToList();
+                return reports;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         public async Task<List<Report>?> GetListReportByRecieverId(int accountId)
         {
             try
             {
-                var reports = (await GetAllAsync()).FindAll(l => l.ReceiverId == accountId).OrderByDescending(l => l.Id).ToList();
+                var reports = (await GetListReport()).FindAll(l => l.ReceiverId == accountId);
                 return reports;
             }
             catch (Exception)
@@ -32,7 +46,7 @@ namespace Repository.Repository
         {
             try
             {
-                var reports = (await GetAllAsync()).FindAll(l => l.SenderId == accountId).OrderByDescending(l => l.Id).ToList();
+                var reports = (await GetListReport()).FindAll(l => l.SenderId == accountId);
                 return reports;
             }
             catch (Exception)

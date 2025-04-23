@@ -12,6 +12,7 @@ namespace Repository.IRepositoyr
 {
     public interface IReportRepository : IGenericRepository<Report>
     {
+        public Task<List<Report>?> GetListReport();
         public Task<List<Report>?> GetListReportByRecieverId(int accountId);
         public Task<List<Report>?> GetListReportBySenderId(int accountId);
         public Task<Report> AddReport(ReportAdd key, int recieverId);   

@@ -85,6 +85,15 @@ namespace Service.Service
         {
             try
             {
+                var foods = (await repo.GetListFood()).FindAll(l => l.Name.ToLower() == key.Name.ToLower());
+                if (foods.Count > 0)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Food Name is Exist",
+                    };
+                }
                 var food = await repo.AddFood(key);
                 var result = await objectViewService.GetFoodView(food);
                 return new ServiceResult
@@ -107,6 +116,15 @@ namespace Service.Service
         {
             try
             {
+                var foods = (await repo.GetListFood()).FindAll(l => l.Id != key.Id && l.Name.ToLower() == key.Name.ToLower());
+                if (foods.Count > 0)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Food Name is Exist",
+                    };
+                }
                 var food = await repo.UpdateFood(key);
                 if (food == null)
                 {

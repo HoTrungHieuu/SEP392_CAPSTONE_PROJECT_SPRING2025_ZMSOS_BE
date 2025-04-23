@@ -17,11 +17,24 @@ namespace Repository.Repository
         public ApplicationRepository()
         {
         }
+        public async Task<List<Application>?> GetListApplcation()
+        {
+            try
+            {
+                var applications = await GetAllAsync();
+                applications = applications.OrderByDescending(l => l.Date).ToList();
+                return applications;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         public async Task<List<Application>?> GetListApplcationBySenderId(int senderId)
         {
             try
             {
-                var applications = (await GetAllAsync()).FindAll(l => l.SenderId == senderId).OrderByDescending(l => l.Id).ToList();
+                var applications = (await GetListApplcation()).FindAll(l => l.SenderId == senderId);
                 return applications;
             }
             catch (Exception)
@@ -33,7 +46,7 @@ namespace Repository.Repository
         {
             try
             {
-                var applications = (await GetAllAsync()).FindAll(l => l.RecieverId == recieverId).OrderByDescending(l => l.Id).ToList();
+                var applications = (await GetListApplcation()).FindAll(l => l.RecieverId == recieverId);
                 return applications;
             }
             catch (Exception)

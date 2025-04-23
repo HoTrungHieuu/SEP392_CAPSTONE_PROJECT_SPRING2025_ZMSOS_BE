@@ -15,19 +15,25 @@ namespace Repository.Repository
         public AccountRepository()
         {
         }
+        public async Task<List<Account>?> GetListAccount()
+        {
+            var accounts = await GetAllAsync();
+            accounts = accounts.OrderByDescending(l => l.CreatedDate).ToList();
+            return accounts;
+        }
         public async Task<Account?> GetAccountManager()
         {
-            var account = (await GetAllAsync()).FirstOrDefault(l => l.RoleId == 2);
+            var account = (await GetListAccount()).FirstOrDefault(l => l.RoleId == 2);
             return account;
         }
         public async Task<List<Account>?> GetListAccountLeader()
         {
-            var accounts = (await GetAllAsync()).FindAll(l => l.RoleId == 3);
+            var accounts = (await GetListAccount()).FindAll(l => l.RoleId == 3);
             return accounts;
         }
         public async Task<List<Account>?> GetListAccountStaff()
         {
-            var accounts = (await GetAllAsync()).FindAll(l => l.RoleId == 4);
+            var accounts = (await GetListAccount()).FindAll(l => l.RoleId == 4);
             return accounts;
         }
         public async Task<Account> ChangePassword(PasswordChange key)

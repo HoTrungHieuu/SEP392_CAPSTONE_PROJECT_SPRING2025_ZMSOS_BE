@@ -12,6 +12,7 @@ namespace Repository.IRepositoyr
 {
     public interface IAccountRepository : IGenericRepository<Account>
     {
+        public Task<List<Account>?> GetListAccount();
         public Task<Account?> GetAccountManager();
         public Task<List<Account>?> GetListAccountLeader();
         public Task<List<Account>?> GetListAccountStaff();
