@@ -34,6 +34,11 @@ namespace Repository.Repository
         {
             try
             {
+                string dietString = "";
+                foreach (var item in key.Diet)
+                {
+                    dietString += item + "&";
+                }
                 AnimalType animalType = new()
                 {
                     ScientificName = key.ScientificName,
@@ -44,7 +49,7 @@ namespace Repository.Repository
                     Characteristics = key.Characteristics,
                     Distribution = key.Distribution,
                     Habitat = key.Habitat,
-                    Diet = key.Diet,
+                    Diet = dietString,
                     Reproduction = key.Reproduction,
                     ConservationStatus = key.ConservationStatus,
                     UrlImage = key.UrlImage,
@@ -65,6 +70,11 @@ namespace Repository.Repository
             {
                 var animalType = GetById(key.Id);
                 if (animalType == null) return null;
+                string dietString = "";
+                foreach (var item in key.Diet)
+                {
+                    dietString += item + "&";
+                }
                 animalType.ScientificName = key.ScientificName;
                 animalType.VietnameseName = key.VietnameseName;
                 animalType.EnglishName = key.EnglishName;
@@ -73,7 +83,7 @@ namespace Repository.Repository
                 animalType.Characteristics = key.Characteristics;
                 animalType.Distribution = key.Distribution;
                 animalType.Habitat = key.Habitat;
-                animalType.Diet = key.Diet;
+                animalType.Diet = dietString;
                 animalType.Reproduction = key.Reproduction;
                 animalType.ConservationStatus = key.ConservationStatus;
                 animalType.UrlImage = key.UrlImage;

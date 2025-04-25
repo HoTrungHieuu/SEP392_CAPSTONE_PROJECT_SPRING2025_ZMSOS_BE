@@ -34,11 +34,16 @@ namespace Repository.Repository
         {
             try
             {
+                string orderString = "";
+                foreach(var item in key.AnimalOrder)
+                {
+                    orderString += item + "&";
+                }
                 ZooArea zooArea = new()
                 {
                     Name = key.Name,
                     Description = key.Description,
-                    AnimalOrder = key.AnimalOrder,
+                    AnimalOrder = orderString,
                     Location = key.Location,
                     CreatedDate = VietNamTime.GetVietNamTime(),
                     UrlImage = key.UrlImages,
@@ -58,9 +63,15 @@ namespace Repository.Repository
             {
                 var zooArea = GetById(key.Id);
                 if (zooArea == null) return null;
+                string orderString = "";
+                foreach (var item in key.AnimalOrder)
+                {
+                    orderString += item + "&";
+                }
+
                 zooArea.Name = key.Name;
                 zooArea.Description = key.Description;
-                zooArea.AnimalOrder =key.AnimalOrder;
+                zooArea.AnimalOrder = orderString;
                 zooArea.Location = key.Location;
                 zooArea.UpdatedDate = VietNamTime.GetVietNamTime();
                 zooArea.Status = key.Status;

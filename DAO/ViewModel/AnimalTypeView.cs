@@ -20,7 +20,7 @@ namespace DAO.ViewModel
         public string? Characteristics { get; set; }
         public string? Distribution { get; set; }
         public string? Habitat {  get; set; }
-        public string? Diet {  get; set; }
+        public List<string>? Diet {  get; set; }
         public string? Reproduction {  get; set; }
         public string? ConservationStatus {  get; set; }
         public string? UrlImage {  get; set; }
@@ -38,7 +38,12 @@ namespace DAO.ViewModel
             Characteristics = key.Characteristics;
             Distribution = key.Distribution;
             Habitat = key.Habitat;
-            Diet = Diet;
+            var arrayDiet = key.Diet.Split("&");
+            Diet = arrayDiet.ToList();
+            if (Diet.Count > 1)
+            {
+                Diet.Remove(Diet.Last());
+            }
             Reproduction = key.Reproduction;
             ConservationStatus = key.ConservationStatus;
             UrlImage = key.UrlImage;

@@ -12,7 +12,7 @@ namespace DAO.ViewModel
         public int Id { get; set; }
         public string? Name { get; set; }
         public string? Description { get; set; }
-        public string? AnimalOrder {  get; set; }
+        public List<string>? AnimalOrder {  get; set; }
         public string? Location {  get; set; }
         public string? UrlImages { get; set; } 
         public TeamView? Team { get; set; }
@@ -24,7 +24,12 @@ namespace DAO.ViewModel
             Id = key.Id;
             Name = key.Name;
             Description = key.Description;
-            AnimalOrder = key.AnimalOrder; 
+            var arrayOrder = key.AnimalOrder.Split("&");
+            AnimalOrder = arrayOrder.ToList();
+            if (AnimalOrder.Count > 1)
+            {
+                AnimalOrder.Remove(AnimalOrder.Last());
+            }
             Location = key.Location;
             UrlImages = key.UrlImage;
             Status = key.Status;

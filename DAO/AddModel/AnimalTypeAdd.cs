@@ -16,7 +16,7 @@ namespace DAO.AddModel
         public string? Characteristics { get; set; }
         public string? Distribution { get; set; }
         public string? Habitat { get; set; }
-        public string? Diet { get; set; }
+        public List<string>? Diet { get; set; }
         public string? Reproduction { get; set; }
         public string? ConservationStatus { get; set; }
         public string? UrlImage { get; set; }
