@@ -22,6 +22,8 @@ namespace DAO.ViewModel
         public string? Description { get; set; }
         public DateOnly? ArrivalDate { get; set; }
         public string? Classify {  get; set; }
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public int? HistoryCount {  get; set; }
         public CageView? Cage { get; set; }
         public List<string>? UrlImages { get; set; }
         public DateTime? DateCreated { get; set; }

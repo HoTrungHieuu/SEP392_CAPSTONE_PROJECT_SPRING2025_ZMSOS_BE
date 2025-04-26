@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using static Azure.Core.HttpHeader;
 
@@ -24,6 +25,8 @@ namespace DAO.ViewModel
         public string? Status {  get; set; }
         public DateTime? DateCreated { get; set; }
         public DateTime? DateUpdated { get; set; }
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public int? HistoryCount { get; set; }
         public void ConvertCageIntoCageView(Cage key, ZooAreaView zooArea)
         {
             Id = key.Id;
