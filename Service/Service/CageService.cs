@@ -229,6 +229,11 @@ namespace Service.Service
                 }
 
                 var result = await objectViewService.GetListCageView(cages);
+                foreach (var item in result)
+                {
+                    var animalCage = await animalCageRepo.GetListAnimalCageHistoryByCageId((int)item.Id);
+                    item.HistoryCount = animalCage.Count;
+                }
                 return new ServiceResult
                 {
                     Status = 200,

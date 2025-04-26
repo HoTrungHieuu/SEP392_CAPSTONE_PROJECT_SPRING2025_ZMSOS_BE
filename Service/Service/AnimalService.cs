@@ -199,6 +199,11 @@ namespace Service.Service
                     };
                 }
                 var result = await objectViewService.GetListAnimalView(animals);
+                foreach (var item in result)
+                {
+                    var animalCage = await animalCageRepo.GetListAnimalCageHistoryByAnimalId(item.Id);
+                    item.HistoryCount = animalCage.Count;
+                }
                 return new ServiceResult
                 {
                     Status = 200,
@@ -276,6 +281,11 @@ namespace Service.Service
                     }
                 }
                 var result = await objectViewService.GetListAnimalView(animals);
+                foreach (var item in result)
+                {
+                    var animalCage = await animalCageRepo.GetListAnimalCageHistoryByAnimalId(item.Id);
+                    item.HistoryCount = animalCage.Count;
+                }
                 return new ServiceResult
                 {
                     Status = 200,
