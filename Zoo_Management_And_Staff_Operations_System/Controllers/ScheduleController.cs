@@ -43,6 +43,22 @@ namespace AccountManagement.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Admin,Manager,Leader,Staff")]
+        [HttpGet("schedules/leader/by-fromDate&&toDate/{fromDate}/{toDate}")]
+        public async Task<IActionResult> GetListScheduleLeaderByDate(DateOnly fromDate, DateOnly toDate)
+        {
+            var result = await service.GetListScheduleLeaderByDate(fromDate, toDate);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
+        [Authorize(Roles = "Admin,Manager,Leader,Staff")]
+        [HttpGet("accounts/suitable/tranfer/by-teamId-scheduleId/{teamId}/{scheduleId}")]
+        public async Task<IActionResult> GetListAccountSuitableTranfer(int teamId, int scheduleId)
+        {
+            var result = await service.GetListAccountSuitableTranfer(teamId, scheduleId);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
+        [Authorize(Roles = "Admin,Manager,Leader,Staff")]
         [HttpGet("schedule/{id}")]
         public async Task<IActionResult> GetScheduleById(int id)
         {
@@ -67,10 +83,10 @@ namespace AccountManagement.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Admin,Manager,Leader")]
-        [HttpPut("schedule")]
-        public async Task<IActionResult> UpdateSchedule(ScheduleUpdate key)
+        [HttpPut("schedule/finish")]
+        public async Task<IActionResult> FinishSchedule(ScheduleUpdate key)
         {
-            var result = await service.UpdateSchedule(key);
+            var result = await service.FinishSchedule(key);
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }

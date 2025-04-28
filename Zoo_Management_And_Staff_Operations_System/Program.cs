@@ -10,6 +10,7 @@ using Repository.IRepository;
 using OfficeOpenXml;
 using SocketIO.Core;
 using Service.Other;
+using StackExchange.Redis;
 
 
 ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
@@ -19,6 +20,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 var jwtSettings = builder.Configuration.GetSection("JwtSettings");
+
+builder.Services.AddMemoryCache();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -145,7 +148,6 @@ builder.Services.AddScoped<ITaskEstimateRepository, TaskEstimateRepository>();
 builder.Services.AddScoped<ITaskEstimateService, TaskEstimateService>();
 builder.Services.AddScoped<IIndividualRepository, IndividualRepository>();
 builder.Services.AddScoped<IFlockRepository, FlockRepository>();
-builder.Services.AddScoped<IIndividualRepository, IndividualRepository>();
 builder.Services.AddScoped<IObjectViewService, ObjectViewService>();
 builder.Services.AddScoped<IAnimalAssignRepository, AnimalAssignRepository>();
 builder.Services.AddScoped<IIncompatibleAnimalTypeRepository, IncompatibleAnimalTypeRepository>();

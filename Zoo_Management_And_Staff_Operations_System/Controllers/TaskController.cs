@@ -50,6 +50,14 @@ namespace AccountManagement.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Admin,Manager,Leader,Staff")]
+        [HttpGet("accounts/suitable/tranfer/by-teamId-taskId/{teamId}/{taskId}")]
+        public async Task<IActionResult> GetListAccountSuitableTranfer(int teamId, int taskId)
+        {
+            var result = await service.GetListAccountSuitableTranfer(teamId, taskId);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
+        [Authorize(Roles = "Admin,Manager,Leader,Staff")]
         [HttpGet("task/{id}")]
         public async Task<IActionResult> GetTaskById(int id)
         {
@@ -58,10 +66,10 @@ namespace AccountManagement.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Admin,Manager,Leader")]
-        [HttpPost("task")]
-        public async Task<IActionResult> AddTask(TaskAdd key)
+        [HttpPost("task/manual")]
+        public async Task<IActionResult> AddTaskManual(TaskAddManual key)
         {
-            var result = await service.AddTask(key);
+            var result = await service.AddTaskManual(key);
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
@@ -76,6 +84,13 @@ namespace AccountManagement.Controllers
         public async Task<IActionResult> UpdateTaskStaff(TaskStaffUpdate key)
         {
             var result = await service.UpdateTaskStaff(key);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
+        [HttpPut("taskLeader")]
+        public async Task<IActionResult> UpdateTaskLeader(TaskLeaderUpdate key)
+        {
+            var result = await service.UpdateTaskLeader(key);
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }

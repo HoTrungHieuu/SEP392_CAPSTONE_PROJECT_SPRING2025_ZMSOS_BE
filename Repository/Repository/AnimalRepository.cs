@@ -3,25 +3,41 @@ using DAO.AddModel;
 using DAO.OtherModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
+using Microsoft.Extensions.Caching.Memory;
 using Repository.IRepository;
+using StackExchange.Redis;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Repository.Repository
 {
     public class AnimalRepository : GenericRepository<Animal>, IAnimalRepository
     {
-        public AnimalRepository()
+        private readonly IMemoryCache _memoryCache;
+        private const string AnimalListKey = "animal_list";
+
+        public AnimalRepository(IMemoryCache memoryCache)
         {
+            _memoryCache = memoryCache;
         }
         public async Task<List<Animal>?> GetListAnimal()
         {
             try
             {
-                var animals = await GetAllAsync();
+                List<Animal> animals = new();
+                if (_memoryCache.TryGetValue("animal_list", out var list))
+                {
+                    animals = (List<Animal>)list;
+                }
+                else
+                {
+                    animals = await GetAllAsync();
+                    _memoryCache.Set("animal_list", animals, TimeSpan.FromMinutes(5));
+                }
                 animals = animals.OrderByDescending(l => l.CreatedDate).ToList();
                 return animals;
             }
@@ -56,6 +72,7 @@ namespace Repository.Repository
                     CreatedDate = VietNamTime.GetVietNamTime(),
                 };
                 await CreateAsync(animal);
+                _memoryCache.Remove("animal_list");
                 return animal;
             }
             catch (Exception)
@@ -74,6 +91,7 @@ namespace Repository.Repository
                 animal.Classify = key.Classify;
                 animal.UpdatedDate = VietNamTime.GetVietNamTime();
                 await UpdateAsync(animal);
+                _memoryCache.Remove("animal_list");
                 return animal;
             }
             catch (Exception)

@@ -12,6 +12,7 @@ namespace Service.IService
     public interface IAccountService
     {
         public Task<ServiceResult> GetListAccount();
+        public Task<ServiceResult> GetListAccountLeader();
         public Task<ServiceResult> GetAccountById(int id);
         public Task<ServiceResult> Login(string email, string password);
         public Task<ServiceResult> CreateAccount(AccountCreate key);

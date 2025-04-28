@@ -1,4 +1,5 @@
-﻿using DAO.OtherModel;
+﻿using BO.Models;
+using DAO.OtherModel;
 using NPOI.SS.Formula.Functions;
 using Repository.IRepository;
 using Repository.IRepositoyr;
@@ -23,7 +24,9 @@ namespace Service.Service
         public IZooAreaRepository zooAreaRepo;
         public IUserRepository userRepo;
         public ICageRepository cageRepo;
-        public StatisticService(IAccountRepository accountRepo, ITeamRepository teamRepo, IAnimalTypeRepository animalTypeRepo, IAnimalRepository animalRepo, IFlockRepository flockRepo, ILeaderAssignRepository leaderAssignRepo, IMemberAssignRepository memberAssignRepo, IZooAreaRepository zooAreaRepo, IUserRepository userRepo, ICageRepository cageRepo)
+        public IScheduleRepository scheduleRepo;
+        public IObjectViewService objectViewService;
+        public StatisticService(IAccountRepository accountRepo, ITeamRepository teamRepo, IAnimalTypeRepository animalTypeRepo, IAnimalRepository animalRepo, IFlockRepository flockRepo, ILeaderAssignRepository leaderAssignRepo, IMemberAssignRepository memberAssignRepo, IZooAreaRepository zooAreaRepo, IUserRepository userRepo, ICageRepository cageRepo, IScheduleRepository scheduleRepo, IObjectViewService objectViewService)
         {
             this.accountRepo = accountRepo;
             this.teamRepo = teamRepo;
@@ -35,6 +38,8 @@ namespace Service.Service
             this.zooAreaRepo = zooAreaRepo;
             this.userRepo = userRepo;
             this.cageRepo = cageRepo;
+            this.scheduleRepo = scheduleRepo;
+            this.objectViewService = objectViewService;
         }
         public async Task<ServiceResult> GetStatistic()
         {
@@ -107,6 +112,59 @@ namespace Service.Service
                     Status = 200,
                     Message = "Zoo Areas",
                     Data = statistic
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
+        public async Task<ServiceResult> GetLeaderStatistic(int accountId,DateOnly fromDate, DateOnly toDate)
+        {
+            try
+            {
+                LeaderStatistic result = new();
+                var account = accountRepo.GetById(accountId);
+                if (account == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Account Not Found!",
+                    };
+                }
+
+                var team = teamRepo.GetById((await leaderAssignRepo.GetLeaderAssignByAccountId(accountId))?.TeamId);
+                if(team == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 200,
+                        Message = "Statistic",
+                        Data = result
+                    };
+                }
+
+                var memberAssigns = await memberAssignRepo.GetListMemberAssignByTeamId(team.Id);
+                foreach(var memberAssign in memberAssigns)
+                {
+                    var schedules = await scheduleRepo.GetListScheduleByAccountIdByDate((int)memberAssign.MemberId, fromDate, toDate);
+                    result.ScheduleStatistic.Add(new()
+                    {
+                        Account = await objectViewService.GetAccountView(accountRepo.GetById((int)memberAssign.MemberId)),
+                        TotalCurrentSchedule = schedules.FindAll(l => l.Status == "Finished").Count,
+                        TotalSchedule = schedules.Count,
+                    });
+                }
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "Schedules",
+                    Data = result
                 };
             }
             catch (Exception ex)

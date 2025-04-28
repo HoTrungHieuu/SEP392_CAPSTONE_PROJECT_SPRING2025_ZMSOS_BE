@@ -32,6 +32,13 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [HttpGet("accounts/leader")]
+        public async Task<IActionResult> GetListAccountLeader()
+        {
+            var result = await service.GetListAccountLeader();
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
         [HttpGet("account/id/{id}")]
         public async Task<IActionResult> GetAccountById(int id)
         {

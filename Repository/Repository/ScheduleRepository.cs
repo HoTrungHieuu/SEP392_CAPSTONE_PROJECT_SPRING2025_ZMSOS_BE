@@ -65,7 +65,7 @@ namespace Repository.Repository
                     Date = key.Date,
                     Note = key.Note,
                     CreatedDate = VietNamTime.GetVietNamTime(),
-                    Status = null
+                    Status = "Not Start"
                 };
                 await CreateAsync(schedule);
                 return schedule;
@@ -106,9 +106,9 @@ namespace Repository.Repository
                 {
                     return null;
                 }
-                schedule.Date = key.Date;
                 schedule.Note = key.Note;
                 schedule.UpdatedDate = VietNamTime.GetVietNamTime();
+                schedule.Status = "Finished";
                 await UpdateAsync(schedule);
                 return schedule;
             }
@@ -154,8 +154,11 @@ namespace Repository.Repository
             {
                 var schedule = GetById(scheduleId);
                 if (schedule == null) return;
-                schedule.Status = "Deleted";
-                await UpdateAsync(schedule);
+                if(schedule.Status != "Finished")
+                {
+                    schedule.Status = "Deleted";
+                    await UpdateAsync(schedule);
+                }
             }
             catch (Exception)
             {

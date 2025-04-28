@@ -15,10 +15,12 @@ namespace Service.IService
         public Task<ServiceResult> GetListScheduleByAccountId(int accountId);
         public Task<ServiceResult> GetListScheduleByAccountIdByDate(int accountId, DateOnly fromDate, DateOnly toDate);
         public Task<ServiceResult> GetListScheduleByTeamIdByDate(int teamId, DateOnly fromDate, DateOnly toDate);
+        public Task<ServiceResult> GetListScheduleLeaderByDate(DateOnly fromDate, DateOnly toDate);
+        public Task<ServiceResult> GetListAccountSuitableTranfer(int teamId, int scheduleId);
         public Task<ServiceResult> GetScheduleById(int id);
         public Task<ServiceResult> AddSchedule(ScheduleAdd key);
         public Task<ServiceResult> AddScheduleAuto(ScheduleAutoAdd key);
-        public Task<ServiceResult> UpdateSchedule(ScheduleUpdate key);
+        public Task<ServiceResult> FinishSchedule(ScheduleUpdate key);
         public Task<ServiceResult> TranferSchedule(ScheduleTranfer key);
         public Task<ServiceResult> DeleteSchedule(ScheduleDelete key);
         public Task<ServiceResult> DisableSchedule(ScheduleDelete key);

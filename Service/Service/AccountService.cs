@@ -57,6 +57,36 @@ namespace Service.Service
                 };
             }
         }
+        public async Task<ServiceResult> GetListAccountLeader()
+        {
+            try
+            {
+                var accounts = (await repo.GetListAccountLeader());
+                if (accounts == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Not Found!",
+                    };
+                }
+                var result = await objectViewService.GetListAccountView(accounts);
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "List Account",
+                    Data = result
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
         public async Task<ServiceResult> GetAccountById(int id)
         {
             try

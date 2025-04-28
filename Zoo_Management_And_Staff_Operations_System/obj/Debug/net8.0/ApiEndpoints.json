@@ -107,6 +107,16 @@
   },
   {
     "ContainingType": "AccountManagement.Controllers.AccountController",
+    "Method": "GetListAccountLeader",
+    "RelativePath": "api/Account/accounts/leader",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.AccountController",
     "Method": "GetListRole",
     "RelativePath": "api/Account/roles",
     "HttpMethod": "GET",
@@ -1286,6 +1296,27 @@
   },
   {
     "ContainingType": "AccountManagement.Controllers.ScheduleController",
+    "Method": "GetListAccountSuitableTranfer",
+    "RelativePath": "api/Schedule/accounts/suitable/tranfer/by-teamId-scheduleId/{teamId}/{scheduleId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "teamId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "scheduleId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.ScheduleController",
     "Method": "AddSchedule",
     "RelativePath": "api/Schedule/schedule",
     "HttpMethod": "POST",
@@ -1295,22 +1326,6 @@
       {
         "Name": "key",
         "Type": "DAO.AddModel.ScheduleAdd",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "AccountManagement.Controllers.ScheduleController",
-    "Method": "UpdateSchedule",
-    "RelativePath": "api/Schedule/schedule",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "key",
-        "Type": "DAO.UpdateModel.ScheduleUpdate",
         "IsRequired": true
       }
     ],
@@ -1375,6 +1390,22 @@
       {
         "Name": "key",
         "Type": "DAO.DeleteModel.ScheduleDelete",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.ScheduleController",
+    "Method": "FinishSchedule",
+    "RelativePath": "api/Schedule/schedule/finish",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.UpdateModel.ScheduleUpdate",
         "IsRequired": true
       }
     ],
@@ -1465,6 +1496,27 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AccountManagement.Controllers.ScheduleController",
+    "Method": "GetListScheduleLeaderByDate",
+    "RelativePath": "api/Schedule/schedules/leader/by-fromDate\u0026\u0026toDate/{fromDate}/{toDate}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "fromDate",
+        "Type": "System.DateOnly",
+        "IsRequired": true
+      },
+      {
+        "Name": "toDate",
+        "Type": "System.DateOnly",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.StatisticController",
     "Method": "GetStatistic",
     "RelativePath": "api/Statistic/statistic",
@@ -1475,16 +1527,47 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "AccountManagement.Controllers.TaskController",
-    "Method": "AddTask",
-    "RelativePath": "api/Task/task",
-    "HttpMethod": "POST",
+    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.StatisticController",
+    "Method": "GetStatisticLeader",
+    "RelativePath": "api/Statistic/statistic/leader",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "key",
-        "Type": "DAO.AddModel.TaskAdd",
+        "Name": "accountId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "fromDate",
+        "Type": "System.DateOnly",
+        "IsRequired": false
+      },
+      {
+        "Name": "toDate",
+        "Type": "System.DateOnly",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.TaskController",
+    "Method": "GetListAccountSuitableTranfer",
+    "RelativePath": "api/Task/accounts/suitable/tranfer/by-teamId-taskId/{teamId}/{taskId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "teamId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "taskId",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -1540,6 +1623,22 @@
   },
   {
     "ContainingType": "AccountManagement.Controllers.TaskController",
+    "Method": "AddTaskManual",
+    "RelativePath": "api/Task/task/manual",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.OtherModel.TaskAddManual",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.TaskController",
     "Method": "TranferTask",
     "RelativePath": "api/Task/task/tranfer",
     "HttpMethod": "PUT",
@@ -1581,6 +1680,22 @@
       {
         "Name": "key",
         "Type": "DAO.OtherModel.AnimalTaskNormalScheldule",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.TaskController",
+    "Method": "UpdateTaskLeader",
+    "RelativePath": "api/Task/taskLeader",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.OtherModel.TaskLeaderUpdate",
         "IsRequired": true
       }
     ],

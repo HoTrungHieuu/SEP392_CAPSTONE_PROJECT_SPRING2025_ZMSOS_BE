@@ -109,6 +109,26 @@ namespace Repository.Repository
                 throw;
             }
         }
+        public async Task<BO.Models.Task?> UpdateTaskLeader(TaskLeaderUpdate key)
+        {
+            try
+            {
+                BO.Models.Task task = GetById(key.Id);
+                if (task == null)
+                {
+                    return null;
+                }
+                task.Note = key.Note;
+                task.Status = "Finish";
+                task.TimeFinish = TimeOnly.FromDateTime(VietNamTime.GetVietNamTime());
+                await UpdateAsync(task);
+                return task;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         public async Task<BO.Models.Task?> StartTask(int id)
         {
             try

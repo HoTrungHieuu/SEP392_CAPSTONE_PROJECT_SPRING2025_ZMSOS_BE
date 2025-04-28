@@ -4,6 +4,7 @@ using DAO.DeleteModel;
 using DAO.OtherModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
+using Microsoft.Identity.Client;
 using Nest;
 using Repository.IRepository;
 using Repository.IRepositoyr;
@@ -157,6 +158,45 @@ namespace Service.Service
                 };
             }
         }
+        public async Task<ServiceResult> GetListScheduleLeaderByDate(DateOnly fromDate, DateOnly toDate)
+        {
+            try
+            {
+                if (fromDate > toDate)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Date invalid!",
+                    };
+                }
+                var accounts = await accountRepo.GetListAccountLeader();
+                List<AccountSchedule> result = new();
+                foreach (var account in accounts)
+                {
+                    var schedules = await repo.GetListScheduleByAccountIdByDate((int)account.Id, fromDate, toDate);
+                    result.Add(new()
+                    {
+                        Account = await objectViewService.GetAccountView(account),
+                        Schedules = await objectViewService.GetListScheduleView(schedules)
+                    });
+                }
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "Schedules",
+                    Data = result
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
         public async Task<ServiceResult> GetScheduleById(int id)
         {
             try
@@ -175,6 +215,55 @@ namespace Service.Service
                 {
                     Status = 200,
                     Message = "Schedule",
+                    Data = result
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
+        public async Task<ServiceResult> GetListAccountSuitableTranfer(int teamId,int scheduleId)
+        {
+            try
+            {
+                var team = teamRepo.GetById(teamId);
+                if(team == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Team Not Found!",
+                    };
+                }
+                var schedule = repo.GetById(scheduleId);
+                if (schedule == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Schedule Not Found!",
+                    };
+                }
+                var members = (await memberAssignRepo.GetListMemberAssignByTeamId(team.Id)).FindAll(l=>l.MemberId != schedule.AccountId);
+                List<Account> accounts = new();
+                foreach(var member in members)
+                {
+                    var schedules = await repo.GetListScheduleByAccountIdByDate(member.Id, (DateOnly)schedule.Date, (DateOnly)schedule.Date);
+                    if (schedules.Count == 0)
+                    {
+                        accounts.Add(accountRepo.GetById(member.MemberId));
+                    }
+                }
+                var result = await objectViewService.GetListAccountView(accounts);
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "Accounts",
                     Data = result
                 };
             }
@@ -256,11 +345,11 @@ namespace Service.Service
                 };
             }
         }
-        public async Task<ServiceResult> UpdateSchedule(ScheduleUpdate key)
+        public async Task<ServiceResult> FinishSchedule(ScheduleUpdate key)
         {
             try
             {
-                var schedule = await repo.UpdateSchedule(key);
+                var schedule = repo.GetById(key.Id);
                 if (schedule == null)
                 {
                     return new ServiceResult
@@ -269,6 +358,16 @@ namespace Service.Service
                         Message = "Not Found"
                     };
                 }
+                if (schedule.Status == "Finished")
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Schedule Finished"
+                    };
+                }
+                schedule = await repo.UpdateSchedule(key);
+                
                 return new ServiceResult
                 {
                     Status = 200,
@@ -304,6 +403,14 @@ namespace Service.Service
                     {
                         Status = 404,
                         Message = "Schedule Not Found"
+                    };
+                }
+                if(schedule.Status == "Finished")
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Schedule Finished"
                     };
                 }
                 var schedules = await repo.GetListScheduleByAccountIdByDate(key.AccountId, (DateOnly)schedule.Date, (DateOnly)schedule.Date);

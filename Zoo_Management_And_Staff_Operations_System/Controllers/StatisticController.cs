@@ -21,5 +21,12 @@ namespace Zoo_Management_And_Staff_Operations_System.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
+        [HttpGet("statistic/leader")]
+        public async Task<IActionResult> GetStatisticLeader(int accountId, DateOnly fromDate, DateOnly toDate)
+        {
+            var result = await service.GetLeaderStatistic(accountId,fromDate,toDate);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
     }
 }

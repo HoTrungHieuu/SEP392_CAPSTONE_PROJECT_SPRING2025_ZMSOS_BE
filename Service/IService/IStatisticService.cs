@@ -9,5 +9,6 @@ namespace Service.IService
     public interface IStatisticService
     {
         public Task<ServiceResult> GetStatistic();
+        public Task<ServiceResult> GetLeaderStatistic(int accountId, DateOnly fromDate, DateOnly toDate);
     }
 }

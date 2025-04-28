@@ -281,6 +281,56 @@ namespace Service.Service
                 };
             }
         }
+        public async Task<ServiceResult> GetListAccountSuitableTranfer(int teamId,int taskId)
+        {
+            try
+            {
+                var team = teamRepo.GetById(teamId);
+                if (team == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Team Not Found!",
+                    };
+                }
+                var task = repo.GetById(taskId);
+                if (task == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Task Not Found!",
+                    };
+                }
+                var schedule = scheduleRepo.GetById(task.ScheduleId);
+                var members = (await memberAssignRepo.GetListMemberAssignByTeamId(team.Id)).FindAll(l => l.MemberId != schedule.AccountId);
+                List<Account> accounts = new();
+                foreach (var member in members)
+                {
+                    var schedules = await scheduleRepo.GetListScheduleByAccountIdByDate(member.Id, (DateOnly)schedule.Date, (DateOnly)schedule.Date);
+                    if (schedules.Count > 0)
+                    {
+                        accounts.Add(accountRepo.GetById(member.MemberId));
+                    }
+                }
+                var result = await objectViewService.GetTaskView(task);
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "Task",
+                    Data = result
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
         public async Task<ServiceResult> GetTaskById(int id)
         {
             try
@@ -316,6 +366,33 @@ namespace Service.Service
             try
             {
                 await AddTaskSimply(key);
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "Add Success",
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
+        public async Task<ServiceResult> AddTaskManual(TaskAddManual key)
+        {
+            try
+            {
+                var task = await repo.AddTask(new()
+                {
+                    ScheduleId = key.ScheduleId,
+                    TaskName = key.TaskName,
+                    TaskTypeId = key.TaskTypeId,
+                    Description = key.Description,
+                    TimeStart = key.TimeStart,
+                });
                 return new ServiceResult
                 {
                     Status = 200,
@@ -492,6 +569,43 @@ namespace Service.Service
                         await healthTaskRepo.UpdateHealthTask(taskHealth);
                     }
                 }
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "Update Success",
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
+        public async Task<ServiceResult> UpdateTaskLeader(TaskLeaderUpdate key)
+        {
+            try
+            {
+                var task = repo.GetById(key.Id);
+                if (task == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Not Found"
+                    };
+                }
+                if (task.Status != "In Progressing")
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Task Started or Finished"
+                    };
+                }
+                task = await repo.UpdateTaskLeader(key);
                 return new ServiceResult
                 {
                     Status = 200,
