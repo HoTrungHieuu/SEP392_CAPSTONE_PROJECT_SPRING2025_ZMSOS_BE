@@ -303,7 +303,7 @@ namespace Service.Service
                     return new ServiceResult
                     {
                         Status = 400,
-                        Message = "Application Approved or Rejected ",
+                        Message = "Application Approved or Rejected",
                     };
                 }
                 application = await repo.UpdateApplication(key);

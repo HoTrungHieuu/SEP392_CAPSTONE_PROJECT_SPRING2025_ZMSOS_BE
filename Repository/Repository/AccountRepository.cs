@@ -23,7 +23,7 @@ namespace Repository.Repository
         }
         public async Task<Account?> GetAccountManager()
         {
-            var account = (await GetListAccount()).FirstOrDefault(l => l.RoleId == 2);
+            var account = (await GetListAccount()).LastOrDefault(l => l.RoleId == 2);
             return account;
         }
         public async Task<List<Account>?> GetListAccountLeader()
