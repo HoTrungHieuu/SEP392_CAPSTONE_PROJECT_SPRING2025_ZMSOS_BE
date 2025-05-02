@@ -113,7 +113,7 @@ namespace Service.Service
         {
             try
             {
-                var reports = await repo.GetListReportBySenderId(recieverId);
+                var reports = await repo.GetListReportByRecieverId(recieverId);
                 if (reports == null)
                 {
                     return new ServiceResult
