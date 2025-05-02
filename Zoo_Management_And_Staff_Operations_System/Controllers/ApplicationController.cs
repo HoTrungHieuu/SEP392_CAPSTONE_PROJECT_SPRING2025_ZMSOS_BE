@@ -58,7 +58,7 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
-        [Authorize(Roles = "Leader,Staff")]
+        [Authorize(Roles = "Manager,Leader,Staff")]
         [HttpPost("application")]
         public async Task<IActionResult> AddApplication(ApplicationAdd key)
         {
@@ -66,7 +66,7 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
-        [Authorize(Roles = "Manager,Leader")]
+        [Authorize(Roles = "Admin,Manager,Leader")]
         [HttpPut("application/reply")]
         public async Task<IActionResult> UpdateApplicaiton(ApplicationUpdate key)
         {

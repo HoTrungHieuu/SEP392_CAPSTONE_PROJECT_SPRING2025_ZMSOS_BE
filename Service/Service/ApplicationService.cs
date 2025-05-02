@@ -226,7 +226,11 @@ namespace Service.Service
                     };
                 }
                 int? recieverId = null;
-                if(account.RoleId == 3)
+                if (account.RoleId == 2)
+                {
+                    recieverId = (await accountRepo.GetAccountAdmin())?.Id;
+                }
+                else if (account.RoleId == 3)
                 {
                     recieverId = (await accountRepo.GetAccountManager())?.Id;
                 }

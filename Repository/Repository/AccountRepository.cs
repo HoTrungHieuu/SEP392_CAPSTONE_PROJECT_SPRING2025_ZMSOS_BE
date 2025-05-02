@@ -21,6 +21,11 @@ namespace Repository.Repository
             accounts = accounts.OrderByDescending(l => l.CreatedDate).ToList();
             return accounts;
         }
+        public async Task<Account?> GetAccountAdmin()
+        {
+            var account = (await GetListAccount()).LastOrDefault(l => l.RoleId == 1);
+            return account;
+        }
         public async Task<Account?> GetAccountManager()
         {
             var account = (await GetListAccount()).LastOrDefault(l => l.RoleId == 2);
