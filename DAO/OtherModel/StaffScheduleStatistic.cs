@@ -12,5 +12,6 @@ namespace DAO.OtherModel
         public AccountView? Account { get; set; }
         public int TotalCurrentSchedule { get; set; }
         public int TotalSchedule { get; set; }
+        public TaskStatusNumber TaskNumber { get; set; }
     }
 }

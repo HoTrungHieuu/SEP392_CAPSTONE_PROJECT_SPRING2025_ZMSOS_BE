@@ -26,7 +26,8 @@ namespace Service.Service
         public ICageRepository cageRepo;
         public IScheduleRepository scheduleRepo;
         public IObjectViewService objectViewService;
-        public StatisticService(IAccountRepository accountRepo, ITeamRepository teamRepo, IAnimalTypeRepository animalTypeRepo, IAnimalRepository animalRepo, IFlockRepository flockRepo, ILeaderAssignRepository leaderAssignRepo, IMemberAssignRepository memberAssignRepo, IZooAreaRepository zooAreaRepo, IUserRepository userRepo, ICageRepository cageRepo, IScheduleRepository scheduleRepo, IObjectViewService objectViewService)
+        public ITaskRepository taskRepo;
+        public StatisticService(IAccountRepository accountRepo, ITeamRepository teamRepo, IAnimalTypeRepository animalTypeRepo, IAnimalRepository animalRepo, IFlockRepository flockRepo, ILeaderAssignRepository leaderAssignRepo, IMemberAssignRepository memberAssignRepo, IZooAreaRepository zooAreaRepo, IUserRepository userRepo, ICageRepository cageRepo, IScheduleRepository scheduleRepo, IObjectViewService objectViewService, ITaskRepository taskRepo)
         {
             this.accountRepo = accountRepo;
             this.teamRepo = teamRepo;
@@ -40,6 +41,7 @@ namespace Service.Service
             this.cageRepo = cageRepo;
             this.scheduleRepo = scheduleRepo;
             this.objectViewService = objectViewService;
+            this.taskRepo = taskRepo;
         }
         public async Task<ServiceResult> GetStatistic()
         {
@@ -127,7 +129,10 @@ namespace Service.Service
         {
             try
             {
-                LeaderStatistic result = new();
+                LeaderStatistic result = new()
+                {
+                    ScheduleStatistic = new()
+                };
                 var account = accountRepo.GetById(accountId);
                 if (account == null)
                 {
@@ -153,12 +158,37 @@ namespace Service.Service
                 foreach(var memberAssign in memberAssigns)
                 {
                     var schedules = await scheduleRepo.GetListScheduleByAccountIdByDate((int)memberAssign.MemberId, fromDate, toDate);
-                    result.ScheduleStatistic.Add(new()
+                    StaffScheduleStatistic scheduleStatistic = new()
                     {
                         Account = await objectViewService.GetAccountView(accountRepo.GetById((int)memberAssign.MemberId)),
                         TotalCurrentSchedule = schedules.FindAll(l => l.Status == "Finished").Count,
                         TotalSchedule = schedules.Count,
-                    });
+                        TaskNumber = new()
+                        {
+                            TotalTaskNumber = 0,
+                            TaskNotStart = 0,
+                            TaskFinished = 0
+                        }
+                    };
+                    
+                    foreach(var schedule in schedules)
+                    {
+                        var tasks = await taskRepo.GetListTaskByScheduleId(schedule.Id);
+                        scheduleStatistic.TaskNumber.TotalTaskNumber += tasks.Count;
+                        foreach (var task in tasks)
+                        {
+                            if(task.Status == "Not Start")
+                            {
+                                scheduleStatistic.TaskNumber.TaskNotStart++;
+                            }
+                            else if(task.Status == "Finish")
+                            {
+                                scheduleStatistic.TaskNumber.TaskFinished++;
+                            }
+                            
+                        }
+                    }
+                    result.ScheduleStatistic.Add(scheduleStatistic);
                 }
                 return new ServiceResult
                 {
