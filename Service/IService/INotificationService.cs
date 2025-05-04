@@ -10,6 +10,7 @@ namespace Service.IService
     public interface INotificationService
     {
         public Task<ServiceResult> GetListNotification(int accountId);
+        public Task<ServiceResult> DisableNotification(int id);
         public Task<ServiceResult> AddListNotification(List<NotificationAdd> key);
     }
 }

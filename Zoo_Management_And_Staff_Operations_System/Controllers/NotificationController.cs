@@ -27,25 +27,13 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
-        [HttpPost("notification(onlyDev)")]
-        public async Task<IActionResult> AddNotification(List<NotificationAdd> key)
+        [HttpDelete("notification/disable/by-id/{id}")]
+        public async Task<IActionResult> DisableNotification(int id)
         {
-            var result = await service.AddListNotification(key);
+            var result = await service.DisableNotification(id);
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
-        [HttpGet("notifications/ss")]
-        public async Task<IActionResult> GetListNotification(int accountId)
-        {
-            try
-            {
-                await handler.SendMessageAsync(accountId);
-                return Ok();
-            }
-            catch(Exception ex)
-            {
-                return StatusCode(501);
-            }
-        }
+        
     }
 }

@@ -511,6 +511,46 @@ namespace Service.Service
                 };
             }
         }
+        public async Task<ServiceResult> DisableAnimal(int animalId)
+        {
+            try
+            {
+                var animal = repo.GetById(animalId);
+                if (animal == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Not Found"
+                    };
+                }
+                if (animal.Classify == "Flock")
+                {
+                    var flock = await flockRepo.GetFlockByAnimalId(animalId);
+                    await flockRepo.RemoveAsync(flock);
+                }
+                else if (animal.Classify == "Individual")
+                {
+                    var individual = await individualRepo.GetIndividualByAnimalId(animalId);
+                    await individualRepo.RemoveAsync(individual);
+                }
+                await animalImageRepo.DeleteAnimalImageByAnimalId(animal.Id);
+                await repo.RemoveAsync(animal);
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "Delete Success",
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.Message.ToString(),
+                };
+            }
+        }
         public async Task<ServiceResult> AddAnimalCage(int animalId, int cageId)
         {
             try

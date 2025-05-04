@@ -1142,15 +1142,15 @@
   },
   {
     "ContainingType": "AccountManagement.Controllers.NotificationController",
-    "Method": "AddNotification",
-    "RelativePath": "api/Notification/notification(onlyDev)",
-    "HttpMethod": "POST",
+    "Method": "DisableNotification",
+    "RelativePath": "api/Notification/notification/disable/by-id/{id}",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "key",
-        "Type": "System.Collections.Generic.List\u00601[[DAO.AddModel.NotificationAdd, DAO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -1168,22 +1168,6 @@
         "Name": "accountId",
         "Type": "System.Int32",
         "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "AccountManagement.Controllers.NotificationController",
-    "Method": "GetListNotification",
-    "RelativePath": "api/Notification/notifications/ss",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "accountId",
-        "Type": "System.Int32",
-        "IsRequired": false
       }
     ],
     "ReturnTypes": []

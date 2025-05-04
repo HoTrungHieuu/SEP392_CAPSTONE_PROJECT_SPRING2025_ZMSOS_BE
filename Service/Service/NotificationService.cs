@@ -49,6 +49,26 @@ namespace Service.Service
                 };
             }
         }
+        public async Task<ServiceResult> DisableNotification(int id)
+        {
+            try
+            {
+                await repo.DisableNotification(id);
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "Disable Success",
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
         public async Task<ServiceResult> AddListNotification(List<NotificationAdd> key)
         {
             try
