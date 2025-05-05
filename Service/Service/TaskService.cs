@@ -34,8 +34,9 @@ namespace Service.Service
         public ICageRepository cageRepo;
         public IMemberAssignRepository memberAssignRepo;
         public ITeamRepository teamRepo;
+        public IFlockRepository flockRepo;
         
-        public TaskService(ITaskRepository repo, IAnimalCageRepository animalCageRepo, IAnimalAssignRepository animalAssignRepo, IObjectViewService objectViewService, ITaskMealRepository taskMealRepo, IAnimalRepository animalRepo, IMealDayRepository mealDayRepo, IScheduleRepository scheduleRepo, ITaskCleaningRepository taskCleaningRepo, ICleaningOptionRepository cleaningOptionRepo, IHealthTaskRepository healthTaskRepo,IAccountRepository accountRepo, ICageRepository cageRepo, IMemberAssignRepository memberAssignRepo,ITeamRepository teamRepo)
+        public TaskService(ITaskRepository repo, IAnimalCageRepository animalCageRepo, IAnimalAssignRepository animalAssignRepo, IObjectViewService objectViewService, ITaskMealRepository taskMealRepo, IAnimalRepository animalRepo, IMealDayRepository mealDayRepo, IScheduleRepository scheduleRepo, ITaskCleaningRepository taskCleaningRepo, ICleaningOptionRepository cleaningOptionRepo, IHealthTaskRepository healthTaskRepo,IAccountRepository accountRepo, ICageRepository cageRepo, IMemberAssignRepository memberAssignRepo,ITeamRepository teamRepo,IFlockRepository flockRepo)
         {
             this.repo = repo;
             this.animalCageRepo = animalCageRepo;
@@ -52,6 +53,7 @@ namespace Service.Service
             this.cageRepo = cageRepo;
             this.memberAssignRepo = memberAssignRepo;
             this.teamRepo = teamRepo;
+            this.flockRepo = flockRepo;
         }
         public async Task<ServiceResult> GetListTaskByDateByTeamId(int teamId, DateOnly fromDate, DateOnly toDate)
         {
@@ -727,13 +729,21 @@ namespace Service.Service
                             List<AnimalMealId> keyAdd1 = new();
                             foreach(var item3 in animalIdCurrent)
                             {
+                                int quantity = 1;
+                                var animal = animalRepo.GetById(item3);
+                                if (animal.Classify == "Flock")
+                                {
+                                    var flock = flockRepo.GetById(animal.Id);
+                                    quantity = quantity * (int)flock.Quantity;
+                                }
+                                
                                 keyAdd1.Add(new()
                                 {
                                     AnimalId = item3,
                                     TaskMeal = new()
                                     {
                                         MealDayId = datess.FirstOrDefault(l=>l.Item3==item3).Item4.Id,
-                                        Percent = datess.FirstOrDefault(l => l.Item3 == item3).Item2
+                                        Percent = datess.FirstOrDefault(l => l.Item3 == item3).Item2 * quantity,
                                     }
                                 });
                             }

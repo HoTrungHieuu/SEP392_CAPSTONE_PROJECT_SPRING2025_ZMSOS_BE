@@ -50,6 +50,4 @@ public partial class AnimalType
     public virtual ICollection<IncompatibleAnimalType> IncompatibleAnimalTypeAnimalTypeId2Navigations { get; set; } = new List<IncompatibleAnimalType>();
 
     public virtual ICollection<MealDay> MealDays { get; set; } = new List<MealDay>();
-
-    public virtual ICollection<TaskEstimate> TaskEstimates { get; set; } = new List<TaskEstimate>();
 }

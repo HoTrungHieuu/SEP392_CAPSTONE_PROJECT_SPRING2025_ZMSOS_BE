@@ -23,6 +23,8 @@ public partial class Animal
 
     public DateTime? UpdatedDate { get; set; }
 
+    public string Status { get; set; }
+
     public virtual ICollection<AnimalCage> AnimalCages { get; set; } = new List<AnimalCage>();
 
     public virtual ICollection<AnimalImage> AnimalImages { get; set; } = new List<AnimalImage>();
@@ -30,6 +32,8 @@ public partial class Animal
     public virtual AnimalType AnimalType { get; set; }
 
     public virtual ICollection<Flock> Flocks { get; set; } = new List<Flock>();
+
+    public virtual ICollection<IncidentHistory> IncidentHistories { get; set; } = new List<IncidentHistory>();
 
     public virtual ICollection<Individual> Individuals { get; set; } = new List<Individual>();
 }

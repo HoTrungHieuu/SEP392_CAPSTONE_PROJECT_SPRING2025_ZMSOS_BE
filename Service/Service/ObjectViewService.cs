@@ -38,7 +38,6 @@ namespace Service.Service
         public INewsRepository newsRepo;
         public INotificationRepository notificationRepo;
         public IScheduleRepository scheduleRepo;
-        public ITaskEstimateRepository taskEstimateRepo;
         public IAnimalImageRepository animalImageRepo;
         public IRoleRepository roleRepo;
         public IFoodRepository foodRepo;
@@ -50,6 +49,7 @@ namespace Service.Service
         public IUrlProcessRepository urlProcessRepo;
         public ITaskCleaningRepository taskCleaningRepo;
         public IHealthTaskRepository healthTaskRepo;
+        public IIncidentHistoryRepository incidentHistoryRepo;
         public ObjectViewService(IAnimalRepository animalRepo, IAnimalTypeRepository animalTypeRepo, 
             ICageRepository cageRepo, IZooAreaRepository zooAreaRepo,
             ITaskRepository taskRepo, ITaskTypeRepository taskTypeRepo, IAnimalCageRepository animalCageRepo, IAnimalAssignRepository animalAssignRepo,
@@ -62,11 +62,10 @@ namespace Service.Service
             INewsRepository newsRepo,
             INotificationRepository notificationRepo,
             IScheduleRepository scheduleRepo,
-            ITaskEstimateRepository taskEstimateRepo,
             IAnimalImageRepository animalImageRepo,
             IRoleRepository roleRepo,
             IFoodRepository foodRepo, IMealDayRepository mealDayRepo, IMealFoodRepository mealFoodRepo, ITaskMealRepository taskMealRepo,
-            ICleaningOptionRepository cleaningOptionRepo, ICleaningProcessRepository cleaningProcessRepo, IUrlProcessRepository urlProcessRepo, ITaskCleaningRepository taskCleaningRepo, IHealthTaskRepository healthTaskRepo)
+            ICleaningOptionRepository cleaningOptionRepo, ICleaningProcessRepository cleaningProcessRepo, IUrlProcessRepository urlProcessRepo, ITaskCleaningRepository taskCleaningRepo, IHealthTaskRepository healthTaskRepo, IIncidentHistoryRepository incidentHistoryRepo)
         {
             this.animalRepo = animalRepo;
             this.animalTypeRepo = animalTypeRepo;
@@ -91,7 +90,6 @@ namespace Service.Service
             this.newsRepo = newsRepo;
             this.notificationRepo = notificationRepo;
             this.scheduleRepo = scheduleRepo;
-            this.taskEstimateRepo = taskEstimateRepo;
             this.animalImageRepo = animalImageRepo;
             this.roleRepo = roleRepo;
             this.foodRepo = foodRepo;
@@ -103,6 +101,7 @@ namespace Service.Service
             this.urlProcessRepo = urlProcessRepo;
             this.taskCleaningRepo = taskCleaningRepo;
             this.healthTaskRepo = healthTaskRepo;
+            this.incidentHistoryRepo = incidentHistoryRepo;
         }
         public async Task<List<AnimalView>> GetListAnimalView(List<Animal> animals)
         {
@@ -627,25 +626,7 @@ namespace Service.Service
             var result = scheduleRepo.ConvertScheduleIntoScheduleView(schedule, user);
             return result;
         }
-        public async Task<List<TaskEstimateView>> GetListTaskEstimateView(List<TaskEstimate> taskEstimates)
-        {
-            List<TaskEstimateView> result = new List<TaskEstimateView>();
-            foreach (var taskEstimate in taskEstimates)
-            {
-                result.Add(await GetTaskEstimateView(taskEstimate));
-            }
-            return result;
-        }
-        public async Task<TaskEstimateView> GetTaskEstimateView(TaskEstimate taskEstimate)
-        {
-            if (taskEstimate == null) return null;
-            TaskTypeView taskType = new();
-            taskType = await GetTaskTypeView(taskTypeRepo.GetById((int)taskEstimate.TaskTypeId));
-            AnimalTypeView animalType = new();
-            animalType = await GetAnimalTypeView(animalTypeRepo.GetById((int)taskEstimate.AnimalTypeId));
-            var result = taskEstimateRepo.ConvertTaskEstimateIntoTaskEstimateView(taskEstimate, taskType,animalType);
-            return result;
-        }
+        
         public async Task<List<RoleView>> GetListRoleView(List<Role> roles)
         {
             List<RoleView> result = new List<RoleView>();
@@ -759,6 +740,23 @@ namespace Service.Service
         {
             if (taskHealth == null) return null;
             var result = healthTaskRepo.ConvertTaskHealthIntoTaskHealthView(taskHealth);
+            return result;
+        }
+        public async Task<List<IncidentHistoryView>> GetListIncidentHistoryView(List<IncidentHistory> incidentHistorys)
+        {
+            List<IncidentHistoryView> result = new List<IncidentHistoryView>();
+            foreach (var incidentHistory in incidentHistorys)
+            {
+                result.Add(await GetIncidentHistoryView(incidentHistory));
+            }
+            return result;
+        }
+        public async Task<IncidentHistoryView> GetIncidentHistoryView(IncidentHistory incidentHistory)
+        {
+            if (incidentHistory == null) return null;
+            AnimalView animal = new AnimalView();
+            animal = await GetAnimalView((animalRepo.GetById(incidentHistory.AnimalId)));
+            var result = incidentHistoryRepo.ConvertIncidentHistoryIntoIncidentHistoryView(incidentHistory, animal);
             return result;
         }
     }

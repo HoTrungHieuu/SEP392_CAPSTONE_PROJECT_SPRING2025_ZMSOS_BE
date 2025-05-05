@@ -144,8 +144,6 @@ builder.Services.AddScoped<IMemberAssignRepository, MemberAssignRepository>();
 builder.Services.AddScoped<ITeamService, TeamService>();
 builder.Services.AddScoped<ITaskTypeRepository, TaskTypeRepository>();
 builder.Services.AddScoped<ITaskTypeService, TaskTypeService>();
-builder.Services.AddScoped<ITaskEstimateRepository, TaskEstimateRepository>();
-builder.Services.AddScoped<ITaskEstimateService, TaskEstimateService>();
 builder.Services.AddScoped<IIndividualRepository, IndividualRepository>();
 builder.Services.AddScoped<IFlockRepository, FlockRepository>();
 builder.Services.AddScoped<IObjectViewService, ObjectViewService>();
@@ -167,6 +165,8 @@ builder.Services.AddScoped<IUrlProcessRepository, UrlProcessRepository>();
 builder.Services.AddScoped<ITaskCleaningRepository, TaskCleaningRepository>();
 builder.Services.AddScoped<IHealthTaskRepository, HealthTaskRepository>();
 builder.Services.AddScoped<IStatisticService, StatisticService>();
+builder.Services.AddScoped<IIncidentHistoryRepository, IncidentHistoryRepository>();
+builder.Services.AddScoped<IIncidentHistoryService, IncidentHistoryService>();
 
 builder.Services.AddSingleton<WebSocketConnectionManager>();
 builder.Services.AddSingleton<WebSocketHandler>();

@@ -83,10 +83,10 @@ namespace AccountManagement.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Admin,Manager,Leader")]
-        [HttpPut("schedule/finish")]
-        public async Task<IActionResult> FinishSchedule(ScheduleUpdate key)
+        [HttpPut("schedule")]
+        public async Task<IActionResult> UpdateSchedule(ScheduleUpdate key)
         {
-            var result = await service.FinishSchedule(key);
+            var result = await service.UpdateSchedule(key);
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }

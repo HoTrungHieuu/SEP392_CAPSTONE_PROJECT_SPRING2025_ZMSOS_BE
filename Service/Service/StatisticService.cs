@@ -1,4 +1,5 @@
 ﻿using BO.Models;
+using DAO.AddModel;
 using DAO.OtherModel;
 using NPOI.SS.Formula.Functions;
 using Repository.IRepository;
@@ -27,7 +28,8 @@ namespace Service.Service
         public IScheduleRepository scheduleRepo;
         public IObjectViewService objectViewService;
         public ITaskRepository taskRepo;
-        public StatisticService(IAccountRepository accountRepo, ITeamRepository teamRepo, IAnimalTypeRepository animalTypeRepo, IAnimalRepository animalRepo, IFlockRepository flockRepo, ILeaderAssignRepository leaderAssignRepo, IMemberAssignRepository memberAssignRepo, IZooAreaRepository zooAreaRepo, IUserRepository userRepo, ICageRepository cageRepo, IScheduleRepository scheduleRepo, IObjectViewService objectViewService, ITaskRepository taskRepo)
+        public IAnimalCageRepository animalCageRepo;
+        public StatisticService(IAccountRepository accountRepo, ITeamRepository teamRepo, IAnimalTypeRepository animalTypeRepo, IAnimalRepository animalRepo, IFlockRepository flockRepo, ILeaderAssignRepository leaderAssignRepo, IMemberAssignRepository memberAssignRepo, IZooAreaRepository zooAreaRepo, IUserRepository userRepo, ICageRepository cageRepo, IScheduleRepository scheduleRepo, IObjectViewService objectViewService, ITaskRepository taskRepo, IAnimalCageRepository animalCageRepo)
         {
             this.accountRepo = accountRepo;
             this.teamRepo = teamRepo;
@@ -42,6 +44,7 @@ namespace Service.Service
             this.scheduleRepo = scheduleRepo;
             this.objectViewService = objectViewService;
             this.taskRepo = taskRepo;
+            this.animalCageRepo = animalCageRepo;
         }
         public async Task<ServiceResult> GetStatistic()
         {
@@ -131,6 +134,10 @@ namespace Service.Service
             {
                 LeaderStatistic result = new()
                 {
+                    TotalStaff = 0,
+                    TotalCage = 0,
+                    TotalAnimalIndividual = 0,
+                    TotalAnimalFlock = 0,
                     ScheduleStatistic = new()
                 };
                 var account = accountRepo.GetById(accountId);
@@ -154,14 +161,38 @@ namespace Service.Service
                     };
                 }
 
+                var zooArea = zooAreaRepo.GetById(team.ZooAreaId);
+                var cages = await cageRepo.GetListCageByAreaId(zooArea.Id);
+                result.TotalCage = cages.Count();
+                foreach(var cage in cages)
+                {
+                    var animalCages = await animalCageRepo.GetListAnimalCageByCageId(cage.Id);
+                    List<Animal> animals = new List<Animal>();
+                    foreach (var animalCage in animalCages)
+                    {
+                        animals.Add(animalRepo.GetById(animalCage.AnimalId));
+                    }
+                    if(animals.Count > 0 && cage.Classify == "Flock")
+                    {
+                        var flock = await flockRepo.GetFlockByAnimalId(animals[0].Id);
+                        result.TotalAnimalFlock += (int)flock.Quantity;
+                    }
+                    else if (cage.Classify == "Individual")
+                    {
+                        result.TotalAnimalIndividual += (int)animals.Count;
+                    }
+                }
+
                 var memberAssigns = await memberAssignRepo.GetListMemberAssignByTeamId(team.Id);
+                result.TotalStaff = memberAssigns.Count();
                 foreach(var memberAssign in memberAssigns)
                 {
                     var schedules = await scheduleRepo.GetListScheduleByAccountIdByDate((int)memberAssign.MemberId, fromDate, toDate);
                     StaffScheduleStatistic scheduleStatistic = new()
                     {
                         Account = await objectViewService.GetAccountView(accountRepo.GetById((int)memberAssign.MemberId)),
-                        TotalCurrentSchedule = schedules.FindAll(l => l.Status == "Finished").Count,
+                        TotalPresentSchedule = schedules.FindAll(l => l.Status == "Prensent").Count,
+                        TotalAbsentSchedule = schedules.FindAll(l => l.Status == "Absent").Count,
                         TotalSchedule = schedules.Count,
                         TaskNumber = new()
                         {

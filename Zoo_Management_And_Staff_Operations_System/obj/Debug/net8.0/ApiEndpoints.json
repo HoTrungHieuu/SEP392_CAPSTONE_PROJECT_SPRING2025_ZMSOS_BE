@@ -925,6 +925,96 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.IncidentHistoryController",
+    "Method": "AddIncidentHistory",
+    "RelativePath": "api/IncidentHistory/incidentHistory",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.AddModel.IncidentHistoryAdd",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.IncidentHistoryController",
+    "Method": "UpdateIncidentHistory",
+    "RelativePath": "api/IncidentHistory/incidentHistory",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.UpdateModel.IncidentHistoryUpdate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.IncidentHistoryController",
+    "Method": "GetIncidentHisotoryById",
+    "RelativePath": "api/IncidentHistory/incidentHistory/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.IncidentHistoryController",
+    "Method": "DisableIncidentHistory",
+    "RelativePath": "api/IncidentHistory/incidentHistory/disable",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ids",
+        "Type": "System.Collections.Generic.List\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.IncidentHistoryController",
+    "Method": "GetListIncidentHistory",
+    "RelativePath": "api/IncidentHistory/incidentHistorys",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.IncidentHistoryController",
+    "Method": "GetListIncidentHisotoryByAnimalId",
+    "RelativePath": "api/IncidentHistory/incidentHistorys/by-animalId/{animalId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "animalId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.IncompatibleAnimalTypeController",
     "Method": "AddIncompatibleAnimalType",
     "RelativePath": "api/IncompatibleAnimalType/incompatibleAnimalType",
@@ -1317,6 +1407,22 @@
   },
   {
     "ContainingType": "AccountManagement.Controllers.ScheduleController",
+    "Method": "UpdateSchedule",
+    "RelativePath": "api/Schedule/schedule",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.UpdateModel.ScheduleUpdate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AccountManagement.Controllers.ScheduleController",
     "Method": "DeleteSchedule",
     "RelativePath": "api/Schedule/schedule",
     "HttpMethod": "DELETE",
@@ -1374,22 +1480,6 @@
       {
         "Name": "key",
         "Type": "DAO.DeleteModel.ScheduleDelete",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "AccountManagement.Controllers.ScheduleController",
-    "Method": "FinishSchedule",
-    "RelativePath": "api/Schedule/schedule/finish",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "key",
-        "Type": "DAO.UpdateModel.ScheduleUpdate",
         "IsRequired": true
       }
     ],
@@ -1821,96 +1911,6 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.TaskEstimateController",
-    "Method": "AddTaskEstimate",
-    "RelativePath": "api/TaskEstimate/taskEstimate",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "key",
-        "Type": "DAO.AddModel.TaskEstimateAdd",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.TaskEstimateController",
-    "Method": "UpdateTaskEstimate",
-    "RelativePath": "api/TaskEstimate/taskEstimate",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "key",
-        "Type": "DAO.UpdateModel.TaskEstimateUpdate",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.TaskEstimateController",
-    "Method": "GetTaskEstimateById",
-    "RelativePath": "api/TaskEstimate/taskEstimate/{id}",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.TaskEstimateController",
-    "Method": "GetListTaskEstimate",
-    "RelativePath": "api/TaskEstimate/taskEstimates",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.TaskEstimateController",
-    "Method": "GetListTaskEstimateByAnimalTypeId",
-    "RelativePath": "api/TaskEstimate/taskEstimates/by-adnimalType/{animalTypeId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "animalTypeId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.TaskEstimateController",
-    "Method": "GetListTaskEstimateByTaskTypeId",
-    "RelativePath": "api/TaskEstimate/taskEstimates/by-taskType/{taskTypeId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "taskTypeId",
         "Type": "System.Int32",
         "IsRequired": true
       }

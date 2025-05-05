@@ -10,8 +10,9 @@ namespace DAO.OtherModel
     public class StaffScheduleStatistic
     {
         public AccountView? Account { get; set; }
-        public int TotalCurrentSchedule { get; set; }
         public int TotalSchedule { get; set; }
+        public int TotalPresentSchedule { get; set; }
+        public int TotalAbsentSchedule { get; set; }
         public TaskStatusNumber TaskNumber { get; set; }
     }
 }

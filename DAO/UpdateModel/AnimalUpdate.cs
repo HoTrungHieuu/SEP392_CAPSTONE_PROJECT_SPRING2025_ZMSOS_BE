@@ -12,6 +12,7 @@ namespace DAO.UpdateModel
         public int AnimalTypeId {  get; set; }
         public string? Name {  get; set; }
         public string? Description { get; set; }
+        public DateOnly? ArrivalDate { get; set; }
         public string? Classify {  get; set; }
         public FlockUpdate? Flock { get; set; }
         public IndividualUpdate? Individual { get; set; }

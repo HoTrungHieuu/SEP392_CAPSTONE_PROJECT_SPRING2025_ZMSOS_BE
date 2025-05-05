@@ -13,7 +13,5 @@ public partial class TaskType
 
     public string Description { get; set; }
 
-    public virtual ICollection<TaskEstimate> TaskEstimates { get; set; } = new List<TaskEstimate>();
-
     public virtual ICollection<Task> Tasks { get; set; } = new List<Task>();
 }

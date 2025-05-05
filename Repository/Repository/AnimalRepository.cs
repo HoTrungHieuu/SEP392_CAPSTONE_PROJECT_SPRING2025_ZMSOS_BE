@@ -89,6 +89,7 @@ namespace Repository.Repository
                 animal.Name = key.Name;
                 animal.Description = key.Description;
                 animal.Classify = key.Classify;
+                animal.ArrivalDate = key.ArrivalDate;
                 animal.UpdatedDate = VietNamTime.GetVietNamTime();
                 await UpdateAsync(animal);
                 _memoryCache.Remove("animal_list");

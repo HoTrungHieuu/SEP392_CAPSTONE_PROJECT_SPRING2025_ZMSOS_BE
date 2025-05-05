@@ -1,9 +1,10 @@
 ﻿using BO.Models;
 using DAO.AddModel;
+using DAO.OtherModel;
+using DAO.SearchModel;
 using DAO.UpdateModel;
 using DAO.ViewModel;
 using Repository.IRepository;
-using Repository.IRepositoyr;
 using Service.IService;
 using System;
 using System.Collections.Generic;
@@ -13,55 +14,21 @@ using System.Threading.Tasks;
 
 namespace Service.Service
 {
-    public class TaskEstimateService : ITaskEstimateService
+    public class IncidentHistoryService : IIncidentHistoryService
     {
-        public ITaskEstimateRepository repo;
-        public ITaskTypeRepository taskTypeRepo;
-        public IAnimalTypeRepository animalTypeRepo;
+        public IIncidentHistoryRepository repo;
         public IObjectViewService objectViewService;
-        public TaskEstimateService(ITaskEstimateRepository repo, ITaskTypeRepository taskTypeRepo, IAnimalTypeRepository animalTypeRepo, IObjectViewService objectViewService)
+        public IncidentHistoryService(IIncidentHistoryRepository repo, IObjectViewService objectViewService)
         {
             this.repo = repo;
-            this.taskTypeRepo = taskTypeRepo;
-            this.animalTypeRepo = animalTypeRepo;
             this.objectViewService = objectViewService;
         }
-        public async Task<ServiceResult> GetListTaskEstimate()
+        public async Task<ServiceResult> GetListIncidentHistory()
         {
             try
             {
-                var taskEstimates = await repo.GetListTaskEstimate();
-                if (taskEstimates == null)
-                {
-                    return new ServiceResult
-                    {
-                        Status = 404,
-                        Message = "Not Found!",
-                    };
-                }
-                var result = await objectViewService.GetListTaskEstimateView(taskEstimates);
-                return new ServiceResult
-                {
-                    Status = 200,
-                    Message = "Task Estimates",
-                    Data = result
-                };
-            }
-            catch (Exception ex)
-            {
-                return new ServiceResult
-                {
-                    Status = 501,
-                    Message = ex.ToString(),
-                };
-            }
-        }
-        public async Task<ServiceResult> GetListTaskEstimateByTaskTypeId(int taskTypeId)
-        {
-            try
-            {
-                var taskEstimates = await repo.GetListTaskEstimate();
-                if (taskEstimates == null)
+                var incidentHistorys = await repo.GetListIncidentHistory();
+                if (incidentHistorys == null)
                 {
                     return new ServiceResult
                     {
@@ -70,11 +37,11 @@ namespace Service.Service
                     };
                 }
 
-                var result = await objectViewService.GetListTaskEstimateView(taskEstimates);
+                var result = await objectViewService.GetListIncidentHistoryView(incidentHistorys);
                 return new ServiceResult
                 {
                     Status = 200,
-                    Message = "Task Estimates",
+                    Message = "Incident Historys",
                     Data = result
                 };
             }
@@ -87,12 +54,12 @@ namespace Service.Service
                 };
             }
         }
-        public async Task<ServiceResult> GetListTaskEstimateByAnimalTypeId(int animalTypeId)
+        public async Task<ServiceResult> GetListIncidentHistoryByAnimalId(int animalId)
         {
             try
             {
-                var taskEstimates = await repo.GetListTaskEstimateByAnimalTypeId(animalTypeId);
-                if (taskEstimates == null)
+                var incidentHistorys = await repo.GetListIncidentHistoryByAnimalId(animalId);
+                if (incidentHistorys == null)
                 {
                     return new ServiceResult
                     {
@@ -101,11 +68,11 @@ namespace Service.Service
                     };
                 }
 
-                var result = await objectViewService.GetListTaskEstimateView(taskEstimates);
+                var result = await objectViewService.GetListIncidentHistoryView(incidentHistorys);
                 return new ServiceResult
                 {
                     Status = 200,
-                    Message = "Task Estimates",
+                    Message = "Incident Historys",
                     Data = result
                 };
             }
@@ -118,12 +85,12 @@ namespace Service.Service
                 };
             }
         }
-        public async Task<ServiceResult> GetTaskEstimateById(int id)
+        public async Task<ServiceResult> GetIncidentHistoryById(int id)
         {
             try
             {
-                var taskEstimate = repo.GetById(id);
-                if (taskEstimate == null)
+                var incidentHistory = repo.GetById(id);
+                if (incidentHistory == null)
                 {
                     return new ServiceResult
                     {
@@ -131,11 +98,12 @@ namespace Service.Service
                         Message = "Not Found!",
                     };
                 }
-                var result = await objectViewService.GetTaskEstimateView(taskEstimate);
+
+                var result = await objectViewService.GetIncidentHistoryView(incidentHistory);
                 return new ServiceResult
                 {
                     Status = 200,
-                    Message = "Task Estimate",
+                    Message = "Incident History",
                     Data = result
                 };
             }
@@ -148,15 +116,17 @@ namespace Service.Service
                 };
             }
         }
-        public async Task<ServiceResult> AddTaskEstimate(TaskEstimateAdd key)
+        public async Task<ServiceResult> AddIncidentHistory(IncidentHistoryAdd key)
         {
             try
             {
-                var taskEstimate = await repo.AddTaskEstimate(key);
+                var incidentHistory = await repo.AddIncidentHistory(key);
+                var result = await objectViewService.GetIncidentHistoryView(incidentHistory);
                 return new ServiceResult
                 {
                     Status = 200,
                     Message = "Add Success",
+                    Data = result
                 };
             }
             catch (Exception ex)
@@ -168,12 +138,12 @@ namespace Service.Service
                 };
             }
         }
-        public async Task<ServiceResult> UpdateTaskEstimate(TaskEstimateUpdate key)
+        public async Task<ServiceResult> UpdateIncidentHistory(IncidentHistoryUpdate key)
         {
             try
             {
-                var taskEstimate = await repo.UpdateTaskEstimate(key);
-                if (taskEstimate == null)
+                var incidentHistory = await repo.UpdateIncidentHistory(key);
+                if (incidentHistory == null)
                 {
                     return new ServiceResult
                     {
@@ -181,10 +151,40 @@ namespace Service.Service
                         Message = "Not Found"
                     };
                 }
+                var result = await objectViewService.GetIncidentHistoryView(incidentHistory);
+
                 return new ServiceResult
                 {
                     Status = 200,
                     Message = "Update Success",
+                    Data = result
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
+        public async Task<ServiceResult> DisableIncidentHistory(List<int> incidentHistoryIds)
+        {
+            try
+            {
+                incidentHistoryIds = incidentHistoryIds.Distinct().ToList();
+                List<int> unsucessIds = new List<int>();
+                foreach (int incidentHistoryId in incidentHistoryIds)
+                {
+                    if ((await repo.DisableIncidentHistory(incidentHistoryId)) == 0)
+                        unsucessIds.Add(incidentHistoryId);
+                }
+
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = $"Disable Success with id unsuccess {unsucessIds}",
                 };
             }
             catch (Exception ex)

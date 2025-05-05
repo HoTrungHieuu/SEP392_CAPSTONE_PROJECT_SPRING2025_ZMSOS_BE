@@ -345,7 +345,7 @@ namespace Service.Service
                 };
             }
         }
-        public async Task<ServiceResult> FinishSchedule(ScheduleUpdate key)
+        public async Task<ServiceResult> UpdateSchedule(ScheduleUpdate key)
         {
             try
             {
@@ -358,12 +358,12 @@ namespace Service.Service
                         Message = "Not Found"
                     };
                 }
-                if (schedule.Status == "Finished")
+                if (schedule.Status != "Pending")
                 {
                     return new ServiceResult
                     {
                         Status = 404,
-                        Message = "Schedule Finished"
+                        Message = "Schedule is not Pending"
                     };
                 }
                 schedule = await repo.UpdateSchedule(key);

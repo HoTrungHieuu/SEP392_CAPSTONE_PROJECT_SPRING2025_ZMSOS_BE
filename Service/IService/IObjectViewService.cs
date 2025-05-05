@@ -46,8 +46,6 @@ namespace Service.IService
         public Task<NotificationView> GetNotificationView(Notification notification);
         public Task<List<ScheduleView>> GetListScheduleView(List<Schedule> schedules);
         public Task<ScheduleView> GetScheduleView(Schedule schedule);
-        public Task<List<TaskEstimateView>> GetListTaskEstimateView(List<TaskEstimate> taskEstimates);
-        public Task<TaskEstimateView> GetTaskEstimateView(TaskEstimate taskEstimate);
         public Task<List<RoleView>> GetListRoleView(List<Role> roles);
         public Task<RoleView> GetRoleView(Role role);
         public Task<List<FoodView>> GetListFoodView(List<Food> foods);
@@ -61,5 +59,7 @@ namespace Service.IService
         public Task<List<CleaningOptionView>> GetListCleaninOptionView(List<CleaningOption> cleaningOptions);
         public Task<CleaningOptionView> GetCleaningOptionView(CleaningOption cleaningOption);
         public Task<TaskHealthView> GetTaskHealthView(TaskHealth taskHealth);
+        public Task<List<IncidentHistoryView>> GetListIncidentHistoryView(List<IncidentHistory> incidentHistorys);
+        public Task<IncidentHistoryView> GetIncidentHistoryView(IncidentHistory incidentHistory);
     }
 }

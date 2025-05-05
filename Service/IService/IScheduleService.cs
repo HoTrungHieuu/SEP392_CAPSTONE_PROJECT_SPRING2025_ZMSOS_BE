@@ -20,7 +20,7 @@ namespace Service.IService
         public Task<ServiceResult> GetScheduleById(int id);
         public Task<ServiceResult> AddSchedule(ScheduleAdd key);
         public Task<ServiceResult> AddScheduleAuto(ScheduleAutoAdd key);
-        public Task<ServiceResult> FinishSchedule(ScheduleUpdate key);
+        public Task<ServiceResult> UpdateSchedule(ScheduleUpdate key);
         public Task<ServiceResult> TranferSchedule(ScheduleTranfer key);
         public Task<ServiceResult> DeleteSchedule(ScheduleDelete key);
         public Task<ServiceResult> DisableSchedule(ScheduleDelete key);

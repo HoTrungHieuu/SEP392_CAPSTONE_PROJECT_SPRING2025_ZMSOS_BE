@@ -65,7 +65,7 @@ namespace Repository.Repository
                     Date = key.Date,
                     Note = key.Note,
                     CreatedDate = VietNamTime.GetVietNamTime(),
-                    Status = "Not Start"
+                    Status = "Pending"
                 };
                 await CreateAsync(schedule);
                 return schedule;
@@ -108,7 +108,7 @@ namespace Repository.Repository
                 }
                 schedule.Note = key.Note;
                 schedule.UpdatedDate = VietNamTime.GetVietNamTime();
-                schedule.Status = "Finished";
+                schedule.Status = key.Status;
                 await UpdateAsync(schedule);
                 return schedule;
             }
