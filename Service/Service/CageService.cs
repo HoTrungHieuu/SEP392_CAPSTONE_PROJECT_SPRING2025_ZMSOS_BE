@@ -289,9 +289,11 @@ namespace Service.Service
                 List<CageHistory> result = new();
                 foreach (var animalCage in animalCages)
                 {
+                    var animal = animalRepo.GetById(animalCage.AnimalId);
+                    if (animal.Status == "Deleted") continue;
                     result.Add(new()
                     {
-                        Animal = await objectViewService.GetAnimalView(animalRepo.GetById(animalCage.AnimalId)),
+                        Animal = await objectViewService.GetAnimalView(animal),
                         FromDate = animalCage?.FromDate,
                         ToDate = animalCage?.ToDate,
                     });
