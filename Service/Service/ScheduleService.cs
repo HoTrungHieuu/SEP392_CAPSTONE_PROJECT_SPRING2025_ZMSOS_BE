@@ -362,7 +362,7 @@ namespace Service.Service
                 {
                     return new ServiceResult
                     {
-                        Status = 404,
+                        Status = 400,
                         Message = "Schedule is not Pending"
                     };
                 }

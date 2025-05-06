@@ -316,11 +316,11 @@ namespace Service.Service
                         accounts.Add(accountRepo.GetById(member.MemberId));
                     }
                 }
-                var result = await objectViewService.GetTaskView(task);
+                var result = await objectViewService.GetListAccountView(accounts);
                 return new ServiceResult
                 {
                     Status = 200,
-                    Message = "Task",
+                    Message = "Accounts",
                     Data = result
                 };
             }
