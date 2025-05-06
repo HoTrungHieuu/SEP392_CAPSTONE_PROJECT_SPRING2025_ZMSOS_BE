@@ -310,7 +310,7 @@ namespace Service.Service
                 List<Account> accounts = new();
                 foreach (var member in members)
                 {
-                    var schedules = await scheduleRepo.GetListScheduleByAccountIdByDate(member.Id, (DateOnly)schedule.Date, (DateOnly)schedule.Date);
+                    var schedules = await scheduleRepo.GetListScheduleByAccountIdByDate((int)member.MemberId, (DateOnly)schedule.Date, (DateOnly)schedule.Date);
                     if (schedules.Count > 0)
                     {
                         accounts.Add(accountRepo.GetById(member.MemberId));

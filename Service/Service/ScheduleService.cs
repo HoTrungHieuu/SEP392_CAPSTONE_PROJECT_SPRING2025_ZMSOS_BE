@@ -253,7 +253,7 @@ namespace Service.Service
                 List<Account> accounts = new();
                 foreach(var member in members)
                 {
-                    var schedules = await repo.GetListScheduleByAccountIdByDate(member.Id, (DateOnly)schedule.Date, (DateOnly)schedule.Date);
+                    var schedules = await repo.GetListScheduleByAccountIdByDate((int)member.MemberId, (DateOnly)schedule.Date, (DateOnly)schedule.Date);
                     if (schedules.Count == 0)
                     {
                         accounts.Add(accountRepo.GetById(member.MemberId));
@@ -358,12 +358,12 @@ namespace Service.Service
                         Message = "Not Found"
                     };
                 }
-                if (schedule.Status != "Pending")
+                if (schedule.Status != null && schedule.Status != "Pending")
                 {
                     return new ServiceResult
                     {
                         Status = 400,
-                        Message = "Schedule is not Pending"
+                        Message = "Schedule is Absent or Present can not update"
                     };
                 }
                 schedule = await repo.UpdateSchedule(key);
