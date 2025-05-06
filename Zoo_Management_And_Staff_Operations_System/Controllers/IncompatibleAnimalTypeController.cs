@@ -1,6 +1,7 @@
 ﻿using AccountManagement;
 using BO.Models;
 using DAO.AddModel;
+using DAO.OtherModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -38,6 +39,14 @@ namespace Zoo_Management_And_Staff_Operations_System.Controllers
         public async Task<IActionResult> AddIncompatibleAnimalType(IncompatibleAnimalTypeAdd key)
         {
             var result = await service.AddIncompatibleAnimalType(key);
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
+        [Authorize(Roles = "Manager")]
+        [HttpPost("incompatibleAnimalType/list")]
+        public async Task<IActionResult> AddListIncompatibleAnimalType(IncompatibleTypeAddList key)
+        {
+            var result = await service.AddListIncompatibleAnimalType(key);
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }

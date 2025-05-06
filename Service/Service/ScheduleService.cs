@@ -358,6 +358,14 @@ namespace Service.Service
                         Message = "Not Found"
                     };
                 }
+                if(schedule.Date > DateOnly.FromDateTime(VietNamTime.GetVietNamTime()))
+                {
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Schedule is in furture can not update"
+                    };
+                }
                 if (schedule.Status != null && schedule.Status != "Pending")
                 {
                     return new ServiceResult

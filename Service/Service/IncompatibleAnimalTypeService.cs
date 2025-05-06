@@ -1,5 +1,6 @@
 ﻿using BO.Models;
 using DAO.AddModel;
+using DAO.OtherModel;
 using Repository.IRepository;
 using Service.IService;
 using System;
@@ -111,6 +112,57 @@ namespace Service.Service
                 {
                     Status = 200,
                     Message = "Add Success",
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
+        public async Task<ServiceResult> AddListIncompatibleAnimalType(IncompatibleTypeAddList key)
+        {
+            try
+            {
+                List<int> unsuccessIds = new List<int>();
+                foreach(int id in key.AnimalTypeIds2)
+                {
+                    if (key.AnimalTypeId1 == id)
+                    {
+                       unsuccessIds.Add(id);
+                       continue;
+                    }
+                    int idTemp1 = 0;
+                    int idTemp2 = 0;
+                    if (key.AnimalTypeId1 > id)
+                    {
+                        idTemp1 = id;
+                        idTemp2 = (int)key.AnimalTypeId1;
+                    }
+                    else
+                    {
+                        idTemp1 = (int)key.AnimalTypeId1;
+                        idTemp2 = id;
+                    }
+                    if (await repo.CheckIncompatibleAnimalType((int)idTemp1, (int)idTemp2))
+                    {
+                        unsuccessIds.Add(id);
+                        continue;
+                    }
+                    await repo.AddIncompatibleAnimalType(new()
+                    {
+                        AnimalTypeId1 = idTemp1,
+                        AnimalTypeId2 = idTemp2,
+                        Reason = key.Reason,
+                    });
+                }
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = $"Add Success with id unsuccess {unsuccessIds}",
                 };
             }
             catch (Exception ex)

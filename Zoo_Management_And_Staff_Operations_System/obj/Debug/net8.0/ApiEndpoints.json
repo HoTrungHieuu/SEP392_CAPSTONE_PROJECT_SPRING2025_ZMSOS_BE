@@ -1048,6 +1048,22 @@
   },
   {
     "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.IncompatibleAnimalTypeController",
+    "Method": "AddListIncompatibleAnimalType",
+    "RelativePath": "api/IncompatibleAnimalType/incompatibleAnimalType/list",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "key",
+        "Type": "DAO.OtherModel.IncompatibleTypeAddList",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.IncompatibleAnimalTypeController",
     "Method": "GetListIncompatibleAnimalType",
     "RelativePath": "api/IncompatibleAnimalType/incompatibleAnimalTypes",
     "HttpMethod": "GET",
