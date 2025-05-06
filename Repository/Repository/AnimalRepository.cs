@@ -35,7 +35,7 @@ namespace Repository.Repository
                 }
                 else
                 {
-                    animals = await GetAllAsync();
+                    animals = (await GetAllAsync()).FindAll(l=>l.Status != "Deleted");
                     _memoryCache.Set("animal_list", animals, TimeSpan.FromMinutes(5));
                 }
                 animals = animals.OrderByDescending(l => l.CreatedDate).ToList();
@@ -91,6 +91,22 @@ namespace Repository.Repository
                 animal.Classify = key.Classify;
                 animal.ArrivalDate = key.ArrivalDate;
                 animal.UpdatedDate = VietNamTime.GetVietNamTime();
+                await UpdateAsync(animal);
+                _memoryCache.Remove("animal_list");
+                return animal;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public async Task<Animal?> DisableAnimal(int id)
+        {
+            try
+            {
+                var animal = GetById(id);
+                if (animal == null) return null;
+                animal.Status = "Deleted";
                 await UpdateAsync(animal);
                 _memoryCache.Remove("animal_list");
                 return animal;

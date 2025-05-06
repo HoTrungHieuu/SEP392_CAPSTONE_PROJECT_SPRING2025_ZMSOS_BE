@@ -238,6 +238,22 @@
   },
   {
     "ContainingType": "AnimalAndCageManagement.Controllers.AnimalController",
+    "Method": "DisableAnimal",
+    "RelativePath": "api/Animal/animal/disable/id/{animalId}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "animalId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnimalAndCageManagement.Controllers.AnimalController",
     "Method": "ExportListAnimal",
     "RelativePath": "api/Animal/animal/export/excel",
     "HttpMethod": "GET",

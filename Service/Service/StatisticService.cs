@@ -191,8 +191,8 @@ namespace Service.Service
                     StaffScheduleStatistic scheduleStatistic = new()
                     {
                         Account = await objectViewService.GetAccountView(accountRepo.GetById((int)memberAssign.MemberId)),
-                        TotalPresentSchedule = schedules.FindAll(l => l.Status == "Prensent").Count,
-                        TotalAbsentSchedule = schedules.FindAll(l => l.Status == "Absent").Count,
+                        TotalPresentSchedule = schedules.FindAll(l => l.Status != null && l.Status.ToLower() == "prensent").Count,
+                        TotalAbsentSchedule = schedules.FindAll(l => l.Status != null && l.Status.ToLower() == "absent").Count,
                         TotalSchedule = schedules.Count,
                         TaskNumber = new()
                         {
@@ -208,11 +208,11 @@ namespace Service.Service
                         scheduleStatistic.TaskNumber.TotalTaskNumber += tasks.Count;
                         foreach (var task in tasks)
                         {
-                            if(task.Status == "Not Start")
+                            if(task.Status!= null && task.Status.ToLower() == "not start")
                             {
                                 scheduleStatistic.TaskNumber.TaskNotStart++;
                             }
-                            else if(task.Status == "Finish")
+                            else if(task.Status != null && task.Status.ToLower() == "finish")
                             {
                                 scheduleStatistic.TaskNumber.TaskFinished++;
                             }

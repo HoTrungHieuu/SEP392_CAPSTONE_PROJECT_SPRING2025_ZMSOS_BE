@@ -511,11 +511,11 @@ namespace Service.Service
                 };
             }
         }
-        public async Task<ServiceResult> DisableAnimal(int animalId)
+        public async Task<ServiceResult> DisableAnimal(int id)
         {
             try
             {
-                var animal = repo.GetById(animalId);
+                var animal = repo.GetById(id);
                 if (animal == null)
                 {
                     return new ServiceResult
@@ -524,22 +524,20 @@ namespace Service.Service
                         Message = "Not Found"
                     };
                 }
-                if (animal.Classify == "Flock")
+                var animalCage = await animalCageRepo.GetAnimalCageCurrentByAnimalId(animal.Id);
+                if(animalCage != null)
                 {
-                    var flock = await flockRepo.GetFlockByAnimalId(animalId);
-                    await flockRepo.RemoveAsync(flock);
+                    return new ServiceResult
+                    {
+                        Status = 400,
+                        Message = "Animal In Cage Can not disable!",
+                    };
                 }
-                else if (animal.Classify == "Individual")
-                {
-                    var individual = await individualRepo.GetIndividualByAnimalId(animalId);
-                    await individualRepo.RemoveAsync(individual);
-                }
-                await animalImageRepo.DeleteAnimalImageByAnimalId(animal.Id);
-                await repo.RemoveAsync(animal);
+                await repo.DisableAnimal(animal.Id);
                 return new ServiceResult
                 {
                     Status = 200,
-                    Message = "Delete Success",
+                    Message = "Disable Success",
                 };
             }
             catch (Exception ex)

@@ -23,6 +23,7 @@ namespace Service.IService
         public Task<ServiceResult> AddAnimal(AnimalAdd key);
         public Task<ServiceResult> UpdateAnimal(AnimalUpdate key);
         public Task<ServiceResult> DeleteAnimal(int animalId);
+        public Task<ServiceResult> DisableAnimal(int id);
         public Task<ServiceResult> AddAnimalCage(int animalId, int cageId);
         public Task<ServiceResult> RemoveAnimalCage(int animalId, int cageId);
         public Task<ServiceResult> ReplaceAnimalCage(int animalId, int cageId);
