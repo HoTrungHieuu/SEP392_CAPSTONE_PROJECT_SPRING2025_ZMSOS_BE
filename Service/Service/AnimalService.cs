@@ -452,8 +452,6 @@ namespace Service.Service
                 {
                     await individualRepo.UpdateIndividual(animal.Id, key.Individual);
                 }
-                await animalImageRepo.DeleteAnimalImageByAnimalId(animal.Id);
-                await animalImageRepo.AddAnimalImageByAnimalId(animal.Id, key.UrlImages);
                 var result = await objectViewService.GetAnimalView(animal);
                 return new ServiceResult
                 {
