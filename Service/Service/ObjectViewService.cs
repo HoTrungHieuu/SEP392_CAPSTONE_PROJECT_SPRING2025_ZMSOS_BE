@@ -539,7 +539,7 @@ namespace Service.Service
             UserView reciever = new();
             reciever = await GetUserView(await userRepo.GetUserByAccountId((int)application.RecieverId));
             ApplicationTypeView applicationType = new();
-            applicationType = await GetApplicationTypeView(applicationTypeRepo.GetById(application.Id));
+            applicationType = await GetApplicationTypeView(applicationTypeRepo.GetById(application.ApplicationTypeId));
 
             var result = applicationRepo.ConvertApplicationIntoApplicationView(application, sender, reciever, applicationType);
             return result;

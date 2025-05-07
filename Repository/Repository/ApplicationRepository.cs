@@ -60,6 +60,7 @@ namespace Repository.Repository
             {
                 Application application = new()
                 {
+                    ApplicationTypeId = key.ApplicationTypeId,
                     RecieverId = recieverId,
                     SenderId = key.SenderId,
                     Title = key.Title,

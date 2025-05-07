@@ -18,7 +18,7 @@ namespace AccountManagement.Controllers
         {
             this.service = service;
         }
-        [Authorize(Roles = "Leader,Staff")]
+        [Authorize(Roles = "Manager,Leader,Staff")]
         [HttpGet("applications/by-sender/{senderId}")]
         public async Task<IActionResult> GetListApplicationBySenderId(int senderId)
         {
@@ -34,7 +34,7 @@ namespace AccountManagement.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
-        [Authorize(Roles = "Manager,Leader")]
+        [Authorize(Roles = "Admin,Manager,Leader")]
         [HttpGet("applications/by-reciever/{recieverId}")]
         public async Task<IActionResult> GetListApplicationByRecieverId(int recieverId)
         {
