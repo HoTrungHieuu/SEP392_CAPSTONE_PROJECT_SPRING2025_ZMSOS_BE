@@ -179,6 +179,7 @@ namespace Service.Service
                     PhoneNumber = key.PhoneNumber,
                     Gender = key.Gender,
                     Experience = key.Experience,
+                    AvartarUrl = key.AvartarUrl,
                 };
                 await userRepo.CreateAsync(user);
                 var result = await objectViewService.GetAccountView(account);
