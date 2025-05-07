@@ -162,7 +162,7 @@ namespace Service.Service
                 return new ServiceResult
                 {
                     Status = 200,
-                    Message = $"Add Success with id unsuccess {unsuccessIds}",
+                    Message = $"Add Success with id unsuccess {string.Join(", ", unsuccessIds)}",
                 };
             }
             catch (Exception ex)
