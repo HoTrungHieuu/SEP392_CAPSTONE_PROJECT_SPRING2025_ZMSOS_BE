@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace DAO.ViewModel
@@ -17,6 +18,8 @@ namespace DAO.ViewModel
         public string? DayOfWeek {  get; set; }
         public string? Note { get; set; }
         public string? Status { get; set; }
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public int? TotalTask { get; set; }
         public DateTime? DateCreated { get; set; }
         public DateTime? DateUpdated { get; set; }
         public void ConvertSchedualIntoSchedualView(Schedule key, UserView user)

@@ -27,8 +27,9 @@ namespace Service.Service
         public IMemberAssignRepository memberAssignRepo;
         public ITeamRepository teamRepo;
         public INotificationRepository notificationRepo;
+        public ITaskRepository taskRepo;
         private readonly WebSocketHandler wsHandler;
-        public ScheduleService(IScheduleRepository repo, IUserRepository userRepo,IAccountRepository accountRepo, IObjectViewService objectViewService, IMemberAssignRepository memberAssignRepo, ITeamRepository teamRepo,INotificationRepository notificationRepo, WebSocketHandler wsHandler)
+        public ScheduleService(IScheduleRepository repo, IUserRepository userRepo,IAccountRepository accountRepo, IObjectViewService objectViewService, IMemberAssignRepository memberAssignRepo, ITeamRepository teamRepo,INotificationRepository notificationRepo, WebSocketHandler wsHandler, ITaskRepository taskRepo)
         {
             this.repo = repo;
             this.userRepo = userRepo;
@@ -38,6 +39,7 @@ namespace Service.Service
             this.teamRepo = teamRepo;
             this.notificationRepo = notificationRepo;
             this.wsHandler = wsHandler;
+            this.taskRepo = taskRepo;
         }
         public async Task<ServiceResult> GetListScheduleByAccountId(int accountId)
         {
@@ -54,6 +56,11 @@ namespace Service.Service
                 }
 
                 var result = await objectViewService.GetListScheduleView(schedules);
+                foreach(var item in result)
+                {
+                    var tasks = await taskRepo.GetListTaskByScheduleId(item.Id);
+                    item.TotalTask = tasks.Count;
+                }
                 return new ServiceResult
                 {
                     Status = 200,
@@ -93,6 +100,11 @@ namespace Service.Service
                 }
 
                 var result = await objectViewService.GetListScheduleView(schedules);
+                foreach (var item in result)
+                {
+                    var tasks = await taskRepo.GetListTaskByScheduleId(item.Id);
+                    item.TotalTask = tasks.Count;
+                }
                 return new ServiceResult
                 {
                     Status = 200,
@@ -136,11 +148,17 @@ namespace Service.Service
                 {
                     var account = accountRepo.GetById(member.MemberId);
                     var schedules = await repo.GetListScheduleByAccountIdByDate((int)member.MemberId, fromDate, toDate);
-                    result.Add(new()
+                    AccountSchedule resultTemp = new()
                     {
                         Account = await objectViewService.GetAccountView(account),
                         Schedules = await objectViewService.GetListScheduleView(schedules)
-                    });
+                    };
+                    foreach (var item in resultTemp.Schedules)
+                    {
+                        var tasks = await taskRepo.GetListTaskByScheduleId(item.Id);
+                        item.TotalTask = tasks.Count;
+                    }
+                    result.Add(resultTemp);
                 }
                 return new ServiceResult
                 {
@@ -175,11 +193,17 @@ namespace Service.Service
                 foreach (var account in accounts)
                 {
                     var schedules = await repo.GetListScheduleByAccountIdByDate((int)account.Id, fromDate, toDate);
-                    result.Add(new()
+                    AccountSchedule resultTemp = new()
                     {
                         Account = await objectViewService.GetAccountView(account),
                         Schedules = await objectViewService.GetListScheduleView(schedules)
-                    });
+                    };
+                    foreach (var item in resultTemp.Schedules)
+                    {
+                        var tasks = await taskRepo.GetListTaskByScheduleId(item.Id);
+                        item.TotalTask = tasks.Count;
+                    }
+                    result.Add(resultTemp);
                 }
                 return new ServiceResult
                 {
