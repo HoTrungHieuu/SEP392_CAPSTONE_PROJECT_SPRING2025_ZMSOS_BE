@@ -12,6 +12,7 @@ namespace Service.IService
     {
         public Task<ServiceResult> GetListIncompatibleAnimalType();
         public Task<ServiceResult> GetListIncompatibleAnimalTypeSpecial();
+        public Task<ServiceResult> GetListIncompatibleAnimalTypeByAnimalTypeId(int animalTypeId);
         public Task<ServiceResult> GetIncompatibleAnimalTypeById(int id);
         public Task<ServiceResult> AddIncompatibleAnimalType(IncompatibleAnimalTypeAdd key);
         public Task<ServiceResult> AddListIncompatibleAnimalType(IncompatibleTypeAddList key);

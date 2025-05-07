@@ -98,6 +98,36 @@ namespace Service.Service
                 };
             }
         }
+        public async Task<ServiceResult> GetListIncompatibleAnimalTypeByAnimalTypeId(int animalTypeId)
+        {
+            try
+            {
+                var incompatibleAnimalTypes = await repo.GetListIncompatibleAnimalTypeByAnimalTypeId(animalTypeId);
+                if (incompatibleAnimalTypes == null)
+                {
+                    return new ServiceResult
+                    {
+                        Status = 404,
+                        Message = "Not Found!",
+                    };
+                }
+                var result = await objectViewService.GetListIncompatibleAnimalTypeView(incompatibleAnimalTypes);
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "IncompatibleAnimalTypes",
+                    Data = result
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
         public async Task<ServiceResult> GetIncompatibleAnimalTypeById(int id)
         {
             try

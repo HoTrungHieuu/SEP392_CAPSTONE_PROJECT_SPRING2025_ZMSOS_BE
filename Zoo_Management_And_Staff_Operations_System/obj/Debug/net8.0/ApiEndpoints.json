@@ -1048,6 +1048,38 @@
   },
   {
     "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.IncompatibleAnimalTypeController",
+    "Method": "GetIncompatibleAnimalTypeById",
+    "RelativePath": "api/IncompatibleAnimalType/incompatibleAnimalType/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.IncompatibleAnimalTypeController",
+    "Method": "GetIncompatibleAnimalTypeByAnimalTypeId",
+    "RelativePath": "api/IncompatibleAnimalType/incompatibleAnimalType/by-animalTypeId/{animalTypeid}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "animalTypeid",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.IncompatibleAnimalTypeController",
     "Method": "AddListIncompatibleAnimalType",
     "RelativePath": "api/IncompatibleAnimalType/incompatibleAnimalType/list",
     "HttpMethod": "POST",
@@ -1080,22 +1112,6 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.IncompatibleAnimalTypeController",
-    "Method": "GetIncompatibleAnimalTypeById",
-    "RelativePath": "api/IncompatibleAnimalType/ncompatibleAnimalType/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
     "ReturnTypes": []
   },
   {
