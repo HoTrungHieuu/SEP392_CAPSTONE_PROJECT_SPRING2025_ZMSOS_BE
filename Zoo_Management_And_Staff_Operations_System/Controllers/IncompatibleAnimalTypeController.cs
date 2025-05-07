@@ -27,6 +27,14 @@ namespace Zoo_Management_And_Staff_Operations_System.Controllers
             return statusResult.Result(result);
         }
         [Authorize(Roles = "Manager")]
+        [HttpGet("incompatibleAnimalTypes/special")]
+        public async Task<IActionResult> GetListIncompatibleAnimalTypeSpecial()
+        {
+            var result = await service.GetListIncompatibleAnimalTypeSpecial();
+            StatusResult statusResult = new StatusResult();
+            return statusResult.Result(result);
+        }
+        [Authorize(Roles = "Manager")]
         [HttpGet("ncompatibleAnimalType/{id}")]
         public async Task<IActionResult> GetIncompatibleAnimalTypeById(int id)
         {

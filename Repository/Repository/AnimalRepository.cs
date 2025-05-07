@@ -86,6 +86,7 @@ namespace Repository.Repository
             {
                 var animal = GetById(key.Id);
                 if (animal == null) return null;
+                animal.AnimalTypeId = key.AnimalTypeId;
                 animal.Name = key.Name;
                 animal.Description = key.Description;
                 animal.Classify = key.Classify;

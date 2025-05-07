@@ -14,5 +14,6 @@ namespace DAO.UpdateModel
         public string? Weight { get; set; }
         public string? Height { get; set; }
         public string? Note { get; set; }
+        public string? Status {  get; set; }
     }
 }

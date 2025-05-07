@@ -1074,6 +1074,16 @@
   },
   {
     "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.IncompatibleAnimalTypeController",
+    "Method": "GetListIncompatibleAnimalTypeSpecial",
+    "RelativePath": "api/IncompatibleAnimalType/incompatibleAnimalTypes/special",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Zoo_Management_And_Staff_Operations_System.Controllers.IncompatibleAnimalTypeController",
     "Method": "GetIncompatibleAnimalTypeById",
     "RelativePath": "api/IncompatibleAnimalType/ncompatibleAnimalType/{id}",
     "HttpMethod": "GET",

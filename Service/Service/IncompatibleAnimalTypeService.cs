@@ -1,6 +1,7 @@
 ﻿using BO.Models;
 using DAO.AddModel;
 using DAO.OtherModel;
+using DAO.ViewModel;
 using Repository.IRepository;
 using Service.IService;
 using System;
@@ -14,11 +15,13 @@ namespace Service.Service
     public class IncompatibleAnimalTypeService : IIncompatibleAnimalTypeService
     {
         public IIncompatibleAnimalTypeRepository repo;
+        public IAnimalTypeRepository animalTypeRepo;
         public IObjectViewService objectViewService;
-        public IncompatibleAnimalTypeService(IIncompatibleAnimalTypeRepository repo, IObjectViewService objectViewService)
+        public IncompatibleAnimalTypeService(IIncompatibleAnimalTypeRepository repo, IObjectViewService objectViewService, IAnimalTypeRepository animalTypeRepo)
         {
             this.repo = repo;
             this.objectViewService = objectViewService;
+            this.animalTypeRepo = animalTypeRepo;
         }
         public async Task<ServiceResult> GetListIncompatibleAnimalType()
         {
@@ -34,6 +37,51 @@ namespace Service.Service
                     };
                 }
                 var result = await objectViewService.GetListIncompatibleAnimalTypeView(incompatibleAnimalTypes);
+                return new ServiceResult
+                {
+                    Status = 200,
+                    Message = "IncompatibleAnimalTypes",
+                    Data = result
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ServiceResult
+                {
+                    Status = 501,
+                    Message = ex.ToString(),
+                };
+            }
+        }
+        public async Task<ServiceResult> GetListIncompatibleAnimalTypeSpecial()
+        {
+            try
+            {
+                var animalTypes = await animalTypeRepo.GetListAnimalType();
+                List<IncompatibleTypeViewSpecial> result = new();
+                foreach(var animalType in animalTypes)
+                {
+                    var incompatibles = await repo.GetListIncompatibleAnimalTypeByAnimalTypeId(animalType.Id);
+                    List<AnimalType> animalTypesTemp = new();
+                    foreach(var incompatible in incompatibles)
+                    {
+                        int id = 0;
+                        if(incompatible.AnimalTypeId1 == animalType.Id)
+                        {
+                            id = (int)incompatible.AnimalTypeId2;
+                        }
+                        else
+                        {
+                            id = (int)incompatible.AnimalTypeId1;
+                        }
+                        animalTypesTemp.Add(animalTypeRepo.GetById(id));
+                    }
+                    result.Add(new()
+                    {
+                        AnimalType1 = await objectViewService.GetAnimalTypeView(animalType),
+                        AnimalTypes2 = await objectViewService.GetListAnimalTypeView(animalTypesTemp)
+                    });
+                }
                 return new ServiceResult
                 {
                     Status = 200,

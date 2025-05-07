@@ -55,6 +55,7 @@ namespace Repository.Repository
                 if (flock == null) return null;
                 flock.Quantity = key.Quantity;
                 flock.Notes = key.Note;
+                flock.Status = key.Status;
                 await UpdateAsync(flock);
                 return flock;
             }

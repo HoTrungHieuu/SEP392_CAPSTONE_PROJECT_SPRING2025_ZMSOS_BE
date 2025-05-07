@@ -63,6 +63,7 @@ namespace Repository.Repository
                 individual.Weight = key.Weight;
                 individual.Height = key.Height;
                 individual.Notes = key.Note;
+                individual.Status = key.Status;
                 await UpdateAsync(individual);
                 return individual;
             }
