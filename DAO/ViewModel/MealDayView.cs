@@ -33,6 +33,7 @@ namespace DAO.ViewModel
             Id = key.Id;
             Name = key.Name;
             TotalCalo = key.TotalCalo;
+            TotalCalo = Math.Round((double)TotalCalo, 2);
             PeriodOfTime = (key.PeriodOfTime != null) ? TimeSpan.Parse(key.PeriodOfTime):null;
             TimeStartInDay = key.TimeStartInDay;
             TimeEndInDay = key.TimeEndInDay;
