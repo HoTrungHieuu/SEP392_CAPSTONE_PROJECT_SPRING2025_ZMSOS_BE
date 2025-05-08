@@ -38,8 +38,9 @@ namespace Service.Service
         public ICageRepository cageRepo;
         public IAnimalCageRepository animalCageRepo;
         public IAnimalRepository animalRepo;
+        public IFlockRepository flockRepo;
         private readonly WebSocketHandler wsHandler;
-        public TeamService(ITeamRepository repo, ILeaderAssignRepository leaderRepo, IMemberAssignRepository memberRepo, IObjectViewService objectViewService, IAccountRepository accountRepo, INotificationRepository notificationRepo, IScheduleRepository scheduleRepo, ITaskMealRepository taskMealRepo, IMealDayRepository mealDayRepo, IFoodRepository foodRepo, ITaskRepository taskRepo,IAnimalAssignRepository animalAssignRepo, IMealFoodRepository mealFoodRepo, WebSocketHandler wsHandler, ICageRepository cageRepo, IAnimalCageRepository animalCageRepo, IAnimalRepository animalRepo)
+        public TeamService(ITeamRepository repo, ILeaderAssignRepository leaderRepo, IMemberAssignRepository memberRepo, IObjectViewService objectViewService, IAccountRepository accountRepo, INotificationRepository notificationRepo, IScheduleRepository scheduleRepo, ITaskMealRepository taskMealRepo, IMealDayRepository mealDayRepo, IFoodRepository foodRepo, ITaskRepository taskRepo,IAnimalAssignRepository animalAssignRepo, IMealFoodRepository mealFoodRepo, WebSocketHandler wsHandler, ICageRepository cageRepo, IAnimalCageRepository animalCageRepo, IAnimalRepository animalRepo, IFlockRepository flockRepo)
         {
             this.repo = repo;
             this.leaderRepo = leaderRepo;
@@ -58,6 +59,7 @@ namespace Service.Service
             this.cageRepo = cageRepo;
             this.animalCageRepo = animalCageRepo;
             this.animalRepo = animalRepo;
+            this.flockRepo = flockRepo;
         }
         public async Task<ServiceResult> GetListTeam()
         {
@@ -114,9 +116,17 @@ namespace Service.Service
                     {
                         animals.Add(animalRepo.GetById(animalCage.AnimalId));
                     }
-                    totalAnimal += animals.Count;
                     foreach(var animal in animals)
                     {
+                        if(animal.Classify == "Flock")
+                        {
+                            var flock = await flockRepo.GetFlockByAnimalId(animal.Id);
+                            totalAnimal += (int)flock.Quantity;
+                        }
+                        else
+                        {
+                            totalAnimal++;
+                        }
                         if(!animalTypeIds.Contains((int)animal.AnimalTypeId))
                         {
                             animalTypeIds.Add((int)animal.AnimalTypeId);
@@ -189,9 +199,17 @@ namespace Service.Service
                     {
                         animals.Add(animalRepo.GetById(animalCage.AnimalId));
                     }
-                    totalAnimal += animals.Count;
                     foreach (var animal in animals)
                     {
+                        if (animal.Classify == "Flock")
+                        {
+                            var flock = await flockRepo.GetFlockByAnimalId(animal.Id);
+                            totalAnimal += (int)flock.Quantity;
+                        }
+                        else
+                        {
+                            totalAnimal++;
+                        }
                         if (!animalTypeIds.Contains((int)animal.AnimalTypeId))
                         {
                             animalTypeIds.Add((int)animal.AnimalTypeId);
