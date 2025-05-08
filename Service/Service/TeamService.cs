@@ -35,8 +35,11 @@ namespace Service.Service
         public ITaskRepository taskRepo;
         public IAnimalAssignRepository animalAssignRepo;
         public IMealFoodRepository mealFoodRepo;
+        public ICageRepository cageRepo;
+        public IAnimalCageRepository animalCageRepo;
+        public IAnimalRepository animalRepo;
         private readonly WebSocketHandler wsHandler;
-        public TeamService(ITeamRepository repo, ILeaderAssignRepository leaderRepo, IMemberAssignRepository memberRepo, IObjectViewService objectViewService, IAccountRepository accountRepo, INotificationRepository notificationRepo, IScheduleRepository scheduleRepo, ITaskMealRepository taskMealRepo, IMealDayRepository mealDayRepo, IFoodRepository foodRepo, ITaskRepository taskRepo,IAnimalAssignRepository animalAssignRepo, IMealFoodRepository mealFoodRepo, WebSocketHandler wsHandler)
+        public TeamService(ITeamRepository repo, ILeaderAssignRepository leaderRepo, IMemberAssignRepository memberRepo, IObjectViewService objectViewService, IAccountRepository accountRepo, INotificationRepository notificationRepo, IScheduleRepository scheduleRepo, ITaskMealRepository taskMealRepo, IMealDayRepository mealDayRepo, IFoodRepository foodRepo, ITaskRepository taskRepo,IAnimalAssignRepository animalAssignRepo, IMealFoodRepository mealFoodRepo, WebSocketHandler wsHandler, ICageRepository cageRepo, IAnimalCageRepository animalCageRepo, IAnimalRepository animalRepo)
         {
             this.repo = repo;
             this.leaderRepo = leaderRepo;
@@ -52,6 +55,9 @@ namespace Service.Service
             this.animalAssignRepo = animalAssignRepo;
             this.mealFoodRepo = mealFoodRepo;
             this.wsHandler = wsHandler;
+            this.cageRepo = cageRepo;
+            this.animalCageRepo = animalCageRepo;
+            this.animalRepo = animalRepo;
         }
         public async Task<ServiceResult> GetListTeam()
         {
@@ -97,9 +103,32 @@ namespace Service.Service
                         Message = "Not Found!",
                     };
                 }
+                var cages = await cageRepo.GetListCageByAreaId((int)team.ZooAreaId);
+                int totalAnimal = 0;
+                List<int> animalTypeIds = new List<int>();
+                foreach (var cage in cages)
+                {
+                    var animalCages = await animalCageRepo.GetListAnimalCageByCageId(cage.Id);
+                    List<Animal> animals = new List<Animal>();
+                    foreach (var animalCage in animalCages)
+                    {
+                        animals.Add(animalRepo.GetById(animalCage.AnimalId));
+                    }
+                    totalAnimal += animals.Count;
+                    foreach(var animal in animals)
+                    {
+                        if(!animalTypeIds.Contains((int)animal.AnimalTypeId))
+                        {
+                            animalTypeIds.Add((int)animal.AnimalTypeId);
+                        }
+                    }
+                }
                 TeamDetailView result = new()
                 {
                     Team = await objectViewService.GetTeamView(team),
+                    TotalCage = cages.Count,
+                    TotalAnimal = totalAnimal,
+                    TotalAnimalType = animalTypeIds.Count,
                     Leader = await objectViewService.GetLeaderAssignView(await leaderRepo.GetLeaderAssignByTeamId(team.Id)),
                     Members = await objectViewService.GetListMemberAssignView(await memberRepo.GetListMemberAssignByTeamId(team.Id)),
                 };
