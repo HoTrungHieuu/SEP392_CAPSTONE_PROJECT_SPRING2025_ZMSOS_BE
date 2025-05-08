@@ -241,7 +241,7 @@ namespace Service.Service
                 return new ServiceResult
                 {
                     Status = 200,
-                    Message = $"Disable Success with id unsuccess {unsucessIds}",
+                    Message = $"Disable Success with id unsuccess {string.Join(", ", unsucessIds)}",
                 };
             }
             catch (Exception ex)

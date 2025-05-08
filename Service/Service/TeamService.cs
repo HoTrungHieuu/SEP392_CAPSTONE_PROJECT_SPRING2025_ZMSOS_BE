@@ -178,9 +178,32 @@ namespace Service.Service
                         Message = "Not Found!",
                     };
                 }
+                var cages = await cageRepo.GetListCageByAreaId((int)team.ZooAreaId);
+                int totalAnimal = 0;
+                List<int> animalTypeIds = new List<int>();
+                foreach (var cage in cages)
+                {
+                    var animalCages = await animalCageRepo.GetListAnimalCageByCageId(cage.Id);
+                    List<Animal> animals = new List<Animal>();
+                    foreach (var animalCage in animalCages)
+                    {
+                        animals.Add(animalRepo.GetById(animalCage.AnimalId));
+                    }
+                    totalAnimal += animals.Count;
+                    foreach (var animal in animals)
+                    {
+                        if (!animalTypeIds.Contains((int)animal.AnimalTypeId))
+                        {
+                            animalTypeIds.Add((int)animal.AnimalTypeId);
+                        }
+                    }
+                }
                 TeamDetailView result = new()
                 {
                     Team = await objectViewService.GetTeamView(team),
+                    TotalCage = cages.Count,
+                    TotalAnimal = totalAnimal,
+                    TotalAnimalType = animalTypeIds.Count,
                     Leader = await objectViewService.GetLeaderAssignView(await leaderRepo.GetLeaderAssignByTeamId(team.Id)),
                     Members = await objectViewService.GetListMemberAssignView(await memberRepo.GetListMemberAssignByTeamId(team.Id)),
                 };
