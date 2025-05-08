@@ -134,13 +134,16 @@ namespace Service.Service
                 }
                 var cleaningOption = await repo.AddCleaningOption(key);
                 int stepNumber = 0;
-                foreach(var item1 in key.CleaningProcesss)
+                foreach (var item1 in key.CleaningProcesss)
                 {
                     stepNumber++;
-                    var cleaningProcess = await cleaningProcessRepo.AddCleaningProcess(cleaningOption.Id,stepNumber,item1);
-                    foreach(var item2 in item1.UrlProcesss)
+                    var cleaningProcess = await cleaningProcessRepo.AddCleaningProcess(cleaningOption.Id, stepNumber, item1);
+                    if(item1.UrlProcesss != null)
                     {
-                        await urlProcessRepo.AddUrlProcess(cleaningProcess.Id, item2);
+                        foreach (var item2 in item1.UrlProcesss)
+                        {
+                            await urlProcessRepo.AddUrlProcess(cleaningProcess.Id, item2);
+                        }
                     }
                 }
                 var result = await objectViewService.GetCleaningOptionView(cleaningOption);
