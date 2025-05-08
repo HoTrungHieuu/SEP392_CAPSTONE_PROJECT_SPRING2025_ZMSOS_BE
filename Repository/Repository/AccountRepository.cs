@@ -17,7 +17,7 @@ namespace Repository.Repository
         }
         public async Task<List<Account>?> GetListAccount()
         {
-            var accounts = await GetAllAsync();
+            var accounts = (await GetAllAsync()).FindAll(l=>l.Status != "Deleted");
             accounts = accounts.OrderByDescending(l => l.CreatedDate).ToList();
             return accounts;
         }
