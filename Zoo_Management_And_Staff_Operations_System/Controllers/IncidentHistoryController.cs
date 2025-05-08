@@ -41,7 +41,7 @@ namespace Zoo_Management_And_Staff_Operations_System.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
-        [Authorize(Roles = "Manager")]
+        [Authorize(Roles = "Manager, Leader")]
         [HttpPost("incidentHistory")]
         public async Task<IActionResult> AddIncidentHistory(IncidentHistoryAdd key)
         {
@@ -49,7 +49,7 @@ namespace Zoo_Management_And_Staff_Operations_System.Controllers
             StatusResult statusResult = new StatusResult();
             return statusResult.Result(result);
         }
-        [Authorize(Roles = "Manager")]
+        [Authorize(Roles = "Manager, Leader")]
         [HttpPut("incidentHistory")]
         public async Task<IActionResult> UpdateIncidentHistory(IncidentHistoryUpdate key)
         {
