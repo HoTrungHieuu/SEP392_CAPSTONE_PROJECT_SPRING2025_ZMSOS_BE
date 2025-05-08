@@ -733,7 +733,7 @@ namespace Service.Service
                                 var animal = animalRepo.GetById(item3);
                                 if (animal.Classify == "Flock")
                                 {
-                                    var flock = flockRepo.GetById(animal.Id);
+                                    var flock = await flockRepo.GetFlockByAnimalId(animal.Id);
                                     quantity = quantity * (int)flock.Quantity;
                                 }
                                 

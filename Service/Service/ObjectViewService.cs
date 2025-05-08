@@ -249,10 +249,17 @@ namespace Service.Service
                     {
                         if (animalCageViews[i].Item2.Id == animalCageViews[i - 1].Item2.Id)
                         {
+                            var taskMeal = await taskMealRepo.GetTaskMealByAnimalAssignId(animalCageViews[i].Item3.Id);
+                            var mealDay = await GetMealDayView(mealDayRepo.GetById(taskMeal.MealDayId));
+                            mealDay.TotalCalo *= taskMeal.Percent / 100;
+                            foreach(var food in mealDay.Foods)
+                            {
+                                food.Quantitative *= taskMeal.Percent / 100;
+                            }
                             animalCageTask.Animals.Add(new AnimalTaskMeal()
                             {
                                 Animal = animalCageViews[i].Item1,
-                                MealDay = await GetMealDayView(mealDayRepo.GetById((await taskMealRepo.GetTaskMealByAnimalAssignId(animalCageViews[i].Item3.Id)).MealDayId))
+                                MealDay = mealDay
                             });
                         }
                         else
@@ -263,10 +270,17 @@ namespace Service.Service
                                 Cage = animalCageViews[i].Item2,
                                 Animals = new()
                             };
+                            var taskMeal = await taskMealRepo.GetTaskMealByAnimalAssignId(animalCageViews[i].Item3.Id);
+                            var mealDay = await GetMealDayView(mealDayRepo.GetById(taskMeal.MealDayId));
+                            mealDay.TotalCalo *= taskMeal.Percent / 100;
+                            foreach (var food in mealDay.Foods)
+                            {
+                                food.Quantitative *= taskMeal.Percent / 100;
+                            }
                             animalCageTask.Animals.Add(new AnimalTaskMeal()
                             {
                                 Animal = animalCageViews[i].Item1,
-                                MealDay = await GetMealDayView(mealDayRepo.GetById((await taskMealRepo.GetTaskMealByAnimalAssignId(animalCageViews[i].Item3.Id)).MealDayId))
+                                MealDay = mealDay
                             });
                         }
                     }
@@ -277,10 +291,17 @@ namespace Service.Service
                             Cage = animalCageViews[i].Item2,
                             Animals = new()
                         };
+                        var taskMeal = await taskMealRepo.GetTaskMealByAnimalAssignId(animalCageViews[i].Item3.Id);
+                        var mealDay = await GetMealDayView(mealDayRepo.GetById(taskMeal.MealDayId));
+                        mealDay.TotalCalo *= taskMeal.Percent / 100;
+                        foreach (var food in mealDay.Foods)
+                        {
+                            food.Quantitative *= taskMeal.Percent / 100;
+                        }
                         animalCageTask.Animals.Add(new AnimalTaskMeal()
                         {
                             Animal = animalCageViews[i].Item1,
-                            MealDay = await GetMealDayView(mealDayRepo.GetById((await taskMealRepo.GetTaskMealByAnimalAssignId(animalCageViews[i].Item3.Id)).MealDayId))
+                            MealDay = mealDay
                         });
                     }
                 }
