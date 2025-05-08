@@ -35,7 +35,7 @@ namespace Service.Service
         {
             try
             {
-                var mealDays = await repo.GetAllAsync();
+                var mealDays = await repo.GetListMealDay();
                 if (mealDays == null)
                 {
                     return new ServiceResult

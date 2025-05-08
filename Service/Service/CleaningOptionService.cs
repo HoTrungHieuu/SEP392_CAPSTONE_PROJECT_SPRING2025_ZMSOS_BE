@@ -30,7 +30,7 @@ namespace Service.Service
         {
             try
             {
-                var cleaningOptions = await repo.GetAllAsync();
+                var cleaningOptions = await repo.GetListCleaningOption();
                 if (cleaningOptions == null)
                 {
                     return new ServiceResult
@@ -171,7 +171,7 @@ namespace Service.Service
                     var cleaningTasks = await taskCleaningRepo.GetListTaskCleaningByCleaningOptionId(cleaningOptinoId);
                     if (cleaningTasks?.Count > 0)
                     {
-                       
+                        unsucessIds.Add(cleaningOptinoId);
                     }
                     else
                     {
