@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        REPO_URL = 'https://github.com/thduc123/SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE.git'
+        REPO_URL = 'https://github.com/HoTrungHieuu/SEP392_CAPSTONE_PROJECT_SPRING2025_ZMSOS_BE.git'
         IMAGE_NAME = 'trhoangduc/zmsos_be'
         DEPLOY_SERVER = '157.66.218.189'  // Change to your VPS IP
         DEPLOY_USER = 'zmsos'  // Change to your SSH user
