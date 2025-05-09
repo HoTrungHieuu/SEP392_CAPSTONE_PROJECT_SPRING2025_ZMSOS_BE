@@ -398,7 +398,7 @@ namespace Service.Service
         {
             try
             {
-                var accounts = (await accountRepo.GetAllAsync()).FindAll(l=>l.RoleId == 3);
+                var accounts = (await accountRepo.GetListAccount()).FindAll(l=>l.RoleId == 3);
                 if (accounts == null)
                 {
                     return new ServiceResult
@@ -437,7 +437,7 @@ namespace Service.Service
         {
             try
             {
-                var accounts = (await accountRepo.GetAllAsync()).FindAll(l => l.RoleId == 4);
+                var accounts = (await accountRepo.GetListAccount()).FindAll(l => l.RoleId == 4);
                 if (accounts == null)
                 {
                     return new ServiceResult
